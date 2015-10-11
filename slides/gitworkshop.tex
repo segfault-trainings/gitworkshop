@@ -1,0 +1,174 @@
+\documentclass[t,8pt]{beamer}
+\beamertemplatenavigationsymbolsempty
+
+\setbeamercolor{structure}{fg=blue!75!black}
+\setbeamertemplate{section in toc shaded}[default][40]
+\setbeamercolor{section in toc shaded}{fg=black}
+\setbeamercolor{section in toc}{fg=structure.fg}
+\setcounter{tocdepth}{1}
+\setbeamertemplate{section in toc}{\inserttocsectionnumber.~\inserttocsection}
+
+\usepackage{url}
+\usepackage{relsize}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=structure.fg, linkcolor=structure.fg}
+\renewcommand*{\UrlFont}{\ttfamily\footnotesize\relax}
+
+\usepackage{bold-extra} % cmtt
+\renewcommand{\ttdefault}{cmtt}
+%\usepackage{lmodern}
+%\usepackage{pxfonts}  % Palatino font
+%%\usepackage{txfonts}  % Times font
+
+\makeatletter
+\newcommand\handoutmode[1]{
+  \ifnum1=0#1
+    \gdef\beamer@currentmode{handout}
+    \usepackage{../handoutWithNotes}
+    \pgfpagesuselayout{4 on 1}[a4paper, landscape, border shrink=5mm]
+    %\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+    %\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+    %\pgfpageslogicalpageoptions{3}{scale=0.5}
+    %\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+    %\setbeamertemplate{footline}[text line]{%
+    %\parbox{\linewidth}{\vspace*{-8pt}\textcolor{lightgray}{LPI 101 {\normalsize\ttfamily\textcopyright}\ \insertauthor\ \the\year}}}
+    \setbeamertemplate{navigation symbols}{}
+    \setbeamertemplate{headline}{%
+      \leavevmode%
+      \vspace{.5cm}
+    }
+
+
+
+    % define font of lstlisting
+    \lstset{
+      basicstyle=\scriptsize\ttfamily\bfseries, %\tiny\ttfamily,
+      tabsize=2,
+      extendedchars=true,
+      breaklines=true,
+      frame=single,
+      %stringstyle=\ttfamily,
+      showspaces=false,
+      showtabs=false,
+      framextopmargin=0pt,
+      framexleftmargin=2pt,
+      framexrightmargin=2pt,
+      framexbottommargin=0pt,
+      %backgroundcolor=\color{listingbackground},
+      showstringspaces=false
+      %morestring=[b][\color{blue}]",
+      %morestring=[d][\color{blue}]',
+      columns=fullflexible,
+      escapeinside={(*}{*)},
+      keepspaces=true,
+      upquote=true,
+      commentstyle=\color{red},
+      keywordstyle=\color{blue},
+      rulecolor=\color{gray}
+    %  language=bash
+    }
+    %\lstloadlanguages{bash}
+  \else
+    \AtBeginSection[]{
+      \begin{frame}<*>{Outline}
+        \hspace{1.2em}
+        \begin{multicols}{2}
+        \frametitle{Outline}
+        \tableofcontents[currentsection] %,hideallsubsections]
+        \end{multicols}
+      \end{frame}
+    }
+    \addtocontents{toc}{\vskip -0.2cm}
+    \setbeamertemplate{footline}[text line]{%
+      %\parbox{\linewidth}{\vspace*{-8pt}\textcolor{lightgray}{LPI 101 {\normalsize\ttfamily\textcopyright}\ \insertauthor\ \the\year \hfill }}
+      \parbox{\linewidth}{\vspace*{-8pt}\textcolor{lightgray}{LPI 101 {\normalsize\ttfamily\textcopyright}\ \insertauthor\ \the\year \hfill \insertpagenumber/\pageref{LastPage}}}
+    }
+    \setbeamertemplate{navigation symbols}{}
+
+    % define font of lstlisting
+    \definecolor{listingbackground}{rgb}{0,0,0}
+    \lstset{
+      basicstyle=\scriptsize\ttfamily\bfseries\color{green}, %\tiny\ttfamily,
+      tabsize=2,
+      extendedchars=true,
+      breaklines=true,
+      frame=single,
+      %stringstyle=\ttfamily,
+      showspaces=false,
+      showtabs=false,
+      framextopmargin=0pt,
+      framexleftmargin=2pt,
+      framexrightmargin=2pt,
+      framexbottommargin=0pt,
+      backgroundcolor=\color{listingbackground},
+      showstringspaces=false
+      %morestring=[b][\color{blue}]",
+      %morestring=[d][\color{blue}]',
+      columns=fullflexible,
+      escapeinside={(*}{*)},
+      keepspaces=true,
+      upquote=true,
+      commentstyle=\color{red},
+      keywordstyle=\color{blue},
+      rulecolor=\color{listingbackground}
+    %  language=bash
+    }
+    %\lstloadlanguages{bash}
+
+  \fi
+}
+\makeatother
+
+\usepackage{catchfile}
+\newcommand{\getenv}[2][]{%
+  \CatchFileEdef{\temp}{"|kpsewhich --var-value #2"}{}%
+  \if\relax\detokenize{#1}\relax\temp\else\let#1\temp\fi}
+
+\usepackage{listings}
+
+\getenv[\HANDOUT]{HANDOUT}
+\handoutmode{\HANDOUT}
+
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage{color,soul}
+\usepackage{tabto}
+\usepackage{inconsolata}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{upquote}
+\usepackage{vwcol}
+\usepackage{lastpage}
+
+% table spacings
+\renewcommand{\arraystretch}{1.5}
+
+%\setlength{\parskip}{10pt plus 1pt minus 1pt}
+
+\newcommand{\slidetitle}{\frametitle{\thesection. \secname}\vspace{1em}}
+\newcommand{\subslidetitle}{\frametitle{\thesection.\thesubsection\ \secname:\ \subsecname}\vspace{1em}}
+\newcommand{\subsubslidetitle}{\frametitle{\thesection.\thesubsection.\thesubsubsection\ \subsecname:\ \subsubsecname}\vspace{1em}}
+
+\newcommand{\cmd}[1]{\textcolor{structure.fg}{\texttt{#1}}}
+\newcommand{\option}[3][1cm]{\item[]{\usebeamercolor[structure.fg]{section in head}\texttt{#2}}\tabto{#1}#3}
+
+\def\braces#1{[#1]}
+\def\lbrace#1{[#1}
+
+\newcounter{exercise}
+\newenvironment{exercise}[0]
+  {\begin{enumerate}\setcounter{enumi}{\theexercise}}
+  { \setcounter{exercise}{\theenumi}\end{enumerate}}
+
+\begin{document}
+\title{git workshop}
+\author{André Roth, Andreas Schmid}
+
+\date{\today}
+
+\frame{\titlepage}
+
+\input{../inputs.tex}
+
+\end{document}
+

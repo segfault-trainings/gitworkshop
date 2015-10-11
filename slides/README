@@ -1,0 +1,4 @@
+Requirements:
+=============
+
+sudo apt-get install texlive-latex-base: texlive-latex-base texlive-latex-extra texlive-latex-recommended latex-beamer texlive-fonts-extra texlive-latex-extra

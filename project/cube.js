@@ -1,5 +1,5 @@
 
-var container, stats;
+var container;
 
 var camera, scene, renderer;
 
@@ -175,7 +175,6 @@ function animate()
     requestAnimationFrame( animate );
 
     render();
-    stats.update();
 
 }
 

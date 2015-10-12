@@ -1,253 +1,36 @@
 slide Preface
-slide GNU/Linux
-subslide History
-subslide Open Source
-subslide The GNU Project
-subsubslide Free as in Freedom
-subsubslide GNU/Hurd
-subsubslide Linux
-subslide Licenses
-subsubslide Berne Convention
-subslide Projects
-subslide Compatibility
-subslide Benefits
-subslide Distributions
-subslide Documentation
-slide Installation
-subslide Bootable Medium
-subsubslide Installer
-subslide Partitions
-subsubslide Root Partition /
-subsubslide Home Partition /home
-subsubslide Swap Space
-subslide Debian Installation
-subslide Login and Logout
-subslide Shutdown and Reboot
-subslide Exercises
-slide Shell and Commandline
-subslide Shells
-subsubslide /bin/sh
-subsubslide /bin/csh
-subsubslide /bin/ksh
-subsubslide /bin/bash
-subsubslide /bin/tcsh
-subsubslide /bin/zsh
-subsubslide /bin/ash
-subslide Navigation
-subslide Shell built-ins
-subslide Programs
-subslide Environment
-subsubslide Variables
-subslide Wildcards
-subslide Quoting and Escaping
-subslide Aliases
-subslide Comments
-subslide Job Control
-subsubslide ps
-subsubslide kill
-subsubslide jobs, bg, fg
-subsubslide Scroll Lock
-subsubslide Stopping a program
-subslide File descriptors
-subslide Redirection and Pipes
-subslide Leaving a shell
-subslide Exercises
-slide Basic Commands
-subslide echo
-subslide cat
-subslide tac
-subslide nl -- Numer Lines
-subslide wc -- Word Count
-subslide Misc Commands
-subslide Exercises
-slide Software Installation
-subslide Packages
-subslide RedHat
-subslide Debian
-subsubslide dpkg
-subsubslide apt
-subsubslide aptitude
-subslide Gentoo
-subslide Exercises
-slide Hardware
-subslide BIOS
-subsubslide IRQ Routing
-subsubslide Power Management APM / ACPI
-subsubslide HyperThreading (HT)
-subslide ISA
-subslide PCI
-subslide USB
-subsubslide usbview
-subsubslide USB Modules
-subslide IDE
-subsubslide Configuring IDE drives
-subslide Floppy Disks
-subslide SCSI
-subsubslide Other SCSI devices
-subsubslide cdrecord
-subslide System Information
-subsubslide CPU
-subsubslide Memory
-subsubslide IO Ports
-subsubslide Interrupts
-subsubslide DMA
-subslide Startup
-subslide Exercises
-slide Graphical Shell
-subslide X11R6
-subsubslide XFree86
-subsubslide X.Org
-subslide Configuration
-subslide Window Manager
-subsubslide fluxbox
-subslide Desktop Managers
-subsubslide Gnome
-subsubslide KDE
-subslide Display Manager
-subslide Exercises
-slide Editors
-subslide nano
-subslide vi
-subslide emacs
-subslide Exercises
-slide Documentation
-subslide Manual Pages
-subsubslide Sections
-subsubslide Searching
-subsubslide KDE man pages
-subslide Info Pages
-subslide Exercises
-slide User Accounts
-subslide Groups
-subslide Group Passwords
-subslide Users
-subslide Passwords
-subslide Commands
-subsubslide id
-subsubslide su
-subsubslide sg
-subsubslide sudo
-subsubslide useradd
-subsubslide userdel
-subsubslide usermod
-subsubslide adduser
-subsubslide deluser
-subsubslide groupadd - addgroup
-subsubslide groupdel - delgroup
-subsubslide passwd - gpasswd
-subslide User Ids
-subslide Exercises
-slide The Unix / Linux Filesystem
-subslide Filesystem Hierarchy Standard
-subslide The Filesystem Tree
-subsubslide Device Inodes
-subsubslide Programs and Libraries
-subsubslide Configuration Files
-subsubslide Log Files
-subslide The /proc filesystem
-subslide The /sys filesystem
-subslide File Names
-subslide Linux Filesystems
-subsubslide Journaling Filesystem
-subsubslide Important Filesystems
-subslide Special Files
-subsubslide Hidden Files
-subsubslide The home directory
-subslide ext / ext Tools
-subslide /etc/fstab
-subslide Exercises
-slide Filesystem Commands
-subslide ls
-subslide mkdir
-subslide rmdir
-subslide rm
-subslide cp
-subslide mv
-subslide rename
-subslide touch
-subslide find
-subslide xargs
-subslide locate
-subslide gzip
-subslide bzip
-subslide tar
-subslide file
-subslide Exercises
-slide Permissions
-subslide Permission Symbols
-subslide Octal representation
-subslide Default permissions
-subslide Changing Permissions and Ownership
-subsubslide chgrp
-subsubslide chown
-subsubslide chmod
-subslide Advanced Permissions
-subsubslide setuid
-subsubslide setgid
-subslide Exercises
-slide Filesystem Tools
-subslide Creating Filesystems
-subslide mount and umount
-subslide df -- Disk Free
-subslide du -- Disk Usage
-subslide dd -- Disk Dump
-subslide fsck
-subslide fdisk
-subslide cfdisk
-subslide parted
-subslide Links
-subslide Quota
-subslide Exercises
-slide Virtual Memory
-subslide mkswap
-subslide swapon
-subslide /pagefile file 19
-subslide swapoff
-subslide free
-subslide Exercises
-slide Viewing Files
-subslide more and less
-subslide head and tail
-subslide tee
-subslide watch
-subslide multitail
-subslide Exercises
-slide Search and Replace
-subslide grep
-subslide sed
-subslide tr
-subslide Exercises
-slide Advanced Modification
-subslide expand and unexpand
-subslide cut
-subslide paste
-subslide join
-subslide split
-subslide sort
-subslide uniq
-subslide od -- Octal Dump
-subslide hexdump -- Hexadecimal Dump
-subslide fmt
-subslide Exercises
-slide Process Control
-subslide nice
-subslide renice
-subslide nohup
-subslide top
-subslide htop
-subslide Exercises
-slide Scripting
-subslide Regular Expressions
-subslide Shell Script
-subslide Variables and Backticks
-subslide awk
-subslide Perl
-subslide Exercises
-slide Secure Shell (SSH, SFTP)
-subslide Server
-subslide Login
-subslide Command Execution
-subslide File Transfer
-subslide Security
-subslide X11 Forwarding
-subslide Exercises
+slide Configure git
+subslide git config
+subslide Set username and email
+subslide Create aliases
+subslide Set mergetool
+slide Clone repository
+slide Work locally
+subslide git status
+subslide git add
+subslide git commit
+subslide git reset
+subslide git diff
+subslide git log
+slide Work with branches
+subslide git branch
+subslide git checkout
+subslide git stash
+subslide git diff
+subslide git rebase
+subslide git merge
+slide Work with remotes
+subslide git remote
+subslide git fetch
+subslide git pull
+subslide git push
+subslide git origin
+slide Rebase vs Merge
+slide Master merge conflict
+subslide Three way merge
+subslide git mergetool
+slide Work with patches
+subslide git format-patch
+subslide git am
+slide Work with pull requests
+slide Git workflow

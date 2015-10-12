@@ -21,7 +21,7 @@ for line in lines:
             filename = str(i)
         filename += "-%s.tex"%tokens[1]
         i += 1
-        if i < 6:
+        if i < 3:
             continue
 
         filename = filename.replace( "/", "-" )

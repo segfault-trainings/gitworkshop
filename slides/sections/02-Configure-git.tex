@@ -1,25 +1,103 @@
 \section{Configure git}
 \begin{frame}[fragile]
-    \slidetitle
+  \slidetitle
 \end{frame}
 
 \subsection{git config}
 \begin{frame}[fragile]
-    \subslidetitle
+  \subslidetitle
+  The command \cmd{git config} is used to change the global and local config of git.
 \end{frame}
 
 \subsection{Set username and email}
 \begin{frame}[fragile]
-    \subslidetitle
+  \subslidetitle
+  \vspace{1em}
+  Set your name and email locally:
+  \begin{itemize}
+      \option{git config add user.name "My name"}{set your name}
+      \option{git config add user.email "myemail@git.ch"}{set your email}
+  \end{itemize}
+  \vspace{1em}
+  Or globally:
+  \begin{itemize}
+      \option{git config --global add user.name "My name"}{set your name}
+      \option{git config --global add user.email "myemail@git.ch"}{set your email}
+  \end{itemize}
+
+\begin{lstlisting}
+[user]
+  name = Andreas Schmid
+  email = ikeark@gmail.com
+\end{lstlisting}
 \end{frame}
 
 \subsection{Create aliases}
 \begin{frame}[fragile]
-    \subslidetitle
+  \subslidetitle
+
+\begin{lstlisting}
+[alias]
+  st = status
+  co = checkout
+  ci = commit
+  br = branch
+  l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+  ll = log --stat --abbrev-commit
+\end{lstlisting}
 \end{frame}
 
 \subsection{Set mergetool}
 \begin{frame}[fragile]
-    \subslidetitle
+  \subslidetitle
+\begin{lstlisting}
+[merge]
+  tool = kdiff3
+\end{lstlisting}
 \end{frame}
 
+\subsection{Example .gitconfig}
+\begin{frame}[fragile]
+  \subslidetitle
+  The command \cmd{chgrp} is used to change the group:
+
+  %\vspace{1em}
+  %\cmd{chgrp \braces{OPTION}... GROUP FILE...}
+  %\begin{itemize}
+      %\option{-R}{apply permissions to every recursively to a directory}
+  %\end{itemize}
+
+\begin{lstlisting}
+[user]
+  name = Andreas Schmid
+  email = ikeark@gmail.com
+
+[core]
+  pager = less -r
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  grep = auto
+
+[alias]
+  st = status
+  co = checkout
+  ci = commit
+  br = branch
+  l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+  ll = log --stat --abbrev-commit
+
+[svn]
+  addAuthorFrom = true
+  useLogAuthor = true
+  rmdir = true
+
+[merge]
+  tool = kdiff3
+
+[http]
+  sslVerify = false
+\end{lstlisting}
+\end{frame}

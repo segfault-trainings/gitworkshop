@@ -1,79 +1,84 @@
-
 var container;
 
-var camera, scene, renderer;
-
-var cube, plane;
-
-var targetRotation = 0;
-var targetRotationOnMouseDown = 0;
-
-var mouseX = 0;
-var mouseXOnMouseDown = 0;
-
-var windowHalfX = window.innerWidth / 2;
-var windowHalfY = window.innerHeight / 2;
+var camera, scene, renderer, objects;
+var particleLight;
 
 init();
 animate();
 
-function init()
+function init( )
 {
     container = document.createElement( 'div' );
     document.body.appendChild( container );
 
-    var info = document.createElement( 'div' );
-    info.style.position = 'absolute';
-    info.style.top = '10px';
-    info.style.width = '100%';
-    info.style.textAlign = 'center';
-    info.innerHTML = 'Drag to spin the cube';
-    container.appendChild( info );
-
-    camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
-    camera.position.y = 150;
-    camera.position.z = 500;
+    camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 2000 );
+    camera.position.set( 0, 200, 0 );
 
     scene = new THREE.Scene();
 
-    // Cube
+    // Materials
 
-    var geometry = new THREE.BoxGeometry( 200, 200, 200 );
+    var shading = THREE.SmoothShading;
 
-    for ( var i = 0; i < geometry.faces.length; i += 2 )
+    var materials = [];
+
+
+    var imgTexture2 = THREE.ImageUtils.loadTexture( "moon_1024.jpg" );
+    imgTexture2.wrapS = imgTexture2.wrapT = THREE.RepeatWrapping;
+    imgTexture2.anisotropy = 16;
+
+    materials.push( new THREE.MeshPhongMaterial( { map: imgTexture2, bumpMap: imgTexture2, bumpScale: 1, color: 0x00ff00, specular: 0x333333, shininess: 10, metal: true, shading: shading } ));
+
+    // Spheres geometry
+
+    var geometry_smooth = new THREE.SphereBufferGeometry( 70, 32, 16 );
+
+    objects = [];
+
+    var sphere, geometry, material;
+
+    for ( var i = 0, l = materials.length; i < l; i ++ )
     {
 
-        var hex = Math.random() * 0xffffff;
-        geometry.faces[ i ].color.setHex( hex );
-        geometry.faces[ i + 1 ].color.setHex( hex );
+        material = materials[ i ];
+
+        sphere = new THREE.Mesh( geometry_smooth, material );
+
+        sphere.position.x = ( i % 4 ) * 200 - 200;
+        sphere.position.z = Math.floor( i / 4 ) * 200 - 200;
+
+        objects.push( sphere );
+
+        scene.add( sphere );
 
     }
 
-    var material = new THREE.MeshBasicMaterial( { vertexColors: THREE.FaceColors, overdraw: 0.5 } );
+    particleLight = new THREE.Mesh( new THREE.SphereBufferGeometry( 4, 8, 8 ), new THREE.MeshBasicMaterial( { color: 0xffffff } ) );
+    scene.add( particleLight );
 
-    cube = new THREE.Mesh( geometry, material );
-    cube.position.y = 150;
-    scene.add( cube );
+    // Lights
 
-    // Plane
+    scene.add( new THREE.AmbientLight( 0xa0a0a0, 5 ));
 
-    var geometry = new THREE.PlaneBufferGeometry( 200, 200 );
-    geometry.rotateX( - Math.PI / 2 );
+    var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
+    directionalLight.position.set( 1, 1, 1 ).normalize();
+    scene.add( directionalLight );
 
-    var material = new THREE.MeshBasicMaterial( { color: 0xe0e0e0, overdraw: 0.5 } );
+    var pointLight = new THREE.PointLight( 0xffffff, 2, 800 );
+    particleLight.add( pointLight );
 
-    plane = new THREE.Mesh( geometry, material );
-    scene.add( plane );
+    //
 
-    renderer = new THREE.CanvasRenderer();
-    renderer.setClearColor( 0xf0f0f0 );
+    renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer.setClearColor( 0x000000 );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.sortObjects = true;
+
     container.appendChild( renderer.domElement );
 
-    document.addEventListener( 'mousedown', onDocumentMouseDown, false );
-    document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-    document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+    renderer.gammaInput = true;
+    renderer.gammaOutput = true;
 
     //
 
@@ -81,11 +86,7 @@ function init()
 
 }
 
-function onWindowResize()
-{
-
-    windowHalfX = window.innerWidth / 2;
-    windowHalfY = window.innerHeight / 2;
+function onWindowResize() {
 
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
@@ -96,81 +97,7 @@ function onWindowResize()
 
 //
 
-function onDocumentMouseDown( event )
-{
-
-    event.preventDefault();
-
-    document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-    document.addEventListener( 'mouseup', onDocumentMouseUp, false );
-    document.addEventListener( 'mouseout', onDocumentMouseOut, false );
-
-    mouseXOnMouseDown = event.clientX - windowHalfX;
-    targetRotationOnMouseDown = targetRotation;
-
-}
-
-function onDocumentMouseMove( event )
-{
-
-    mouseX = event.clientX - windowHalfX;
-
-    targetRotation = targetRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.02;
-
-}
-
-function onDocumentMouseUp( event )
-{
-
-    document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
-    document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
-    document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
-
-}
-
-function onDocumentMouseOut( event )
-{
-
-    document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
-    document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
-    document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
-
-}
-
-function onDocumentTouchStart( event )
-{
-
-    if ( event.touches.length === 1 )
-    {
-
-        event.preventDefault();
-
-        mouseXOnMouseDown = event.touches[ 0 ].pageX - windowHalfX;
-        targetRotationOnMouseDown = targetRotation;
-
-    }
-
-}
-
-function onDocumentTouchMove( event )
-{
-
-    if ( event.touches.length === 1 )
-    {
-
-        event.preventDefault();
-
-        mouseX = event.touches[ 0 ].pageX - windowHalfX;
-        targetRotation = targetRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.05;
-
-    }
-
-}
-
-//
-
-function animate()
-{
+function animate() {
 
     requestAnimationFrame( animate );
 
@@ -178,10 +105,27 @@ function animate()
 
 }
 
-function render()
-{
+function render() {
 
-    plane.rotation.y = cube.rotation.y += ( targetRotation - cube.rotation.y ) * 0.05;
+    var timer = Date.now() * 0.00025;
+
+    camera.position.x = Math.cos( timer ) * 800;
+    camera.position.z = Math.sin( timer ) * 800;
+
+    camera.lookAt( scene.position );
+
+    for ( var i = 0, l = objects.length; i < l; i ++ ) {
+
+        var object = objects[ i ];
+
+        object.rotation.y += 0.005;
+
+    }
+
+    particleLight.position.x = Math.sin( timer * 7 ) * 300;
+    particleLight.position.y = Math.cos( timer * 5 ) * 400;
+    particleLight.position.z = Math.cos( timer * 3 ) * 300;
+
     renderer.render( scene, camera );
 
 }

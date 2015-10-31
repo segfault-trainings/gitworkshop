@@ -8,6 +8,32 @@
 \end{itemize}
 \end{frame}
 
+\subsection{git init}
+\begin{frame}[fragile]
+  \subslidetitle
+  The command \cmd{git init} is used to create a new repository.
+  The following steps create a new repository:
+  \begin{itemize}
+  \item run \cmd{git init} inside your project
+    \begin{itemize}
+    \item creates .git directory
+    \end{itemize}
+  \item Add files to git repository using \cmd{git add .}
+  \item Optional: add .gitignore file
+  \item Run {git commit} for initial commit
+    \begin{itemize}
+    \item creates branch called 'master'
+    \end{itemize}
+  \end{itemize}
+
+  \begin{lstlisting}
+cd myproject
+git init
+git add .
+git commit
+  \end{lstlisting}
+\end{frame}
+
 \subsection{git clone}
 \begin{frame}[fragile]
   \subslidetitle

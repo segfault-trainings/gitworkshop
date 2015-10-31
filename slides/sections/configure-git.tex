@@ -10,13 +10,19 @@
     \end{itemize}
 
     The configuration file is a simple text file and can be edited with any text editor.
+    Priority of git config: local, user, system.
   \end{block}
 \end{frame}
 
 \subsection{git config}
 \begin{frame}[fragile]
   \subslidetitle
-  The command \cmd{git config} is used to change the global and local config of git.
+  The command \cmd{git config} can be used to change the global, system and local config of git.
+  \begin{itemize}
+      \option{git config ..}{}
+      \option{git config --global ..}{}
+      \option{git config --system ..}{}
+  \end{itemize}
 \end{frame}
 
 \subsection{Set username and email}
@@ -25,16 +31,17 @@
   \vspace{1em}
   Set your name and email locally:
   \begin{itemize}
-      \option{git config add user.name "My name"}{set your name}
-      \option{git config add user.email "myemail@git.ch"}{set your email}
+      \option{git config add user.name "My name"}{}
+      \option{git config add user.email "myemail@git.ch"}{}
   \end{itemize}
   \vspace{1em}
   Or globally:
   \begin{itemize}
-      \option{git config --global add user.name "My name"}{set your name}
-      \option{git config --global add user.email "myemail@git.ch"}{set your email}
+      \option{git config --global add user.name "My name"}{}
+      \option{git config --global add user.email "myemail@git.ch"}{}
   \end{itemize}
 
+  Extract from \bf{~/.gitconfig}
 \begin{lstlisting}
 [user]
   name = Andreas Schmid
@@ -46,6 +53,22 @@
 \begin{frame}[fragile]
   \subslidetitle
 
+  Git allows to create aliases for commands.
+
+  Example:
+
+  instead of typing \bf{git status} we want to type \bf{git st}.
+
+  Define alias:
+  \begin{lstlisting}
+  git config --global alias.st = status
+  git config --global alias.co = checkout
+  git config --global alias.ci = commit
+  git config --global alias.br = branch
+  \end{lstlisting}
+
+
+  Extract from \bf{~/.gitconfig}
 \begin{lstlisting}
 [alias]
   st = status
@@ -115,4 +138,8 @@
 \subsection{Exercises}
 \begin{frame}[fragile]
   \subslidetitle
+    \begin{exercise}
+    \item Configure git to use your name and email.
+    \item Add alias \cmd{git co} for \cmd{git checkout}
+    \end{exercise}
 \end{frame}

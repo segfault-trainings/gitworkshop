@@ -1,5 +1,11 @@
 
+- add an AUTHORS file with your name and email address
+
 - change the color to blue
+- add a green moon
 - change the particle to yellow
+- add a red moon
 - change the point light to yellow
+
 - make the moons spin 10x faster
+

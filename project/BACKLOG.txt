@@ -1,11 +1,14 @@
 
 - add an AUTHORS file with your name and email address
 
-- change the color to blue
+- change the title on the page to "Git Moons"
+- change the color of the moon to blue
+- add a subtitle "Enjoy the blue moon!"
 - add a green moon
 - change the particle to yellow
 - add a red moon
 - change the point light to yellow
+- change page title to "Git Moons"
 
 - make the moons spin 10x faster
-
+- change the page background to black

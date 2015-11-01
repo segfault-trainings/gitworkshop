@@ -1,2 +1,5 @@
 
-change the color to blue
+- change the color to blue
+- change the particle to yellow
+- change the point light to yellow
+- make the moons spin 10x faster

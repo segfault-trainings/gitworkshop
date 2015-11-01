@@ -2,8 +2,7 @@ var camera, scene, texture, particleLight, renderer;
 var moons = [];
 
 init();
-moon( 0x00ff00 );
-moon( 0x00ffff );
+moon( "green" );
 animate();
 
 function moon( color )
@@ -36,14 +35,16 @@ function init( )
   texture.anisotropy = 16;
 
   // Lights
+  particleColor = "white";
   particleLight = new THREE.Mesh( new THREE.SphereBufferGeometry( 4, 8, 8 ),
-                                  new THREE.MeshBasicMaterial( { color: 0xffff00 } ));
+                                  new THREE.MeshBasicMaterial( { color: particleColor } ));
   scene.add( particleLight );
   scene.add( new THREE.AmbientLight( 0xa0a0a0, 5 ));
   var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
   directionalLight.position.set( 1, 1, 1 ).normalize();
   scene.add( directionalLight );
-  var pointLight = new THREE.PointLight( 0xffff00, 2, 800 );
+  pointLightColor = "white";
+  var pointLight = new THREE.PointLight( pointLightColor, 2, 800 );
   particleLight.add( pointLight );
 
   // Render

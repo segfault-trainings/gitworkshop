@@ -26,12 +26,6 @@
     \gdef\beamer@currentmode{handout}
     \usepackage{../handoutWithNotes}
     \pgfpagesuselayout{4 on 1}[a4paper, landscape, border shrink=5mm]
-    %\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-    %\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
-    %\pgfpageslogicalpageoptions{3}{scale=0.5}
-    %\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
-    %\setbeamertemplate{footline}[text line]{%
-    %\parbox{\linewidth}{\vspace*{-8pt}\textcolor{lightgray}{LPI 101 {\normalsize\ttfamily\textcopyright}\ \insertauthor\ \the\year}}}
     \setbeamertemplate{navigation symbols}{}
     \setbeamertemplate{headline}{%
       \leavevmode%
@@ -81,8 +75,7 @@
     }
     \addtocontents{toc}{\vskip -0.2cm}
     \setbeamertemplate{footline}[text line]{%
-      %\parbox{\linewidth}{\vspace*{-8pt}\textcolor{lightgray}{LPI 101 {\normalsize\ttfamily\textcopyright}\ \insertauthor\ \the\year \hfill }}
-      \parbox{\linewidth}{\vspace*{-8pt}\textcolor{lightgray}{LPI 101 {\normalsize\ttfamily\textcopyright}\ \insertauthor\ \the\year \hfill \insertpagenumber/\pageref{LastPage}}}
+      \parbox{\linewidth}{\vspace*{-8pt}\textcolor{lightgray}{\inserttitle{} {\normalsize\ttfamily\textcopyright}\ \insertauthor\ \the\year \hfill \insertpagenumber/\pageref{LastPage}}}
     }
     \setbeamertemplate{navigation symbols}{}
 

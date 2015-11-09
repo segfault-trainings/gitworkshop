@@ -42,7 +42,7 @@
 
     % define font of lstlisting
     \lstset{
-      basicstyle=\scriptsize\ttfamily\bfseries, %\tiny\ttfamily,
+      basicstyle=\ttfamily\bfseries, %\tiny\ttfamily,
       tabsize=2,
       extendedchars=true,
       breaklines=true,
@@ -89,7 +89,7 @@
     % define font of lstlisting
     \definecolor{listingbackground}{rgb}{0,0,0}
     \lstset{
-      basicstyle=\small\ttfamily\bfseries\color{black}, %\tiny\ttfamily,
+      basicstyle=\ttfamily\bfseries\color{black}, %\tiny\ttfamily,
       tabsize=2,
       extendedchars=true,
       breaklines=true,
@@ -151,7 +151,7 @@
 \newcommand{\subslidetitle}{\frametitle{\thesection.\thesubsection\ \subsecname}\vspace{1em}}
 \newcommand{\subsubslidetitle}{\frametitle{\thesection.\thesubsection.\thesubsubsection\ \subsubsecname}\vspace{1em}}
 
-\newcommand{\cmd}[1]{\textcolor{structure.fg}{\texttt{#1}}}
+\newcommand{\cmd}[1]{\textcolor[HTML]{0000AA}{\texttt{\textbf{#1}}}}
 \newcommand{\option}[3][1cm]{\item[]{\usebeamercolor[structure.fg]{section in head}\texttt{#2}}\tabto{#1}#3}
 
 \def\braces#1{[#1]}

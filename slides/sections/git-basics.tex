@@ -30,60 +30,112 @@
   The configuration is stored globally in \bf{$\sim$/.gitconfig}
 \end{frame}
 
-\subsection{git init}
-\begin{frame}[fragile]
-  \subslidetitle
-  The command \cmd{git init} is used to create a new repository.
-  The following steps create a new repository:
-  \begin{itemize}
-  \item run \cmd{git init} inside your project
-    \begin{itemize}
-    \item creates .git directory
-    \end{itemize}
-  \item Add files to git repository using \cmd{git add .}
-  \item Optional: add .gitignore file
-  \item Run {git commit} for initial commit
-    \begin{itemize}
-    \item creates branch called 'master'
-    \end{itemize}
-  \end{itemize}
+%\subsection{git init}
+%\begin{frame}[fragile]
+  %\subslidetitle
+  %The command \cmd{git init} is used to create a new repository.
+  %The following steps create a new repository:
+  %\begin{itemize}
+  %\item run \cmd{git init} inside your project
+    %\begin{itemize}
+    %\item creates .git directory
+    %\end{itemize}
+  %\item Add files to git repository using \cmd{git add .}
+  %\item Optional: add .gitignore file
+  %\item Run {git commit} for initial commit
+    %\begin{itemize}
+    %\item creates branch called 'master'
+    %\end{itemize}
+  %\end{itemize}
 
-  \begin{lstlisting}
-cd myproject
-git init
-git add .
-git commit
-  \end{lstlisting}
-\end{frame}
+  %\begin{lstlisting}
+%cd myproject
+%git init
+%git add .
+%git commit
+  %\end{lstlisting}
+%\end{frame}
 
-\subsection{git clone}
+\subsection{Clone a git repository}
 \begin{frame}[fragile]
   \subslidetitle
   The command \cmd{git clone [option(s)] <repository> [<directory>]} is used to download a repository's whole history.
   \begin{lstlisting}
-git clone https://github.com/git/git.git
+git clone https://github.com/neolynx/gitmoon.git
   \end{lstlisting}
 
 % protocols
-git protocols:
-\begin{itemize}
-\item http[s]
-\item ssh
-\item git
-\item ftp rsync ...
-\end{itemize}
+%git protocols:
+%\begin{itemize}
+%\item http[s]
+%\item ssh
+%\item git
+%\item ftp rsync ...
+%\end{itemize}
+
+  Let's see what we find ...
+  \begin{lstlisting}
+$ cd gitmoon
+$ ls
+moon_1024.jpg  moon.html  moon.js  three.min.js
+  \end{lstlisting}
+
+  Oh, there is a HTML file !
+  \begin{lstlisting}
+$ firefox moon.html &
+  \end{lstlisting}
+
 \end{frame}
 
-% --local (transport mechanisms)
-\subsection{git clone --branch}
+\subsection{Show the git status}
 \begin{frame}[fragile]
   \subslidetitle
+  \begin{lstlisting}
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+  \end{lstlisting}
+\end{frame}
+
+
+\subsection{Add a file to the repository}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  Let's create an AUTHORS file with the username:
+  \begin{lstlisting}
+$ echo $USER > AUTHORS
+  \end{lstlisting}
+
+  Check the git status:
+  \begin{lstlisting}
+$ git st
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        AUTHORS
+
+nothing added to commit but untracked files present (use "git add" to track)
+  \end{lstlisting}
+
 \end{frame}
 % --branch (different from master)
 % --depth (shallow clone)
 % --recursive (submodules)
 
+
+
+
+
 \subsection{Exercises}
+\begin{frame}[fragile]
+  \subslidetitle
+\end{frame}
+
+\subsection{git bash prompt}
 \begin{frame}[fragile]
   \subslidetitle
 \end{frame}

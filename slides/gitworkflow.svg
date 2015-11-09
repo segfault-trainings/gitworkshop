@@ -14,7 +14,7 @@
    viewBox="0 0 1052.3622 744.09448"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.48.5 r10040"
    sodipodi:docname="gitworkflow.svg">
   <defs
      id="defs4">
@@ -258,6 +258,21 @@
          d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
          transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
     </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-0-4-6"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4389-7-1-4"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -267,16 +282,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="556.73547"
-     inkscape:cy="471.23722"
+     inkscape:cx="425.50255"
+     inkscape:cy="442.52968"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1181"
-     inkscape:window-x="1280"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
+     inkscape:window-width="1605"
+     inkscape:window-height="1036"
+     inkscape:window-x="1433"
+     inkscape:window-y="178"
+     inkscape:window-maximized="0"
      showguides="false" />
   <metadata
      id="metadata7">
@@ -584,7 +599,7 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot14590"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        transform="translate(72.857143,306.83915)"><flowRegion
          id="flowRegion14592"><rect
            id="rect14594"
@@ -592,7 +607,7 @@
            height="104.04572"
            x="102.02541"
            y="33.957245" /></flowRegion><flowPara
-         id="flowPara14596">see: http://blog.osteele.com/posts/2008/05/my-git-workflow/ </flowPara></flowRoot>    <text
+         id="flowPara14596">git file status</flowPara></flowRoot>    <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="175.71429"
@@ -602,10 +617,31 @@
          sodipodi:role="line"
          id="tspan14600"
          x="175.71429"
-         y="373.07648"></tspan><tspan
+         y="373.07648" /><tspan
          sodipodi:role="line"
          x="175.71429"
          y="423.07648"
          id="tspan14602" /></text>
+    <g
+       transform="translate(107.48426,228.22039)"
+       id="g13302-3-10">
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path5766-0-9-9"
+         d="m 472.79881,305.05775 c 55.45662,-13.08354 73.96639,142.7197 15.35713,277.7143"
+         style="fill:none;stroke:#000000;stroke-width:1.20000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.20000002,3.60000006;marker-end:url(#Arrow2Lend-0-4);stroke-dashoffset:0" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text11061-8-6"
+         y="352.29077"
+         x="521.35712"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="352.29077"
+           x="521.35712"
+           id="tspan11063-8-3"
+           sodipodi:role="line">reset</tspan></text>
+    </g>
   </g>
 </svg>

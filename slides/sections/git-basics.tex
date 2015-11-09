@@ -103,14 +103,14 @@ nothing to commit, working directory clean
 \begin{frame}[fragile]
   \subslidetitle
 
-  Let's create an AUTHORS file with the username:
+  Let's create an AUTHORS file with your name:
   \begin{lstlisting}
-$ echo $USER > AUTHORS
+$ echo Tux Penguin > AUTHORS
   \end{lstlisting}
 
   Check the git status:
   \begin{lstlisting}
-$ git st
+$ git status
 On branch master
 Your branch is up-to-date with 'origin/master'.
 Untracked files:
@@ -126,8 +126,52 @@ nothing added to commit but untracked files present (use "git add" to track)
 % --depth (shallow clone)
 % --recursive (submodules)
 
+\subsection{git add}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  The command \cmd{git add} tells git to track the file:
+  \begin{lstlisting}
+$ git add AUTHORS
+  \end{lstlisting}
+
+  Check the git status:
+  \begin{lstlisting}
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   AUTHORS
+  \end{lstlisting}
+
+\end{frame}
 
 
+\subsection{git commit}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  The command \cmd{git commit} tells git to commit the file:
+  \begin{lstlisting}
+$ git commit -m 'add authors file'
+
+[master c01af7f] add authors file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 AUTHORS
+\end{lstlisting}
+
+  Check the git status:
+  \begin{lstlisting}
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+  \end{lstlisting}
+
+\end{frame}
 
 
 \subsection{Exercises}

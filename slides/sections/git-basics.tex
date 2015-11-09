@@ -1,11 +1,33 @@
-\section{Git repository}
+\section{Getting started with git}
 \begin{frame}[fragile]
-    \slidetitle
-    A git repository contains a folder called {\bf .git}. There are two option to get a git repository:
-\begin{itemize}
-\item create a new repository using \cmd{git init}
-\item clone an existing git repository using \cmd{git clone}
-\end{itemize}
+  \slidetitle
+
+  Learn how to:
+  \begin{itemize}
+    \item Configure git
+    \item Clone a git repository
+    \item Add a file to a repository
+    \item Commit changes
+  \end{itemize}
+    %A git repository contains a folder called {\bf .git}. There are two option to get a git repository:
+%\begin{itemize}
+%\item create a new repository using \cmd{git init}
+%\item clone an existing git repository using \cmd{git clone}
+%\end{itemize}
+\end{frame}
+
+\subsection{Configure git}
+\begin{frame}[fragile]
+  \subslidetitle
+  Git needs to know a name and an email address in order to create commits.
+  \vspace{1em}
+  Use the following commands to configure git:
+  \begin{itemize}
+      \option{git config --global add user.name "My name"}{}
+      \option{git config --global add user.email "myemail@git.ch"}{}
+  \end{itemize}
+
+  The configuration is stored globally in \bf{$\sim$/.gitconfig}
 \end{frame}
 
 \subsection{git init}

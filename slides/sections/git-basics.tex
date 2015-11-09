@@ -19,15 +19,37 @@
 \subsection{Configure git}
 \begin{frame}[fragile]
   \subslidetitle
-  Git needs to know a name and an email address in order to create commits.
+  The global git configuration is stored in \cmd{~/.gitconfig}.
+  \\
   \vspace{1em}
-  Use the following commands to configure git:
+
+  The command \cmd{git config} can used to configure git:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git config --global add user.name "My name"}*)
 $ (*\textcolor[HTML]{0000AA}{git config --global add user.email "myemail@git.ch"}*)
   \end{lstlisting}
 
-  The configuration is stored globally in \bf{$\sim$/.gitconfig}
+  Other git settings:
+  \begin{lstlisting}[basicstyle=\small\ttfamily\bfseries]
+$ (*\textcolor[HTML]{0000AA}{cat ~/.gitconfig}*)
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  grep = auto
+
+[alias]
+  st = status
+  co = checkout
+  ci = commit
+  br = branch
+  l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+  ll = log --stat --abbrev-commit
+
+[merge]
+  tool = kdiff3
+  \end{lstlisting}
+
 \end{frame}
 
 %\subsection{git init}

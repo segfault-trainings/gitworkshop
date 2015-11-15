@@ -2,7 +2,7 @@
 
 TMP := gen
 
-SVGS := $(shell find * -maxdepth 0 -name '*.svg')
+SVGS := $(shell find diagrams/* -maxdepth 0 -name '*.svg')
 PNGS = $(patsubst %.svg,$(TMP)/%.png,$(SVGS))
 
 all: slides handout
@@ -19,7 +19,7 @@ handout: gen $(PNGS)
 	mv $(TMP)/gitworkshop.pdf gitworkshop\ Handout.pdf
 
 gen:
-	mkdir -p $(TMP)
+	mkdir -p $(TMP)/diagrams
 
 $(TMP)/%.png: %.svg
 	inkscape $< -z -D -d 300 -e $@

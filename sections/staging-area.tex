@@ -10,25 +10,45 @@
   \end{itemize}
 \end{frame}
 
-\subsection{Multiple changes}
+\subsection{Make a change}
 \begin{frame}[fragile]
 \subslidetitle
 \begin{lstlisting}
-echo "# Moon: let's go" > Readme.md
-echo "Tux le Pinguin" >> AUTHORS
+$ (*\textcolor[HTML]{0000AA}{gecho "Tux le Pinguin" >> AUTHOR}*)
 $ (*\textcolor[HTML]{0000AA}{git status}*)
-On branch master
-Changes not staged for commit:
-   (use "git add <file>..." to update what will be committed)
-   (use "git checkout -- <file>..." to discard changes in working directory)
-
-        (*\textcolor{red}{modified:   AUTHORS}*)
-
- Untracked files:
-   (use "git add <file>..." to include in what will be committed)
-
-        (*\textcolor{red}{Readme.md}*)
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	(*\textcolor{red}{modified:   AUTHORS}*)
+#
 no changes added to commit (use "git add" and/or "git commit -a")
+\end{lstlisting}
+
+Actually, there is only one author, let's undo the change:
+
+\begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git checkout AUTHORS}*)
+$ (*\textcolor[HTML]{0000AA}{git status}*)
+# On branch master
+nothing to commit (working directory clean)
+\end{lstlisting}
+\end{frame}
+
+\subsection{Modify again}
+\begin{frame}[fragile]
+\subslidetitle
+\begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{echo "Tux le Pinguin" >> AUTHOR}*)
+$ (*\textcolor[HTML]{0000AA}{git add AUTHORS}*)
+$ (*\textcolor[HTML]{0000AA}{git status}*)
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       (*\textcolor{green}{modified:   AUTHORS}*)
+#
 \end{lstlisting}
 \end{frame}
 

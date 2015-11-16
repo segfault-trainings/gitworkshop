@@ -1,7 +1,10 @@
 \documentclass[t,8pt]{beamer}
 \beamertemplatenavigationsymbolsempty
 
-\setbeamercolor{structure}{fg=blue!75!black}
+\definecolor{GitRed}{RGB}{240, 60, 46}
+\setbeamercolor{title}{bg=GitRed,fg=white}
+\setbeamercolor{structure}{fg=blue}
+%\setbeamercolor{structure}{fg=blue!75!black}
 \setbeamertemplate{section in toc shaded}[default][40]
 \setbeamercolor{section in toc shaded}{fg=black}
 \setbeamercolor{section in toc}{fg=structure.fg}
@@ -155,11 +158,46 @@
   {\begin{enumerate}\setcounter{enumi}{\theexercise}}
   { \setcounter{exercise}{\theenumi}\end{enumerate}}
 
+% layout of title side
+\makeatletter
+\setbeamertemplate{title page}
+{
+  \vspace{.6cm}
+  \center \includegraphics{diagrams/git-logo-2color.png}
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+      \usebeamerfont{title}\Huge{\inserttitle}\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+  \endgroup
+  \vfill
+}
+\makeatother
+% end of layout of title side
+
 \begin{document}
-\title{git workshop}
+\title{workshop}
 \author{André Roth, Andreas Schmid, Eric Keller}
 
 \date{\today}
+
 
 \frame{\titlepage}
 

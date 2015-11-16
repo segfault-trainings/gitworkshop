@@ -21,12 +21,12 @@ $ (*\textcolor[HTML]{0000AA}{git status}*)
 #   (use "git add <file>..." to update what will be committed)
 #   (use "git checkout -- <file>..." to discard changes in working directory)
 #
-#	(*\textcolor{red}{modified:   AUTHORS}*)
+#       (*\textcolor{red}{modified:   AUTHORS}*)
 #
 no changes added to commit (use "git add" and/or "git commit -a")
 \end{lstlisting}
 
-Let's display the change difference with \bf{git diff}:
+Let's display the change difference with \textbf{git diff}:
 
 \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git diff}*)
@@ -82,19 +82,69 @@ But just before committing the change, we remember, there is only "one" author!
 \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git reset HEAD AUTHORS}*)
 Unstaged changes after reset:
-M	AUTHORS
+M       AUTHORS
+\end{lstlisting}
+
+Note: with the \textbf{git reset} we did not lost any data.
+
+\end{frame}
+
+\subsection{Store changes for later}
+\begin{frame}[fragile]
+\subslidetitle
+
+Imagine you are on the middle of a modification.
+
+\begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git status}*)
 # On branch master
 # Changes not staged for commit:
 #   (use "git add <file>..." to update what will be committed)
 #   (use "git checkout -- <file>..." to discard changes in working directory)
 #
-#	(*\textcolor{red}{modified:   AUTHORS}*)
+#       (*\textcolor{red}{modified:   AUTHORS}*)
 #
 no changes added to commit (use "git add" and/or "git commit -a")
 \end{lstlisting}
 
-Note: with the \bf{git reset} we did not lost any data.
+But something really important needs to be done immediately!
 
+\begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git stash}*)
+Saved working directory and index state WIP on master: a7281d1 add authors file
+HEAD is now at a7281d1 add authors file
+$ (*\textcolor[HTML]{0000AA}{git status}*)
+# On branch master
+nothing to commit (working directory clean)
+\end{lstlisting}
 \end{frame}
 
+Note: you now have a clean working directory again.
+
+\subsection{Restore changes}
+\begin{frame}[fragile]
+\subslidetitle
+
+Do not worry, \textbf{git stash} does not loose any information, let's have a look:
+
+\begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git stash list}*)
+stash@{0}: WIP on master: a7281d1 add authors file
+(END)
+\end{lstlisting}
+
+Restore the changes from the stash queue:
+
+\begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git stash pop}*)
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#       (*\textcolor{red}{modified:   AUTHORS}*)
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (1638e645e67ff57ffc76b2c79f851ec894ddd74c)
+\end{lstlisting}
+\end{frame}

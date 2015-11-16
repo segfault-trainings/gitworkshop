@@ -1,0 +1,75 @@
+\section{Staging area}
+\begin{frame}[fragile]
+  \slidetitle
+
+  In this section, we will learn how to:
+  \begin{itemize}
+    \item add files to the staging area
+    \item remove a file from the staging area
+    \item stash your tracked changes
+  \end{itemize}
+\end{frame}
+
+\subsection{Multiple changes}
+\begin{frame}[fragile]
+\subslidetitle
+\begin{lstlisting}
+echo "# Moon: let's go" > Readme.md
+echo "Tux le Pinguin" >> AUTHORS
+$ (*\textcolor[HTML]{0000AA}{git status}*)
+On branch master
+Changes not staged for commit:
+   (use "git add <file>..." to update what will be committed)
+   (use "git checkout -- <file>..." to discard changes in working directory)
+
+        (*\textcolor{red}{modified:   AUTHORS}*)
+
+ Untracked files:
+   (use "git add <file>..." to include in what will be committed)
+
+        (*\textcolor{red}{Readme.md}*)
+no changes added to commit (use "git add" and/or "git commit -a")
+\end{lstlisting}
+\end{frame}
+
+\subsection{Stage all changes}
+\begin{frame}[fragile]
+\subslidetitle
+\begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git add AUTHORS Readme.md}*)
+$ (*\textcolor[HTML]{0000AA}{git status}*)
+ On branch master
+ Changes to be committed:
+   (use "git reset HEAD <file>..." to unstage)
+
+        (*\textcolor{green}{modified:   AUTHORS}*)
+        (*\textcolor{green}{new file:   Readme.md}*)
+
+\end{lstlisting}
+\end{frame}
+
+\subsection{Unstage AUTHORS}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git reset HEAD AUTHORS}*)
+  \end{lstlisting}
+
+  Check the git status:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git status}*)
+on branch master
+ Changes to be committed:
+   (use "git reset HEAD <file>..." to unstage)
+
+        (*\textcolor{green}{new file:   Readme.md}*)
+
+ Changes not staged for commit:
+   (use "git add <file>..." to update what will be committed)
+   (use "git checkout -- <file>..." to discard changes in working directory)
+
+        (*\textcolor{red}{modified:   AUTHORS}*)
+
+  \end{lstlisting}
+\end{frame}

@@ -49,7 +49,6 @@ $ (*\textcolor[HTML]{0000AA}{cat ~/.gitconfig}*)
 [merge]
   tool = kdiff3
   \end{lstlisting}
-
 \end{frame}
 
 %\subsection{git init}
@@ -109,7 +108,6 @@ moon_1024.jpg  moon.html  moon.js  three.min.js
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{firefox moon.html \&}*)
   \end{lstlisting}
-
 \end{frame}
 
 \subsection{Checking the status}
@@ -170,7 +168,6 @@ Changes to be committed:
 
         (*\textcolor[HTML]{00AA00}{new file:   AUTHORS}*)
   \end{lstlisting}
-
 \end{frame}
 
 
@@ -195,7 +192,6 @@ Your branch is ahead of 'origin/master' by 1 commit.
   (use "git push" to publish your local commits)
 nothing to commit, working directory clean
   \end{lstlisting}
-
 \end{frame}
 
 \subsection{summary}
@@ -208,10 +204,88 @@ nothing to commit, working directory clean
     \item cloned a repository
     \item added a file
     \item created your first commit
-    \item leared the git commands: \bf{clone}, \bf{add}, \bf{status}, \bf{commit}
+    \item leared the git commands: \cmd{clone}, \cmd{add}, \cmd{status} and \cmd{commit}
   \end{itemize}
 
   \vspace{1cm}
   \includegraphics{diagrams/getting_started.png}
+\end{frame}
 
+
+\subsection{Modifying a file}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  Let's change the title of \cmd{moon.html} to 'Git Moons'
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{vi moon.html}*)
+  \end{lstlisting}
+
+  Check the git status:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git status}*)
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        (*\textcolor{red}{modified:   moon.html}*)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+  \end{lstlisting}
+\end{frame}
+
+\subsection{git diff}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  The command \cmd{git diff} show the difference between working tree and index:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git diff}*)
+(*\textcolor[HTML]{00EE00}{diff --git a/moon.html b/moon.html}*)
+(*\textcolor[HTML]{00EE00}{index d344c62..22e0c8e 100644}*)
+(*\textcolor[HTML]{00EE00}{--- a/moon.html}*)
+(*\textcolor[HTML]{00EE00}{+++ b/moon.html}*)
+(*\textcolor[HTML]{0000EE}{@@ -1,7 +1,7 @@}*)
+ <!DOCTYPE html>
+ <html>
+     <head>
+(*\textcolor[HTML]{AA0000}{-        <title>moon</title>}*)
+(*\textcolor[HTML]{00AA00}{+        <title>Git Moons</title>}*)
+         <meta charset="utf-8">
+  \end{lstlisting}
+\end{frame}
+
+\subsection{git add}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  The command \cmd{git add} tells git to stage the modifications:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git add moon.html}*)
+  \end{lstlisting}
+
+  Check the git status:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git status}*)
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        (*\textcolor[HTML]{00AA00}{modified:   moon.html}*)
+  \end{lstlisting}
+\end{frame}
+
+\subsection{git commit}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  The command \cmd{git commit} tells git to commit the index to the local repository:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git commit -m 'change title'}*)
+[master fc92204] change title
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+\end{lstlisting}
 \end{frame}

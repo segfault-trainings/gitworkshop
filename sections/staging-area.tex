@@ -14,7 +14,7 @@
 \begin{frame}[fragile]
 \subslidetitle
 \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{gecho "Tux le Pinguin" >> AUTHOR}*)
+$ (*\textcolor[HTML]{0000AA}{echo "Tux le Pinguin" >> AUTHOR}*)
 $ (*\textcolor[HTML]{0000AA}{git status}*)
 # On branch master
 # Changes not staged for commit:
@@ -26,7 +26,27 @@ $ (*\textcolor[HTML]{0000AA}{git status}*)
 no changes added to commit (use "git add" and/or "git commit -a")
 \end{lstlisting}
 
-Actually, there is only one author, let's undo the change:
+Let's display the change difference with \bf{git diff}:
+
+\begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git diff}*)
+diff --git a/AUTHORS b/AUTHORS
+index 8227a64..b4934aa 100644
+--- a/AUTHORS
++++ b/AUTHORS
+@@ -1 +1,2 @@
+ Tux Penguin
+(*\textcolor{green}{+Tux le Pinguin}*)
+(END)
+\end{lstlisting}
+
+\end{frame}
+
+\subsection{Undo the change}
+\begin{frame}[fragile]
+\subslidetitle
+
+Actually, there is only "one" author, let's undo the change:
 
 \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git checkout AUTHORS}*)
@@ -34,11 +54,17 @@ $ (*\textcolor[HTML]{0000AA}{git status}*)
 # On branch master
 nothing to commit (working directory clean)
 \end{lstlisting}
+
+Note: checkout discard the change, this command is destructive, handle with care!
+
 \end{frame}
 
-\subsection{Modify again}
+\subsection{Unstage}
 \begin{frame}[fragile]
 \subslidetitle
+
+This time we add the change to the staging area
+
 \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{echo "Tux le Pinguin" >> AUTHOR}*)
 $ (*\textcolor[HTML]{0000AA}{git add AUTHORS}*)
@@ -50,46 +76,25 @@ $ (*\textcolor[HTML]{0000AA}{git status}*)
 #       (*\textcolor{green}{modified:   AUTHORS}*)
 #
 \end{lstlisting}
-\end{frame}
 
-\subsection{Stage all changes}
-\begin{frame}[fragile]
-\subslidetitle
+But just before committing the change, we remember, there is only "one" author!
+
 \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git add AUTHORS Readme.md}*)
-$ (*\textcolor[HTML]{0000AA}{git status}*)
- On branch master
- Changes to be committed:
-   (use "git reset HEAD <file>..." to unstage)
-
-        (*\textcolor{green}{modified:   AUTHORS}*)
-        (*\textcolor{green}{new file:   Readme.md}*)
-
-\end{lstlisting}
-\end{frame}
-
-\subsection{Unstage AUTHORS}
-\begin{frame}[fragile]
-  \subslidetitle
-
-  \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git reset HEAD AUTHORS}*)
-  \end{lstlisting}
-
-  Check the git status:
-  \begin{lstlisting}
+Unstaged changes after reset:
+M	AUTHORS
 $ (*\textcolor[HTML]{0000AA}{git status}*)
-on branch master
- Changes to be committed:
-   (use "git reset HEAD <file>..." to unstage)
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	(*\textcolor{red}{modified:   AUTHORS}*)
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+\end{lstlisting}
 
-        (*\textcolor{green}{new file:   Readme.md}*)
+Note: with the \bf{git reset} we did not lost any data.
 
- Changes not staged for commit:
-   (use "git add <file>..." to update what will be committed)
-   (use "git checkout -- <file>..." to discard changes in working directory)
-
-        (*\textcolor{red}{modified:   AUTHORS}*)
-
-  \end{lstlisting}
 \end{frame}
+

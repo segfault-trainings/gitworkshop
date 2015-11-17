@@ -82,6 +82,22 @@
     }
     \setbeamertemplate{navigation symbols}{}
 
+    \setbeamercolor{title}{fg=white, bg=GitRed}
+    \setbeamercolor{frametitle}{fg=white, bg=GitRed}
+
+    \setbeamercolor{section in toc}{fg=black,bg=white}
+
+    \setbeamertemplate{frametitle}
+    {
+        \nointerlineskip
+        \begin{beamercolorbox}[sep=0.01cm,ht=1.8em,wd=\paperwidth]{frametitle}
+          %\vbox{}\vskip-4ex%
+          \hspace{.3cm}\strut\textbf\insertframetitle\strut
+          %\vskip-0.8ex%
+          \hfill$\vcenter{\hbox{\includegraphics{diagrams/git-logo-small.png}}}$
+        \end{beamercolorbox}
+    }
+
     % define font of lstlisting
     \definecolor{listingbackground}{rgb}{0,0,0}
     \lstset{

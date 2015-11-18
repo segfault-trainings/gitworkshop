@@ -3,7 +3,7 @@
 TMP := gen
 
 SVGS := $(shell find diagrams/* -maxdepth 0 -name '*.svg')
-PNGS = $(patsubst %.svg,$(TMP)/%.png,$(SVGS))
+PNGS = $(patsubst %.svg,$(TMP)/%.pdf,$(SVGS))
 
 all: slides handout
 	test -d ~/public_html && cp -f gitworkshop.pdf gitworkshop\ Handout.pdf ~/public_html/ || true
@@ -21,8 +21,8 @@ handout: gen $(PNGS)
 gen:
 	mkdir -p $(TMP)/diagrams
 
-$(TMP)/%.png: %.svg
-	inkscape $< -z -D -d 300 -e $@
+$(TMP)/%.pdf: %.svg
+	inkscape $< --without-gui --export-area-drawing --export-dpi=600 --export-pdf $@
 
 clean:
 	rm -rf $(TMP)

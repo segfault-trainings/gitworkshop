@@ -11,6 +11,16 @@
 \setcounter{tocdepth}{1}
 \setbeamertemplate{section in toc}{\inserttocsectionnumber.~\inserttocsection}
 
+% Quotations
+\usepackage{epigraph}
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
 \usepackage{url}
 \usepackage{relsize}
 \usepackage{hyperref}

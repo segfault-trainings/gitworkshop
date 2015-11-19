@@ -2,4 +2,24 @@
 \subsection{git bash prompt}
 \begin{frame}[fragile]
   \subslidetitle
+
+  Don't you like this bash prompt:
+  \begin{lstlisting}
+  (*\textcolor[HTML]{54FF54}{kraeki@deathstar:}*)(*\textcolor[HTML]{5454FF}{~/work/gitworkshop}*) (*\textcolor[HTML]{18B2B2}{(master)}*) $
+  \end{lstlisting}
+
+  In your \cmd{~/.bashrc} replace your prompt with this:
+  \begin{lstlisting}[language=bash]
+GIT_PS1_SHOWDIRTYSTATE=1 # showing state of working directory
+color_prompt=yes
+if [ "$color_prompt" = yes ]; then
+  PS1='${debian_chroot:+($debian_chroot)}\[\033[00m\]\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[0;36m\]$(__git_ps1 " (%s)")\[\033[00m\] \$ '
+else
+  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+\end{lstlisting}
+
+  Don't forget to reload your bash environment: \cmd{source ~/.bashrc}
+
 \end{frame}

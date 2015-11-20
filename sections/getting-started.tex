@@ -8,6 +8,8 @@
     \item Clone a git repository
     \item Add a file to a repository
     \item Commit changes
+    \item Undo modifications
+    \item Undo staging
   \end{itemize}
     %A git repository contains a folder called {\bf .git}. There are two option to get a git repository:
 %\begin{itemize}
@@ -26,7 +28,7 @@
   The command \cmd{git config} can used to configure git:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git config --global add user.name "My name"}*)
-$ (*\textcolor[HTML]{0000AA}{git config --global add user.email "myemail@git.ch"}*)
+$ (*\textcolor[HTML]{0000AA}{git config --global add user.email "myemail@address"}*)
 \end{lstlisting}
 
   Other git settings:
@@ -97,7 +99,7 @@ $ (*\textcolor[HTML]{0000AA}{git clone https://github.com/neolynx/gitmoon.git}*)
 %\item ftp rsync ...
 %\end{itemize}
 
-  Let's see what we find ...
+  Let's see what we find in the working copy:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{cd gitmoon}*)
 $ (*\textcolor[HTML]{0000AA}{ls}*)
@@ -113,6 +115,8 @@ $ (*\textcolor[HTML]{0000AA}{firefox moon.html \&}*)
 \subsection{Checking the status}
 \begin{frame}[fragile]
   \subslidetitle
+
+  The command \cmd{git status} shows the state of the local working copy:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git status}*)
 On branch master
@@ -166,7 +170,7 @@ Your branch is up-to-date with 'origin/master'.
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
-        (*\textcolor[HTML]{00AA00}{new file:   AUTHORS}*)
+        (*\textcolor[HTML]{00AA00}{new file:}*)   (*\textcolor[HTML]{00AA00}{AUTHORS}*)
   \end{lstlisting}
 \end{frame}
 
@@ -194,7 +198,7 @@ nothing to commit, working directory clean
 \end{lstlisting}
 \end{frame}
 
-\subsection{summary}
+\subsection{Git workflow}
 \begin{frame}[fragile]
   \subslidetitle
 
@@ -229,7 +233,7 @@ Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
 
-        (*\textcolor{red}{modified:   moon.html}*)
+        (*\textcolor{red}{modified:}*)   (*\textcolor{red}{moon.html}*)
 
 no changes added to commit (use "git add" and/or "git commit -a")
 \end{lstlisting}
@@ -273,7 +277,7 @@ Your branch is up-to-date with 'origin/master'.
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
-        (*\textcolor[HTML]{00AA00}{modified:   moon.html}*)
+        (*\textcolor[HTML]{00AA00}{modified:}*)   (*\textcolor[HTML]{00AA00}{moon.html}*)
   \end{lstlisting}
 \end{frame}
 
@@ -291,3 +295,87 @@ $ (*\textcolor[HTML]{0000AA}{git commit -m 'change title'}*)
   \vspace{1cm}
   \centerline{\includegraphics{diagrams/diff-modified-add-commit.pdf}}
 \end{frame}
+
+\subsection{Undo a modification}
+\begin{frame}[fragile]
+\subslidetitle
+
+  Let's modify a file and verify the git status:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{echo "Tux le Pinguin" >> AUTHORS}*)
+$ (*\textcolor[HTML]{0000AA}{git status}*)
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        (*\textcolor{red}{modified:}*)   (*\textcolor{red}{AUTHORS}*)
+
+\end{lstlisting}
+
+  The command \cmd{git checkout} allows you to undo the modification:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git checkout AUTHORS}*)
+$ (*\textcolor[HTML]{0000AA}{git status}*)
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+\end{lstlisting}
+
+Note: checkout discards the changes, handle with care!
+
+\end{frame}
+
+\subsection{Undo staging}
+\begin{frame}[fragile]
+\subslidetitle
+
+  Let's modify a file and stage it:
+
+\begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{echo "Tux le Pinguin" >> AUTHORS}*)
+$ (*\textcolor[HTML]{0000AA}{git add AUTHORS}*)
+$ (*\textcolor[HTML]{0000AA}{git status}*)
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        (*\textcolor[HTML]{00AA00}{modified:}*)   (*\textcolor[HTML]{00AA00}{AUTHORS}*)
+\end{lstlisting}
+
+The command \cmd{git reset} allows you to unstage a file:
+
+\begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git reset HEAD AUTHORS}*)
+Unstaged changes after reset:
+M       AUTHORS
+\end{lstlisting}
+
+\end{frame}
+
+\subsection{git reset}
+\begin{frame}[fragile]
+\subslidetitle
+  After \cmd{git reset}, the modification is still there:
+\begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git status}*)
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        (*\textcolor{red}{modified:}*)   (*\textcolor{red}{AUTHORS}*)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+\end{lstlisting}
+
+  Instead of using \cmd{git checkout} on each file, the command \cmd{git reset --hard} to undo all modifications:
+\begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git reset --hard}*)
+HEAD is now at fc92204 change title
+\end{lstlisting}
+\end{frame}
+

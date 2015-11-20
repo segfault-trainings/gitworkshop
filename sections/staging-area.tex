@@ -4,90 +4,10 @@
 
   In this section, we will learn how to:
   \begin{itemize}
-    \item add files to the staging area
-    \item remove a file from the staging area
-    \item stash your tracked changes
+    \item Stashing temporary changes
   \end{itemize}
 \end{frame}
 
-\subsection{Make a change}
-\begin{frame}[fragile]
-\subslidetitle
-\begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{echo "Tux le Pinguin" >> AUTHOR}*)
-$ (*\textcolor[HTML]{0000AA}{git status}*)
-# On branch master
-# Changes not staged for commit:
-#   (use "git add <file>..." to update what will be committed)
-#   (use "git checkout -- <file>..." to discard changes in working directory)
-#
-#       (*\textcolor{red}{modified:   AUTHORS}*)
-#
-no changes added to commit (use "git add" and/or "git commit -a")
-\end{lstlisting}
-
-Let's display the change difference with \textbf{git diff}:
-
-\begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git diff}*)
-diff --git a/AUTHORS b/AUTHORS
-index 8227a64..b4934aa 100644
---- a/AUTHORS
-+++ b/AUTHORS
-@@ -1 +1,2 @@
- Tux Penguin
-(*\textcolor{green}{+Tux le Pinguin}*)
-(END)
-\end{lstlisting}
-
-\end{frame}
-
-\subsection{Undo the change}
-\begin{frame}[fragile]
-\subslidetitle
-
-Actually, there is only "one" author, let's undo the change:
-
-\begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git checkout AUTHORS}*)
-$ (*\textcolor[HTML]{0000AA}{git status}*)
-# On branch master
-nothing to commit (working directory clean)
-\end{lstlisting}
-
-Note: checkout discard the change, this command is destructive, handle with care!
-
-\end{frame}
-
-\subsection{Unstage}
-\begin{frame}[fragile]
-\subslidetitle
-
-This time we add the change to the staging area
-
-\begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{echo "Tux le Pinguin" >> AUTHOR}*)
-$ (*\textcolor[HTML]{0000AA}{git add AUTHORS}*)
-$ (*\textcolor[HTML]{0000AA}{git status}*)
-# On branch master
-# Changes to be committed:
-#   (use "git reset HEAD <file>..." to unstage)
-#
-#       (*\textcolor{green}{modified:   AUTHORS}*)
-#
-\end{lstlisting}
-
-But just before committing the change, we remember, there is only "one" author!
-
-\begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git reset HEAD AUTHORS}*)
-Unstaged changes after reset:
-M       AUTHORS
-\end{lstlisting}
-
-Note: with the \textbf{git reset} we did not loose any data.
-
-\end{frame}
 
 \subsection{Store changes for later}
 \begin{frame}[fragile]
@@ -117,9 +37,9 @@ $ (*\textcolor[HTML]{0000AA}{git status}*)
 # On branch master
 nothing to commit (working directory clean)
 \end{lstlisting}
+Note: you now have a clean working directory again.
 \end{frame}
 
-Note: you now have a clean working directory again.
 
 \subsection{Restore changes}
 \begin{frame}[fragile]

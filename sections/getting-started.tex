@@ -27,7 +27,7 @@
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git config --global add user.name "My name"}*)
 $ (*\textcolor[HTML]{0000AA}{git config --global add user.email "myemail@git.ch"}*)
-  \end{lstlisting}
+\end{lstlisting}
 
   Other git settings:
   \begin{lstlisting}[basicstyle=\small\ttfamily\bfseries]
@@ -69,12 +69,12 @@ $ (*\textcolor[HTML]{0000AA}{cat ~/.gitconfig}*)
     %\end{itemize}
   %\end{itemize}
 
-  %\begin{lstlisting}
+%\begin{lstlisting}
 %cd myproject
 %git init
 %git add .
 %git commit
-  %\end{lstlisting}
+%\end{lstlisting}
 %\end{frame}
 
 \subsection{Obtaining a repository}
@@ -86,7 +86,7 @@ $ (*\textcolor[HTML]{0000AA}{cat ~/.gitconfig}*)
   Clone the gitmoon repository:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git clone https://github.com/neolynx/gitmoon.git}*)
-  \end{lstlisting}
+\end{lstlisting}
 
 % protocols
 %git protocols:
@@ -102,12 +102,12 @@ $ (*\textcolor[HTML]{0000AA}{git clone https://github.com/neolynx/gitmoon.git}*)
 $ (*\textcolor[HTML]{0000AA}{cd gitmoon}*)
 $ (*\textcolor[HTML]{0000AA}{ls}*)
 moon_1024.jpg  moon.html  moon.js  three.min.js
-  \end{lstlisting}
+\end{lstlisting}
 
   Oh, there is a HTML file !
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{firefox moon.html \&}*)
-  \end{lstlisting}
+\end{lstlisting}
 \end{frame}
 
 \subsection{Checking the status}
@@ -118,7 +118,7 @@ $ (*\textcolor[HTML]{0000AA}{git status}*)
 On branch master
 Your branch is up-to-date with 'origin/master'.
 nothing to commit, working directory clean
-  \end{lstlisting}
+\end{lstlisting}
 \end{frame}
 
 
@@ -129,7 +129,7 @@ nothing to commit, working directory clean
   Let's create an AUTHORS file with your name:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{echo Tux Penguin > AUTHORS}*)
-  \end{lstlisting}
+\end{lstlisting}
 
   Check the git status:
   \begin{lstlisting}
@@ -142,7 +142,7 @@ Untracked files:
         (*\textcolor{red}{AUTHORS}*)
 
 nothing added to commit but untracked files present (use "git add" to track)
-  \end{lstlisting}
+\end{lstlisting}
 
 \end{frame}
 % --branch (different from master)
@@ -156,7 +156,7 @@ nothing added to commit but untracked files present (use "git add" to track)
   The command \cmd{git add} tells git to track the file:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git add AUTHORS}*)
-  \end{lstlisting}
+\end{lstlisting}
 
   Check the git status:
   \begin{lstlisting}
@@ -191,7 +191,7 @@ On branch master
 Your branch is ahead of 'origin/master' by 1 commit.
   (use "git push" to publish your local commits)
 nothing to commit, working directory clean
-  \end{lstlisting}
+\end{lstlisting}
 \end{frame}
 
 \subsection{summary}
@@ -218,7 +218,7 @@ nothing to commit, working directory clean
   Let's change the \cmd{<title>} tag of \cmd{moon.html} to 'Git Moons':
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{vi moon.html}*)
-  \end{lstlisting}
+\end{lstlisting}
 
   Check the git status:
   \begin{lstlisting}
@@ -232,7 +232,7 @@ Changes not staged for commit:
         (*\textcolor{red}{modified:   moon.html}*)
 
 no changes added to commit (use "git add" and/or "git commit -a")
-  \end{lstlisting}
+\end{lstlisting}
 \end{frame}
 
 \subsection{git diff}
@@ -263,7 +263,7 @@ $ (*\textcolor[HTML]{0000AA}{git diff}*)
   The command \cmd{git add} tells git to stage the modifications:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git add moon.html}*)
-  \end{lstlisting}
+\end{lstlisting}
 
   Check the git status:
   \begin{lstlisting}

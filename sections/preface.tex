@@ -15,34 +15,60 @@
 \begin{frame}
   \subslidetitle
 
-
-  \begin{tabular}{lp{5cm}}
-    \textbf{1982} & Revision Control System (RCS) \\
+  \textbf{Version Control Systems}
+  \pause
+  \\
+  \begin{tabular}{lp{5cm}r}
+    \textbf{1982} & Revision Control System (RCS) & GNU GPL \\
     \pause
-    \textbf{1990} & Concurrent Versions System (CVS)\\
+    \textbf{1990} & Concurrent Versions System (CVS) & GNU GPL \\
     \pause
-    \textbf{1992} & Rational ClearCase\\
+    \textbf{1992} & Rational ClearCase & proprietary \\
     \pause
-    \textbf{1995} & Perforce \\
+    \textbf{1995} & Perforce  & proprietary \\
     \pause
-    \textbf{2000} & BitKeeper\\
+    \textbf{2000} & Apache Subversion (SVN)  & Apache \\
     \pause
-    \textbf{2000} & Apache Subversion (SVN) \\
+  \end{tabular}
+  \\
+  \textbf{Distributed Version Control Systems}
+  \pause
+  \\
+  \begin{tabular}{lp{5cm}r}
+    \textbf{2000} & BitKeeper  & proprietary \\
+    \pause
+    \textbf{2001} & GNU arch   & GNU GPL \\
+    \pause
+    \textbf{2003} & Monotone   & GNU GPL \\
     \pause
     \textbf{2005} & git \\
     \pause
-    \textbf{2005} & GNU Bazaar\\
+    \textbf{2005} & GNU Bazaar & GNU GPL \\
     \pause
-    \textbf{2005} & Mercurial \\
+    \textbf{2005} & Mercurial  & free \\
     \pause
   \end{tabular}
+
 \end{frame}
 
-\subsection{Version Control Systems}
+\subsection{git}
 \begin{frame}
   \subslidetitle
+
+  Design criterias:
+  \begin{itemize}
+    \item take Concurrent Versions System (CVS) as an example of what not to do; if in doubt, make the exact opposite decision
+    \item support a distributed, BitKeeper-like workflow
+    \item very strong safeguards against corruption, either accidental or malicious
+  \end{itemize}
+
+  \vspace{1cm}
   \epigraph{``Because my hatred of CVS has meant that I see Subversion as being the most pointless project ever started, because the whole slogan for the Subversion for a while was 'CVS done right' or something like that. And if you start with that kind of slogan, there is nowhere you can go. It's like, there is no way to do CVS right."}
-  {--- Linus Torvalds on git, Tech Talk 200705\footnote{https://www.youtube.com/watch?v=4XpnKHJAok8}}
+{--- Linus Torvalds on git, Google Tech Talk 2007}
+
+  \begin{itemize}
+     \item\url{https://www.youtube.com/watch?v=4XpnKHJAok8}
+  \end{itemize}
 \end{frame}
 
 %\subsection{Course goal}

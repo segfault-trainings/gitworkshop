@@ -12,12 +12,13 @@
 
 % Quotations
 \usepackage{epigraph}
-\setlength\epigraphwidth{8cm}
+\setlength\epigraphwidth{10cm}
 \setlength\epigraphrule{0pt}
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
-\makeatother
+\renewcommand{\epigraphsize}{\large}
+%\usepackage{etoolbox}
+%\makeatletter
+%\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+%\makeatother
 
 
 \usepackage{url}

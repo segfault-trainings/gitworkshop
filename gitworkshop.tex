@@ -10,6 +10,10 @@
 \setcounter{tocdepth}{1}
 \setbeamertemplate{section in toc}{\inserttocsectionnumber.~\inserttocsection}
 
+% copy & paste needs this, and makes nice tilde
+\usepackage[T1]{fontenc}
+\def~{\string~}
+
 % Quotations
 \usepackage{epigraph}
 \setlength\epigraphwidth{10cm}
@@ -19,7 +23,6 @@
 %\makeatletter
 %\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
 %\makeatother
-
 
 \usepackage{url}
 \usepackage{relsize}

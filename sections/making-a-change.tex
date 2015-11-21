@@ -274,32 +274,8 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~4}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
 
-  Save and quit the editor to reorder the commits.
+  Save and quit the editor to fixup the commits.
 \end{frame}
-
-%\section{Making a change}
-%\begin{frame}[fragile]
-  %\slidetitle
-
-%Working locally means that all the git command operation are off line.
-%There is no interaction with a remote server.
-
-%While working locally git allows you to flow through a predefined work flow.
-
-%% TODO insert state diagram
-
-%In the following slides we will introduce several git commands:
-%\begin{itemize}
-%\item status
-%\item add
-%\item reset
-%\item checkout
-%\item diff
-%\item commit
-%\item log
-%\item grep
-%\end{itemize}
-%\end{frame}
 
 %\subsection{git status}
 %\begin{frame}[fragile]
@@ -317,88 +293,6 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~4}*)
 %Additionally git also specify the current branch we are working on.
 %\end{frame}
 
-%\subsection{git add}
-%\begin{frame}[fragile]
-    %\subslidetitle
-%% --patch
-%\end{frame}
-
-%\subsection{git commit}
-%\begin{frame}[fragile]
-    %\subslidetitle
-%% --amend
-%\end{frame}
-
-%\subsection{Example: add a new file}
-%\begin{frame}[fragile]
-%\subslidetitle
-%\begin{lstlisting}
-%# let's create a new file
-%cd myproject
-%echo "# Moon: let's go" > Readme.md
-%git status
-%...
-%Untracked files:
-  %(use "git add <file>..." to include in what will be committed)
-
-        %Readme.md
-
-%nothing added to commit but untracked files present (use "git add" to track)
-
-%# let's add this change to the staging area.
-%git add Readme.md
-%git status
-%...
-%Changes to be committed:
-  %(use "git rm --cached <file>..." to unstage)
-
-        %new file:   Readme.md
-%\end{lstlisting}
-%\end{frame}
-
-%\subsection{Example: commit the new file}
-%\begin{frame}[fragile]
-%\subslidetitle
-%\begin{lstlisting}
-%# let's commit this change
-%git commit -m "Add readme file"
-%[master (root-commit) 77eafe9] Add readme
- %1 file changed, 1 insertion(+)
- %create mode 100644 Readme.md
-
-%git status
-%On branch master
-%nothing to commit, working directory clean
-%\end{lstlisting}
-%\end{frame}
-
-%\subsection{Example: modify an existing file}
-%\begin{frame}[fragile]
-%\subslidetitle
-%\begin{lstlisting}
-%# modify Readme
-%echo "## prerequisites" >> Readme.md
-%git status
-%On branch master
-%Changes not staged for commit:
-  %(use "git add <file>..." to update what will be committed)
-  %(use "git checkout -- <file>..." to discard changes in working directory)
-
-        %modified:   Readme.md
-
-%no changes added to commit (use "git add" and/or "git commit -a")
-
-%# add modified file
-%git add Readme.md
-%git status
-%On branch master
-%Changes to be committed:
-  %(use "git reset HEAD <file>..." to unstage)
-
-        %modified:   Readme.md
-%\end{lstlisting}
-%\end{frame}
-
 %\subsection{git reset}
 %\begin{frame}[fragile]
     %\subslidetitle
@@ -408,20 +302,10 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~4}*)
 %% master@{"10 minutes ago"}
 %\end{frame}
 
-%\subsection{git checkout}
-%\begin{frame}[fragile]
-    %\subslidetitle
-%\end{frame}
-
 %\subsection{git diff}
 %\begin{frame}[fragile]
     %\subslidetitle
 %% --staged
-%\end{frame}
-
-%\subsection{git log}
-%\begin{frame}[fragile]
-    %\subslidetitle
 %\end{frame}
 
 %\subsection{git grep}
@@ -429,7 +313,3 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~4}*)
     %\subslidetitle
 %\end{frame}
 
-%\subsection{Exercises}
-%\begin{frame}[fragile]
-  %\subslidetitle
-%\end{frame}

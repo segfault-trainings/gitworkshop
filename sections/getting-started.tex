@@ -50,7 +50,7 @@ $ (*\textcolor[HTML]{0000AA}{cat ~/.gitconfig}*)
 
 [merge]
   tool = kdiff3
-  \end{lstlisting}
+\end{lstlisting}
 \end{frame}
 
 %\subsection{git init}
@@ -171,7 +171,7 @@ Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
         (*\textcolor[HTML]{00AA00}{new file:}*)   (*\textcolor[HTML]{00AA00}{AUTHORS}*)
-  \end{lstlisting}
+\end{lstlisting}
 \end{frame}
 
 
@@ -186,7 +186,7 @@ $ (*\textcolor[HTML]{0000AA}{git commit -m 'add authors file'}*)
 [master c01af7f] add authors file
  1 file changed, 1 insertion(+)
  create mode 100644 AUTHORS
-  \end{lstlisting}
+\end{lstlisting}
 
   Check the git status:
   \begin{lstlisting}
@@ -257,7 +257,7 @@ $ (*\textcolor[HTML]{0000AA}{git diff}*)
 (*\textcolor[HTML]{AA0000}{-}*)        (*\textcolor[HTML]{AA0000}{<title>moon</title>}*)
 (*\textcolor[HTML]{00AA00}{+}*)        (*\textcolor[HTML]{00AA00}{<title>Git Moons</title>}*)
          <meta charset="utf-8">
-  \end{lstlisting}
+\end{lstlisting}
 \end{frame}
 
 \subsection{git add}
@@ -278,7 +278,7 @@ Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
         (*\textcolor[HTML]{00AA00}{modified:}*)   (*\textcolor[HTML]{00AA00}{moon.html}*)
-  \end{lstlisting}
+\end{lstlisting}
 \end{frame}
 
 \subsection{git commit}
@@ -380,8 +380,6 @@ Changes not staged for commit:
   (use "git checkout -- <file>..." to discard changes in working directory)
 
         (*\textcolor{red}{modified:}*)   (*\textcolor{red}{AUTHORS}*)
-
-no changes added to commit (use "git add" and/or "git commit -a")
 \end{lstlisting}
 
   Instead of using \cmd{git checkout} on each file, use \cmd{git reset --hard} to undo all modifications at once:

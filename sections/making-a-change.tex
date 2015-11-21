@@ -2,155 +2,364 @@
 \begin{frame}[fragile]
   \slidetitle
 
-Working locally means that all the git command operation are off line.
-There is no interaction with a remote server.
-
-While working locally git allows you to flow through a predefined work flow.
-
-% TODO insert state diagram
-
-In the following slides we will introduce several git commands:
-\begin{itemize}
-\item status
-\item add
-\item reset
-\item checkout
-\item diff
-\item commit
-\item log
-\item grep
-\end{itemize}
-\end{frame}
-
-\subsection{git status}
-\begin{frame}[fragile]
-    \subslidetitle
-Notice the following 3 states:
-\begin{itemize}
-\item untracked (new files): every file which is not under version control.
-\item modified (changed to be tracked): every file already under version control, who has been modified.
-\item tracked (change to be committed): every file you intend to commit are added to the staging area.
-\item committed (invisible): bundle of files forming a commit, ready to be pushed to a remote.
-\end{itemize}
-
-The \cmd{git status} is used to give a current overview of your files.
-
-Additionally git also specify the current branch we are working on.
-\end{frame}
-
-\subsection{git add}
-\begin{frame}[fragile]
-    \subslidetitle
-% --patch
-\end{frame}
-
-\subsection{git commit}
-\begin{frame}[fragile]
-    \subslidetitle
-% --amend
-\end{frame}
-
-\subsection{Example: add a new file}
-\begin{frame}[fragile]
-\subslidetitle
-\begin{lstlisting}
-# let's create a new file
-cd myproject
-echo "# Moon: let's go" > Readme.md
-git status
-...
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-
-        Readme.md
-
-nothing added to commit but untracked files present (use "git add" to track)
-
-# let's add this change to the staging area.
-git add Readme.md
-git status
-...
-Changes to be committed:
-  (use "git rm --cached <file>..." to unstage)
-
-        new file:   Readme.md
-\end{lstlisting}
-\end{frame}
-
-\subsection{Example: commit the new file}
-\begin{frame}[fragile]
-\subslidetitle
-\begin{lstlisting}
-# let's commit this change
-git commit -m "Add readme file"
-[master (root-commit) 77eafe9] Add readme
- 1 file changed, 1 insertion(+)
- create mode 100644 Readme.md
-
-git status
-On branch master
-nothing to commit, working directory clean
-\end{lstlisting}
-\end{frame}
-
-\subsection{Example: modify an existing file}
-\begin{frame}[fragile]
-\subslidetitle
-\begin{lstlisting}
-# modify Readme
-echo "## prerequisites" >> Readme.md
-git status
-On branch master
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
-
-        modified:   Readme.md
-
-no changes added to commit (use "git add" and/or "git commit -a")
-
-# add modified file
-git add Readme.md
-git status
-On branch master
-Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-
-        modified:   Readme.md
-\end{lstlisting}
-\end{frame}
-
-\subsection{git reset}
-\begin{frame}[fragile]
-    \subslidetitle
-% --hard
-% --soft
-% --mixed
-% master@{"10 minutes ago"}
-\end{frame}
-
-\subsection{git checkout}
-\begin{frame}[fragile]
-    \subslidetitle
-\end{frame}
-
-\subsection{git diff}
-\begin{frame}[fragile]
-    \subslidetitle
-% --staged
+  In this section, we will learn how to:
+  \begin{itemize}
+    \item See the commit history
+    \item Make commits that are actually changes
+    \item Change commits and the history
+  \end{itemize}
 \end{frame}
 
 \subsection{git log}
 \begin{frame}[fragile]
-    \subslidetitle
+  \subslidetitle
+
+  The command \cmd{git log} displays the commit history:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git log}*)
+(*\textcolor[HTML]{ae6617}{commit 633a534830c18a1747aaa5677aa6ec0b18f250c4}*)
+Author: Andr(*é*) Roth <neolynx@gmail.com>
+Date:   Sat Nov 21 13:51:18 2015 +0100
+
+    green moon
+
+(*\textcolor[HTML]{ae6617}{commit 368a328bbefccbdf5732ca90b95015061186e16a}*)
+Author: Andr(*é*) Roth <neolynx@gmail.com>
+Date:   Sat Nov 21 13:47:14 2015 +0100
+
+    title in page
+
+(*\textcolor[HTML]{ae6617}{commit 96c4f6a4f04bc206b2eb4ae30cd0fa3594cfabc3}*)
+Author: Andr(*é*) Roth <neolynx@gmail.com>
+Date:   Sat Nov 21 13:46:18 2015 +0100
+
+    blue moon
+
+...
+\end{lstlisting}
+Note: \cmd{git log} uses the pager for displaying the log, use \cmd{q} to quit.
 \end{frame}
 
-\subsection{git grep}
-\begin{frame}[fragile]
-    \subslidetitle
-\end{frame}
 
-\subsection{Exercises}
+\subsection{A commit is a change}
 \begin{frame}[fragile]
   \subslidetitle
+
+  Using git correctly means a commit is not just a saved snapshot of your ongoing work. \textbf{It is a change to you code.}
+
+  \vspace{1em}
+  Rules:
+  \begin{itemize}
+    \item A commit message is in imperative form: \\
+      'add file', not 'adding file' or 'added file'
+    \item A git commit contains only the diffs that are needed for that given change
+    \item sha ?
+      \item commiter, author ?
+
+  \end{itemize}
 \end{frame}
+
+
+\subsection{Changing commits}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  In our commit history, we find the following messages:
+  \begin{lstlisting}
+...
+(*\textcolor[HTML]{ae6617}{commit 5784ef6fb05eeff9f74c848ad1b6daad9f0ef361}*)
+Author: Andr(*é*) Roth <neolynx@gmail.com>
+Date:   Sat Nov 21 12:49:09 2015 +0100
+
+    we do not need the test file anymore
+
+(*\textcolor[HTML]{ae6617}{commit 13dbd701662b6471eac5f535f5624af5ce3ade39}*)
+Author: Andr(*é*) Roth <neolynx@gmail.com>
+Date:   Sat Nov 21 12:42:30 2015 +0100
+
+    adding test file
+...
+\end{lstlisting}
+\end{frame}
+
+
+\subsection{Interactive rebase}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  Let's revisit the last 5 commits:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~5}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{13dbd70}*) (*\textcolor[HTML]{682268}{adding test file}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{5784ef6}*) (*\textcolor[HTML]{682268}{we do not need the test file anymore}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{96c4f6a}*) (*\textcolor[HTML]{682268}{blue moon}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{368a328}*) (*\textcolor[HTML]{682268}{title in page}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{633a534}*) (*\textcolor[HTML]{682268}{green moon}*)
+
+# Rebase 220767d..633a534 onto 220767d
+#
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like "squash", but discard this commit's log message
+\end{lstlisting}
+
+  Note: the interractive \cmd{git rebase -i} will open your default text editor.
+\end{frame}
+
+\subsection{Interactive rebase commands}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  The interactive rebase allows to change the first column in oder to:
+
+  \begin{itemize}
+    \opt{p, pick}{use commit}
+    \opt{r, reword}{use commit, but edit the commit message}
+    \opt{e, edit}{use commit, but stop for amending}
+    \opt{s, squash}{use commit, but meld into previous commit}
+    \opt{f, fixup}{like "squash", but discard this commit's log message}
+  \end{itemize}
+
+  \vspace{1em}
+  From the \cmd{git rebase -i} info:
+  \begin{itemize}
+    \item These lines can be re-ordered; they are executed from top to bottom.
+    \item If you remove a line here THAT COMMIT WILL BE LOST.
+    \item However, if you remove everything, the rebase will be aborted.
+  \end{itemize}
+
+\end{frame}
+
+\subsection{Reword commit messages}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  Let's change the first column to \cmd{reword} or simply \cmd{r} (in Vim: \cmd{cw r <ESC>}):
+  \begin{lstlisting}
+(*\textcolor[HTML]{682268}{r}*) (*\textcolor[HTML]{349E9E}{13dbd70}*) (*\textcolor[HTML]{682268}{adding test file}*)
+(*\textcolor[HTML]{682268}{r}*) (*\textcolor[HTML]{349E9E}{5784ef6}*) (*\textcolor[HTML]{682268}{we do not need the test file anymore}*)
+(*\textcolor[HTML]{682268}{r}*) (*\textcolor[HTML]{349E9E}{96c4f6a}*) (*\textcolor[HTML]{682268}{blue moon}*)
+(*\textcolor[HTML]{682268}{r}*) (*\textcolor[HTML]{349E9E}{368a328}*) (*\textcolor[HTML]{682268}{title in page}*)
+(*\textcolor[HTML]{682268}{r}*) (*\textcolor[HTML]{349E9E}{633a534}*) (*\textcolor[HTML]{682268}{green moon}*)
+\end{lstlisting}
+  Then, save and exit (in Vim: \cmd{:wq})
+
+  \vspace{1em}
+  This will start the rebase operation by processing each commit, line by line, starting from top.
+
+\end{frame}
+
+\subsection{Changing a commit message}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  The \cmd{reword} command will open an editor, which allows to change the commit message:
+  \begin{lstlisting}
+(*\textcolor[HTML]{B7A000}{adding test file}*)
+
+# Please enter the commit message for your changes. Lines
+# starting with '#' will be ignored, and an empty message
+# aborts the commit.
+#
+# Date:      Sat Nov 21 12:42:30 2015 +0100
+#
+# rebase in progress; onto 3ce2637
+# You are currently editing a commit while rebasing branch 'master' on '3ce2637'.
+#
+# Changes to be committed:
+#       new file:   (*\textcolor[HTML]{682268}{test.file}*)
+\end{lstlisting}
+
+  Now, change the message to 'add test file' and save and quit the editor (in Vim: \cmd{:wq}).
+  \\
+  \vspace{1em}
+  Then, the \cmd{git rebase -i} command will continue with the next commit. Change all commit
+  messages to be imperative.
+\end{frame}
+
+\subsection{After the rebase}
+\begin{frame}[fragile]
+  \subslidetitle
+
+   After the rebase operation you should see the following:
+  \begin{lstlisting}
+[detached HEAD 3bd32cc] add test file
+ Date: Sat Nov 21 12:42:30 2015 +0100
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test.file
+[detached HEAD d3a51c8] remove test file
+ Date: Sat Nov 21 12:49:09 2015 +0100
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 test.file
+[detached HEAD 8a713d1] add blue moon
+ Date: Sat Nov 21 13:46:18 2015 +0100
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[detached HEAD 4c5ac7c] add title in page
+ Date: Sat Nov 21 13:47:14 2015 +0100
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[detached HEAD 8c34fca] add green moon
+ Date: Sat Nov 21 13:51:18 2015 +0100
+ 1 file changed, 1 insertion(+)
+Successfully rebased and updated refs/heads/master.
+\end{lstlisting}
+\end{frame}
+
+%\section{Making a change}
+%\begin{frame}[fragile]
+  %\slidetitle
+
+%Working locally means that all the git command operation are off line.
+%There is no interaction with a remote server.
+
+%While working locally git allows you to flow through a predefined work flow.
+
+%% TODO insert state diagram
+
+%In the following slides we will introduce several git commands:
+%\begin{itemize}
+%\item status
+%\item add
+%\item reset
+%\item checkout
+%\item diff
+%\item commit
+%\item log
+%\item grep
+%\end{itemize}
+%\end{frame}
+
+%\subsection{git status}
+%\begin{frame}[fragile]
+    %\subslidetitle
+%Notice the following 3 states:
+%\begin{itemize}
+%\item untracked (new files): every file which is not under version control.
+%\item modified (changed to be tracked): every file already under version control, who has been modified.
+%\item tracked (change to be committed): every file you intend to commit are added to the staging area.
+%\item committed (invisible): bundle of files forming a commit, ready to be pushed to a remote.
+%\end{itemize}
+
+%The \cmd{git status} is used to give a current overview of your files.
+
+%Additionally git also specify the current branch we are working on.
+%\end{frame}
+
+%\subsection{git add}
+%\begin{frame}[fragile]
+    %\subslidetitle
+%% --patch
+%\end{frame}
+
+%\subsection{git commit}
+%\begin{frame}[fragile]
+    %\subslidetitle
+%% --amend
+%\end{frame}
+
+%\subsection{Example: add a new file}
+%\begin{frame}[fragile]
+%\subslidetitle
+%\begin{lstlisting}
+%# let's create a new file
+%cd myproject
+%echo "# Moon: let's go" > Readme.md
+%git status
+%...
+%Untracked files:
+  %(use "git add <file>..." to include in what will be committed)
+
+        %Readme.md
+
+%nothing added to commit but untracked files present (use "git add" to track)
+
+%# let's add this change to the staging area.
+%git add Readme.md
+%git status
+%...
+%Changes to be committed:
+  %(use "git rm --cached <file>..." to unstage)
+
+        %new file:   Readme.md
+%\end{lstlisting}
+%\end{frame}
+
+%\subsection{Example: commit the new file}
+%\begin{frame}[fragile]
+%\subslidetitle
+%\begin{lstlisting}
+%# let's commit this change
+%git commit -m "Add readme file"
+%[master (root-commit) 77eafe9] Add readme
+ %1 file changed, 1 insertion(+)
+ %create mode 100644 Readme.md
+
+%git status
+%On branch master
+%nothing to commit, working directory clean
+%\end{lstlisting}
+%\end{frame}
+
+%\subsection{Example: modify an existing file}
+%\begin{frame}[fragile]
+%\subslidetitle
+%\begin{lstlisting}
+%# modify Readme
+%echo "## prerequisites" >> Readme.md
+%git status
+%On branch master
+%Changes not staged for commit:
+  %(use "git add <file>..." to update what will be committed)
+  %(use "git checkout -- <file>..." to discard changes in working directory)
+
+        %modified:   Readme.md
+
+%no changes added to commit (use "git add" and/or "git commit -a")
+
+%# add modified file
+%git add Readme.md
+%git status
+%On branch master
+%Changes to be committed:
+  %(use "git reset HEAD <file>..." to unstage)
+
+        %modified:   Readme.md
+%\end{lstlisting}
+%\end{frame}
+
+%\subsection{git reset}
+%\begin{frame}[fragile]
+    %\subslidetitle
+%% --hard
+%% --soft
+%% --mixed
+%% master@{"10 minutes ago"}
+%\end{frame}
+
+%\subsection{git checkout}
+%\begin{frame}[fragile]
+    %\subslidetitle
+%\end{frame}
+
+%\subsection{git diff}
+%\begin{frame}[fragile]
+    %\subslidetitle
+%% --staged
+%\end{frame}
+
+%\subsection{git log}
+%\begin{frame}[fragile]
+    %\subslidetitle
+%\end{frame}
+
+%\subsection{git grep}
+%\begin{frame}[fragile]
+    %\subslidetitle
+%\end{frame}
+
+%\subsection{Exercises}
+%\begin{frame}[fragile]
+  %\subslidetitle
+%\end{frame}

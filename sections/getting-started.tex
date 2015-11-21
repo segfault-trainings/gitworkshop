@@ -385,7 +385,7 @@ HEAD is now at fc92204 change title
 \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{touch test.file}*)
 $ (*\textcolor[HTML]{0000AA}{git add test.file}*)
-$ (*\textcolor[HTML]{0000AA}{git commit -m 'add test file'}*)
+$ (*\textcolor[HTML]{0000AA}{git commit -m 'adding a test file'}*)
 [master 3d0539f] add test file
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 test.file
@@ -411,11 +411,24 @@ Changes to be committed:
 \subslidetitle
   Commit the staged removal of the file:
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git commit -m 'remove test file'}*)
+$ (*\textcolor[HTML]{0000AA}{git commit -m 'we do not need the test file anymore'}*)
 [master 06cb00f] remove test file
  1 file changed, 0 insertions(+), 0 deletions(-)
  delete mode 100644 test.file
 \end{lstlisting}
+
+\end{frame}
+
+\subsection{Exercises}
+\begin{frame}[fragile]
+\subslidetitle
+  Create a commit for each exercise below:
+  \begin{exercise}
+    \item Change the color of the moon to blue
+    \item Change the \cmd{<h1>} tag of \cmd{moon.html} to 'Git Moons'
+    \item Add a green moon
+
+  \end{exercise}
 
 \end{frame}
 

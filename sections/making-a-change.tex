@@ -106,7 +106,7 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~5}*)
 #  f, fixup = like "squash", but discard this commit's log message
 \end{lstlisting}
 
-  Note: the interractive \cmd{git rebase -i} will open your default text editor.
+  Note: the interactive \cmd{git rebase -i} will open your default text editor.
 \end{frame}
 
 \subsection{Interactive rebase commands}
@@ -207,6 +207,49 @@ Successfully rebased and updated refs/heads/master.
 \end{lstlisting}
 \end{frame}
 
+\subsection{Remove commit messages}
+\begin{frame}[fragile]
+  \subslidetitle
+  An interactive rebase can be used to remove commits:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~5}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3bd32cc}*) (*\textcolor[HTML]{682268}{add test file}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{d3a51c8}*) (*\textcolor[HTML]{682268}{remove test file}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{8a713d1}*) (*\textcolor[HTML]{682268}{add blue moon}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{4c5ac7c}*) (*\textcolor[HTML]{682268}{add title in page}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{8c34fca}*) (*\textcolor[HTML]{682268}{add green moon}*)
+\end{lstlisting}
+  The first two commits are useless, remove the lines (in Vim: \cmd{dd}) and save and quit the editor.
+
+\end{frame}
+
+\subsection{Reorder commit messages}
+\begin{frame}[fragile]
+  \subslidetitle
+  An interactive rebase can be used to reorder commits:
+
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~4}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{add blue moon}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{add title in page}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
+\end{lstlisting}
+
+  The commits can be grouped logically in title changes and moon color changes.\\
+  Use copy \& paste to reorder the commits (in Vim: \cmd{yy} \& \cmd{p}):
+
+  \begin{lstlisting}
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{add title in page}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{add blue moon}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
+\end{lstlisting}
+
+  Save and quit the editor to reorder the commits.
+
+
+\end{frame}
 %\section{Making a change}
 %\begin{frame}[fragile]
   %\slidetitle

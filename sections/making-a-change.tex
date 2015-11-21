@@ -186,28 +186,28 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~5}*)
 
    After the rebase operation you should see the following:
   \begin{lstlisting}
-[detached HEAD 3bd32cc] add test file
+[detached HEAD 3bd32cc] (*\textcolor[HTML]{682268}{add test file}*)
  Date: Sat Nov 21 12:42:30 2015 +0100
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 test.file
-[detached HEAD d3a51c8] remove test file
+[detached HEAD d3a51c8] (*\textcolor[HTML]{682268}{remove test file}*)
  Date: Sat Nov 21 12:49:09 2015 +0100
  1 file changed, 0 insertions(+), 0 deletions(-)
  delete mode 100644 test.file
-[detached HEAD 8a713d1] add blue moon
+[detached HEAD 8a713d1] (*\textcolor[HTML]{682268}{change moon to blue}*)
  Date: Sat Nov 21 13:46:18 2015 +0100
  1 file changed, 1 insertion(+), 1 deletion(-)
-[detached HEAD 4c5ac7c] add title in page
+[detached HEAD 4c5ac7c] (*\textcolor[HTML]{682268}{add title in page}*)
  Date: Sat Nov 21 13:47:14 2015 +0100
  1 file changed, 1 insertion(+), 1 deletion(-)
-[detached HEAD 8c34fca] add green moon
+[detached HEAD 8c34fca] (*\textcolor[HTML]{682268}{add green moon}*)
  Date: Sat Nov 21 13:51:18 2015 +0100
  1 file changed, 1 insertion(+)
 Successfully rebased and updated refs/heads/master.
 \end{lstlisting}
 \end{frame}
 
-\subsection{Remove commit messages}
+\subsection{Remove commits}
 \begin{frame}[fragile]
   \subslidetitle
   An interactive rebase can be used to remove commits:
@@ -215,7 +215,7 @@ Successfully rebased and updated refs/heads/master.
 $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~5}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3bd32cc}*) (*\textcolor[HTML]{682268}{add test file}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{d3a51c8}*) (*\textcolor[HTML]{682268}{remove test file}*)
-(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{8a713d1}*) (*\textcolor[HTML]{682268}{add blue moon}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{8a713d1}*) (*\textcolor[HTML]{682268}{change moon to blue}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{4c5ac7c}*) (*\textcolor[HTML]{682268}{add title in page}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{8c34fca}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
@@ -223,7 +223,7 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~5}*)
 
 \end{frame}
 
-\subsection{Reorder commit messages}
+\subsection{Reorder commits}
 \begin{frame}[fragile]
   \subslidetitle
   An interactive rebase can be used to reorder commits:
@@ -231,7 +231,7 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~5}*)
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~4}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
-(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{add blue moon}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change moon to blue}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{add title in page}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
@@ -242,14 +242,41 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~4}*)
   \begin{lstlisting}
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{add title in page}*)
-(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{add blue moon}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change moon to blue}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
 
   Save and quit the editor to reorder the commits.
-
-
 \end{frame}
+
+
+\subsection{Fixup commits}
+\begin{frame}[fragile]
+  \subslidetitle
+  An interactive rebase can be used to fixup commits:
+
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~4}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{add title in page}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change moon to blue}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
+\end{lstlisting}
+
+  The first two are actually the same change, fix them up by setting the first
+  column of the second ont to \cmd{fixup} or simply \cmd{f} (in Vim: \cmd{cw f <ESC>}):
+
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~4}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
+(*\textcolor[HTML]{B7A000}{f}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{add title in page}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change moon to blue}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
+\end{lstlisting}
+
+  Save and quit the editor to reorder the commits.
+\end{frame}
+
 %\section{Making a change}
 %\begin{frame}[fragile]
   %\slidetitle

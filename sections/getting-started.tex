@@ -378,3 +378,44 @@ HEAD is now at fc92204 change title
 \end{lstlisting}
 \end{frame}
 
+\subsection{Removing a file}
+\begin{frame}[fragile]
+\subslidetitle
+  Let's first add a file:
+\begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{touch test.file}*)
+$ (*\textcolor[HTML]{0000AA}{git add test.file}*)
+$ (*\textcolor[HTML]{0000AA}{git commit -m 'add test file'}*)
+[master 3d0539f] add test file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test.file
+\end{lstlisting}
+
+  The command \cmd{git rm} removes a file from the repository:
+\begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git rm test.file}*)
+rm 'test.file'
+$ (*\textcolor[HTML]{0000AA}{git status}*)
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        (*\textcolor[HTML]{00AA00}{deleted:}*)    (*\textcolor[HTML]{00AA00}{test.file}*)
+\end{lstlisting}
+\end{frame}
+
+\subsection{git rm}
+\begin{frame}[fragile]
+\subslidetitle
+  Commit the staged removal of the file:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git commit -m 'remove test file'}*)
+[master 06cb00f] remove test file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 test.file
+\end{lstlisting}
+
+\end{frame}
+

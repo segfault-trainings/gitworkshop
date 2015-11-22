@@ -313,6 +313,11 @@ Changes not staged for commit:
 
 \end{lstlisting}
 
+\end{frame}
+
+\subsection{Undo a modifaction}
+\begin{frame}[fragile]
+\subslidetitle
   The command \cmd{git checkout} allows you to undo the modification:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git checkout AUTHORS}*)
@@ -322,14 +327,9 @@ Your branch is up-to-date with 'origin/master'.
 nothing to commit, working directory clean
 \end{lstlisting}
 
-Note: checkout discards the changes, handle with care!
-
-\end{frame}
-
-\subsection{Undo a modifaction}
-\begin{frame}[fragile]
-\subslidetitle
   \centerline{\includegraphics{diagrams/undo-modified}}
+
+  Note: checkout discards the changes, handle with care!
 \end{frame}
 
 \subsection{Undo staging}
@@ -350,19 +350,20 @@ Changes to be committed:
         (*\textcolor[HTML]{00AA00}{modified:}*)   (*\textcolor[HTML]{00AA00}{AUTHORS}*)
 \end{lstlisting}
 
-The command \cmd{git reset} allows you to unstage a file:
-
-\begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git reset HEAD AUTHORS}*)
-Unstaged changes after reset:
-M       AUTHORS
-\end{lstlisting}
-
 \end{frame}
 
 \subsection{Undo staging}
 \begin{frame}[fragile]
 \subslidetitle
+
+  The command \cmd{git reset} allows you to unstage a file:
+
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git reset HEAD AUTHORS}*)
+Unstaged changes after reset:
+M       AUTHORS
+\end{lstlisting}
+
   \centerline{\includegraphics{diagrams/undo-staged}}
 \end{frame}
 

@@ -120,7 +120,7 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde6}*)
 \begin{frame}[fragile]
   \subslidetitle
 
-  The interactive rebase allows to change the first column in oder to:
+  The interactive rebase allows to change the first column of one or more commits in oder to:
 
   \begin{itemize}
     \opt{p, pick}{use commit}
@@ -144,7 +144,7 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde6}*)
 \begin{frame}[fragile]
   \subslidetitle
 
-  Let's change the first column to \cmd{reword} or simply \cmd{r} (in Vim: \cmd{cw r <ESC>}):
+  Let's change the first column to \cmd{reword} or simply \cmd{r} of the commit messages we want to reword (in Vim: \cmd{cw r <ESC>}):
   \begin{lstlisting}
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
 (*\textcolor[HTML]{682268}{r}*) (*\textcolor[HTML]{349E9E}{13dbd70}*) (*\textcolor[HTML]{682268}{adding test file}*)
@@ -181,20 +181,44 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde6}*)
 #       new file:   (*\textcolor[HTML]{682268}{test.file}*)
 \end{lstlisting}
 
-  Now, change the message to 'add test file' and save and quit the editor (in Vim: \cmd{:wq}).
-  \\
-  \vspace{1em}
-  Then, the \cmd{git rebase -i} command will continue with the next commit. Change all commit
-  messages to be imperative.
 \end{frame}
 
+\subsection{Create nice commit messages}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  Now, change the commit title and message to the following:
+  \begin{lstlisting}
+(*\textcolor[HTML]{B7A000}{add test file}*)
+
+The file `test.file' is needed for illustrating the `git rm'
+command. It will be removed by the next commit.
+
+\end{lstlisting}
+
+  Save and quit the editor (in Vim: \cmd{:wq}).
+  \\
+  \vspace{1em}
+  Then, the \cmd{git rebase -i} command will continue with the next commit.
+  \\
+  \vspace{1em}
+  Change all commit messages to be imperative and add an explanatory commit text.
+\end{frame}
 \subsection{After the rebase}
 \begin{frame}[fragile]
   \subslidetitle
 
    After the rebase operation you should see the following:
   \begin{lstlisting}
-  git log --oneline
+$ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
+(*\textcolor[HTML]{ae6617}{7218137}*) add green moon
+(*\textcolor[HTML]{ae6617}{f7613af}*) change title in page
+(*\textcolor[HTML]{ae6617}{bf18d68}*) change the color of the moon blue
+(*\textcolor[HTML]{ae6617}{a550b98}*) remove test file
+(*\textcolor[HTML]{ae6617}{88afdba}*) add test file
+(*\textcolor[HTML]{ae6617}{3ce2637}*) change title
+(*\textcolor[HTML]{ae6617}{220767d}*) add authors file
+(*\textcolor[HTML]{ae6617}{39719c9}*) initial commit
 \end{lstlisting}
 \end{frame}
 
@@ -206,11 +230,20 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde6}*)
 $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde5}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3bd32cc}*) (*\textcolor[HTML]{682268}{add test file}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{d3a51c8}*) (*\textcolor[HTML]{682268}{remove test file}*)
-(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{8a713d1}*) (*\textcolor[HTML]{682268}{change moon to blue}*)
-(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{4c5ac7c}*) (*\textcolor[HTML]{682268}{add title in page}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{8a713d1}*) (*\textcolor[HTML]{682268}{change the color of the moon blue}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{4c5ac7c}*) (*\textcolor[HTML]{682268}{change title in page}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{8c34fca}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
-  The first two commits are useless, remove the lines (in Vim: \cmd{dd}) and save and quit the editor.
+  The first two commits are useless, remove the lines (in Vim: \cmd{dd}):
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde5}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{8a713d1}*) (*\textcolor[HTML]{682268}{change the color of the moon blue}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{4c5ac7c}*) (*\textcolor[HTML]{682268}{change title in page}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{8c34fca}*) (*\textcolor[HTML]{682268}{add green moon}*)
+\end{lstlisting}
+
+
+  Then save and quit the editor.
 
 \end{frame}
 
@@ -222,8 +255,8 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde5}*)
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
-(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change moon to blue}*)
-(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{add title in page}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change the color of the moon blue}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{change title in page}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
 
@@ -232,8 +265,8 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
 
   \begin{lstlisting}
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
-(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{add title in page}*)
-(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change moon to blue}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{change title in page}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change the color of the moon blue}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
 
@@ -249,19 +282,19 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
-(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{add title in page}*)
-(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change moon to blue}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{change title in page}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change the color of the moon blue}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
 
   The first two are actually the same change, fix them up by setting the first
-  column of the second ont to \cmd{fixup} or simply \cmd{f} (in Vim: \cmd{cw f <ESC>}):
+  column of the second commit to \cmd{fixup} or simply \cmd{f} (in Vim: \cmd{cw f <ESC>}):
 
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
-(*\textcolor[HTML]{B7A000}{f}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{add title in page}*)
-(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change moon to blue}*)
+(*\textcolor[HTML]{B7A000}{f}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{change title in page}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change the color of the moon blue}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
 
@@ -271,7 +304,62 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
 \subsection{Squash commits}
 \begin{frame}[fragile]
   \subslidetitle
-  An interactive rebase can be used to fixup commits:
+  An interactive rebase can be used to squash commits:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde3}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3fbbf93}*) (*\textcolor[HTML]{682268}{change title}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change the color of the moon blue}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
+\end{lstlisting}
+
+  The last two commit are very similar, meld them by setting the first
+  column of the second commit to \cmd{squash} or simply \cmd{s} (in Vim: \cmd{cw s <ESC>}):
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde3}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3fbbf93}*) (*\textcolor[HTML]{682268}{change title}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change the color of the moon blue}*)
+(*\textcolor[HTML]{B7A000}{s}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
+\end{lstlisting}
+  Save and quit the editor to squash the commits. This will open an editor.
+\end{frame}
+
+\subsection{Squash commits}
+\begin{frame}[fragile]
+  \subslidetitle
+  The commit message of both commits to be squashed can be modified now:
+  \begin{lstlisting}
+# This is a combination of 2 commits.
+# The first commit's message is:
+
+change the color of the moon blue
+
+# This is the 2nd commit message:
+
+add green moon
+\end{lstlisting}
+
+  Change it to:
+  \begin{lstlisting}
+# This is a combination of 2 commits.
+
+change the color of the moon blue and add green moon
+
+\end{lstlisting}
+  Save and quit the editor.
+\end{frame}
+
+\subsection{After the interactive rebase}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  The commits are now consistent and understandable:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
+(*\textcolor[HTML]{ae6617}{2fdc7c2}*) change the color of the moon blue and add green moon
+(*\textcolor[HTML]{ae6617}{3fbbf93}*) change title
+(*\textcolor[HTML]{ae6617}{220767d}*) add authors file
+(*\textcolor[HTML]{ae6617}{39719c9}*) initial commit
+\end{lstlisting}
 
 \end{frame}
 

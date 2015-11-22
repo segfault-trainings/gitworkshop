@@ -15,12 +15,12 @@ In this section we will learn to use git branches.
 
 To create a new \textbf{foo} branch, append the branch name to the \cmd{git branch} command.
 \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git branch foo}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git branch foo}*)
 \end{lstlisting}
 
 The \cmd{git branch} command lists you all your local branches
 \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git branch}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $  (*\textcolor[HTML]{0000AA}{git branch}*)
   foo
 * (*\textcolor[HTML]{00AA00}{master}*)
 \end{lstlisting}
@@ -33,22 +33,21 @@ Note: the * character indicate which branch we are currently working on.
     \subslidetitle
 The \cmd{git checkout} command, is used to change the working branch.
 \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git checkout foo}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout foo}*)
 Switched to branch 'foo'
-$ (*\textcolor[HTML]{0000AA}{git branch}*)
+(*\textcolor[HTML]{18B2B2}{(foo)}*) $ (*\textcolor[HTML]{0000AA}{git branch}*)
 * (*\textcolor[HTML]{00AA00}{foo}*)
   master
-$ (*\textcolor[HTML]{0000AA}{git checkout master}*)
-Switched to branch 'master'
 \end{lstlisting}
 
-The checkout command with \textbf{-b} option creates a new branch and automatically switch to it.
+The \cmd{git checkout} command with \textbf{-b} option creates a new branch and automatically switch to it.
 \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git checkout -b bar}*)
+(*\textcolor[HTML]{18B2B2}{(foo)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b bar}*)
 Switched to a new branch 'bar'
-$ (*\textcolor[HTML]{0000AA}{git branch}*)
-  master
+(*\textcolor[HTML]{18B2B2}{(bar)}*) $ (*\textcolor[HTML]{0000AA}{git branch}*)
 * (*\textcolor[HTML]{00AA00}{bar}*)
+  foo
+  master
 \end{lstlisting}
 \end{frame}
 
@@ -57,11 +56,11 @@ $ (*\textcolor[HTML]{0000AA}{git branch}*)
     \subslidetitle
 To delete an existing branch use the -d or -D (force) flag:
 \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git checkout master}*)
-$ (*\textcolor[HTML]{0000AA}{git branch foo bar -d}*)
+(*\textcolor[HTML]{18B2B2}{(bar)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git branch foo bar -d}*)
 Deleted branch foo (was c974445).
 Deleted branch bar (was 9adadac).
-$ (*\textcolor[HTML]{0000AA}{git branch}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git branch}*)
 * (*\textcolor[HTML]{00AA00}{master}*)
 \end{lstlisting}
 

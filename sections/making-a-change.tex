@@ -58,6 +58,31 @@ $ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
 \end{lstlisting}
 \end{frame}
 
+\subsection{Showing a commit detail}
+\begin{frame}[fragile]
+  \subslidetitle
+The \cmd{git show} command gives details about a specific commit hash.
+
+\begin{lstlisting}
+(*\textcolor[HTML]{0000AA}{git show 220767dbb3ab047e548752b744699731e1c38509}*)
+(*\textcolor[HTML]{B7A000}{commit 220767dbb3ab047e548752b744699731e1c38509}*)
+Author: Andr(*é*) Roth <neolynx@gmail.com>
+Date:   Mon Nov 9 21:44:02 2015 +0100
+
+    add authors file
+
+diff --git a/AUTHORS b/AUTHORS
+new file mode 100644
+index 0000000..8227a64
+--- /dev/null
++++ b/AUTHORS
+(*\textcolor[HTML]{18B2B2}{@@ -0,0 +1 @@}*)
+(*\textcolor[HTML]{00AA00}{+Tux Penguin}*)
+\end{lstlisting}
+
+Note: you can abreviate the given commit hash to 220767d, git
+\end{frame}
+
 \subsection{Textmode Interface for git - tig}
 \begin{frame}[fragile]
   \subslidetitle

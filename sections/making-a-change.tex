@@ -98,9 +98,10 @@ $ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
 \begin{frame}[fragile]
   \subslidetitle
 
-  Let's revisit the last 5 commits:
+  Let's revisit the last 6 commits:
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde5}*)
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde6}*)
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{13dbd70}*) (*\textcolor[HTML]{682268}{adding test file}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{5784ef6}*) (*\textcolor[HTML]{682268}{we do not need the test file anymore}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{96c4f6a}*) (*\textcolor[HTML]{682268}{blue moon}*)
@@ -145,6 +146,7 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde5}*)
 
   Let's change the first column to \cmd{reword} or simply \cmd{r} (in Vim: \cmd{cw r <ESC>}):
   \begin{lstlisting}
+(*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
 (*\textcolor[HTML]{682268}{r}*) (*\textcolor[HTML]{349E9E}{13dbd70}*) (*\textcolor[HTML]{682268}{adding test file}*)
 (*\textcolor[HTML]{682268}{r}*) (*\textcolor[HTML]{349E9E}{5784ef6}*) (*\textcolor[HTML]{682268}{we do not need the test file anymore}*)
 (*\textcolor[HTML]{682268}{r}*) (*\textcolor[HTML]{349E9E}{96c4f6a}*) (*\textcolor[HTML]{682268}{blue moon}*)

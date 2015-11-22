@@ -94,12 +94,7 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde5}*)
 
 # Rebase 220767d..633a534 onto 220767d
 #
-# Commands:
-#  p, pick = use commit
-#  r, reword = use commit, but edit the commit message
-#  e, edit = use commit, but stop for amending
-#  s, squash = use commit, but meld into previous commit
-#  f, fixup = like "squash", but discard this commit's log message
+...
 \end{lstlisting}
 
   Note: the interactive \cmd{git rebase -i} will open your default text editor.
@@ -182,24 +177,7 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde5}*)
 
    After the rebase operation you should see the following:
   \begin{lstlisting}
-[detached HEAD 3bd32cc] (*\textcolor[HTML]{682268}{add test file}*)
- Date: Sat Nov 21 12:42:30 2015 +0100
- 1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 test.file
-[detached HEAD d3a51c8] (*\textcolor[HTML]{682268}{remove test file}*)
- Date: Sat Nov 21 12:49:09 2015 +0100
- 1 file changed, 0 insertions(+), 0 deletions(-)
- delete mode 100644 test.file
-[detached HEAD 8a713d1] (*\textcolor[HTML]{682268}{change moon to blue}*)
- Date: Sat Nov 21 13:46:18 2015 +0100
- 1 file changed, 1 insertion(+), 1 deletion(-)
-[detached HEAD 4c5ac7c] (*\textcolor[HTML]{682268}{add title in page}*)
- Date: Sat Nov 21 13:47:14 2015 +0100
- 1 file changed, 1 insertion(+), 1 deletion(-)
-[detached HEAD 8c34fca] (*\textcolor[HTML]{682268}{add green moon}*)
- Date: Sat Nov 21 13:51:18 2015 +0100
- 1 file changed, 1 insertion(+)
-Successfully rebased and updated refs/heads/master.
+  git log --oneline
 \end{lstlisting}
 \end{frame}
 

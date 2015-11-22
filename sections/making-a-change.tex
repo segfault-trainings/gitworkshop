@@ -10,7 +10,7 @@
   \end{itemize}
 \end{frame}
 
-\subsection{git log}
+\subsection{Commit logs}
 \begin{frame}[fragile]
   \subslidetitle
 
@@ -40,6 +40,33 @@ Date:   Sat Nov 21 13:46:18 2015 +0100
 Note: \cmd{git log} uses the pager for displaying the log, use \cmd{q} to quit.
 \end{frame}
 
+\subsection{Commit logs on one line}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  In our commit history, we find the following messages:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
+(*\textcolor[HTML]{ae6617}{633a534}*) green moon
+(*\textcolor[HTML]{ae6617}{368a328}*) title in page
+(*\textcolor[HTML]{ae6617}{96c4f6a}*) blue moon
+(*\textcolor[HTML]{ae6617}{5784ef6}*) we do not need the test file anymore
+(*\textcolor[HTML]{ae6617}{13dbd70}*) adding test file
+(*\textcolor[HTML]{ae6617}{3ce2637}*) change title
+(*\textcolor[HTML]{ae6617}{220767d}*) add authors file
+(*\textcolor[HTML]{ae6617}{39719c9}*) initial commit
+\end{lstlisting}
+\end{frame}
+
+\subsection{Textmode Interface for git - tig}
+\begin{frame}[fragile]
+  \subslidetitle
+\end{frame}
+
+\subsection{gitk}
+\begin{frame}[fragile]
+  \subslidetitle
+\end{frame}
 
 \subsection{A commit is a change}
 \begin{frame}[fragile]
@@ -57,25 +84,6 @@ Note: \cmd{git log} uses the pager for displaying the log, use \cmd{q} to quit.
       \item commiter, author ?
 
   \end{itemize}
-\end{frame}
-
-
-\subsection{Changing commits}
-\begin{frame}[fragile]
-  \subslidetitle
-
-  In our commit history, we find the following messages:
-  \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
-(*\textcolor[HTML]{ae6617}{633a534}*) green moon
-(*\textcolor[HTML]{ae6617}{368a328}*) title in page
-(*\textcolor[HTML]{ae6617}{96c4f6a}*) blue moon
-(*\textcolor[HTML]{ae6617}{5784ef6}*) we do not need the test file anymore
-(*\textcolor[HTML]{ae6617}{13dbd70}*) adding test file
-(*\textcolor[HTML]{ae6617}{3ce2637}*) change title
-(*\textcolor[HTML]{ae6617}{220767d}*) add authors file
-(*\textcolor[HTML]{ae6617}{39719c9}*) initial commit
-\end{lstlisting}
 \end{frame}
 
 

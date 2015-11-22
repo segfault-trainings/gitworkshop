@@ -107,20 +107,51 @@ Note: you can abreviate the given commit hash to 220767d.
 \begin{frame}[fragile]
   \subslidetitle
 
-  Using git correctly means a commit is not just a saved snapshot of your ongoing work. \textbf{It is a change to you code.}
+  Using git correctly means a commit is not just a saved snapshot of your ongoing work. \textbf{It is a change to your code.}
 
   \vspace{1em}
+  \begin{lstlisting}
+(*\textcolor[HTML]{ae6617}{88afdba}*) add test file
+  \end{lstlisting}
+
+  \vspace{1em}
+  Elements of a commit:
+
+  \begin{tabular}{lp{15cm}}
+    \textbf{Commit Message} & A message explaining the change. It is written in imperative form: \newline
+                              'add file', not 'adding file' or 'added file' \\
+    \textbf{Author} & Name and Email as defined in \cmd{gitconfig} \\
+    \textbf{AuthorDate} & Date of commit \\
+    %\textbf{Committer} & Name and Email of committer \\
+    %\textbf{CommitDate} & Date of commit \\
+    \textbf{SHA} & HASH which git uses as key \\
+  \end{tabular}
+\end{frame}
+
+\subsection{Best practice Commit Message}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  Its importent to keep commit messages consistent, clear and readable.
+  \vspace{1em}
+
   Rules:
   \begin{itemize}
     \item A commit message is in imperative form: \\
       'add file', not 'adding file' or 'added file'
     \item A git commit contains only the diffs that are needed for that given change
-    \item sha ?
-      \item commiter, author ?
 
+    \item shows whether a developer is a good collaborator.
+
+    \item Separate subject from body with a blank line
+    \item Limit the subject line to 50 characters
+    \item Capitalize the subject line
+    \item Do not end the subject line with a period
+    \item Use the imperative mood in the subject line
+    \item Wrap the body at 72 characters
+    \item Use the body to explain what and why vs. how
   \end{itemize}
 \end{frame}
-
 
 \subsection{Interactive rebase}
 \begin{frame}[fragile]

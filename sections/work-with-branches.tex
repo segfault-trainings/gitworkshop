@@ -9,16 +9,16 @@ In this section we will learn to use git branches.
 \begin{frame}[fragile]
     \subslidetitle
 
-To create a new \textbf{test} branch, append the branch name to the command.
+To create a new \textbf{foo} branch, append the branch name to the command.
 \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git branch test}*)
+$ (*\textcolor[HTML]{0000AA}{git branch foo}*)
 \end{lstlisting}
 
 The \cmd{git branch} command lists you all the local branches
 \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git branch}*)
 * (*\textcolor[HTML]{00AA00}{master}*)
-  test
+  foo
 \end{lstlisting}
 
 Note: the * character indicate which branch we are currently working on.
@@ -31,18 +31,18 @@ The \cmd{git checkout} command, is used to change the working branch
 \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git branch}*)
 * (*\textcolor[HTML]{00AA00}{master}*)
-  test
-$ (*\textcolor[HTML]{0000AA}{git checkout test}*)
-Switched to branch 'test'
+  foo
+$ (*\textcolor[HTML]{0000AA}{git checkout foo}*)
+Switched to branch 'foo'
 $ (*\textcolor[HTML]{0000AA}{git branch}*)
   master
-* (*\textcolor[HTML]{00AA00}{test}*)
+* (*\textcolor[HTML]{00AA00}{foo}*)
 $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
 Switched to branch 'master'
-$ (*\textcolor[HTML]{0000AA}{git checkout -b test2}*)
+$ (*\textcolor[HTML]{0000AA}{git checkout -b bar}*)
 $ (*\textcolor[HTML]{0000AA}{git branch}*)
   master
-* (*\textcolor[HTML]{00AA00}{test2}*)
+* (*\textcolor[HTML]{00AA00}{bar}*)
 \end{lstlisting}
 \end{frame}
 
@@ -52,9 +52,9 @@ $ (*\textcolor[HTML]{0000AA}{git branch}*)
 To delete an existing branch use the -d or -D flag:
 \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
-$ (*\textcolor[HTML]{0000AA}{git branch test test2 -d}*)
-Deleted branch test (was c974445).
-Deleted branch test2 (was 9adadac).
+$ (*\textcolor[HTML]{0000AA}{git branch foo bar -d}*)
+Deleted branch foo (was c974445).
+Deleted branch bar (was 9adadac).
 $ (*\textcolor[HTML]{0000AA}{git branch}*)
 * (*\textcolor[HTML]{00AA00}{master}*)
 \end{lstlisting}

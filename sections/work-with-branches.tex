@@ -23,25 +23,13 @@ $ (*\textcolor[HTML]{0000AA}{git branch}*)
 \end{lstlisting}
 
 Note: the * character indicate which branch we are currently working on.
-\newline
-To delete an existing branch use the -d or -D flag:
-\begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git branch test -d}*)
-Deleted branch test (was 5c81bc0).
-$ (*\textcolor[HTML]{0000AA}{git branch}*)
-* (*\textcolor{green}{master}*)
-\end{lstlisting}
-
-Note: you cannot delete the branch you are currently working on.
 \end{frame}
 
 \subsection{git checkout}
 \begin{frame}[fragile]
     \subslidetitle
-% -b
 The \cmd{git checkout} command, is used to change the working branch
 \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git branch test}*)
 $ (*\textcolor[HTML]{0000AA}{git branch}*)
 * (*\textcolor{green}{master}*)
   test
@@ -50,7 +38,20 @@ Switched to branch 'test'
 $ (*\textcolor[HTML]{0000AA}{git branch}*)
   master
 * (*\textcolor{green}{test}*)
+$ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+Switched to branch 'master'
 \end{lstlisting}
+
+To delete an existing branch use the -d or -D flag:
+\begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git branch test -d}*)
+Deleted branch test (was 5c81bc0).
+$ (*\textcolor[HTML]{0000AA}{git checkout -b test}*)
+$ (*\textcolor[HTML]{0000AA}{git branch}*)
+* (*\textcolor{green}{master}*)
+\end{lstlisting}
+
+Note: you cannot delete the branch you are currently working on.
 
 \end{frame}
 

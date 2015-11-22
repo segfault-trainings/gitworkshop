@@ -43,7 +43,7 @@ Switched to branch 'foo'
   master
 \end{lstlisting}
 
-The \cmd{git checkout} command with \textbf{-b} option creates a new branch and automatically switch to it.
+The \cmd{git checkout} command with \cmd{-b} option creates a new branch and automatically switch to it.
 \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(foo)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b bar}*)
 Switched to a new branch 'bar'
@@ -57,7 +57,7 @@ Switched to a new branch 'bar'
 \subsection{Deleting a branch}
 \begin{frame}[fragile]
     \subslidetitle
-To delete an existing branch use the -d or -D (force) flag:
+To delete an existing branch use the \cmd{-d} or \cmd{-D} (force) flag:
 \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(bar)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git branch foo bar -d}*)

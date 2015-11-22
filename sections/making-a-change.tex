@@ -89,7 +89,8 @@ Date:   Sat Nov 21 12:42:30 2015 +0100
 
   Let's revisit the last 5 commits:
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~5}*)
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde5}*)
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde5}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{13dbd70}*) (*\textcolor[HTML]{682268}{adding test file}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{5784ef6}*) (*\textcolor[HTML]{682268}{we do not need the test file anymore}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{96c4f6a}*) (*\textcolor[HTML]{682268}{blue moon}*)
@@ -212,7 +213,8 @@ Successfully rebased and updated refs/heads/master.
   \subslidetitle
   An interactive rebase can be used to remove commits:
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~5}*)
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde5}*)
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde5}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3bd32cc}*) (*\textcolor[HTML]{682268}{add test file}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{d3a51c8}*) (*\textcolor[HTML]{682268}{remove test file}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{8a713d1}*) (*\textcolor[HTML]{682268}{change moon to blue}*)
@@ -229,7 +231,8 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~5}*)
   An interactive rebase can be used to reorder commits:
 
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~4}*)
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change moon to blue}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{add title in page}*)
@@ -256,7 +259,8 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~4}*)
   An interactive rebase can be used to fixup commits:
 
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~4}*)
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{add title in page}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change moon to blue}*)
@@ -267,7 +271,8 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~4}*)
   column of the second ont to \cmd{fixup} or simply \cmd{f} (in Vim: \cmd{cw f <ESC>}):
 
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD~4}*)
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
+$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
 (*\textcolor[HTML]{B7A000}{f}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{add title in page}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change moon to blue}*)

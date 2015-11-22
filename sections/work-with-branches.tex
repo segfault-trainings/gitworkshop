@@ -3,7 +3,7 @@
     \slidetitle
 In this section we will learn to use git branches.
 In git the branches are not separated into different directories, but git rewrite the files when switching branches.
-Creating a new branch in git is cheap, git only creates a new file containg a hash pointing to the branch.
+Creating a new branch in git is cheap, git only creates a new file containing a hash pointing to the branch.
 \end{frame}
 
 \subsection{The master branch}
@@ -75,10 +75,19 @@ Note: you cannot delete the branch you are currently working on.
 % create feature branches
 % show branches with gitk and tig
 
+\subsection{bugfix}
+\begin{frame}[fragile]
+    \subslidetitle
+\begin{lstlisting}
+git co -b fix-title
+
+\end{lstlisting}
+\end{frame}
+
 \subsection{git stash}
 \begin{frame}[fragile]
     \subslidetitle
-% clean, pop, 
+% clean, pop,
 \end{frame}
 
 \subsection{git diff}

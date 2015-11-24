@@ -426,6 +426,60 @@ $ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
 \subsection{Amending commits}
 \begin{frame}[fragile]
   \subslidetitle
+
+  Let's add a README file:
+
+ \begin{lstlisting}
+ # git moons
+
+ ## Introduction
+
+ This is sanbox playground for learning git.
+
+ ## Dependencies
+
+ ```
+ sudo apt-get update
+ sudo apt-get install git tig gitgui gitk
+ ```
+
+$ (*\textcolor[HTML]{0000AA}{git add README}*)
+$ (*\textcolor[HTML]{0000AA}{git commit -m 'add README for explaining amend'}*)
+[master 6cfa17d] add README for explaining amend
+ 1 file changed, 12 insertions(+)
+ create mode 100644 README
+ \end{lstlisting}
+
+ Too bad why did't we see the typo we just committed ...
+
+\end{frame}
+
+\subsection{Amending commits}
+\begin{frame}[fragile]
+  \subslidetitle
+  But hey no problem we can quickly change the last commit using \cmd{git commit --amend}:
+
+  Let's correct the typo and commit using \cmd{--amend}
+ \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git diff}*)
+diff --git a/README b/README
+index 4fe2b4b..737ee40 100644
+--- a/README
++++ b/README
+@@ -8,5 +8,5 @@ This is sanbox playground for learning git.
+
+```
+sudo apt-get update
+-sudo apt-get install git tig gitgui gitk
++sudo apt-get install git tig git-gui gitk
+```
+
+$ (*\textcolor[HTML]{0000AA}{git commit -a --amend}*)
+[master 545b44d] add README for explaining amend
+ Date: Tue Nov 24 21:31:21 2015 +0100
+ 1 file changed, 12 insertions(+)
+ create mode 100644 README
+ \end{lstlisting}
 \end{frame}
 
 

@@ -1,22 +1,33 @@
-\section{Working with branches}
+\section{Git Branches}
 \begin{frame}[fragile]
-    \slidetitle
-In this section we will learn to use git branches.
-In git the branches are not separated into different directories, but git rewrite the files when switching branches.
-Creating a new branch in git is cheap, git only creates a new file containing a hash pointing to the branch.
+  \slidetitle
+  In this section we will learn to use git branches.
+  In git the branches are not separated into different directories, but git rewrite the files when switching branches.
+  Creating a new branch in git is cheap, git only creates a new file containing a hash pointing to the branch.
 \end{frame}
 
 \subsection{The master branch}
 \begin{frame}[fragile]
-    \subslidetitle
-The \textbf{master} is the default git branch.
+  \subslidetitle
+
+  The command \cmd{git branch} shows the branches:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $  (*\textcolor[HTML]{0000AA}{git branch}*)
+* (*\textcolor[HTML]{00AA00}{master}*)
+\end{lstlisting}
+
+  The current branch is marked with an asterisk (*).
+  \\
+  \vspace{1em}
+  Note: the default git branch is called \cmd{master}.
+
 \end{frame}
 
 \subsection{Creating branches}
 \begin{frame}[fragile]
     \subslidetitle
 
-To create a new \textbf{foo} branch, append the branch name to the \cmd{git branch} command.
+To create a new \cmd{foo} branch, append the branch name to the \cmd{git branch} command.
 \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git branch foo}*)
 \end{lstlisting}
@@ -95,23 +106,19 @@ git co -b fix-title
     \subslidetitle
 \end{frame}
 
-\subsection{git rebase}
+\subsection{Rebase a branch}
 \begin{frame}[fragile]
     \subslidetitle
 % -i
 \end{frame}
 
-\subsection{git merge}
+\subsection{Merge a branch}
 \begin{frame}[fragile]
     \subslidetitle
 \end{frame}
 
-\subsection{git cherry}
+\subsection{Cherrypick a commit}
 \begin{frame}[fragile]
     \subslidetitle
 \end{frame}
 
-\subsection{Exercises}
-\begin{frame}[fragile]
-  \subslidetitle
-\end{frame}

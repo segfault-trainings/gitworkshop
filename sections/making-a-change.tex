@@ -295,7 +295,6 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde5}*)
 \end{lstlisting}
   The first two commits are useless, remove the lines (in Vim: \cmd{dd}):
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde5}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{8a713d1}*) (*\textcolor[HTML]{682268}{change the color of the moon blue}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{4c5ac7c}*) (*\textcolor[HTML]{682268}{change title in page}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{8c34fca}*) (*\textcolor[HTML]{682268}{add green moon}*)
@@ -350,7 +349,6 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
   column of the second commit to \cmd{fixup} or simply \cmd{f} (in Vim: \cmd{cw f <ESC>}):
 
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
 (*\textcolor[HTML]{B7A000}{f}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{change title in page}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change the color of the moon blue}*)
@@ -374,7 +372,6 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde3}*)
   The last two commit are very similar, meld them by setting the first
   column of the second commit to \cmd{squash} or simply \cmd{s} (in Vim: \cmd{cw s <ESC>}):
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde3}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3fbbf93}*) (*\textcolor[HTML]{682268}{change title}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change the color of the moon blue}*)
 (*\textcolor[HTML]{B7A000}{s}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)

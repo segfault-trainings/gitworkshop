@@ -438,24 +438,20 @@ $ (*\textcolor[HTML]{0000AA}{git commit -m 'add README for explaining amend'}*)
 
  Too bad why did't we see the typo we just committed ...
 
-\end{frame}
+ But hey no problem we can quickly change the last commit using \cmd{git commit --amend}:
 
-\subsection{Amending commits}
-\begin{frame}[fragile]
-  \subslidetitle
-  But hey no problem we can quickly change the last commit using \cmd{git commit --amend}:
-
-  Let's correct the typo and commit using \cmd{--amend}
  \begin{lstlisting}
+echo "# g(*\textcolor{red}{i}*)t readme" > README
+
 $ (*\textcolor[HTML]{0000AA}{git add README}*)
-$ (*\textcolor[HTML]{0000AA}{git commit -a --amend}*)
+$ (*\textcolor[HTML]{0000AA}{git commit --amend}*)
 [master 545b44d] add README for explaining amend
  Date: Tue Nov 24 21:31:21 2015 +0100
  1 file changed, 1 insertions(+)
  create mode 100644 README
  \end{lstlisting}
-\end{frame}
 
+\end{frame}
 
 \subsection{Partial stage}
 \begin{frame}[fragile]

@@ -83,15 +83,36 @@ Note: you cannot delete the branch you are currently working on.
 \end{frame}
 
 
-% create feature branches
-% show branches with gitk and tig
-
+% create bugfix branch
 \subsection{bugfix}
 \begin{frame}[fragile]
     \subslidetitle
-\begin{lstlisting}
-git co -b fix-title
 
+Our first bug report was filled out:
+\newline \vspace{1em}
+\#1: The title of the html page does not match the backgound
+
+Start to create a new bugfix branch and implement the fix.
+\begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b fix-title}*)
+\end{lstlisting}
+
+Modify the moon.html file following this diff instructions:
+\begin{lstlisting}
+diff --git a/moon.html b/moon.html
+index 145cfff..ae7bc15 100644
+--- a/moon.html
++++ b/moon.html
+(*\textcolor[HTML]{18B2B2}{@@ -7,7 +7,8 @@}*)
+         <style>
+             body {
+                 font-family: Monospace;
+(*\textcolor{red}{-}*)                (*\textcolor{red}{background-color: \#f0f0f0; <!-- grey -->}*)
+(*\textcolor[HTML]{00EE00}{+}*)                (*\textcolor[HTML]{00EE00}{background-color: black;}*)
+(*\textcolor[HTML]{00EE00}{+}*)                (*\textcolor[HTML]{00EE00}{color: white;}*)
+                 margin: 0px;
+                 overflow: hidden;
+             }
 \end{lstlisting}
 \end{frame}
 

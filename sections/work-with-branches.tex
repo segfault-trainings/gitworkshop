@@ -116,7 +116,33 @@ index 145cfff..ae7bc15 100644
              }
 \end{lstlisting}
 \end{frame}
-% git diff master
+
+% git diff master branch
+\subsection{Display difference between branches}
+\begin{frame}[fragile]
+    \subslidetitle
+
+As git has the complete history locally, we can easily display changes between branches:
+
+\begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git diff master}*)
+diff --git a/moon.html b/moon.html
+index 145cfff..ae7bc15 100644
+--- a/moon.html
++++ b/moon.html
+(*\textcolor[HTML]{18B2B2}{@@ -7,7 +7,8 @@}*)
+         <style>
+             body {
+                 font-family: Monospace;
+(*\textcolor{red}{-}*)                (*\textcolor{red}{background-color: \#f0f0f0; <!-- grey -->}*)
+(*\textcolor[HTML]{00EE00}{+}*)                (*\textcolor[HTML]{00EE00}{background-color: black;}*)
+(*\textcolor[HTML]{00EE00}{+}*)                (*\textcolor[HTML]{00EE00}{color: white;}*)
+                 margin: 0px;
+                 overflow: hidden;
+             }
+\end{lstlisting}
+\end{frame}
+
 % commit on this branch
 % display with tig/gitk
 % rebase with master

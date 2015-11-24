@@ -456,7 +456,106 @@ $ (*\textcolor[HTML]{0000AA}{git commit --amend}*)
 \subsection{Partial stage}
 \begin{frame}[fragile]
   \subslidetitle
+  While analyzing the html code we added some comments:
 
+ \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git diff}*)
+...
+         <style>
+             body {
+                 font-family: Monospace;
+(*\textcolor[HTML]{AA0000}{-}*)        (*\textcolor[HTML]{AA0000}{background-color: \#f0f0f0;}*)
+(*\textcolor[HTML]{00AA00}{+}*)        (*\textcolor[HTML]{00AA00}{background-color: \#f0f0f0; <!-- grey -->}*)
+                 margin: 0px;
+                 overflow: hidden;
+             }
+(*\textcolor[HTML]{0000EE}{@@ -15,7 +15,9 @@}*)
+     </head>
+     <body>
+       <h1>Git Moons</h1>
+(*\textcolor[HTML]{00AA00}{+}*)        (*\textcolor[HTML]{00AA00}{<!--why do we need this ?-->}*)
+         <script src="three.min.js"></script>
+(*\textcolor[HTML]{00AA00}{+}*)        (*\textcolor[HTML]{00AA00}{<!--include the moon js-->}*)
+         <script src="moon.js"></script>
+
+     </body>
+ \end{lstlisting}
+\end{frame}
+
+\subsection{Partial stage 2}
+\begin{frame}[fragile]
+  \subslidetitle
+  At this point we would like to commmit all but one comment. Let's do this using \cmd{git add -p}
+ \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git add -p}*)
+diff --git a/moon.html b/moon.html
+index a5d283e..145cfff 100644
+--- a/moon.html
++++ b/moon.html
+(*\textcolor[HTML]{0000EE}{@@ -7,7 +7,7 @@}*)
+         <style>
+             body {
+                 font-family: Monospace;
+(*\textcolor[HTML]{AA0000}{-}*)        (*\textcolor[HTML]{AA0000}{background-color: \#f0f0f0;}*)
+(*\textcolor[HTML]{00AA00}{+}*)        (*\textcolor[HTML]{00AA00}{background-color: \#f0f0f0; <!-- grey -->}*)
+                 margin: 0px;
+                 overflow: hidden;
+             }
+(*\textcolor[HTML]{5454FF}{Stage this hunk [y,n,q,a,d,/,j,J,g,e,?]?}*) y
+ \end{lstlisting}
+\end{frame}
+
+\subsection{Partial stage 3}
+\begin{frame}[fragile]
+  \subslidetitle
+
+ \begin{lstlisting}
+(*\textcolor[HTML]{0000EE}{@@ -15,7 +15,9 @@}*)
+     </head>
+     <body>
+       <h1>Git Moons</h1>
+(*\textcolor[HTML]{00AA00}{+}*)        (*\textcolor[HTML]{00AA00}{<!--why do we need this ?-->}*)
+         <script src="three.min.js"></script>
+(*\textcolor[HTML]{00AA00}{+}*)        (*\textcolor[HTML]{00AA00}{<!--include the moon js-->}*)
+         <script src="moon.js"></script>
+
+     </body>
+(*\textcolor[HTML]{5454FF}{Stage this hunk [y,n,q,a,d,/,j,J,g,e,?]?}*) s
+
+Split into 2 hunks.
+@@ -15,4 +15,5 @@
+(*\textcolor[HTML]{0000EE}{@@ -15,4 +15,5 @@}*)
+     </head>
+     <body>
+       <h1>Git Moons</h1>
+(*\textcolor[HTML]{00AA00}{+}*)        (*\textcolor[HTML]{00AA00}{<!--why do we need this ?-->}*)
+         <script src="three.min.js"></script>
+(*\textcolor[HTML]{5454FF}{Stage this hunk [y,n,q,a,d,/,j,J,g,e,?]?}*) n
+ \end{lstlisting}
+\end{frame}
+
+\subsection{Partial stage 4}
+\begin{frame}[fragile]
+  \subslidetitle
+
+ \begin{lstlisting}
+(*\textcolor[HTML]{0000EE}{@@ -18,4 +19,5 @@}*)
+         <script src="three.min.js"></script>
+(*\textcolor[HTML]{00AA00}{+}*)        (*\textcolor[HTML]{00AA00}{<!--include the moon js-->}*)
+         <script src="moon.js"></script>
+
+     </body>
+(*\textcolor[HTML]{5454FF}{Stage this hunk [y,n,q,a,d,/,j,J,g,e,?]?}*) y
+ \end{lstlisting}
+
+ Now we can commit the staged changes and delete the unstaged changes
+
+ \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git commit -m 'add comments about color and the import statements'}*)
+[master_add 46bafe6] add comments about color and the import statements
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+$ (*\textcolor[HTML]{0000AA}{git checkout moon.html'}*)
+ \end{lstlisting}
 \end{frame}
 
 \subsection{git GUI}

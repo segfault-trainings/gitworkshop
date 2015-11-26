@@ -161,7 +161,7 @@ index 145cfff..ae7bc15 100644
 
   Now we can see the graphical representation of our fix-title branch with \cmd{tig}:
   \begin{lstlisting}
-  (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{tig master fix-title}*)
+  (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{tig master fix-title}*)
 \end{lstlisting}
 
   \vspace{1em}
@@ -176,7 +176,7 @@ index 145cfff..ae7bc15 100644
 
   Now we can see the graphical representation of our fix-title branch with \cmd{gitk}:
   \begin{lstlisting}
-  (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{gitk}*)
+  (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{gitk}*)
 \end{lstlisting}
 
   \vspace{1em}
@@ -193,7 +193,7 @@ index 145cfff..ae7bc15 100644
   Use \cmd{git rebase} to update the status of a branch on top of another branch:
 
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout fix-title}*)
 (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git rebase master}*)
 First, rewinding head to replay your work on top of it...
 Applying: add comments about color and the import statements

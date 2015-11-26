@@ -120,38 +120,44 @@ index 145cfff..ae7bc15 100644
 % git diff master branch
 \subsection{Display difference between branches}
 \begin{frame}[fragile]
-    \subslidetitle
+  \subslidetitle
 
-As git has the complete history locally, we can easily display changes between branches:
+  As git has the complete history locally, we can easily display changes between branches:
 
-\begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git diff master}*)
-diff --git a/moon.html b/moon.html
-index 145cfff..ae7bc15 100644
---- a/moon.html
-+++ b/moon.html
-(*\textcolor[HTML]{18B2B2}{@@ -7,7 +7,8 @@}*)
-         <style>
-             body {
-                 font-family: Monospace;
-(*\textcolor{red}{-}*)                (*\textcolor{red}{background-color: \#f0f0f0; <!-- grey -->}*)
-(*\textcolor[HTML]{00EE00}{+}*)                (*\textcolor[HTML]{00EE00}{background-color: black;}*)
-(*\textcolor[HTML]{00EE00}{+}*)                (*\textcolor[HTML]{00EE00}{color: white;}*)
-                 margin: 0px;
-                 overflow: hidden;
-             }
+  \begin{lstlisting}
+  (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git diff master}*)
+  diff --git a/moon.html b/moon.html
+  index 145cfff..ae7bc15 100644
+  --- a/moon.html
+  +++ b/moon.html
+  (*\textcolor[HTML]{18B2B2}{@@ -7,7 +7,8 @@}*)
+           <style>
+               body {
+                   font-family: Monospace;
+  (*\textcolor{red}{-}*)                (*\textcolor{red}{background-color: \#f0f0f0; <!-- grey -->}*)
+  (*\textcolor[HTML]{00EE00}{+}*)                (*\textcolor[HTML]{00EE00}{background-color: black;}*)
+  (*\textcolor[HTML]{00EE00}{+}*)                (*\textcolor[HTML]{00EE00}{color: white;}*)
+                   margin: 0px;
+                   overflow: hidden;
+               }
 \end{lstlisting}
 \end{frame}
 
 % display with tig/gitk
+
 \subsection{Graphic display in tig}
 \begin{frame}[fragile]
-    \subslidetitle
+  \subslidetitle
 
-Now we can see the graphical representation of our fix-title branch with tig
-(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{tig master fix-title}*)
-\newline \vspace{1em}
+  Now we can see the graphical representation of our fix-title branch with \cmd{tig}:
+  \begin{lstlisting}
+  (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{tig master fix-title}*)
+\end{lstlisting}
+
+  \vspace{1em}
+
   \centerline{\includegraphics[width=10.5cm]{../screen/tig-fix-title.png}}
+
 \end{frame}
 
 % rebase with master

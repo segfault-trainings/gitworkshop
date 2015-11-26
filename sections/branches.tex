@@ -23,12 +23,12 @@
 \begin{frame}[fragile]
   \subslidetitle
 
-  To create a new \cmd{foo} branch, append the branch name to the \cmd{git branch} command.
+  To create a new \cmd{foo} branch, append the branch name to the \cmd{git branch} command:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git branch foo}*)
 \end{lstlisting}
 
-  The \cmd{git branch} command lists you all your local branches
+  The \cmd{git branch} command lists you all your local branches:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git branch}*)
   foo
@@ -41,7 +41,7 @@ Note: The branch you are currently on is marked with an asterisk (*).
 \subsection{Switching to branch}
 \begin{frame}[fragile]
   \subslidetitle
-  The \cmd{git checkout} command, is used to change the working branch.
+  The \cmd{git checkout} command, is used to change the working branch:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout foo}*)
 Switched to branch 'foo'
@@ -50,7 +50,7 @@ Switched to branch 'foo'
   master
 \end{lstlisting}
 
-  The \cmd{git checkout} command with \cmd{-b} option creates a new branch and automatically switch to it.
+  The \cmd{git checkout} command with \cmd{-b} option creates a new branch and automatically switch to it:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(foo)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b bar}*)
 Switched to a new branch 'bar'
@@ -84,17 +84,17 @@ Deleted branch bar (was 9adadac).
 \begin{frame}[fragile]
     \subslidetitle
 
-Our first bug report was filled out:
-\newline \vspace{1em}
-\#1: The title of the html page does not match the backgound
+  Our first bug report was filled out:
+  \newline \vspace{1em}
+  \#1: The title of the html page does not match the backgound.
 
-Start to create a new bugfix branch and implement the fix.
-\begin{lstlisting}
+  Start to create a new bugfix branch and implement the fix:
+  \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b fix-title}*)
 \end{lstlisting}
 
-Modify the moon.html file following this diff instructions:
-\begin{lstlisting}
+  Modify the moon.html file following this diff instructions:
+  \begin{lstlisting}
 diff --git a/moon.html b/moon.html
 index 145cfff..ae7bc15 100644
 --- a/moon.html
@@ -143,7 +143,7 @@ index 145cfff..ae7bc15 100644
 \begin{frame}[fragile]
   \subslidetitle
 
-  In the meantime, we need to update the README file with a \"Prerequisites\" sub-section:
+  In the meantime, we need to update the README file with a Prerequisites sub-section:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{echo "}*)
@@ -190,7 +190,7 @@ index 145cfff..ae7bc15 100644
 \begin{frame}[fragile]
   \subslidetitle
 
-  Use \cmd{git rebase} to update the status of a branch on top of another branch.
+  Use \cmd{git rebase} to update the status of a branch on top of another branch:
 
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git rebase master}*)

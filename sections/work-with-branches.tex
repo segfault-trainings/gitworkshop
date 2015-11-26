@@ -147,6 +147,21 @@ index 145cfff..ae7bc15 100644
 \end{lstlisting}
 \end{frame}
 
+% make a change on master
+\subsection{Another change on the master}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  In the meantime, we need to update the README file with a \"Prerequisites\" sub-section:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{echo "}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{\#\# Prerequisites >> README"}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "add the prerequisites subsection"}*)
+\end{lstlisting}
+
+\end{frame}
+
 % display with tig/gitk
 
 \subsection{Graphic display in tig}

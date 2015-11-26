@@ -193,12 +193,14 @@ index 145cfff..ae7bc15 100644
   Use \cmd{git rebase} to update the status of a branch on top of another branch:
 
   \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
 (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git rebase master}*)
+First, rewinding head to replay your work on top of it...
+Applying: add comments about color and the import statements
+Applying: change title background color to black and font color to white. fixes #1
 \end{lstlisting}
 
-  \vspace{1em}
-
-  \centerline{\includegraphics[width=10cm]{../screen/gitk-fix-title.png}}
+  As git states the rebase re-apply commits from the fix-title branches on to of the master branch.
 
 \end{frame}
 % display with tig/gitk

@@ -203,7 +203,22 @@ Applying: change title background color to black and font color to white. fixes 
   As git states the rebase re-apply commits from the fix-title branches on to of the master branch.
 
 \end{frame}
+
 % display with tig/gitk
+\subsection{Display rebase operation}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  Now we can see the graphical representation of our fix-title branch rebased on the master branch with \cmd{tig}:
+  \begin{lstlisting}
+  (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{tig master fix-title}*)
+\end{lstlisting}
+
+  \vspace{1em}
+
+  \centerline{\includegraphics[width=10cm]{../screen/tig-fix-title-rebase-master.png}}
+
+\end{frame}
 % create another feature branch
 % 2 commits on this branch
 % display with tig/gitk

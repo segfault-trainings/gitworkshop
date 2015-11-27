@@ -1,11 +1,66 @@
-\section{Work with remotes}
+\section{Git remotes}
 \begin{frame}[fragile]
-    \slidetitle
+  \slidetitle
+\end{frame}
+
+\section{Git protocols}
+\begin{frame}[fragile]
+  \slidetitle
+  Git repositories can be accessed remotely through various protocols. HTTP is good for read only access without password.
+  For read-write access, SSH is used normally.
+\end{frame}
+
+\subsection{SSH access}
+\begin{frame}[fragile]
+  \subslidetitle
+  In order to not be forced to enter a password each time you access a remote
+  git repository, SSH key login is used.
+
+  Create a SSH key pair:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{ssh-keygen}*)
+Generating public/private rsa key pair.
+Enter file in which to save the key (.../.ssh/id_rsa): (*\textcolor[HTML]{0000AA}{<empty>}*)
+Created directory '.../.ssh'.
+Enter passphrase (empty for no passphrase): (*\textcolor[HTML]{0000AA}{<empty>}*)
+Enter same passphrase again: (*\textcolor[HTML]{0000AA}{<empty>}*)
+Your identification has been saved in .../.ssh/id_rsa.
+Your public key has been saved in .../.ssh/id_rsa.pub.
+The key fingerprint is:
+7e:f8:15:2a:b3:a2:9c:30:4e:c7:60:50:a4:d5:a9:82 user@host
+The key's randomart image is:
++--[ RSA 2048]----+
+|   . . .         |
+|  . = = S        |
+|   = X *         |
+|    X O o        |
+|   . B +         |
+|    ..E.         |
++-----------------+
+\end{lstlisting}
+\end{frame}
+
+\subsection{Upload SSH public key}
+\begin{frame}[fragile]
+  \subslidetitle
+  Display your public key:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{cat \textasciitilde/.ssh/id\_rsa.pub}*)
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOmt7Y4H51gc2mGmZsFzES6
+shVLFLEJ/lFCTwyosWHYDaluK71nGCelp61oTocgf4NHBwTZmo0EZ1k0RHYt8
+Q3LF8e5fbC+dXt5E35XtkVFuUC7IG2/6fmNW41j3lw9UUVrOBDgx+QvvoCuRQ
+axNd4mRaLsRbj9WXt17hGuNNWioKPWLSpw/4KHJ34hCrnliAQJ+jlW/0ieOoo
+Fp057diCka6Jn7BWjXHi8sWMxIfyPyV2+4Kt8OpChFNYjzaL5LMRRhMnvJ8zP
+5SFJB2qHP50zPYQ+gKoSda7GZedZRgD7gT7ir/u8X9HSpNyTNTafhp9+3AjuU
+iYLTgtczTgYk/T user@host
+\end{lstlisting}
+  Copy\&Paste the whole output to the configuration of SSH access keys
+  in the web front end of your remote git repository.
 \end{frame}
 
 \subsection{git remote}
 \begin{frame}[fragile]
-    \subslidetitle
+  \subslidetitle
 % add
 % rm/remove
 % set

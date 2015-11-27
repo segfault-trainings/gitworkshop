@@ -10,8 +10,10 @@
 \setcounter{tocdepth}{1}
 \setbeamertemplate{section in toc}{\inserttocsectionnumber.~\inserttocsection}
 
-% copy & paste needs this, and makes nice tilde
+% allow copy & paste, make nice tilde
 \usepackage[T1]{fontenc}
+% do not use bitmap font
+\usepackage{lmodern}
 
 % Quotations
 \usepackage{epigraph}
@@ -29,8 +31,8 @@
 \hypersetup{colorlinks=true, urlcolor=structure.fg, linkcolor=structure.fg}
 \renewcommand*{\UrlFont}{\ttfamily\footnotesize\relax}
 
-\usepackage{bold-extra} % cmtt
-\renewcommand{\ttdefault}{cmtt}
+%\usepackage{bold-extra} % cmtt
+%\renewcommand{\ttdefault}{cmtt}
 %\usepackage{lmodern}
 %\usepackage{pxfonts}  % Palatino font
 %%\usepackage{txfonts}  % Times font

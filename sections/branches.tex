@@ -220,6 +220,36 @@ Applying: change title background color to black and font color to white. fixes 
 
 \end{frame}
 % create another feature branch
+
+\subsection{Create a feature branch}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  A new feature request has to be implemented on from the master branch:
+  \newline \vspace{1em}
+  \#2 add a yellow moon before the blue moon.
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b feature-yellow-moon master}*)
+Switched to a new branch 'feature-yellow-moon'
+\end{lstlisting}
+  Modify the moon.html file following this diff instructions:
+  \begin{lstlisting}
+diff --git a/moon.js b/moon.js
+index 69d1726..0b55234 100644
+--- a/moon.js
++++ b/moon.js
+(*\textcolor[HTML]{18B2B2}{@@ -2,6 +2,7 @@}*)
+ var camera, scene, texture, particleLight, renderer;
+ var moons = [];
+ 
+ init();
+(*\textcolor[HTML]{00AA00}{+moon( "yellow" );}*)
+ moon( "blue" );
+ moon( "green" );
+ animate();
+\end{lstlisting}
+
+\end{frame}
 % 2 commits on this branch
 % display with tig/gitk
 % merge with master branch

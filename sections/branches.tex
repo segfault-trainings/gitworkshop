@@ -260,37 +260,77 @@ index 69d1726..b45cf20 100644
 
   An emergency fix has to be done on the master branch:
   \newline \vspace{1em}
-  \#3 In our moon requirement, we never specified any green moon, modify it asap to red:
+  \#3 We are not able to make it work, please specify the prerequisites
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(feature-flag-color)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
 Switched to branch 'master'
 Your branch is up-to-date with 'origin/master'.
 \end{lstlisting}
-  Modify the moon.js file following this diff instructions:
+
+  Modify the README as following:
   \begin{lstlisting}
-diff --git a/moon.js b/moon.js
-index 69d1726..9d851a7 100644
---- a/moon.js
-+++ b/moon.js
-(*\textcolor[HTML]{18B2B2}{@@ -3,7 +3,7 @@}*) var moons = [];
- 
- init();
- moon( "blue" );
-(*\textcolor{red}{-}*)(*\textcolor{red}{moon( "green" );}*)
-(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{moon( "red" );}*)
- animate();
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{echo "}*)
+> (*\textcolor[HTML]{0000AA}{use webgl browser" >> README}*)
 \end{lstlisting}
 
   Commit your changes:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "change green moon to red, fixes \#3"}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "update prerequisites subsection"}*)
 \end{lstlisting}
 
 \end{frame}
 % display with tig/gitk
+\subsection{Display operations}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  Now we can see the graphical representation of our feature-flag-color branch \cmd{tig}:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{tig master feature-flag-color}*)
+\end{lstlisting}
+
+  \vspace{1em}
+
+  \centerline{\includegraphics[width=10cm]{../screen/tig-fix-title-rebase-master.png}}
+
+\end{frame}
 % merge with master branch
+\subsection{Merging a branch on top of master}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  Use \cmd{git merge} to merge a branch into another branch:
+
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git merge feature-flag-color}*)
+Merge branch 'feature-flag-color' into master
+
+# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message aborts
+# the commit.
+\end{lstlisting}
+
+
+\end{frame}
 % display with tig/gitk
 
+% display with tig/gitk
+\subsection{Display operations}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  Now we can see the graphical representation of our feature-flag-color branch merged on the master branch with \cmd{tig}:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{tig master feature-flag-color}*)
+\end{lstlisting}
+
+  \vspace{1em}
+
+  \centerline{\includegraphics[width=10cm]{../screen/tig-fix-title-rebase-master.png}}
+
+\end{frame}
 
 % git checkout branch which was edited a long time ago, and we can continue to edit at this stage.
 

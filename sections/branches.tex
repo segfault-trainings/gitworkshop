@@ -227,26 +227,63 @@ Applying: change title background color to black and font color to white. fixes 
 
   A new feature request has to be implemented on from the master branch:
   \newline \vspace{1em}
-  \#2 add a yellow moon before the blue moon.
+  \#2 insert a white moon between the blue and green moon.
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b feature-yellow-moon master}*)
-Switched to a new branch 'feature-yellow-moon'
+(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b feature-flag-color master}*)
+Switched to a new branch 'feature-flag-color'
 \end{lstlisting}
-  Modify the moon.html file following this diff instructions:
+  Modify the moon.js file following this diff instructions:
   \begin{lstlisting}
 diff --git a/moon.js b/moon.js
-index 69d1726..0b55234 100644
+index 69d1726..b45cf20 100644
 --- a/moon.js
 +++ b/moon.js
-(*\textcolor[HTML]{18B2B2}{@@ -2,6 +2,7 @@}*)
- var camera, scene, texture, particleLight, renderer;
- var moons = [];
+(*\textcolor[HTML]{18B2B2}{@@ -3,6 +3,7 @@}*) var moons = [];
  
  init();
-(*\textcolor[HTML]{00AA00}{+moon( "yellow" );}*)
  moon( "blue" );
+(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{moon( "white" );}*)
  moon( "green" );
  animate();
+\end{lstlisting}
+  Commit your changes:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "add a white moon between the blue and green moon, implements \#2"}*)
+\end{lstlisting}
+
+\end{frame}
+
+
+\subsection{Some urgent change on master}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  An emergency fix has to be done on the master branch:
+  \newline \vspace{1em}
+  \#3 In our moon requirement, we never specified any green moon, modify it asap to red:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+\end{lstlisting}
+  Modify the moon.js file following this diff instructions:
+  \begin{lstlisting}
+diff --git a/moon.js b/moon.js
+index 69d1726..9d851a7 100644
+--- a/moon.js
++++ b/moon.js
+(*\textcolor[HTML]{18B2B2}{@@ -3,7 +3,7 @@}*) var moons = [];
+ 
+ init();
+ moon( "blue" );
+(*\textcolor{red}{-}*)(*\textcolor{red}{moon( "green" );}*)
+(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{moon( "red" );}*)
+ animate();
+\end{lstlisting}
+
+  Commit your changes:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "change green moon to red, fixes \#3"}*)
 \end{lstlisting}
 
 \end{frame}

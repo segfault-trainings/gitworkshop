@@ -81,7 +81,7 @@ Launch 'kdiff3' [Y/n]: Y
     \subslidetitle
 
   The feature-flag-color is ready to be merged to master, try to merge the feature-flag-color branch to master:
-\begin{lstlisting}
+  \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(feature-flag-color)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
 Switched to branch 'master'
 Your branch is up-to-date with 'origin/master'.
@@ -91,18 +91,66 @@ CONFLICT (content): Merge conflict in moon.js
 Automatic merge failed; fix conflicts and then commit the result.
 \end{lstlisting}
 
-Here we go, our first conflict, keep calm, and use \cmd{git mergetool}
+Here we go, our first conflict, keep calm, do not panic, we use \cmd{git}
+\end{frame}
 
+\subsection{Display the conflict}
+\begin{frame}[fragile]
+    \subslidetitle
+
+  First we want to display the conflicting file with \cmd{git difftool}:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master|MERGING)}*) $ (*\textcolor[HTML]{0000AA}{git difftool}*)
+diff --cc moon.js
+index 72886cb,861507e..0000000
+--- a/moon.js
++++ b/moon.js
+(*\textcolor[HTML]{18B2B2}{@@@ -4,7 -4,7 +4,11 @@@}*) var moons = []
+  init();
+  moon( "blue" );
+  moon( "white" );
+(*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{<<<<<<< HEAD}*)
+(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "red" );}*)
+(*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{=======}*)
+(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "green" ); // no requirement}*)
+(*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{>>>>>>> feature-flag-color}*)
+  animate();
+  
+  function moon( color )
+\end{lstlisting}
 \end{frame}
 
 \subsection{Resolve a conflict}
 \begin{frame}[fragile]
     \subslidetitle
+  Use \cmd{git mergetool} and select an external merge tool like kdiff3, vimdiff to resolve a conflict:
+
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master|MERGING)}*) $ (*\textcolor[HTML]{0000AA}{git mergetool}*)
+Merging:
+moon.js
+
+Normal merge conflict for 'moon.js':
+  {local}: modified file
+  {remote}: modified file
+\end{lstlisting}
+
+  Note: the \cmd{kdiff3} automatically starts since we configured it in the ~/gitconfig file
+  \begin{lstlisting}
+...
+[merge]
+  tool = kdiff3
+...
+\end{lstlisting}
 \end{frame}
 
 \subsection{Three way merge}
 \begin{frame}[fragile]
     \subslidetitle
+  Have a look at the \cmd{kdiff3} application, right click on the \textcolor{red}{?<Merge Conflict>} and select the apporpriate resolution:
+  \newline \vspace{1em}
+  \centerline{\includegraphics[width=10cm]{../screen/git-mergetool-kdiff3.png}}
+
 \end{frame}
 
 \subsection{git difftool}

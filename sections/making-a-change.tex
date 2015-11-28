@@ -103,25 +103,6 @@ Note: the hashes can be abbreviated to their short form (\cmd{220767d})
 \subsection{Git commits}
 \begin{frame}[fragile]
   \subslidetitle
-  Using git correctly means a commit is not just a saved snapshot of your ongoing work. \\
-  \vspace{1em}
-  \textbf{A commit is a change to the software.} \\
-  \vspace{1em}
-  Best practices for git commits:
-  \begin{itemize}
-    \item Use the imperative mood in the subject line \\
-      'add file', not 'adding file' or 'added file'
-    \item A git commit contains only the diffs that are needed for that given change
-    \item shows whether a developer is a good collaborator.
-    \item Limit the subject line to 50, wrap the body at 72 characters
-    \item Use the body to explain What and Why vs. How
-  \end{itemize}
-\end{frame}
-
-\subsection{Git commits}
-\begin{frame}[fragile]
-  \subslidetitle
-
   A git commit consists of the following elements:
   \begin{tabular}{lp{10cm}}
     \pause
@@ -139,9 +120,26 @@ Note: the hashes can be abbreviated to their short form (\cmd{220767d})
     \pause
     \textbf{SHA} & HASH which git uses as key \\
   \end{tabular}
-
   \vspace{1em}
   Note: Your commit message reveals whether you are a good collaborator or not.
+\end{frame}
+
+\subsection{Best practices}
+\begin{frame}[fragile]
+  \subslidetitle
+  Using git correctly means a commit is not just a saved snapshot of your ongoing work. \\
+  \vspace{1em}
+  \textbf{A commit is a change to the software.} \\
+  \vspace{1em}
+  Best practices for git commits:
+  \begin{itemize}
+    \item Use the imperative mood in the subject line \\
+      'add file', not 'adding file' or 'added file'
+    \item A git commit contains only the diffs that are needed for that given change
+    \item shows whether a developer is a good collaborator.
+    \item Limit the subject line to 50, wrap the body at 72 characters
+    \item Use the body to explain What and Why vs. How
+  \end{itemize}
 \end{frame}
 
 \subsection{Interactive rebase}
@@ -331,7 +329,6 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
 \begin{frame}[fragile]
   \subslidetitle
   An interactive rebase can be used to fixup commits:
-
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
@@ -339,17 +336,16 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change the moon to blue}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
-
   The first two are actually the same change!\\
-  Let's fix this with \cmd{fixup} or simply \cmd{f} (in Vim: \cmd{cw f <ESC>}):
 
+  \vspace{1em}
+  Let's fix this with \cmd{fixup} or simply \cmd{f} (in Vim: \cmd{cw f <ESC>}):
   \begin{lstlisting}
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
 (*\textcolor[HTML]{B7A000}{f}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{change title in page}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change the moon to blue}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
-
   Save and quit the editor to fixup the commits.
 \end{frame}
 

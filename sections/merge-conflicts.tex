@@ -72,6 +72,25 @@ Launch 'kdiff3' [Y/n]: Y
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "add comment about requirement for the green color"}*)
 \end{lstlisting}
 \end{frame}
+
+\subsection{Merge feature-flag-color}
+\begin{frame}[fragile]
+    \subslidetitle
+
+  The feature-flag-color is ready to be merged to master, try to merge the feature-flag-color branch to master:
+\begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(feature-flag-color)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git merge feature-flag-color}*)
+Auto-merging moon.js
+CONFLICT (content): Merge conflict in moon.js
+Automatic merge failed; fix conflicts and then commit the result.
+\end{lstlisting}
+
+Here we go, our first conflict, keep calm, and use \cmd{git mergetool}
+
+\end{frame}
 \begin{frame}[fragile]
     \subslidetitle
 \end{frame}

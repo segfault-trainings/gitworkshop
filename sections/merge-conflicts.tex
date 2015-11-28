@@ -45,6 +45,33 @@ Launch 'kdiff3' [Y/n]: Y
   Note: This can be helpful to call an external diff toll like kdiff3 or meld, especially to have a side-by-side diff.
 
 \end{frame}
+
+
+\subsection{Update feature-flag-color}
+\begin{frame}[fragile]
+    \subslidetitle
+  Commit your changes on master:
+\begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "change the green moon color to red, implements \#4"}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout feature-color-flag}*)
+\end{lstlisting}
+
+  Add a comment to the green moon like defined in the following diff:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{@@ -4,7 +4,7 @@}*) var moons = [];
+ init();
+ moon( "blue" );
+ moon( "white" );
+(*\textcolor{red}{-}*)(*\textcolor{red}{moon( "green" );}*)
+(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{moon( "green" ); // no requirement}*)
+ animate();
+\end{lstlisting}
+
+  Commit your changes:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "add comment about requirement for the green color"}*)
+\end{lstlisting}
+\end{frame}
 \begin{frame}[fragile]
     \subslidetitle
 \end{frame}

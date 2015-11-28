@@ -2,103 +2,75 @@
 \begin{frame}[fragile]
   \slidetitle
 
-  In this section, we will learn how to:
+  This section covers the following topics:
   \begin{itemize}
+    \pause
     \item Configure git
-    \item Clone a git repository
-    \item Add a file to a repository
+    \pause
+    \item Obtain a git repository
+    \pause
+    \item Add files
+    \pause
+    \item Stage changes
+    \pause
     \item Commit changes
-    \item Undo modifications
-    \item Undo staging
+    \pause
+    \item The git work flow
+    \pause
+    \item Undo modifications and staging
   \end{itemize}
-    %A git repository contains a folder called {\bf .git}. There are two option to get a git repository:
-%\begin{itemize}
-%\item create a new repository using \cmd{git init}
-%\item clone an existing git repository using \cmd{git clone}
-%\end{itemize}
 \end{frame}
 
 \subsection{Configuring git}
 \begin{frame}[fragile]
   \subslidetitle
-  The global git configuration is stored in \cmd{\textasciitilde/.gitconfig}.
-  \\
-  \vspace{1em}
+  Many useful features can be configured with git:
+  \begin{itemize}
+    \item User settings
+    \item Colored output
+    \item Command aliases
+    \item Tools to be used
+    \item ...
+  \end{itemize}
 
-  The command \cmd{git config} can used to configure git:
+  \vspace{1em}
+  The minimum configuration needs your name and email address.\\
+  Let's configure this by using the \cmd{git config} command:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git config --global user.name "My name"}*)
 $ (*\textcolor[HTML]{0000AA}{git config --global user.email "myemail@address"}*)
 \end{lstlisting}
 
-  Other git settings:
-  \begin{lstlisting}[basicstyle=\small\ttfamily\bfseries]
-$ (*\textcolor[HTML]{0000AA}{cat \textasciitilde/.gitconfig}*)
-[color]
-  diff = auto
-  status = auto
-  branch = auto
-  grep = auto
+  \vspace{1em}
+  Note: The global git configuration is stored in \cmd{\textasciitilde/.gitconfig}.
 
-[alias]
-  st = status
-  co = checkout
-  ci = commit
-  br = branch
-  l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
-  ll = log --stat --abbrev-commit
-
-[merge]
-  tool = kdiff3
-\end{lstlisting}
 \end{frame}
-
-%\subsection{git init}
-%\begin{frame}[fragile]
-  %\subslidetitle
-  %The command \cmd{git init} is used to create a new repository.
-  %The following steps create a new repository:
-  %\begin{itemize}
-  %\item run \cmd{git init} inside your project
-    %\begin{itemize}
-    %\item creates .git directory
-    %\end{itemize}
-  %\item Add files to git repository using \cmd{git add .}
-  %\item Optional: add .gitignore file
-  %\item Run {git commit} for initial commit
-    %\begin{itemize}
-    %\item creates branch called 'master'
-    %\end{itemize}
-  %\end{itemize}
-
-%\begin{lstlisting}
-%cd myproject
-%git init
-%git add .
-%git commit
-%\end{lstlisting}
-%\end{frame}
 
 \subsection{Obtaining a repository}
 \begin{frame}[fragile]
   \subslidetitle
-  The command \cmd{git clone} is used to download a whole git repository.
+  A git repository can be obtained only by downloading a whole git repository,
+  called a working copy.
   \\
   \vspace{1em}
-  Clone the gitmoon repository:
+  Let's clone the gitmoon repository by using \cmd{git clone}:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git clone https://github.com/neolynx/gitmoon.git}*)
+Cloning into 'gitmoon'...
+remote: Counting objects: 6, done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 6 (delta 0), reused 6 (delta 0), pack-reused 0
+Unpacking objects: 100% (6/6), done.
+Checking connectivity... done.
 \end{lstlisting}
 
-% protocols
-%git protocols:
-%\begin{itemize}
-%\item http[s]
-%\item ssh
-%\item git
-%\item ftp rsync ...
-%\end{itemize}
+  \vspace{1em}
+  Note: a new repository can be created with the \cmd{git init} command.
+\end{frame}
 
+\subsection{Obtaining a repository}
+\begin{frame}[fragile]
+  \subslidetitle
   Let's see what we find in the working copy:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{cd gitmoon}*)
@@ -172,10 +144,13 @@ Changes to be committed:
 
         (*\textcolor[HTML]{00AA00}{new file:}*)   (*\textcolor[HTML]{00AA00}{AUTHORS}*)
 \end{lstlisting}
+
+  \vspace{1em}
+  Note: only files can be tracked, git treats directories as part of the file name
 \end{frame}
 
 
-\subsection{git commit}
+\subsection{Creating a commit}
 \begin{frame}[fragile]
   \subslidetitle
 
@@ -201,15 +176,6 @@ nothing to commit, working directory clean
 \subsection{Git workflow}
 \begin{frame}[fragile]
   \subslidetitle
-
-  In this section, you
-
-  \begin{itemize}
-    \item cloned a repository
-    \item added a file
-    \item created your first commit
-    \item leared the git commands: \cmd{clone}, \cmd{status}, \cmd{add} and \cmd{commit}
-  \end{itemize}
 
   \centerline{\includegraphics{diagrams/getting_started.pdf}}
 \end{frame}
@@ -246,10 +212,10 @@ no changes added to commit (use "git add" and/or "git commit -a")
   The command \cmd{git diff} show the difference between working tree and index:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git diff}*)
-(*\textcolor[HTML]{00EE00}{diff --git a/moon.html b/moon.html}*)
-(*\textcolor[HTML]{00EE00}{index d344c62..22e0c8e 100644}*)
-(*\textcolor[HTML]{00EE00}{--- a/moon.html}*)
-(*\textcolor[HTML]{00EE00}{+++ b/moon.html}*)
+diff --git a/moon.html b/moon.html
+index d344c62..22e0c8e 100644
+--- a/moon.html
++++ b/moon.html
 (*\textcolor[HTML]{0000EE}{@@ -1,7 +1,7 @@}*)
  <!DOCTYPE html>
  <html>
@@ -260,7 +226,7 @@ $ (*\textcolor[HTML]{0000AA}{git diff}*)
 \end{lstlisting}
 \end{frame}
 
-\subsection{git add}
+\subsection{Staging modifications}
 \begin{frame}[fragile]
   \subslidetitle
 
@@ -281,7 +247,7 @@ Changes to be committed:
 \end{lstlisting}
 \end{frame}
 
-\subsection{Commiting locally}
+\subsection{Committing staged changes}
 \begin{frame}[fragile]
   \subslidetitle
 
@@ -291,11 +257,15 @@ $ (*\textcolor[HTML]{0000AA}{git commit -m 'change title'}*)
 [master fc92204] change title
  1 file changed, 1 insertion(+), 1 deletion(-)
 \end{lstlisting}
+\end{frame}
 
+\subsection{Git workflow}
+\begin{frame}[fragile]
+  \subslidetitle
   \centerline{\includegraphics{diagrams/diff-modified-add-commit.pdf}}
 \end{frame}
 
-\subsection{Undo a modification}
+\subsection{Undoing a modification}
 \begin{frame}[fragile]
 \subslidetitle
 
@@ -315,7 +285,7 @@ Changes not staged for commit:
 
 \end{frame}
 
-\subsection{Undo a modifaction}
+\subsection{Undoing a modification}
 \begin{frame}[fragile]
 \subslidetitle
   The command \cmd{git checkout} allows you to undo the modification:
@@ -332,7 +302,7 @@ nothing to commit, working directory clean
   Note: checkout discards the changes, handle with care!
 \end{frame}
 
-\subsection{Undo staging}
+\subsection{Unstaging modifications}
 \begin{frame}[fragile]
 \subslidetitle
 
@@ -352,7 +322,7 @@ Changes to be committed:
 
 \end{frame}
 
-\subsection{Undo staging}
+\subsection{Unstaging modifications}
 \begin{frame}[fragile]
 \subslidetitle
 
@@ -368,7 +338,7 @@ M       AUTHORS
 \end{frame}
 
 
-\subsection{git reset}
+\subsection{Resetting modifications}
 \begin{frame}[fragile]
 \subslidetitle
   After \cmd{git reset}, the modification is still there:
@@ -383,7 +353,8 @@ Changes not staged for commit:
         (*\textcolor{red}{modified:}*)   (*\textcolor{red}{AUTHORS}*)
 \end{lstlisting}
 
-  Instead of using \cmd{git checkout} on each file, use \cmd{git reset --hard} to undo all modifications at once:
+  Instead of using \cmd{git checkout} on each file, \\
+  use \cmd{git reset --hard} to reset all modifications at once:
 \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git reset --hard}*)
 HEAD is now at fc92204 change title
@@ -393,7 +364,7 @@ HEAD is now at fc92204 change title
 \subsection{Removing a file}
 \begin{frame}[fragile]
 \subslidetitle
-  Let's first add a file:
+  Let's first create a file and commit it:
 \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{touch test.file}*)
 $ (*\textcolor[HTML]{0000AA}{git add test.file}*)
@@ -402,7 +373,11 @@ $ (*\textcolor[HTML]{0000AA}{git commit -m 'adding a test file'}*)
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 test.file
 \end{lstlisting}
+\end{frame}
 
+\subsection{Removing a file}
+\begin{frame}[fragile]
+\subslidetitle
   The command \cmd{git rm} removes a file from the repository:
 \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git rm test.file}*)
@@ -416,11 +391,7 @@ Changes to be committed:
 
         (*\textcolor[HTML]{00AA00}{deleted:}*)    (*\textcolor[HTML]{00AA00}{test.file}*)
 \end{lstlisting}
-\end{frame}
 
-\subsection{git rm}
-\begin{frame}[fragile]
-\subslidetitle
   Commit the staged removal of the file:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git commit -m 'we do not need the test file anymore'}*)
@@ -436,9 +407,12 @@ $ (*\textcolor[HTML]{0000AA}{git commit -m 'we do not need the test file anymore
 \subslidetitle
   Create a commit for each exercise below:
   \begin{exercise}
-    \item Change the color of the moon to blue, commit as 'blue moon'
-    \item Change the \cmd{<h1>} tag of \cmd{moon.html} to 'Git Moons', commit as 'title in page'
-    \item Add a green moon, commit as 'green moon'
+    \item Change the color of the moon to blue\\
+      commit as 'blue moon'
+    \item Change the \cmd{<h1>} tag of \cmd{moon.html} to 'Git Moons'\\
+      commit as 'title in page'
+    \item Add a green moon\\
+      commit as 'green moon'
   \end{exercise}
 
 \end{frame}

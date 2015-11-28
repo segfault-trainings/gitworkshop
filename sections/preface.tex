@@ -12,11 +12,11 @@
   This workshop takes about 4 hours.
 \end{frame}
 
-\subsection{Version Control Systems}
+\subsection{History}
 \begin{frame}
   \subslidetitle
 
-  \textbf{Version Control Systems}
+  \textbf{Version Control Systems (VCS)}
   \pause
   \\
   \begin{tabular}{lp{5cm}r}
@@ -31,8 +31,12 @@
     \textbf{2000} & Apache Subversion (SVN)  & Apache \\
     \pause
   \end{tabular}
-  \\
-  \textbf{Distributed Version Control Systems}
+\end{frame}
+
+\subsection{History}
+\begin{frame}
+  \subslidetitle
+  \textbf{Distributed Version Control Systems (DVCS)}
   \pause
   \\
   \begin{tabular}{lp{5cm}r}
@@ -50,26 +54,48 @@
     \pause
   \end{tabular}
 
+  Linus Torvalds created git in order to replace BitKeeper which changed the license in 2005.
 \end{frame}
 
 \subsection{git}
 \begin{frame}
   \subslidetitle
+   The term 'git' is British slang for:
+  \begin{itemize}
+    \item pig headed
+    \item think they are always correct
+    \item argumentative
+  \end{itemize}
 
-  Design criterias:
+  \epigraph{``I'm an egotistical bastard, and I name all my projects after myself. First Linux, now git.''}
+       {--- Linus Torvalds, 2007-06-14}
+    \epigraph{``Because my hatred of CVS has meant that I see Subversion as being the most pointless project ever started, because the whole slogan for the Subversion for a while was 'CVS done right' or something like that. And if you start with that kind of slogan, there is nowhere you can go. It's like, there is no way to do CVS right.''}
+      {--- Linus Torvalds, Google Tech Talk 2007}
+\end{frame}
+
+\subsection{Design goals for git}
+\begin{frame}
+  \subslidetitle
   \begin{itemize}
     \item take Concurrent Versions System (CVS) as an example of what not to do; if in doubt, make the exact opposite decision
+    \pause
     \item support a distributed, BitKeeper-like workflow
+    \pause
     \item very strong safeguards against corruption, either accidental or malicious
+    \pause
   \end{itemize}
 
-  \vspace{1cm}
-  \epigraph{``Because my hatred of CVS has meant that I see Subversion as being the most pointless project ever started, because the whole slogan for the Subversion for a while was 'CVS done right' or something like that. And if you start with that kind of slogan, there is nowhere you can go. It's like, there is no way to do CVS right."}
-{--- Linus Torvalds on git, Google Tech Talk 2007}
+  \vspace{2em}
+  \begin{tabular}{ll}
+    Started: & 2005-04-03 \\
+    \pause
+    Announced: &2005-04-06 \\
+    \pause
+    Self Hosting: & 2005-04-07 (4d!) \\
+    \pause
+    First Multi Branch Merge: & 2005-04-18 (15d!)
+  \end{tabular}
 
-  \begin{itemize}
-     \item\url{https://www.youtube.com/watch?v=4XpnKHJAok8}
-  \end{itemize}
 \end{frame}
 
 %\subsection{Course goal}

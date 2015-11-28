@@ -109,7 +109,7 @@ Note: the hashes can be abbreviated to their short form (\cmd{220767d})
   \vspace{1em}
   \begin{lstlisting}
 (*\textcolor[HTML]{ae6617}{88afdba}*) add test file
-  \end{lstlisting}
+\end{lstlisting}
 
   \vspace{1em}
   Elements of a commit:
@@ -315,7 +315,7 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
 
-  The commits can be grouped logically in title changes and moon color changes.\\
+  Hmm, these commits should be grouped logically!\\
   Use copy \& paste to reorder the commits (in Vim: \cmd{yy} \& \cmd{p}):
 
   \begin{lstlisting}
@@ -342,8 +342,8 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
 
-  The first two are actually the same change, fix them up by setting the first
-  column of the second commit to \cmd{fixup} or simply \cmd{f} (in Vim: \cmd{cw f <ESC>}):
+  The first two are actually the same change!\\
+  Let's fix this with \cmd{fixup} or simply \cmd{f} (in Vim: \cmd{cw f <ESC>}):
 
   \begin{lstlisting}
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
@@ -366,8 +366,8 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde3}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
 
-  The last two commit are very similar, meld them by setting the first
-  column of the second commit to \cmd{squash} or simply \cmd{s} (in Vim: \cmd{cw s <ESC>}):
+  Hmm, hhe last two commit are very similar!\\
+  Let's meld them with \cmd{squash} or simply \cmd{s} (in Vim: \cmd{cw s <ESC>}):
   \begin{lstlisting}
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3fbbf93}*) (*\textcolor[HTML]{682268}{change title}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change the moon to blue}*)
@@ -384,18 +384,18 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde3}*)
 # This is a combination of 2 commits.
 # The first commit's message is:
 
-change the moon to blue
+(*\textcolor[HTML]{B7A000}{change the moon to blue}*)
 
 # This is the 2nd commit message:
 
-add green moon
+(*\textcolor[HTML]{B7A000}{add green moon}*)
 \end{lstlisting}
 
   Change it to:
   \begin{lstlisting}
 # This is a combination of 2 commits.
 
-change the moon to blue and add green moon
+(*\textcolor[HTML]{B7A000}{change the moon to blue and add green moon}*)
 
 \end{lstlisting}
   Save and quit the editor.
@@ -442,7 +442,8 @@ $ (*\textcolor[HTML]{0000AA}{git commit -m 'add project README'}*)
 \begin{frame}[fragile]
   \subslidetitle
 
-  But hey, this is no problem.\\
+  But hey, this is no problem!\\
+  \vspace{1em}
   We can quickly change the last commit using \cmd{git commit --amend}:
 
   \begin{lstlisting}
@@ -483,7 +484,7 @@ $ (*\textcolor[HTML]{0000AA}{git commit --amend}*)
 \end{lstlisting}
 \end{frame}
 
-\subsection{Partial stage 2}
+\subsection{Partial stage}
 \begin{frame}[fragile]
   \subslidetitle
   At this point we would like to commit all but one comment.
@@ -509,7 +510,7 @@ index a5d283e..145cfff 100644
   This hunk seems OK, let's say yes :)
 \end{frame}
 
-\subsection{Partial stage 3}
+\subsection{Partial stage}
 \begin{frame}[fragile]
   \subslidetitle
 
@@ -526,6 +527,11 @@ index a5d283e..145cfff 100644
   </body>
 (*\textcolor[HTML]{5454FF}{Stage this hunk [y,n,q,a,d,/,j,J,g,e,?]?}*) s
 \end{lstlisting}
+\end{frame}
+
+\subsection{Partial stage}
+\begin{frame}[fragile]
+  \subslidetitle
 
   Then, say no to the first one:
   \begin{lstlisting}
@@ -541,7 +547,7 @@ Split into 2 hunks.
 \end{lstlisting}
 \end{frame}
 
-\subsection{Partial stage 4}
+\subsection{Partial stage}
 \begin{frame}[fragile]
   \subslidetitle
   And only take this changed line:

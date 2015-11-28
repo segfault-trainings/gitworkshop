@@ -1,15 +1,32 @@
-\section{Preface}
+\section{Introduction}
 \begin{frame}
   \slidetitle
+  The scope of this workshop covers:
+  \begin{itemize}
+    \item The concepts of git
+    \item The usage of git (tool independent)
+    \item Understanding git work flows
+  \end{itemize}
 
+  \pause
+  \vspace{1em}
+  Workshop strategy:
+  \begin{itemize}
+    \item Hands-on workshop on an example project
+    \item Learning-by-doing
+  \end{itemize}
+
+  \pause
+  \vspace{1em}
   Required skills:
   \begin{itemize}
-    \item basic command line knowledge
-    \item use a text editor
-    \item type what is written on the projector :)
+    \item Basic usage of the command line
+    \item Use a text editor (Vim)
+    \item Type what is written on the slides :)
   \end{itemize}
+
   \vspace{1em}
-  This workshop takes about 4 hours.
+  Note: This workshop takes about 4 hours (hopefully!)
 \end{frame}
 
 \subsection{History}
@@ -57,7 +74,7 @@
   Linus Torvalds created git in order to replace BitKeeper which changed the license in 2005.
 \end{frame}
 
-\subsection{git}
+\subsection{About git}
 \begin{frame}
   \subslidetitle
    The term 'git' is British slang for:
@@ -67,28 +84,35 @@
     \item argumentative
   \end{itemize}
 
+  \pause
   \epigraph{``I'm an egotistical bastard, and I name all my projects after myself. First Linux, now git.''}
        {--- Linus Torvalds, 2007-06-14}
-    \epigraph{``Because my hatred of CVS has meant that I see Subversion as being the most pointless project ever started, because the whole slogan for the Subversion for a while was 'CVS done right' or something like that. And if you start with that kind of slogan, there is nowhere you can go. It's like, there is no way to do CVS right.''}
+  \pause
+  \epigraph{``Because my hatred of CVS has meant that I see Subversion as being the most pointless project ever started, because the whole slogan for the Subversion for a while was 'CVS done right' or something like that. And if you start with that kind of slogan, there is nowhere you can go. It's like, there is no way to do CVS right.''}
       {--- Linus Torvalds, Google Tech Talk 2007}
 \end{frame}
 
-\subsection{Design goals for git}
+\subsection{About git}
 \begin{frame}
   \subslidetitle
+  Design goals:
+  \pause
   \begin{itemize}
-    \item take Concurrent Versions System (CVS) as an example of what not to do; if in doubt, make the exact opposite decision
+    \item Take Concurrent Versions System (CVS) as an example of what not to do; if in doubt, make the exact opposite decision
     \pause
-    \item support a distributed, BitKeeper-like workflow
+    \item Support a distributed, BitKeeper-like workflow
     \pause
-    \item very strong safeguards against corruption, either accidental or malicious
+    \item Very strong safeguards against corruption, either accidental or malicious
     \pause
   \end{itemize}
 
   \vspace{2em}
+  Implementation:
+  \\
+  \pause
   \begin{tabular}{ll}
     Started: & 2005-04-03 \\
-    \pause
+  \pause
     Announced: &2005-04-06 \\
     \pause
     Self Hosting: & 2005-04-07 (4d!) \\
@@ -98,36 +122,3 @@
 
 \end{frame}
 
-%\subsection{Course goal}
-%\frame{
-  %\subslidetitle
-
-  %This course aims to provide knowledge about:
-  %\begin{itemize}
-    %\item Setup git (gitconfig, alias)
-    %\item Clone repository (clone)
-    %\item Create local changes (status, add, commit, reset, diff, log, reflog)
-    %\item Work with different branches (branch, checkout, stash, diff, rebase, merge, cherry-pick)
-    %\item Work with remotes (remote, fetch, pull, push, upstream, blame)
-    %\item Master merge conflict (mergetool, 3 way merge)
-    %\item format-patch
-    %\item Find the bug with git bisect
-    %\item pull requests
-    %\item Advanced git: porcelain and plumbing
-  %\end{itemize}
-  %\vspace{1em}
-%}
-
-%\subsection{Git workflow}
-%\frame{
-  %\subslidetitle
-
-  %\begin{itemize}
-    %\item Fetch or clone a repository
-    %\item Modify the local files
-    %\item Stage the files
-    %\item Commit the changes locally
-    %\item Push changes to remote repository
-  %\end{itemize}
-  %\vspace{1em}
-%}

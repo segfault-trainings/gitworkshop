@@ -100,49 +100,45 @@ Note: the hashes can be abbreviated to their short form (\cmd{220767d})
   \centerline{\includegraphics[width=9cm]{../screen/gitk.png}}
 \end{frame}
 
-\subsection{A commit is a change}
+\subsection{Git commits}
 \begin{frame}[fragile]
   \subslidetitle
-
-  Using git correctly means a commit is not just a saved snapshot of your ongoing work. \textbf{It is a change to your code.}
-
+  Using git correctly means a commit is not just a saved snapshot of your ongoing work. \\
   \vspace{1em}
-  \begin{lstlisting}
-(*\textcolor[HTML]{ae6617}{88afdba}*) add test file
-\end{lstlisting}
-
+  \textbf{A commit is a change to the software.} \\
   \vspace{1em}
-  Elements of a commit:
-
-  \begin{tabular}{lp{7cm}}
-    \textbf{Commit Message} & A message explaining the change. It is written in \textit{imperative} form: \newline
-                              'add file', NOT 'adding file' or 'added file' \\
-    \textbf{Author} & Name and Email as defined in \cmd{gitconfig} \\
-    \textbf{AuthorDate} & Date of commit \\
-    %\textbf{Committer} & Name and Email of committer \\
-    %\textbf{CommitDate} & Date of commit \\
-    \textbf{SHA} & HASH which git uses as key \\
-  \end{tabular}
+  Best practices for git commits:
+  \begin{itemize}
+    \item Use the imperative mood in the subject line \\
+      'add file', not 'adding file' or 'added file'
+    \item A git commit contains only the diffs that are needed for that given change
+    \item shows whether a developer is a good collaborator.
+    \item Limit the subject line to 50, wrap the body at 72 characters
+    \item Use the body to explain What and Why vs. How
+  \end{itemize}
 \end{frame}
 
-\subsection{Best Practice Commit Message}
+\subsection{Git commits}
 \begin{frame}[fragile]
   \subslidetitle
 
-  It's important to keep commit messages consistent, clear and readable.
-  \vspace{1em}
-
-  \textbf{Best Practice Rules:}
-  \begin{itemize}
-    \item A git commit contains only the diffs that are needed for that given change
-    \item Separate subject from body with a blank line
-    \item Limit the subject line to 50 characters
-    \item Capitalize the subject line
-    \item Do not end the subject line with a period
-    \item Use the imperative mood in the subject line
-    \item Wrap the body at 72 characters
-    \item Use the body to explain what and why vs. how
-  \end{itemize}
+  A git commit consists of the following elements:
+  \begin{tabular}{lp{10cm}}
+    \pause
+    \textbf{Message Title} & A title describing the change \\
+    \pause
+    \textbf{Message Body} & A message body explaining the change \\
+    \pause
+    \textbf{Author} & Name and Email of author \\
+    \pause
+    \textbf{Author Date} & Date of commit \\
+    \pause
+    \textbf{Committer} & Name and Email of committer \\
+    \pause
+    \textbf{CommitDate} & Date of commit \\
+    \pause
+    \textbf{SHA} & HASH which git uses as key \\
+  \end{tabular}
 
   \vspace{1em}
   Note: Your commit message reveals whether you are a good collaborator or not.
@@ -177,13 +173,19 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde6}*)
   The interactive rebase allows to change the first column of one or more commits in oder to:
 
   \begin{itemize}
+    \pause
     \opt{p, pick}{use commit}
+    \pause
     \opt{r, reword}{use commit, but edit the commit message}
+    \pause
     \opt{e, edit}{use commit, but stop for amending}
+    \pause
     \opt{s, squash}{use commit, but meld into previous commit}
+    \pause
     \opt{f, fixup}{like "squash", but discard this commit's log message}
   \end{itemize}
 
+  \pause
   \vspace{1em}
   From the \cmd{git rebase -i} info:
   \begin{itemize}
@@ -364,7 +366,7 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde3}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
 
-  Hmm, hhe last two commit are very similar!\\
+  Hmm, the last two commit are very similar!\\
   Let's meld them with \cmd{squash} or simply \cmd{s} (in Vim: \cmd{cw s <ESC>}):
   \begin{lstlisting}
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3fbbf93}*) (*\textcolor[HTML]{682268}{change title}*)

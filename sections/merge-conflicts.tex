@@ -9,9 +9,24 @@
 \end{itemize}
 \end{frame}
 
-\subsection{Three way merge}
+\subsection{A requirement change}
 \begin{frame}[fragile]
     \subslidetitle
+  Our customer changed his mind about the color of the green moon.
+  \newline \vspace{1em}
+  \#4 Change the color of the green moon to red.
+
+  Implement the change in moon.js following this diff:
+\begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{@@ -4,7 +4,7 @@}*) var moons = [];
+ init();
+ moon( "blue" );
+ moon( "white" );
+(*\textcolor{red}{-}*)(*\textcolor{red}{moon( "green" );}*)
+(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{moon( "red" );}*)
+ animate();
+\end{lstlisting}
+
 \end{frame}
 
 \subsection{git mergetool}

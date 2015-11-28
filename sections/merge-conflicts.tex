@@ -29,7 +29,22 @@
 
 \end{frame}
 
-\subsection{git mergetool}
+\subsection{Display differences}
+\begin{frame}[fragile]
+    \subslidetitle
+  The \cmd{git difftool} will run the application of your choice to display differences:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git difftool --tool kdiff3}*)
+Viewing (1/1): 'moon.js'
+Launch 'kdiff3' [Y/n]: Y
+\end{lstlisting}
+
+  \vspace{1em}
+  \centerline{\includegraphics[width=10cm]{../screen/git-difftool-kdiff3.png}}
+
+  Note: This can be helpful to call an external diff toll like kdiff3 or meld, especially to have a side-by-side diff.
+
+\end{frame}
 \begin{frame}[fragile]
     \subslidetitle
 \end{frame}

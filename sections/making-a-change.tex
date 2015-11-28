@@ -2,10 +2,13 @@
 \begin{frame}[fragile]
   \slidetitle
 
-  In this section, we will learn how to:
+  This section covers the following topics:
   \begin{itemize}
+    \pause
     \item See the commit history
+    \pause
     \item Make commits that are actually changes
+    \pause
     \item Change commits and the history
   \end{itemize}
 \end{frame}
@@ -74,7 +77,7 @@ index 0000000..8227a64
 (*\textcolor[HTML]{00AA00}{+Tux Penguin}*)
 \end{lstlisting}
 
-Note: you can abbreviate the given commit hash to 220767d.
+Note: the hashes can be abbreviated to their short form (\cmd{220767d})
 \end{frame}
 
 \subsection{Textmode Interface for git - tig}
@@ -244,8 +247,9 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde6}*)
   \begin{lstlisting}
 (*\textcolor[HTML]{B7A000}{add test file}*)
 
-The file `test.file' is needed for illustrating the `git rm'
-command. It will be removed by the next commit.
+The file `test.file' is needed for illustrating
+the `git rm' command. It will be removed by the
+next commit.
 
 \end{lstlisting}
 
@@ -253,15 +257,14 @@ command. It will be removed by the next commit.
   \\
   \vspace{1em}
   Then, the \cmd{git rebase -i} command will continue with the next commit.
-  \\
-  \vspace{1em}
-  Change all commit messages to be imperative and add an explanatory commit text.
 \end{frame}
 \subsection{After the rebase}
 \begin{frame}[fragile]
   \subslidetitle
-
-   After the rebase operation you should see the following:
+  Change all commit messages to be imperative and add an explanatory commit text.
+  \\
+  \vspace{1em}
+  After the rebase operation you should see the following:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
 (*\textcolor[HTML]{ae6617}{7218137}*) add green moon
@@ -430,9 +433,17 @@ $ (*\textcolor[HTML]{0000AA}{git commit -m 'add project README'}*)
  create mode 100644 README
 \end{lstlisting}
 
-  Too bad why did't we see the typo we just committed ...
+  \vspace{1em}
+  Ah, too bad ! We did't see the typo before we committed ...
+\end{frame}
 
-  But hey no problem we can quickly change the last commit using \cmd{git commit --amend}:
+
+\subsection{Amending commits}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  But hey, this is no problem.\\
+  We can quickly change the last commit using \cmd{git commit --amend}:
 
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{echo "\# T\textcolor{red}{he} GitMoon project" > README}*)

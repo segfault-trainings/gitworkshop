@@ -306,7 +306,6 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde5}*)
 \begin{frame}[fragile]
   \subslidetitle
   An interactive rebase can be used to reorder commits:
-
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
@@ -314,17 +313,16 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{change title in page}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
-
   Hmm, these commits should be grouped logically!\\
-  Use copy \& paste to reorder the commits (in Vim: \cmd{yy} \& \cmd{p}):
 
+  \vspace{1em}
+  Use copy \& paste to reorder the commits (in Vim: \cmd{yy} \& \cmd{p}):
   \begin{lstlisting}
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{1ee6e3e}*) (*\textcolor[HTML]{682268}{change title in page}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change the moon to blue}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
-
   Save and quit the editor to reorder the commits.
 \end{frame}
 
@@ -365,8 +363,9 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde3}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{aca9316}*) (*\textcolor[HTML]{682268}{change the moon to blue}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{f738e37}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
-
   Hmm, the last two commit are very similar!\\
+
+  \vspace{1em}
   Let's meld them with \cmd{squash} or simply \cmd{s} (in Vim: \cmd{cw s <ESC>}):
   \begin{lstlisting}
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3fbbf93}*) (*\textcolor[HTML]{682268}{change title}*)
@@ -513,7 +512,6 @@ index a5d283e..145cfff 100644
 \subsection{Partial stage}
 \begin{frame}[fragile]
   \subslidetitle
-
   Hmm, only the second part of this hunk looks OK, let's split it:
   \begin{lstlisting}
 (*\textcolor[HTML]{0000EE}{@@ -15,7 +15,9 @@}*)

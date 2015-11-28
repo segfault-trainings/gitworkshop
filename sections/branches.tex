@@ -83,7 +83,7 @@ Deleted branch bar (was 9adadac).
 \end{frame}
 
 % create bugfix branch
-\subsection{bugfix}
+\subsection{Bugfix}
 \begin{frame}[fragile]
     \subslidetitle
 
@@ -99,11 +99,7 @@ Switched to a new branch 'fix-title'
 
   Modify the moon.html file following this diff instructions:
   \begin{lstlisting}
---- a/moon.html
-+++ b/moon.html
 (*\textcolor[HTML]{18B2B2}{@@ -7,7 +7,8 @@}*)
-         <style>
-             body {
                  font-family: Monospace;
 (*\textcolor{red}{-}*)                (*\textcolor{red}{background-color: \#f0f0f0; <!-- grey -->}*)
 (*\textcolor[HTML]{00AA00}{+}*)                (*\textcolor[HTML]{00EE00}{background-color: black;}*)
@@ -241,10 +237,6 @@ Switched to a new branch 'feature-flag-color'
 \end{lstlisting}
   Modify the moon.js file following this diff instructions:
   \begin{lstlisting}
-diff --git a/moon.js b/moon.js
-index 69d1726..b45cf20 100644
---- a/moon.js
-+++ b/moon.js
 (*\textcolor[HTML]{18B2B2}{@@ -3,6 +3,7 @@}*) var moons = [];
 
  init();

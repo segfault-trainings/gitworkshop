@@ -5,7 +5,7 @@
   This section covers the following topics:
   \begin{itemize}
     \pause
-    \item Create and delete a branches
+    \item Create and delete a branch
     \pause
     \item Work with branches
     \pause
@@ -32,7 +32,7 @@
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git branch foo}*)
 \end{lstlisting}
 
-  The \cmd{git branch} command lists you all your local branches:
+  The \cmd{git branch} command lists all your local branches:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git branch}*)
   foo
@@ -45,7 +45,7 @@ Note: The branch you are currently on is marked with an asterisk (*).
 \subsection{Switching to branch}
 \begin{frame}[fragile]
   \subslidetitle
-  The \cmd{git checkout} command, is used to change the working branch:
+  The \cmd{git checkout} command is used to change the current branch:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout foo}*)
 Switched to branch 'foo'
@@ -54,7 +54,7 @@ Switched to branch 'foo'
   master
 \end{lstlisting}
 
-  The \cmd{git checkout} command with \cmd{-b} option creates a new branch and automatically switch to it:
+  The \cmd{git checkout} command with \cmd{-b} option creates a new branch and automatically switches to it:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(foo)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b bar}*)
 Switched to a new branch 'bar'

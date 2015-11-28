@@ -91,6 +91,7 @@ Deleted branch bar (was 9adadac).
   Start to create a new bugfix branch and implement the fix:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b fix-title}*)
+Switched to a new branch 'fix-title'
 \end{lstlisting}
 
   Modify the moon.html file following this diff instructions:
@@ -105,6 +106,11 @@ Deleted branch bar (was 9adadac).
 (*\textcolor[HTML]{00AA00}{+}*)                (*\textcolor[HTML]{00EE00}{background-color: black;}*)
 (*\textcolor[HTML]{00AA00}{+}*)                (*\textcolor[HTML]{00EE00}{color: white;}*)
                  margin: 0px;
+\end{lstlisting}
+
+  Commit your changes:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "change title background color to black and font color to white. fixes \#1"}*)
 \end{lstlisting}
 \end{frame}
 
@@ -142,6 +148,8 @@ Deleted branch bar (was 9adadac).
   In the meantime, we need to update the README file with a Prerequisites sub-section:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{echo "}*)
 > (*\textcolor[HTML]{0000AA}{\#\# Prerequisites >> README"}*)
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "add the prerequisites subsection"}*)

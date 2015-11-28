@@ -34,14 +34,14 @@ Date:   Sat Nov 21 13:47:14 2015 +0100
 
 ...
 \end{lstlisting}
-Note: \cmd{git log} uses the pager for displaying the log, use \cmd{q} to quit.
+Note: \cmd{git log} uses a pager to display the log, use \cmd{q} to quit.
 \end{frame}
 
 \subsection{Commit logs on one line}
 \begin{frame}[fragile]
   \subslidetitle
 
-  In our commit history, we find the following messages:
+  In our commit history we find the following messages:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
 (*\textcolor[HTML]{ae6617}{633a534}*) green moon
@@ -114,9 +114,9 @@ Note: the hashes can be abbreviated to their short form (\cmd{220767d})
   \vspace{1em}
   Elements of a commit:
 
-  \begin{tabular}{lp{15cm}}
-    \textbf{Commit Message} & A message explaining the change. It is written in imperative form: \newline
-                              'add file', not 'adding file' or 'added file' \\
+  \begin{tabular}{lp{7cm}}
+    \textbf{Commit Message} & A message explaining the change. It is written in \textit{imperative} form: \newline
+                              'add file', NOT 'adding file' or 'added file' \\
     \textbf{Author} & Name and Email as defined in \cmd{gitconfig} \\
     \textbf{AuthorDate} & Date of commit \\
     %\textbf{Committer} & Name and Email of committer \\
@@ -125,21 +125,16 @@ Note: the hashes can be abbreviated to their short form (\cmd{220767d})
   \end{tabular}
 \end{frame}
 
-\subsection{Best practice Commit Message}
+\subsection{Best Practice Commit Message}
 \begin{frame}[fragile]
   \subslidetitle
 
-  Its importent to keep commit messages consistent, clear and readable.
+  It's important to keep commit messages consistent, clear and readable.
   \vspace{1em}
 
-  Rules:
+  \textbf{Best Practice Rules:}
   \begin{itemize}
-    \item A commit message is in imperative form: \\
-      'add file', not 'adding file' or 'added file'
     \item A git commit contains only the diffs that are needed for that given change
-
-    \item shows whether a developer is a good collaborator.
-
     \item Separate subject from body with a blank line
     \item Limit the subject line to 50 characters
     \item Capitalize the subject line
@@ -148,6 +143,9 @@ Note: the hashes can be abbreviated to their short form (\cmd{220767d})
     \item Wrap the body at 72 characters
     \item Use the body to explain what and why vs. how
   \end{itemize}
+
+  \vspace{1em}
+  Note: Your commit message reveals whether you are a good collaborator or not.
 \end{frame}
 
 \subsection{Interactive rebase}

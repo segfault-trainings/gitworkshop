@@ -101,15 +101,16 @@ uUiYLTgtczTgYk/T user@host
     \item Create a SSH key pair
     \item Configure SSH access in your git appliance
     \item Create a new private repository, called \textbf{gitmoon}
-    \item Clone the private repository to a directory \textbf{gitmoon2} \\
+    \item Clone the private repository to a directory \textbf{mygitmoon} \\
           \vspace{1em}
           Hint:
           \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{cd \# go to home directory}*)
-$ (*\textcolor[HTML]{0000AA}{git clone}*) (*\textcolor[HTML]{444444}{URL}*) (*\textcolor[HTML]{0000AA}{gitmoon2}*)
-Cloning into 'gitmoon2'...
+$ (*\textcolor[HTML]{0000AA}{git clone} \textcolor[HTML]{444444}{URL} \textcolor[HTML]{0000AA}{mygitmoon}*)
+Cloning into 'mygitmoon'...
 ...
 \end{lstlisting}
+      \item Go back to the original gitmoon project (\cmd{cd \textasciitilde/gitmoon})
     \end{exercise}
   \vspace{1em}
 \end{frame}
@@ -117,14 +118,30 @@ Cloning into 'gitmoon2'...
 \subsection{Adding a remote repository}
 \begin{frame}[fragile]
   \subslidetitle
+  Let's add the private repository as remote \textbf{upstream}:
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git remote add}*)
+$ (*\textcolor[HTML]{0000AA}{git remote add upstream} \textcolor[HTML]{444444}{URL}*)
+...
 \end{lstlisting}
 \end{frame}
 
-\subsection{git push}
+\subsection{Pushing commits to a remote}
 \begin{frame}[fragile]
   \subslidetitle
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git push}*)
+...
+\end{lstlisting}
+\end{frame}
+
+\subsection{Pulling commits from a remote}
+\begin{frame}[fragile]
+  \subslidetitle
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{cd \textasciitilde/mygitmoon}*)
+$ (*\textcolor[HTML]{0000AA}{git pull}*)
+...
+\end{lstlisting}
 \end{frame}
 
 \subsection{git fetch}
@@ -132,38 +149,22 @@ $ (*\textcolor[HTML]{0000AA}{git remote add}*)
   \subslidetitle
 \end{frame}
 
-\subsection{git pull}
+\subsection{Stashing modifications}
 \begin{frame}[fragile]
   \subslidetitle
-\end{frame}
 
-\subsection{Stashing area}
-\begin{frame}[fragile]
-  \slidetitle
+  Imagine you are in the middle of a modification.
 
-  In this section, we will learn how to:
-  \begin{itemize}
-    \item Stashing temporary changes
-  \end{itemize}
-\end{frame}
-
-
-\subsection{Store changes for later}
-\begin{frame}[fragile]
-\subslidetitle
-
-Imagine you are in the middle of a modification.
-
-\begin{lstlisting}
+  \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git status}*)
 ...
        (*\textcolor{red}{modified:   AUTHORS}*)
 ...
 \end{lstlisting}
 
-And suddenly something really important needs to be done immediately!
+  And suddenly something really important needs to be done immediately!
 
-\begin{lstlisting}
+  \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git stash}*)
 Saved working directory and index state WIP on master: a7281d1 add authors file
 HEAD is now at a7281d1 add authors file
@@ -171,25 +172,25 @@ $ (*\textcolor[HTML]{0000AA}{git status}*)
 # On branch master
 nothing to commit (working directory clean)
 \end{lstlisting}
-Note: you now have a clean working directory again.
+  Note: you now have a clean working directory again.
 \end{frame}
 
 
 \subsection{Restore changes}
 \begin{frame}[fragile]
-\subslidetitle
+  \subslidetitle
 
-Do not worry, \textbf{git stash} does not loose any information, let's have a look:
+  Do not worry, \textbf{git stash} does not loose any information, let's have a look:
 
-\begin{lstlisting}
+  \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git stash list}*)
 stash@{0}: WIP on master: a7281d1 add authors file
 (END)
 \end{lstlisting}
 
-Restore the changes from the stash queue:
+  Restore the changes from the stash queue:
 
-\begin{lstlisting}
+  \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git stash pop}*)
 On branch master
 Changes not staged for commit:

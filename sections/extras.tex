@@ -3,6 +3,32 @@
   \slidetitle
 \end{frame}
 
+\subsection{Remove untracked files}
+\begin{frame}[fragile]
+    \subslidetitle
+  Tracking a project under git helps you to keep your workspace clean, after your compilation process generated some temporary files:
+
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{touch \$(echo "compile" | hexdump | head -n1)}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git status}*)
+On branch master
+...
+(*\textcolor{red}{	0000000}*)
+(*\textcolor{red}{	0a65}*)
+(*\textcolor{red}{	6c69}*)
+(*\textcolor{red}{	6f63}*)
+(*\textcolor{red}{	706d}*)
+...
+\end{lstlisting}
+  Now we would like to clean all this temporary files, using \cmd{git clean}:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git git clean -df}*)
+Removing 0000000
+Removing 0a65
+...
+\end{lstlisting}
+
+\end{frame}
 \subsection{git grep}
 \begin{frame}[fragile]
   \subslidetitle

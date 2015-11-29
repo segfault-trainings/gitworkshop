@@ -32,24 +32,6 @@
 
 \end{frame}
 
-\subsection{Display differences}
-\begin{frame}[fragile]
-    \subslidetitle
-  The \cmd{git difftool} will run the application of your choice to display differences:
-  \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git difftool --tool kdiff3}*)
-Viewing (1/1): 'moon.js'
-Launch 'kdiff3' [Y/n]: Y
-\end{lstlisting}
-
-  \vspace{1em}
-  \centerline{\includegraphics[width=8cm]{../screen/git-difftool-kdiff3.png}}
-
-  Note: This can be helpful to call an external diff toll like kdiff3 or meld, especially to have a side-by-side diff.
-
-\end{frame}
-
-
 \subsection{Update third-moon}
 \begin{frame}[fragile]
     \subslidetitle
@@ -118,6 +100,7 @@ index 72886cb,861507e..0000000
 
   function moon( color )
 \end{lstlisting}
+  Note: the \cmd{git difftool} can be configured to call an external diff toll like kdiff3, in order to have a side-by-side diff.
 \end{frame}
 
 \subsection{Resolve a conflict}

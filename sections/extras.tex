@@ -29,9 +29,31 @@ Removing 0a65
 \end{lstlisting}
 
 \end{frame}
-\subsection{git grep}
+\subsection{Search with git}
 \begin{frame}[fragile]
   \subslidetitle
+  Lost in search? It is just convinient to have \cmd{git grep} handy:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git grep moon.js}*)
+moon.html:        <script src="(*\textcolor{red}{moon.js}*)"></script>
+\end{lstlisting}
+
+  Some advanced git fu using \cmd{git log --pickaxe-regexp} tofind which commit introduced or removed the searched keyword:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git log --oneline --abbrev --pickaxe-regex "*moon*"}*)
+a3c399f remove the blue moon
+93ea12c change the green moon color to red
+...
+39719c9 initial commit
+\end{lstlisting}
+
+Note: One can use the \cmd{git show} combined with a commit hash to see more details.
+
+  Finally some option of \cmd{git branch} permit to search to which branch a commit belongs:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git branch --contains a3c399f}*)
+(*\textcolor[HTML]{00AA00}{* master}*)
+\end{lstlisting}
 \end{frame}
 
 \subsection{Work with patches}

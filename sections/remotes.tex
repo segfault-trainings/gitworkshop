@@ -31,6 +31,8 @@ $ (*\textcolor[HTML]{0000AA}{git remote show origin}*)
   Local ref configured for 'git push':
     master pushes to master (up to date)
 \end{lstlisting}
+  \vspace{1em}
+  Note: the default remote is called \textbf{origin}
 \end{frame}
 
 \subsection{Git protocols}
@@ -103,16 +105,9 @@ uUiYLTgtczTgYk/T user@host
     \item Create a new private repository, called \textbf{gitmoon}
     \item Clone the private repository to a directory \textbf{mygitmoon} \\
           \vspace{1em}
-          Hint:
-          \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{cd \# go to home directory}*)
-$ (*\textcolor[HTML]{0000AA}{git clone} \textcolor[HTML]{444444}{URL} \textcolor[HTML]{0000AA}{mygitmoon}*)
-Cloning into 'mygitmoon'...
-...
-\end{lstlisting}
-      \item Go back to the original gitmoon project (\cmd{cd \textasciitilde/gitmoon})
-    \end{exercise}
-  \vspace{1em}
+          Hint: switch to your home directory first, by typing \cmd{cd}
+    \item Go back to the original gitmoon project (\cmd{cd \textasciitilde/gitmoon})
+  \end{exercise}
 \end{frame}
 
 \subsection{Adding a remote repository}
@@ -121,26 +116,43 @@ Cloning into 'mygitmoon'...
   Let's add the private repository as remote \textbf{upstream}:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git remote add upstream} \textcolor[HTML]{444444}{URL}*)
-...
+$ (*\textcolor[HTML]{0000AA}{git remote show}*)
+origin
+upstream
 \end{lstlisting}
 \end{frame}
 
 \subsection{Pushing commits to a remote}
 \begin{frame}[fragile]
   \subslidetitle
+  Now, we can push our local commits to the \textbf{upstream} remote:
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git push}*)
-...
+$ (*\textcolor[HTML]{0000AA}{git push upstream master}*)
+git push upstream master
+Counting objects: 6, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 331.07 KiB | 0 bytes/s, done.
+Total 6 (delta 0), reused 0 (delta 0)
+remote: ...
+To (*\textcolor[HTML]{444444}{URL}*)
+ * [new branch]      master -> master
 \end{lstlisting}
 \end{frame}
 
 \subsection{Pulling commits from a remote}
 \begin{frame}[fragile]
   \subslidetitle
+  In our \textbf{mygitmoon} project, these commits can now be pulled:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{cd \textasciitilde/mygitmoon}*)
 $ (*\textcolor[HTML]{0000AA}{git pull}*)
-...
+remote: Counting objects: 6, done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 6 (delta 0), reused 0 (delta 0)
+Unpacking objects: 100% (6/6), done.
+From (*\textcolor[HTML]{444444}{URL}*)
+ * [new branch]      master     -> origin/master
 \end{lstlisting}
 \end{frame}
 

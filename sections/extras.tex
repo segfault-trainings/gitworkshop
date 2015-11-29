@@ -37,11 +37,32 @@ Removing 0a65
 \subsection{Work with patches}
 \begin{frame}[fragile]
     \subslidetitle
-\end{frame}
 
-\subsection{git format-patch}
-\begin{frame}[fragile]
-    \subslidetitle
+  Remove the blue moon:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{sed -i "/blue/d" moon.js}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "remove the blue moon"}*)
+\end{lstlisting}
+
+  The \cmd{git format-patch} generates patch file to be send to 3rd party collaborator, or mailing list:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git format-patch -1}*)
+0001-remove-the-blue-moon.patch
+\end{lstlisting}
+
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{cat 0001-remove-the-blue-moon.patch}*)
+From 7afa035a39c2dc9648b182772eee06e3181ae24e Mon Sep 17 00:00:00 2001
+From: Eric Keller <keller.eric@gmail.com>
+Date: Sun, 29 Nov 2015 10:06:27 +0000
+Subject: [PATCH] remove the blue moon
+...
+ init();
+-moon( "blue" );
+ moon( "white" );
+...
+\end{lstlisting}
+
 \end{frame}
 
 \subsection{git am}

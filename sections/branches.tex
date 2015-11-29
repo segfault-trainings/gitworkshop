@@ -250,8 +250,8 @@ Applying: change title background color to black and font color to white. fixes 
   \newline \vspace{1em}
   \#2 insert a white moon between the blue and green moon.
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b feature-flag-color master}*)
-Switched to a new branch 'feature-flag-color'
+(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b third-moon master}*)
+Switched to a new branch 'third-moon'
 \end{lstlisting}
   Modify the moon.js file following this diff instructions:
   \begin{lstlisting}
@@ -265,7 +265,7 @@ Switched to a new branch 'feature-flag-color'
 \end{lstlisting}
   Commit your changes:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(feature-flag-color)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "add a white moon between the blue and green moon, implements \#2"}*)
+(*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "add a white moon between the blue and green moon, implements \#2"}*)
 \end{lstlisting}
 
 \end{frame}
@@ -279,7 +279,7 @@ Switched to a new branch 'feature-flag-color'
   \newline \vspace{1em}
   \#3 We are not able to make it work, please specify the prerequisites
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(feature-flag-color)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+(*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
 Switched to branch 'master'
 Your branch is up-to-date with 'origin/master'.
 \end{lstlisting}
@@ -301,9 +301,9 @@ Your branch is up-to-date with 'origin/master'.
 \begin{frame}[fragile]
   \subslidetitle
 
-  Now we can see the graphical representation of our feature-flag-color branch \cmd{tig}:
+  Now we can see the graphical representation of our third-moon branch \cmd{tig}:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{tig master feature-flag-color}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{tig master third-moon}*)
 \end{lstlisting}
 
   \vspace{1em}
@@ -319,8 +319,8 @@ Your branch is up-to-date with 'origin/master'.
   Use \cmd{git merge} to merge a branch into another branch:
 
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git merge feature-flag-color}*)
-Merge branch 'feature-flag-color' into master
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git merge third-moon}*)
+Merge branch 'third-moon' into master
 
 # Please enter a commit message to explain why this merge is necessary,
 # especially if it merges an updated upstream into a topic branch.
@@ -338,9 +338,9 @@ Merge branch 'feature-flag-color' into master
 \begin{frame}[fragile]
   \subslidetitle
 
-  Now we can see the graphical representation of our feature-flag-color branch merged on the master branch with \cmd{tig}:
+  Now we can see the graphical representation of our third-moon branch merged on the master branch with \cmd{tig}:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{tig master feature-flag-color}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{tig master third-moon}*)
 \end{lstlisting}
 
   \vspace{1em}

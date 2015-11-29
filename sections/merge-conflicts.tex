@@ -50,13 +50,13 @@ Launch 'kdiff3' [Y/n]: Y
 \end{frame}
 
 
-\subsection{Update feature-flag-color}
+\subsection{Update third-moon}
 \begin{frame}[fragile]
     \subslidetitle
   Commit your changes on master:
 \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "change the green moon color to red, implements \#4"}*)
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout feature-color-flag}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout third-moon}*)
 \end{lstlisting}
 
   Add a comment to the green moon like defined in the following diff:
@@ -76,16 +76,16 @@ Launch 'kdiff3' [Y/n]: Y
 \end{lstlisting}
 \end{frame}
 
-\subsection{Merge feature-flag-color}
+\subsection{Merge third-moon}
 \begin{frame}[fragile]
     \subslidetitle
 
-  The feature-flag-color is ready to be merged to master, try to merge the feature-flag-color branch to master:
+  The third-moon is ready to be merged to master, try to merge the third-moon branch to master:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(feature-flag-color)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+(*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
 Switched to branch 'master'
 Your branch is up-to-date with 'origin/master'.
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git merge feature-flag-color}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git merge third-moon}*)
 Auto-merging moon.js
 CONFLICT (content): Merge conflict in moon.js
 Automatic merge failed; fix conflicts and then commit the result.
@@ -113,7 +113,7 @@ index 72886cb,861507e..0000000
 (*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "red" );}*)
 (*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{=======}*)
 (*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "green" ); // no requirement}*)
-(*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{>>>>>>> feature-flag-color}*)
+(*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{>>>>>>> third-moon}*)
   animate();
 
   function moon( color )
@@ -170,7 +170,7 @@ All conflicts fixed but you are still merging.
   Just use \cmd{git commit} to finish the merge, this will automatically open the text editor, save and quit:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master|MERGING)}*) $ (*\textcolor[HTML]{0000AA}{git commit}*)
-Merge branch 'feature-flag-color' into master
+Merge branch 'third-moon' into master
 # Conflicts:
 #       moon.js
 \end{lstlisting}

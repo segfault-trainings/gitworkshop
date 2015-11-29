@@ -65,9 +65,21 @@ Subject: [PATCH] remove the blue moon
 
 \end{frame}
 
-\subsection{git am}
+\subsection{Apply a patch}
 \begin{frame}[fragile]
     \subslidetitle
+  First remove the last commit:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git reset --hard HEAD\textasciicircum1}*)
+\end{lstlisting}
+  The \cmd{git am} command takes a list of patch to apply to the current working area:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git am -3 0001-remove-the-blue-moon.patch}*)
+Applying: remove the blue moon
+\end{lstlisting}
+
+  Note: As well as when merging branch the \cmd{git am} could potencially end up with conflict, therefore we would like to enfoce a 3way-merge with the \cmd{-3} option.
+
 \end{frame}
 
 \subsection{Configure git}

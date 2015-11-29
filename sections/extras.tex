@@ -29,6 +29,7 @@ Removing 0a65
 \end{lstlisting}
 
 \end{frame}
+
 \subsection{Search with git}
 \begin{frame}[fragile]
   \subslidetitle
@@ -94,15 +95,45 @@ Subject: [PATCH] remove the blue moon
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git reset --hard HEAD\textasciicircum1}*)
 \end{lstlisting}
+  Create new no-blue branch in order to apply this patch
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b no-blue}*)
+Switched to a new branch 'no-blue'
+\end{lstlisting}
+
   The \cmd{git am} command takes a list of patch to apply to the current working area:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git am -3 0001-remove-the-blue-moon.patch}*)
+(*\textcolor[HTML]{18B2B2}{(no-blue)}*) $ (*\textcolor[HTML]{0000AA}{git am -3 0001-remove-the-blue-moon.patch}*)
 Applying: remove the blue moon
 \end{lstlisting}
 
   Note: As well as when merging branch the \cmd{git am} could potencially end up with conflict, therefore we would like to enfoce a 3way-merge with the \cmd{-3} option.
 
 \end{frame}
+
+\subsection{Cherrypick a commit} 
+\begin{frame}[fragile] 
+    \subslidetitle 
+  You are currently implementing a bugfix on a released version and should simultaneously fix it in the tip of your development, seems to be a load of work! Not if you use \cmd{git cherry-pick}:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(no-blue)}*) $ (*\textcolor[HTML]{0000AA}{git log -1 --oneline}*)
+(*\textcolor[HTML]{ae6617}{1d36adc}*) remove the blue moon
+\end{lstlisting}
+  Change to the master branch:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(no-blue)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+Switched to branch 'master'
+\end{lstlisting}
+  Now we try to cherry-pick the preceding commit:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git cherry-pick 1d36adc}*)
+[master fbd4ca8] remove the blue moon
+ Date: Sun Nov 29 10:06:27 2015 +0000
+ 1 file changed, 1 deletion(-)
+\end{lstlisting}
+  Note:  The \cmd{git cherry-pick} could potencially end up with conflict.
+\end{frame}
+
 
 \subsection{Configure git}
 \begin{frame}[fragile]

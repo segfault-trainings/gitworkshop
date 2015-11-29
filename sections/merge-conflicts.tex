@@ -43,7 +43,7 @@ Launch 'kdiff3' [Y/n]: Y
 \end{lstlisting}
 
   \vspace{1em}
-  \centerline{\includegraphics[width=10cm]{../screen/git-difftool-kdiff3.png}}
+  \centerline{\includegraphics[width=8cm]{../screen/git-difftool-kdiff3.png}}
 
   Note: This can be helpful to call an external diff toll like kdiff3 or meld, especially to have a side-by-side diff.
 
@@ -135,7 +135,7 @@ Normal merge conflict for 'moon.js':
   {remote}: modified file
 \end{lstlisting}
 
-  Note: the \cmd{kdiff3} automatically starts since we configured it in the ~/gitconfig file
+  Note: the \cmd{kdiff3} automatically starts since we configured it in the \textasciitilde/gitconfig file
   \begin{lstlisting}
 ...
 [merge]
@@ -149,12 +149,32 @@ Normal merge conflict for 'moon.js':
     \subslidetitle
   Have a look at the \cmd{kdiff3} application, right click on the \textcolor{red}{?<Merge Conflict>} and select the apporpriate resolution:
   \newline \vspace{1em}
-  \centerline{\includegraphics[width=10cm]{../screen/git-mergetool-kdiff3.png}}
+  \centerline{\includegraphics[width=8cm]{../screen/git-mergetool-kdiff3-resolve.png}}
 
 \end{frame}
 
-\subsection{git difftool}
+\subsection{Finish merge}
 \begin{frame}[fragile]
     \subslidetitle
+  The \cmd{git status} gives some hints how to finialize the merge conflict resolution:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master|MERGING)}*) $ (*\textcolor[HTML]{0000AA}{git status}*)
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+...
+\end{lstlisting}
+
+  Just use \cmd{git commit} to finish the merge, this will automatically open the text editor, save and quit:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master|MERGING)}*) $ (*\textcolor[HTML]{0000AA}{git commit}*)
+Merge branch 'feature-flag-color' into master
+# Conflicts:
+#       moon.js
+\end{lstlisting}
+  You successfully resolved you first conflict with git, not so difficult !?
+
 \end{frame}
 

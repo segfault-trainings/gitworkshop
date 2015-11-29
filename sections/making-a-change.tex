@@ -116,14 +116,13 @@ Note: the hashes can be abbreviated to their short form (\cmd{220767d})
     \pause
     \textbf{Committer} & Name and Email of committer \\
     \pause
-    \textbf{CommitDate} & Date gets changed every time the commit is being modified (\cmd{git rebase})\\
+    \textbf{Commit Date} & Date gets changed every time the commit is being modified (\cmd{git rebase})\\
     \pause
     \textbf{SHA} & HASH which git uses as key \\
     \pause
   \end{tabular}
 
-  \vspace{0.5em}
-  Note: Your commit messages reveal whether you are a good collaborator or not.
+  Note: Commit messages reveal whether someone is a good collaborator or not :)
 \end{frame}
 
 \subsection{Best practices}
@@ -135,14 +134,20 @@ Note: the hashes can be abbreviated to their short form (\cmd{220767d})
   \vspace{1em}
   Best practices for git commits:
   \begin{itemize}
-    \item A git commit contains only the diffs that are needed for that given change
+    \pause
+    \item A git commit contains only what is needed for a given change
+    \pause
     \item Use the imperative mood in the subject line \\
       'add file', not 'adding file' or 'added file'
+    \pause
     \item Do not end the subject line with a period
+    \pause
     \item Limit the subject line to 50, wrap the body at 72 characters
+    \pause
     \item Use the body to explain What and Why vs. How
-    \item Wrap the body at 72 characters
   \end{itemize}
+  \vspace{1em}
+  But, ... this is way to complicated ... and does not reflect the developer workflow ! ... and ...
 \end{frame}
 
 \subsection{Interactive rebase}

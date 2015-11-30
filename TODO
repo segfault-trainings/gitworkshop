@@ -1,4 +1,11 @@
 # split slides in merge conflict, extra @Eric
+# add tag slide
 # add intoduction slide for the extra
 # remove references to bugfix and requirements @Eric
+# delte all references to vim
+# uniform colors (green, grey, ...)
 
+Working on a branch: remove bugfix message (making a change background color red)
+copy identation.
+
+text color: git commit -m ’add authors file’ use ' ' instead...

@@ -13,11 +13,11 @@
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git status}*)
 On branch master
 ...
-(*\textcolor{red}{	0000000}*)
-(*\textcolor{red}{	0a65}*)
-(*\textcolor{red}{	6c69}*)
-(*\textcolor{red}{	6f63}*)
-(*\textcolor{red}{	706d}*)
+(*\textcolor[HTML]{AA0000}{	0000000}*)
+(*\textcolor[HTML]{AA0000}{	0a65}*)
+(*\textcolor[HTML]{AA0000}{	6c69}*)
+(*\textcolor[HTML]{AA0000}{	6f63}*)
+(*\textcolor[HTML]{AA0000}{	706d}*)
 ...
 \end{lstlisting}
   Now we would like to clean all this temporary files, using \cmd{git clean}:
@@ -36,7 +36,7 @@ Removing 0a65
   Lost in search? It is just convinient to have \cmd{git grep} handy:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git grep moon.js}*)
-moon.html:        <script src="(*\textcolor{red}{moon.js}*)"></script>
+moon.html:        <script src="(*\textcolor[HTML]{AA0000}{moon.js}*)"></script>
 \end{lstlisting}
 
   Some advanced git fu using \cmd{git log --pickaxe-regexp} to find which commit introduced or removed the searched keyword:

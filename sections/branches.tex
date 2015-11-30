@@ -113,11 +113,11 @@ Switched to a new branch 'fix-title'
   Modify the \cmd{moon.html} according to this diff instructions:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{@@ -7,7 +7,8 @@}*)
-                 font-family: Monospace;
-(*\textcolor{red}{-}*)                (*\textcolor{red}{background-color: \#f0f0f0; <!-- grey -->}*)
-(*\textcolor[HTML]{00AA00}{+}*)                (*\textcolor[HTML]{00AA00}{background-color: black;}*)
-(*\textcolor[HTML]{00AA00}{+}*)                (*\textcolor[HTML]{00AA00}{color: white;}*)
-                 margin: 0px;
+        font-family: Monospace;
+(*\textcolor[HTML]{AA0000}{-}*)        (*\textcolor[HTML]{AA0000}{background-color: \#f0f0f0; <!-- grey -->}*)
+(*\textcolor[HTML]{00AA00}{+}*)        (*\textcolor[HTML]{00AA00}{background-color: black;}*)
+(*\textcolor[HTML]{00AA00}{+}*)        (*\textcolor[HTML]{00AA00}{color: white;}*)
+        margin: 0px;
 \end{lstlisting}
 \end{frame}
 
@@ -139,21 +139,21 @@ Switched to a new branch 'fix-title'
   As git has the complete history locally, we can easily display changes between branches:
 
   \begin{lstlisting}
-  (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git diff master}*)
-  diff --git a/moon.html b/moon.html
-  index 145cfff..ae7bc15 100644
-  --- a/moon.html
-  +++ b/moon.html
-  (*\textcolor[HTML]{18B2B2}{@@ -7,7 +7,8 @@}*)
-           <style>
-               body {
-                   font-family: Monospace;
-  (*\textcolor{red}{-}*)                (*\textcolor{red}{background-color: \#f0f0f0; <!-- grey -->}*)
-  (*\textcolor[HTML]{00AA00}{+}*)                (*\textcolor[HTML]{00AA00}{background-color: black;}*)
-  (*\textcolor[HTML]{00AA00}{+}*)                (*\textcolor[HTML]{00AA00}{color: white;}*)
-                   margin: 0px;
-                   overflow: hidden;
-               }
+(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git diff master}*)
+diff --git a/moon.html b/moon.html
+index 145cfff..ae7bc15 100644
+--- a/moon.html
++++ b/moon.html
+(*\textcolor[HTML]{18B2B2}{@@ -7,7 +7,8 @@}*)
+   <style>
+     body {
+         font-family: Monospace;
+(*\textcolor[HTML]{AA0000}{-}*)         (*\textcolor[HTML]{AA0000}{background-color: \#f0f0f0; <!-- grey -->}*)
+(*\textcolor[HTML]{00AA00}{+}*)         (*\textcolor[HTML]{00AA00}{background-color: black;}*)
+(*\textcolor[HTML]{00AA00}{+}*)         (*\textcolor[HTML]{00AA00}{color: white;}*)
+         margin: 0px;
+         overflow: hidden;
+     }
 \end{lstlisting}
 \end{frame}
 

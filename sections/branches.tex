@@ -5,7 +5,7 @@
   This section covers the following topics:
   \begin{itemize}
     \pause
-    \item Create and delete a branch
+    \item Create and delete branches
     \pause
     \item Work with branches
     \pause
@@ -44,7 +44,8 @@
 * (*\textcolor[HTML]{00AA00}{master}*)
 \end{lstlisting}
 
-Note: The branch you are currently on is marked with an asterisk (*).
+  \vspace{1em}
+  Note: The branch you are currently on is marked with an asterisk (*).
 \end{frame}
 
 \subsection{Switching to branch}
@@ -54,6 +55,7 @@ Note: The branch you are currently on is marked with an asterisk (*).
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout foo}*)
 Switched to branch 'foo'
+
 (*\textcolor[HTML]{18B2B2}{(foo)}*) $ (*\textcolor[HTML]{0000AA}{git branch}*)
 * (*\textcolor[HTML]{00AA00}{foo}*)
   master
@@ -64,6 +66,7 @@ Switched to branch 'foo'
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(foo)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b bar}*)
 Switched to a new branch 'bar'
+
 (*\textcolor[HTML]{18B2B2}{(bar)}*) $ (*\textcolor[HTML]{0000AA}{git branch}*)
 * (*\textcolor[HTML]{00AA00}{bar}*)
   foo
@@ -77,9 +80,11 @@ Switched to a new branch 'bar'
   To delete an existing branch use the \cmd{-d} or \cmd{-D} (force) flag:
 \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(bar)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git branch -d foo bar}*)
 Deleted branch foo (was c974445).
 Deleted branch bar (was 9adadac).
+
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git branch}*)
 * (*\textcolor[HTML]{00AA00}{master}*)
 \end{lstlisting}
@@ -132,8 +137,10 @@ Switched to a new branch 'fix-title'
   \subslidetitle
   Commit your changes:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "change title background color to black and font color to white. fixes \#1"}*)
+(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "change title background color"}*)
 \end{lstlisting}
+
+  image
 \end{frame}
 
 \subsection{Display difference between branches}
@@ -172,10 +179,9 @@ Switched to a new branch 'fix-title'
 Switched to branch 'master'
 Your branch is up-to-date with 'origin/master'.
 
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{echo "}*)
-> (*\textcolor[HTML]{0000AA}{\#\# Prerequisites >> README"}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{echo "\#\# Prerequisites" >> README}*)
 
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "add the prerequisites subsection"}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "document prerequisites"}*)
 \end{lstlisting}
 
 \end{frame}
@@ -213,7 +219,7 @@ Your branch is up-to-date with 'origin/master'.
 \end{frame}
 
 % rebase with master
-\subsection{Rebasing a branch on top of master}
+\subsection{Rebasing a branch}
 \begin{frame}[fragile]
   \subslidetitle
 
@@ -221,10 +227,11 @@ Your branch is up-to-date with 'origin/master'.
 
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout fix-title}*)
+
 (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git rebase master}*)
 First, rewinding head to replay your work on top of it...
-Applying: add comments about color and the import statements
-Applying: change title background color to black and font color to white. fixes #1
+Applying: add comments
+Applying: change title background color
 \end{lstlisting}
 
   As git states the rebase re-apply commits from the fix-title branches on to of the master branch.
@@ -259,7 +266,8 @@ Applying: change title background color to black and font color to white. fixes 
 (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b third-moon master}*)
 Switched to a new branch 'third-moon'
 \end{lstlisting}
-  Modify the moon.js file following this diff instructions:
+
+  Modify the \cmd{moon.js} file following this diff instructions:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{@@ -3,6 +3,7 @@}*) var moons = [];
 
@@ -269,6 +277,7 @@ Switched to a new branch 'third-moon'
  moon( "green" );
  animate();
 \end{lstlisting}
+
   Commit your changes:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "add a white moon between the blue and green moon, implements \#2"}*)

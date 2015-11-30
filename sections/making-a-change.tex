@@ -136,7 +136,7 @@ index 0000000..8227a64
 \begin{frame}[fragile]
   \subslidetitle
 
-  Uh... Oh... already committed...
+  Looking at our commits again:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
 (*\textcolor[HTML]{ae6617}{633a534}*) green moon
@@ -148,6 +148,8 @@ $ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
 (*\textcolor[HTML]{ae6617}{220767d}*) add authors file
 (*\textcolor[HTML]{ae6617}{39719c9}*) initial commit
 \end{lstlisting}
+
+  Hmm... and it's already committed, ...
 
   \vspace{1em}
   Luckily git can help here !
@@ -469,6 +471,9 @@ $ (*\textcolor[HTML]{0000AA}{git commit --amend}*)
  create mode 100644 README
 \end{lstlisting}
 
+  \vspace{1em}
+  Note: this can also be used to change the commit message of the last commit
+
 \end{frame}
 
 \subsection{Partial stage}
@@ -499,7 +504,7 @@ $ (*\textcolor[HTML]{0000AA}{git commit --amend}*)
 \subsection{Partial stage}
 \begin{frame}[fragile]
   \subslidetitle
-  Now, we would like to commit only parts of these changes:
+  Now, let's commit only parts of these changes:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git add -p}*)
 diff --git a/moon.html b/moon.html

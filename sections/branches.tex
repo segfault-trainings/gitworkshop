@@ -93,21 +93,14 @@ Deleted branch bar (was 9adadac).
   Note: you cannot delete the branch you are currently working on.
 \end{frame}
 
-\subsection{Rebase vs. Merge}
+\subsection{Rebasing}
 \begin{frame}[fragile]
   \subslidetitle
-  Rebase
+  Rebase puts a branch on top of an other:
   \centerline{\includegraphics{diagrams/branch-rebase.pdf}}
 \end{frame}
 
-\subsection{Rebase vs. Merge}
-\begin{frame}[fragile]
-  \subslidetitle
-  Merge
-  \centerline{\includegraphics{diagrams/branch-merge.pdf}}
-\end{frame}
-
-\subsection{Working on a branch}
+\subsection{Prepare for rebase exercise}
 \begin{frame}[fragile]
   \subslidetitle
 
@@ -132,7 +125,7 @@ Switched to a new branch 'fix-title'
 \end{lstlisting}
 \end{frame}
 
-\subsection{Working on a branch}
+\subsection{Prepare for rebase exercise}
 \begin{frame}[fragile]
   \subslidetitle
   Commit your changes:
@@ -168,8 +161,7 @@ Switched to a new branch 'fix-title'
 \end{lstlisting}
 \end{frame}
 
-% make a change on master
-\subsection{Another change on the master}
+\subsection{Prepare for rebase exercise}
 \begin{frame}[fragile]
   \subslidetitle
 
@@ -183,23 +175,6 @@ Your branch is up-to-date with 'origin/master'.
 
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "document prerequisites"}*)
 \end{lstlisting}
-
-\end{frame}
-
-% display with tig/gitk
-
-\subsection{Graphic display in tig}
-\begin{frame}[fragile]
-  \subslidetitle
-
-  Now we can see the graphical representation of our fix-title branch with \cmd{tig}:
-  \begin{lstlisting}
-  (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{tig master fix-title}*)
-\end{lstlisting}
-
-  \vspace{1em}
-
-  \centerline{\includegraphics[width=10.5cm]{../screen/tig-fix-title.png}}
 
 \end{frame}
 
@@ -253,9 +228,15 @@ Applying: change title background color
   \centerline{\includegraphics[width=10cm]{../screen/tig-fix-title-rebase-master.png}}
 
 \end{frame}
-% create another feature branch
 
-\subsection{Create a feature branch}
+\subsection{Merging}
+\begin{frame}[fragile]
+  \subslidetitle
+  Merge integrates a branch into another:
+  \centerline{\includegraphics{diagrams/branch-merge.pdf}}
+\end{frame}
+
+\subsection{Prepare for merge exercise}
 \begin{frame}[fragile]
   \subslidetitle
 
@@ -277,6 +258,12 @@ Switched to a new branch 'third-moon'
  moon( "green" );
  animate();
 \end{lstlisting}
+\end{frame}
+
+
+\subsection{Prepare for merge exercise}
+\begin{frame}[fragile]
+  \subslidetitle
 
   Commit your changes:
   \begin{lstlisting}
@@ -286,7 +273,7 @@ Switched to a new branch 'third-moon'
 \end{frame}
 
 
-\subsection{Some urgent change on master}
+\subsection{Prepare for merge exercise}
 \begin{frame}[fragile]
   \subslidetitle
 
@@ -326,8 +313,9 @@ Your branch is up-to-date with 'origin/master'.
   \centerline{\includegraphics[width=10cm]{../screen/tig-fix-title-rebase-master.png}}
 
 \end{frame}
-% merge with master branch
-\subsection{Merging a branch on top of master}
+
+
+\subsection{Merging a branch}
 \begin{frame}[fragile]
   \subslidetitle
 

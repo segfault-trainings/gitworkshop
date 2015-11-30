@@ -14,13 +14,13 @@
 
 \subsection{A requirement change}
 \begin{frame}[fragile]
-    \subslidetitle
+  \subslidetitle
   Our customer changed his mind about the color of the green moon.
   \newline \vspace{1em}
   \#4 Change the color of the green moon to red.
 
   Implement the change in moon.js following this diff:
-\begin{lstlisting}
+  \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{@@ -4,7 +4,7 @@}*) var moons = [];
  init();
  moon( "blue" );
@@ -30,14 +30,19 @@
  animate();
 \end{lstlisting}
 
+  Commit your changes on master:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "change the green moon color to red, implements \#4"}*)
+\end{lstlisting}
+
 \end{frame}
 
 \subsection{Update third-moon}
 \begin{frame}[fragile]
-    \subslidetitle
-  Commit your changes on master:
-\begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "change the green moon color to red, implements \#4"}*)
+  \subslidetitle
+
+  Switch to the branch third-moon:
+  \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout third-moon}*)
 \end{lstlisting}
 
@@ -60,25 +65,26 @@
 
 \subsection{Merge third-moon}
 \begin{frame}[fragile]
-    \subslidetitle
+  \subslidetitle
 
   The third-moon is ready to be merged to master, try to merge the third-moon branch to master:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
 Switched to branch 'master'
 Your branch is up-to-date with 'origin/master'.
+
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git merge third-moon}*)
 Auto-merging moon.js
 CONFLICT (content): Merge conflict in moon.js
 Automatic merge failed; fix conflicts and then commit the result.
 \end{lstlisting}
 
-Here we go, our first conflict, keep calm, do not panic, we use \cmd{git}
+  Here we go, our first conflict, keep calm, do not panic, we use \cmd{git}
 \end{frame}
 
 \subsection{Display the conflict}
 \begin{frame}[fragile]
-    \subslidetitle
+  \subslidetitle
 
   First we want to display the conflicting file with \cmd{git difftool}:
   \begin{lstlisting}
@@ -105,7 +111,7 @@ index 72886cb,861507e..0000000
 
 \subsection{Resolve a conflict}
 \begin{frame}[fragile]
-    \subslidetitle
+  \subslidetitle
   Use \cmd{git mergetool} and select an external merge tool like kdiff3, vimdiff to resolve a conflict:
 
   \begin{lstlisting}

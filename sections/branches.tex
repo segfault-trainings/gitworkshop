@@ -59,6 +59,7 @@ Switched to branch 'foo'
   master
 \end{lstlisting}
 
+  \vspace{1em}
   The \cmd{git checkout} command with \cmd{-b} option creates a new branch and automatically switches to it:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(foo)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b bar}*)
@@ -101,7 +102,6 @@ Deleted branch bar (was 9adadac).
   \centerline{\includegraphics{diagrams/branch-merge.pdf}}
 \end{frame}
 
-% create bugfix branch
 \subsection{Working on a branch}
 \begin{frame}[fragile]
   \subslidetitle
@@ -116,7 +116,7 @@ Deleted branch bar (was 9adadac).
 Switched to a new branch 'fix-title'
 \end{lstlisting}
 
-  Modify the moon.html accroding to this diff instructions:
+  Modify the \cmd{moon.html} according to this diff instructions:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{@@ -7,7 +7,8 @@}*)
                  font-family: Monospace;
@@ -125,14 +125,17 @@ Switched to a new branch 'fix-title'
 (*\textcolor[HTML]{00AA00}{+}*)                (*\textcolor[HTML]{00AA00}{color: white;}*)
                  margin: 0px;
 \end{lstlisting}
+\end{frame}
 
+\subsection{Working on a branch}
+\begin{frame}[fragile]
+  \subslidetitle
   Commit your changes:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "change title background color to black and font color to white. fixes \#1"}*)
 \end{lstlisting}
 \end{frame}
 
-% git diff master branch
 \subsection{Display difference between branches}
 \begin{frame}[fragile]
   \subslidetitle
@@ -168,8 +171,10 @@ Switched to a new branch 'fix-title'
 (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
 Switched to branch 'master'
 Your branch is up-to-date with 'origin/master'.
+
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{echo "}*)
 > (*\textcolor[HTML]{0000AA}{\#\# Prerequisites >> README"}*)
+
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "add the prerequisites subsection"}*)
 \end{lstlisting}
 

@@ -58,10 +58,10 @@ $ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
 \subsection{Showing a commit detail}
 \begin{frame}[fragile]
   \subslidetitle
-The \cmd{git show} command gives details about a specific commit hash.
+  The \cmd{git show} command gives details about a specific commit hash:
 
 \begin{lstlisting}
-(*\textcolor[HTML]{0000AA}{git show 220767d}*)
+$ (*\textcolor[HTML]{0000AA}{git show 220767d}*)
 (*\textcolor[HTML]{B7A000}{commit 220767dbb3ab047e548752b744699731e1c38509}*)
 Author: Andr(*é*) Roth <neolynx@gmail.com>
 Date:   Mon Nov 9 21:44:02 2015 +0100
@@ -77,33 +77,15 @@ index 0000000..8227a64
 (*\textcolor[HTML]{00AA00}{+Tux Penguin}*)
 \end{lstlisting}
 
-Note: the hashes can be abbreviated to their short form (\cmd{220767d})
-\end{frame}
-
-\subsection{Textmode Interface for git - tig}
-\begin{frame}[fragile]
-  \subslidetitle
-  The program \cmd{tig} displays the history and allows to control git interactively:
-  \newline \vspace{1em}
-  \centerline{\includegraphics[width=10.5cm]{../screen/tig_screenshot.png}}
-
   \vspace{1em}
-  Note: Press \cmd{q} to quit, or \cmd{h} for help.
-\end{frame}
-
-\subsection{gitk}
-\begin{frame}[fragile]
-  \subslidetitle
-  The program \cmd{gitk} allows to display and control git commits in a GUI:
-  \\
-  \vspace{1em}
-  \centerline{\includegraphics[width=9cm]{../screen/gitk.png}}
+  Note: the hashes can be abbreviated to their short form (\cmd{220767d})
 \end{frame}
 
 \subsection{Git commits}
 \begin{frame}[fragile]
   \subslidetitle
-  A git commit consists of the following elements:
+  A git commit consists of the following elements:\\
+  \vspace{1em}
   \begin{tabular}{lp{8cm}}
     \pause
     \textbf{Message Title} & A title describing the change \\
@@ -112,25 +94,24 @@ Note: the hashes can be abbreviated to their short form (\cmd{220767d})
     \pause
     \textbf{Author} & Name and Email of author \\
     \pause
-    \textbf{Author Date} & Date when the commit was originally made (\cmd{git commit})\\
+    \textbf{Author Date} & Date when the commit originally was authored \\
     \pause
     \textbf{Committer} & Name and Email of committer \\
     \pause
-    \textbf{Commit Date} & Date gets changed every time the commit is being modified (\cmd{git rebase})\\
+    \textbf{Commit Date} & Date when the commit was made \\
     \pause
     \textbf{SHA} & HASH which git uses as key \\
-    \pause
   \end{tabular}
-
-  Note: Commit messages reveal whether someone is a good collaborator or not :)
 \end{frame}
 
-\subsection{Best practices}
+\subsection{Git best practices}
 \begin{frame}[fragile]
   \subslidetitle
-  In order to use git correctly we need to understand that a commit is not just a saved snapshot of your ongoing work. \\
+  \textbf{A commit is a single change to the software.}\pause{} \\
   \vspace{1em}
-  \textbf{A commit is a change to the software.} \\
+  Not a saved snapshot,\pause{} not a temporary change,\pause{} no compile errors,\pause{} not
+  untested,\pause{} not undocumented, ...\pause
+  \\
   \vspace{1em}
   Best practices for git commits:
   \begin{itemize}
@@ -146,8 +127,30 @@ Note: the hashes can be abbreviated to their short form (\cmd{220767d})
     \pause
     \item Use the body to explain What and Why vs. How
   \end{itemize}
+  \pause
   \vspace{1em}
-  But, ... this is way to complicated ... and does not reflect the developer workflow ! ... and ...
+  Note: Commit messages reveal whether someone is a good collaborator or not :)
+\end{frame}
+
+\subsection{Bad commits}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  Uh... Oh... already committed...
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
+(*\textcolor[HTML]{ae6617}{633a534}*) green moon
+(*\textcolor[HTML]{ae6617}{368a328}*) title in page
+(*\textcolor[HTML]{ae6617}{96c4f6a}*) blue moon
+(*\textcolor[HTML]{ae6617}{5784ef6}*) we do not need the test file anymore
+(*\textcolor[HTML]{ae6617}{13dbd70}*) adding test file
+(*\textcolor[HTML]{ae6617}{3ce2637}*) change title
+(*\textcolor[HTML]{ae6617}{220767d}*) add authors file
+(*\textcolor[HTML]{ae6617}{39719c9}*) initial commit
+\end{lstlisting}
+
+  \vspace{1em}
+  Luckily git can help here !
 \end{frame}
 
 \subsection{Interactive rebase}
@@ -168,7 +171,7 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde6}*)
 #
 ...
 \end{lstlisting}
-
+  \vspace{1em}
   Note: the interactive \cmd{git rebase -i} will open your default text editor.
 \end{frame}
 
@@ -249,28 +252,34 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde6}*)
 \begin{frame}[fragile]
   \subslidetitle
 
-  Now, change the commit title and message to the following:
+  Now, change the commit title and message to the following:\\
   \begin{lstlisting}
 (*\textcolor[HTML]{B7A000}{add test file}*)
 
 The file `test.file' is needed for illustrating
 the `git rm' command. It will be removed by the
 next commit.
-
 \end{lstlisting}
 
-  Save and quit the editor (in Vim: \cmd{:wq}).
+  \vspace{1em}
+  In Vim: press \cmd{i} to enter INSERT mode, use arrow keys to navigate, edit as you please, press \cmd{<ESC>},
+  save and quit the editor \cmd{:wq}.
   \\
+
   \vspace{1em}
   Then, the \cmd{git rebase -i} command will continue with the next commit.
 \end{frame}
-\subsection{After the rebase}
+
+\subsection{Exercises}
 \begin{frame}[fragile]
   \subslidetitle
-  Change all commit messages to be imperative and add an explanatory commit text.
-  \\
+  Continue the rebase and:
+  \begin{exercise}
+    \item Reword all commit messages to be imperative and add an explanatory commit text
+  \end{exercise}
+
   \vspace{1em}
-  After the rebase operation you should see the following:
+  After the rebase operation the commits should be as follows:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
 (*\textcolor[HTML]{ae6617}{7218137}*) add green moon
@@ -444,7 +453,6 @@ $ (*\textcolor[HTML]{0000AA}{git commit -m 'add project README'}*)
 \subsection{Amending commits}
 \begin{frame}[fragile]
   \subslidetitle
-
   But hey, this is no problem!\\
   \vspace{1em}
   We can quickly change the last commit using \cmd{git commit --amend}:
@@ -453,6 +461,7 @@ $ (*\textcolor[HTML]{0000AA}{git commit -m 'add project README'}*)
 $ (*\textcolor[HTML]{0000AA}{echo "\# T\textcolor{red}{he} GitMoon project" > README}*)
 
 $ (*\textcolor[HTML]{0000AA}{git add README}*)
+
 $ (*\textcolor[HTML]{0000AA}{git commit --amend}*)
 [master 545b44d] add project README
  Date: Tue Nov 24 21:31:21 2015 +0100
@@ -465,7 +474,7 @@ $ (*\textcolor[HTML]{0000AA}{git commit --amend}*)
 \subsection{Partial stage}
 \begin{frame}[fragile]
   \subslidetitle
-  Let's add some comments to the HTML:
+  Let's add some comments to the HTML for this exercise:
 
   \begin{lstlisting}
 ...
@@ -490,9 +499,7 @@ $ (*\textcolor[HTML]{0000AA}{git commit --amend}*)
 \subsection{Partial stage}
 \begin{frame}[fragile]
   \subslidetitle
-  At this point we would like to commit all but one comment.
-  \\
-  Let's do this using \cmd{git add -p}:
+  Now, we would like to commit only parts of these changes:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git add -p}*)
 diff --git a/moon.html b/moon.html
@@ -578,6 +585,27 @@ $ (*\textcolor[HTML]{0000AA}{git checkout moon.html}*)
 
 \subsection{git GUI}
 \begin{frame}[fragile]
+  partial stage with git gui
   \subslidetitle
+\end{frame}
+
+\subsection{Textmode Interface for git - tig}
+\begin{frame}[fragile]
+  \subslidetitle
+  The program \cmd{tig} displays the history and allows to control git interactively:
+  \newline \vspace{1em}
+  \centerline{\includegraphics[width=10.5cm]{../screen/tig_screenshot.png}}
+
+  \vspace{1em}
+  Note: Press \cmd{q} to quit, or \cmd{h} for help.
+\end{frame}
+
+\subsection{gitk}
+\begin{frame}[fragile]
+  \subslidetitle
+  The program \cmd{gitk} allows to display and control git commits in a GUI:
+  \\
+  \vspace{1em}
+  \centerline{\includegraphics[width=9cm]{../screen/gitk.png}}
 \end{frame}
 

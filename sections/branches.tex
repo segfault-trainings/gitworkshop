@@ -76,13 +76,14 @@ Switched to a new branch 'bar'
   To delete an existing branch use the \cmd{-d} or \cmd{-D} (force) flag:
 \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(bar)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git branch foo bar -d}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git branch -d foo bar}*)
 Deleted branch foo (was c974445).
 Deleted branch bar (was 9adadac).
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git branch}*)
 * (*\textcolor[HTML]{00AA00}{master}*)
 \end{lstlisting}
 
+  \vspace{1em}
   Note: you cannot delete the branch you are currently working on.
 \end{frame}
 
@@ -101,13 +102,13 @@ Deleted branch bar (was 9adadac).
 \end{frame}
 
 % create bugfix branch
-\subsection{Bugfix}
+\subsection{Working on a branch}
 \begin{frame}[fragile]
   \subslidetitle
 
   Our first bug report was filled out:
   \newline \vspace{1em}
-  \#1: The title of the html page does not match the backgound.
+  \#1: The title of the html page does not match the background.
 
   Start to create a new bugfix branch and implement the fix:
   \begin{lstlisting}

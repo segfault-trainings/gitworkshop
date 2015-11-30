@@ -1,6 +1,13 @@
 \section{Extras}
 \begin{frame}[fragile]
   \slidetitle
+  This section covers some advanced topics:
+  \begin{itemize}
+    \item Cleaning workspace
+    \item Working with patches
+    \item Search keywords
+    \item ...
+  \end{itemize}
 \end{frame}
 
 \subsection{Remove untracked files}
@@ -111,9 +118,9 @@ Applying: remove the blue moon
 
 \end{frame}
 
-\subsection{Cherrypick a commit} 
-\begin{frame}[fragile] 
-    \subslidetitle 
+\subsection{Cherrypick a commit}
+\begin{frame}[fragile]
+    \subslidetitle
   You are currently implementing a bugfix on a released version and should simultaneously fix it in the tip of your development, seems to be a load of work! Not if you use \cmd{git cherry-pick}:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(no-blue)}*) $ (*\textcolor[HTML]{0000AA}{git log -1 --oneline}*)

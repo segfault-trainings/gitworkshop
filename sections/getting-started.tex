@@ -156,7 +156,7 @@ Changes to be committed:
 
   The command \cmd{git commit} tells git to commit the file:
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git commit -m 'add authors file'}*)
+$ (*\textcolor[HTML]{0000AA}{git commit -m "add authors file"}*)
 
 [master c01af7f] add authors file
  1 file changed, 1 insertion(+)
@@ -254,7 +254,7 @@ Changes to be committed:
 
   The command \cmd{git commit} tells git to commit the index to the local repository:
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git commit -m 'change title'}*)
+$ (*\textcolor[HTML]{0000AA}{git commit -m "change title"}*)
 [master fc92204] change title
  1 file changed, 1 insertion(+), 1 deletion(-)
 \end{lstlisting}
@@ -374,7 +374,7 @@ HEAD is now at fc92204 change title
 \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{touch test.file}*)
 $ (*\textcolor[HTML]{0000AA}{git add test.file}*)
-$ (*\textcolor[HTML]{0000AA}{git commit -m 'adding a test file'}*)
+$ (*\textcolor[HTML]{0000AA}{git commit -m "adding a test file"}*)
 [master 3d0539f] add test file
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 test.file
@@ -400,7 +400,7 @@ Changes to be committed:
 
   Commit the staged removal of the file:
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git commit -m 'we do not need the test file anymore'}*)
+$ (*\textcolor[HTML]{0000AA}{git commit -m "we do not need the test file anymore"}*)
 [master 06cb00f] remove test file
  1 file changed, 0 insertions(+), 0 deletions(-)
  delete mode 100644 test.file

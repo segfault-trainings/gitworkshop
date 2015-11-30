@@ -18,13 +18,13 @@
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git log}*)
 (*\textcolor[HTML]{ae6617}{commit 633a534830c18a1747aaa5677aa6ec0b18f250c4}*)
-Author: Andr(*é*) Roth <neolynx@gmail.com>
+Author: Tux Penguin <tux@penguin>
 Date:   Sat Nov 21 13:51:18 2015 +0100
 
     green moon
 
 (*\textcolor[HTML]{ae6617}{commit 368a328bbefccbdf5732ca90b95015061186e16a}*)
-Author: Andr(*é*) Roth <neolynx@gmail.com>
+Author: Tux Penguin <tux@penguin>
 Date:   Sat Nov 21 13:47:14 2015 +0100
 
     title in page
@@ -60,7 +60,7 @@ $ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
 \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git show 220767d}*)
 (*\textcolor[HTML]{ae6617}{commit 220767dbb3ab047e548752b744699731e1c38509}*)
-Author: Andr(*é*) Roth <neolynx@gmail.com>
+Author: Tux Penguin <tux@penguin>
 Date:   Mon Nov 9 21:44:02 2015 +0100
 
     add authors file
@@ -208,7 +208,7 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde6}*)
 \begin{frame}[fragile]
   \subslidetitle
 
-  Let's change the first column to \cmd{reword} or simply \cmd{r} of the commit messages we want to reword (in Vim: \cmd{cw r <ESC>}):
+  Let's change the first column to \cmd{reword} or simply \cmd{r} of the commit messages we want to reword:
   \begin{lstlisting}
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{3ce2637}*) (*\textcolor[HTML]{682268}{change title}*)
 (*\textcolor[HTML]{682268}{r}*) (*\textcolor[HTML]{349E9E}{13dbd70}*) (*\textcolor[HTML]{682268}{adding test file}*)
@@ -217,7 +217,7 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde6}*)
 (*\textcolor[HTML]{682268}{r}*) (*\textcolor[HTML]{349E9E}{368a328}*) (*\textcolor[HTML]{682268}{title in page}*)
 (*\textcolor[HTML]{682268}{r}*) (*\textcolor[HTML]{349E9E}{633a534}*) (*\textcolor[HTML]{682268}{green moon}*)
 \end{lstlisting}
-  Then, save and exit (in Vim: \cmd{:wq})
+  Then, save and exit the editor.
 
   \vspace{1em}
   This will start the rebase operation by processing each commit, line by line, starting from top.

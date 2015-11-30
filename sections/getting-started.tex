@@ -230,7 +230,8 @@ $ (*\textcolor[HTML]{0000AA}{git add moon.html}*)
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git status}*)
 On branch master
-Your branch is up-to-date with 'origin/master'.
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
@@ -267,7 +268,8 @@ $ (*\textcolor[HTML]{0000AA}{git commit -m "change title"}*)
 $ (*\textcolor[HTML]{0000AA}{echo "Tux le Pinguin" >> AUTHORS}*)
 $ (*\textcolor[HTML]{0000AA}{git status}*)
 On branch master
-Your branch is up-to-date with 'origin/master'.
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
@@ -286,7 +288,8 @@ Changes not staged for commit:
 $ (*\textcolor[HTML]{0000AA}{git checkout AUTHORS}*)
 $ (*\textcolor[HTML]{0000AA}{git status}*)
 On branch master
-Your branch is up-to-date with 'origin/master'.
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
 nothing to commit, working directory clean
 \end{lstlisting}
 
@@ -308,7 +311,8 @@ $ (*\textcolor[HTML]{0000AA}{echo "Tux le Pinguin" >> AUTHORS}*)
 $ (*\textcolor[HTML]{0000AA}{git add AUTHORS}*)
 $ (*\textcolor[HTML]{0000AA}{git status}*)
 On branch master
-Your branch is up-to-date with 'origin/master'.
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
@@ -324,7 +328,7 @@ Changes to be committed:
   The command \cmd{git reset} allows you to unstage a file:
 
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git reset HEAD AUTHORS}*)
+$ (*\textcolor[HTML]{0000AA}{git reset AUTHORS}*)
 Unstaged changes after reset:
 M       AUTHORS
 \end{lstlisting}
@@ -341,7 +345,8 @@ M       AUTHORS
 \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git status}*)
 On branch master
-Your branch is up-to-date with 'origin/master'.
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
@@ -380,7 +385,7 @@ $ (*\textcolor[HTML]{0000AA}{git rm test.file}*)
 rm 'test.file'
 $ (*\textcolor[HTML]{0000AA}{git status}*)
 On branch master
-Your branch is ahead of 'origin/master' by 1 commit.
+Your branch is ahead of 'origin/master' by 3 commit.
   (use "git push" to publish your local commits)
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
@@ -407,7 +412,7 @@ $ (*\textcolor[HTML]{0000AA}{git commit -m "we do not need the test file anymore
       commit as 'blue moon'
     \item Change the \cmd{<h1>} tag of \cmd{moon.html} to 'Git Moons' and\\
       commit as 'title in page'
-    \item Add a green moon and\\
+    \item Add a green moon after the blue moon\\
       commit as 'green moon'
   \end{exercise}
 

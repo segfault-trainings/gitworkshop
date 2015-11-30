@@ -1,4 +1,4 @@
-\section{Handling merge conflicts}
+\section{Handling conflicts}
 \begin{frame}[fragile]
   \slidetitle
   This section covers the following topics:
@@ -15,10 +15,6 @@
 \subsection{Prepare a merge conflict}
 \begin{frame}[fragile]
   \subslidetitle
-  Our customer changed his mind about the color of the green moon.
-  \newline \vspace{1em}
-  \#4 Change the color of the green moon to red.
-
   Implement the change in \cmd{moon.js} following this diff:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{@@ -4,7 +4,7 @@}*) var moons = [];
@@ -32,7 +28,7 @@
 
   Commit your changes on master:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "change the green moon color to red, implements \#4"}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "change the green moon to red"}*)
 \end{lstlisting}
 
 \end{frame}
@@ -53,13 +49,13 @@
  moon( "blue" );
  moon( "white" );
 (*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{moon( "green" );}*)
-(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{moon( "green" ); // no requirement}*)
+(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{moon( "green" ); // nice to have}*)
  animate();
 \end{lstlisting}
 
   Commit your changes:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "add comment about requirement for the green color"}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "comment on green moon"}*)
 \end{lstlisting}
 \end{frame}
 
@@ -67,7 +63,7 @@
 \begin{frame}[fragile]
   \subslidetitle
 
-  The third-moon is ready to be merged to master, try to merge the third-moon branch to master:
+  Let's merge the third-moon branch to master:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
 Switched to branch 'master'
@@ -78,8 +74,8 @@ Auto-merging moon.js
 CONFLICT (content): Merge conflict in moon.js
 Automatic merge failed; fix conflicts and then commit the result.
 \end{lstlisting}
-
-  Here we go, our first conflict, keep calm, do not panic, we use \cmd{git}
+  \vspace{1em}
+  Here we go, our first conflict, keep calm, do not panic, we are using \cmd{git}!
 \end{frame}
 
 \subsection{Displaying conflicts}
@@ -100,13 +96,10 @@ index 72886cb,861507e..0000000
 (*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{<<<<<<< HEAD}*)
 (*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "red" );}*)
 (*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{=======}*)
-(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "green" ); // no requirement}*)
+(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "green" ); // nice to have}*)
 (*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{>>>>>>> third-moon}*)
   animate();
-
-  function moon( color )
 \end{lstlisting}
-  Note: the \cmd{git difftool} can be configured to call an external diff toll like kdiff3, in order to have a side-by-side diff.
 \end{frame}
 
 \subsection{Resolving conflicts}
@@ -124,13 +117,6 @@ Normal merge conflict for 'moon.js':
   {remote}: modified file
 \end{lstlisting}
 
-  Note: the \cmd{kdiff3} automatically starts since we configured it in the \cmd{\textasciitilde/.gitconfig} file
-  \begin{lstlisting}
-...
-[merge]
-  tool = kdiff3
-...
-\end{lstlisting}
 \end{frame}
 
 \subsection{Three way merge}
@@ -155,14 +141,22 @@ All conflicts fixed but you are still merging.
   (use "git commit" to conclude merge)
 ...
 \end{lstlisting}
+\end{frame}
 
-  Just use \cmd{git commit} to finish the merge, this will automatically open the text editor, save and quit:
+\subsection{Finishing a merge}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  Just use \cmd{git commit} to finish the merge, this will automatically open the text editor:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master|MERGING)}*) $ (*\textcolor[HTML]{0000AA}{git commit}*)
 Merge branch 'third-moon' into master
 # Conflicts:
 #       moon.js
 \end{lstlisting}
+  Save and quit the editor.
+  \\
+  \vspace{1em}
   You successfully resolved you first conflict with git, not so difficult !?
 
 \end{frame}

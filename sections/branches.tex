@@ -232,9 +232,7 @@ Applying: change title background color
 \begin{frame}[fragile]
   \subslidetitle
 
-  A new feature request has to be implemented on from the master branch:
-  \newline \vspace{1em}
-  \#2 insert a white moon between the blue and green moon.
+  Let's create a new \cmd{third-moon} branch:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b third-moon master}*)
 Switched to a new branch 'third-moon'
@@ -252,14 +250,13 @@ Switched to a new branch 'third-moon'
 \end{lstlisting}
 \end{frame}
 
-
 \subsection{Prepare for merge exercise}
 \begin{frame}[fragile]
   \subslidetitle
 
   Commit your changes:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "add a white moon between the blue and green moon, implements \#2"}*)
+(*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "add a white moon between the blue and green moon"}*)
 \end{lstlisting}
 
 \end{frame}
@@ -269,9 +266,7 @@ Switched to a new branch 'third-moon'
 \begin{frame}[fragile]
   \subslidetitle
 
-  An emergency fix has to be done on the master branch:
-  \newline \vspace{1em}
-  \#3 We are not able to make it work, please specify the prerequisites
+  Let's make a change on master branch:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
 Switched to branch 'master'
@@ -286,7 +281,7 @@ Your branch is up-to-date with 'origin/master'.
 
   Commit your changes:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "update prerequisites subsection"}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "add prerequisites subsection"}*)
 \end{lstlisting}
 
 \end{frame}

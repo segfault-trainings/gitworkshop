@@ -169,7 +169,6 @@ Merge branch 'third-moon' into master
 
 \end{frame}
 
-% make rebase conflict and use stashing
 \subsection{Preparing rebase conflict}
 \begin{frame}[fragile]
   \subslidetitle
@@ -198,78 +197,83 @@ Switched to a new branch 'death-star'
 \end{lstlisting}
 \end{frame}
 
-\subsection{Stashing modifications}
-\begin{frame}[fragile]
-  \subslidetitle
+%\subsection{Stashing modifications}
+%\begin{frame}[fragile]
+  %\subslidetitle
 
-  Edit the README file:
-  \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{echo "\#\# The Death star" >> README}
-\end{lstlisting}
+  %Edit the README file:
+  %\begin{lstlisting}
+%(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{echo "\#\# The Death star" >> README}
+%\end{lstlisting}
 
-  Imagine you are in the middle of a modification.
+  %Imagine you are in the middle of a modification.
 
-  \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git status}*)
-...
-       (*\textcolor[HTML]{AA0000}{modified:   README}*)
-...
-\end{lstlisting}
+  %\begin{lstlisting}
+%(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git status}*)
+%...
+       %(*\textcolor[HTML]{AA0000}{modified:   README}*)
+%...
+%\end{lstlisting}
 
-  And suddenly something really important needs to be done immediately on master!
+  %And suddenly something really important needs to be done immediately on master!
 
-  \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git checkout master}*)
-error: Your local changes to the following files would be overwritten by checkout:
-	README
-Please, commit your changes or stash them before you can switch branches.
-Aborting
-\end{lstlisting}
-\end{frame}
+  %\begin{lstlisting}
+%(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+%error: Your local changes to the following files would be overwritten by checkout:
+	%README
+%Please, commit your changes or stash them before you can switch branches.
+%Aborting
+%\end{lstlisting}
+%\end{frame}
 
-\subsection{Stashing modifications}
-\begin{frame}[fragile]
-  \subslidetitle
+%\subsection{Stashing modifications}
+%\begin{frame}[fragile]
+  %\subslidetitle
 
-  \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git stash}*)
-Saved working directory and index state WIP on death-star: 2670288 add black moon
-HEAD is now at 2670288 add black moon
-$ (*\textcolor[HTML]{0000AA}{git status}*)
-# On branch death-star
-nothing to commit (working directory clean)
-\end{lstlisting}
-  Note: you now have a clean working directory again.
-\end{frame}
+  %\begin{lstlisting}
+%(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git stash}*)
+%Saved working directory and index state WIP on death-star: 2670288 add black moon
+%HEAD is now at 2670288 add black moon
+%$ (*\textcolor[HTML]{0000AA}{git status}*)
+%# On branch death-star
+%nothing to commit (working directory clean)
+%\end{lstlisting}
+  %Note: you now have a clean working directory again.
+%\end{frame}
 
-\subsection{Display stash stack}
-\begin{frame}[fragile]
-  \subslidetitle
+%\subsection{Display stash stack}
+%\begin{frame}[fragile]
+  %\subslidetitle
 
-  Change to the master branch:
-   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git checkout master}*)
-\end{lstlisting}
+  %Change to the master branch:
+   %\begin{lstlisting}
+%(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+%\end{lstlisting}
 
-  Do not worry, \cmd{git stash} does not loose any information, let's have a look:
+  %Do not worry, \cmd{git stash} does not loose any information, let's have a look:
 
-  \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git stash list}*)
-stash@{0}: WIP on death-star: 2670288 add black moon
-(END)
-\end{lstlisting}
-\end{frame}
+  %\begin{lstlisting}
+%(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git stash list}*)
+%stash@{0}: WIP on death-star: 2670288 add black moon
+%(END)
+%\end{lstlisting}
+%\end{frame}
 
 
 \subsection{Preparing rebase conflict}
 \begin{frame}[fragile]
   \subslidetitle
+  Change to the master branch:
+   \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+\end{lstlisting}
 
   Modify the moon.js file accordingly:
   \begin{lstlisting}
- moon( "red" );
+ moon( "blue" );
 (*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{moon( "white" );}*)
 (*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{+moon( "white" ); // as snow}*)
+ moon( "red" );
  animate();
 \end{lstlisting}
 
@@ -279,65 +283,69 @@ stash@{0}: WIP on death-star: 2670288 add black moon
 [master 9307b0a] snow white comment
  1 file changed, 1 insertion(+), 1 deletion(-)
 \end{lstlisting}
-\end{frame}
-
-\subsection{Restore stashed changes}
-\begin{frame}[fragile]
-  \subslidetitle
-
-  Checkout the death-star branch:
-  \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git checkout death-star}*)
-\end{lstlisting}
-  Restore the changes from the stash queue:
-
-  \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git stash pop}*)
-On branch master
-Changes not staged for commit:
-   (use "git add <file>..." to update what will be committed)
-   (use "git checkout -- <file>..." to discard changes in working directory)
-       (*\textcolor[HTML]{AA0000}{modified:}*)   (*\textcolor[HTML]{AA0000}{README}*)
-no changes added to commit (use "git add" and/or "git commit -a")
-Dropped refs/stash@{0} (806b8f923fdcfae52c7155793da9b1f018c7d173)
+  Change to the death-star branch:
+   \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git checkout death-star}*)
 \end{lstlisting}
 \end{frame}
 
-\subsection{Restore stashed changes}
+%\subsection{Restore stashed changes}
+%\begin{frame}[fragile]
+  %\subslidetitle
+
+  %Checkout the death-star branch:
+  %\begin{lstlisting}
+%(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git checkout death-star}*)
+%\end{lstlisting}
+  %Restore the changes from the stash queue:
+
+  %\begin{lstlisting}
+%(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git stash pop}*)
+%On branch master
+%Changes not staged for commit:
+   %(use "git add <file>..." to update what will be committed)
+   %(use "git checkout -- <file>..." to discard changes in working directory)
+       %(*\textcolor[HTML]{AA0000}{modified:}*)   (*\textcolor[HTML]{AA0000}{README}*)
+%no changes added to commit (use "git add" and/or "git commit -a")
+%Dropped refs/stash@{0} (806b8f923fdcfae52c7155793da9b1f018c7d173)
+%\end{lstlisting}
+%\end{frame}
+
+%\subsection{Restore stashed changes}
+%\begin{frame}[fragile]
+  %\subslidetitle
+
+  %Commit the change:
+  %\begin{lstlisting}
+%(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git commit -a -m "update README"}*)
+%[death-star fa19da4] update README
+ %1 file changed, 1 insertion(+)
+%\end{lstlisting}
+
+  %Change to master branch:
+
+  %\begin{lstlisting}
+%(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git checkout master"}*)
+%Switched to branch 'master'
+%\end{lstlisting}
+
+%\end{frame}
+
+\subsection{Rebasing with conflict}
 \begin{frame}[fragile]
   \subslidetitle
-
-  Commit the change:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git commit -a -m "update README"}*)
-[death-star fa19da4] update README
- 1 file changed, 1 insertion(+)
-\end{lstlisting}
-
-  Change to master branch:
-
-  \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git checkout master"}*)
-Switched to branch 'master'
-\end{lstlisting}
-
-\end{frame}
-
-\subsection{Rebase Conflict}
-\begin{frame}[fragile]
-  \subslidetitle
-  Let's rebase the death-star branch onto master:
-  \begin{lstlisting}
-First, rewinding head to replay your work on top of it...
-Applying: change moon to blue
+(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git rebase master}*)
+First, rewinding head to replay your work on top of it.
+Applying: add death-star
 Using index info to reconstruct a base tree...
-M	moon.js
+M       moon.js
 Falling back to patching base and 3-way merge...
 Auto-merging moon.js
 CONFLICT (content): Merge conflict in moon.js
-Failed to merge in the changes.
-Patch failed at 0001 change moon to blue
-...
+error: Failed to merge in the changes.
+Patch failed at 0001 add death-star
+The copy of the patch that failed is found in: .git/rebase-apply/patch
 When you have resolved this problem, run "git rebase --continue".
 If you prefer to skip this patch, run "git rebase --skip" instead.
 To check out the original branch and stop rebasing, run "git rebase --abort".
@@ -357,12 +365,11 @@ index 72886cb,861507e..0000000
 (*\textcolor[HTML]{18B2B2}{@@@ -4,7 -4,7 +4,11 @@@}*) var moons = []
   init();
   moon( "blue" );
-  moon( "white" );
-(*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{<<<<<<< HEAD}*)(*\textcolor[HTML]{00AA00}{+}*)
-(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "black" );}*)
-(*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{=======}*)
+(*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{<<<<<<< d5d25c1555e1137d3ecd3bf335d3ac3515605bf4}*)
 (*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "white" ); // as snow}*)
-(*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{>>>>>>> snow white comment}*)
+(*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{=======}*)
+(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "black" );}*)
+(*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{>>>>>>> add death-star}*)
   animate();
 \end{lstlisting}
 \end{frame}
@@ -370,35 +377,29 @@ index 72886cb,861507e..0000000
 \subsection{Resolve rebase conflict}
 \begin{frame}[fragile]
   \subslidetitle
-  Resolve the conflict editing the moon.js file:
+  Resolve the conflict editing the \cmd{moon.js} file:
 
   \begin{lstlisting}
-(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{<<<<<<< HEAD}*)
- moon( "black" );
-(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{=======}*)
+(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{<<<<<<< d5d25c1555e1137d3ecd3bf335d3ac3515605bf4}*)
 (*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{moon( "white" ); // as snow}*)
-(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{>>>>>>> snow white comment}*)
+(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{=======}*)
+ moon( "black" );
+(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{>>>>>>> add death-star}*)
 \end{lstlisting}
-  Use \cmd{git add} to stage fixed moon.js file:
+
+  \vspace{1em}
+  Use \cmd{git add} to stage the changes:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master|REBASE 1/1)}*) $ (*\textcolor[HTML]{0000AA}{git add moon.js}*)
 \end{lstlisting}
-\end{frame}
+%\end{frame}
 
-\subsection{Finish rebasing}
-\begin{frame}[fragile]
-  \subslidetitle
+%\subsection{Finish rebasing}
+%\begin{frame}[fragile]
+  %\subslidetitle
   Continue the rebase:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master|REBASE 1/1)}*) $ (*\textcolor[HTML]{0000AA}{git rebase --continue}*)
-Applying: snow white comment
-No changes - did you forget to use 'git add'?
-If there is nothing left to stage, chances are that something else
-already introduced the same changes; you might want to skip this patch.
-\end{lstlisting}
-
-  As specified by git, the change was successufully applied, just finish with --skip option:
-  \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master|REBASE 1/1)}*) $ (*\textcolor[HTML]{0000AA}{git rebase --skip}*)
+Applying: add death-star
 \end{lstlisting}
 \end{frame}

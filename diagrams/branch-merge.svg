@@ -29,9 +29,9 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="2552"
+     inkscape:window-width="1272"
      inkscape:window-height="1529"
-     inkscape:window-x="0"
+     inkscape:window-x="1280"
      inkscape:window-y="30"
      inkscape:window-maximized="0"
      units="cm"
@@ -1002,6 +1002,12 @@
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-end:url(#Arrow2Mend)"
+       d="m 124.55025,829.50501 0,11.72433"
+       id="path7949"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
     <rect
        style="color:#000000;fill:#cccccf;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.40000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;filter:url(#filter23421-3-8);enable-background:accumulate"
        id="rect4286-9"
@@ -1108,12 +1114,6 @@
        y="904.1922"
        ry="67.044563"
        rx="25.535618" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-end:url(#Arrow2Mend)"
-       d="m 124.55025,829.50501 0,11.72433"
-       id="path7949"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-end:url(#Arrow2Mend)"
        d="m 48.708992,929.0506 0,11.72433"

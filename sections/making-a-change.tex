@@ -261,8 +261,7 @@ next commit.
 \end{lstlisting}
 
   \vspace{1em}
-  In Vim: press \cmd{i} to enter INSERT mode, use arrow keys to navigate, edit as you please, press \cmd{<ESC>},
-  save and quit the editor \cmd{:wq}.
+  Save and quit the editor.
   \\
 
   \vspace{1em}
@@ -304,7 +303,7 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde5}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{4c5ac7c}*) (*\textcolor[HTML]{682268}{change title in page}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{8c34fca}*) (*\textcolor[HTML]{682268}{add green moon}*)
 \end{lstlisting}
-  The first two commits are useless, remove the lines (in Vim: \cmd{dd}):
+  The first two commits are useless, remove the lines:
   \begin{lstlisting}
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{8a713d1}*) (*\textcolor[HTML]{682268}{change the moon to blue}*)
 (*\textcolor[HTML]{B7A000}{pick}*) (*\textcolor[HTML]{349E9E}{4c5ac7c}*) (*\textcolor[HTML]{682268}{change title in page}*)
@@ -490,9 +489,9 @@ $ (*\textcolor[HTML]{0000AA}{git commit --amend}*)
 ...
   <body>
     <h1>Git Moons</h1>
-(*\textcolor[HTML]{00AA00}{+}*)     (*\textcolor[HTML]{00AA00}{<!--why do we need this ?-->}*)
+(*\textcolor[HTML]{00AA00}{+}*)     (*\textcolor[HTML]{00AA00}{<!-- why do we need this ? -->}*)
       <script src="three.min.js"></script>
-(*\textcolor[HTML]{00AA00}{+}*)     (*\textcolor[HTML]{00AA00}{<!--include the moon js-->}*)
+(*\textcolor[HTML]{00AA00}{+}*)     (*\textcolor[HTML]{00AA00}{<!-- include the moon js -->}*)
       <script src="moon.js"></script>
   </body>
 \end{lstlisting}
@@ -531,12 +530,12 @@ index a5d283e..145cfff 100644
   </head>
   <body>
     <h1>Git Moons</h1>
-(*\textcolor[HTML]{00AA00}{+}*)   (*\textcolor[HTML]{00AA00}{<!--why do we need this ?-->}*)
+(*\textcolor[HTML]{00AA00}{+}*)   (*\textcolor[HTML]{00AA00}{<!-- why do we need this ? -->}*)
     <script src="three.min.js"></script>
-(*\textcolor[HTML]{00AA00}{+}*)   (*\textcolor[HTML]{00AA00}{<!--include the moon js-->}*)
+(*\textcolor[HTML]{00AA00}{+}*)   (*\textcolor[HTML]{00AA00}{<!-- include the moon js -->}*)
     <script src="moon.js"></script>
   </body>
-(*\textcolor[HTML]{5454FF}{Stage this hunk [y,n,q,a,d,/,j,J,g,e,?]?}*) s
+(*\textcolor[HTML]{5454FF}{Stage this hunk y,n,q,a,d,/,K,g,s,e,?]?}*) s
 \end{lstlisting}
 \end{frame}
 
@@ -552,7 +551,7 @@ Split into 2 hunks.
   </head>
   <body>
     <h1>Git Moons</h1>
-(*\textcolor[HTML]{00AA00}{+}*)   (*\textcolor[HTML]{00AA00}{<!--why do we need this ?-->}*)
+(*\textcolor[HTML]{00AA00}{+}*)   (*\textcolor[HTML]{00AA00}{<!-- why do we need this ? -->}*)
     <script src="three.min.js"></script>
 (*\textcolor[HTML]{5454FF}{Stage this hunk [y,n,q,a,d,/,j,J,g,e,?]?}*) n
 \end{lstlisting}
@@ -585,9 +584,12 @@ $ (*\textcolor[HTML]{0000AA}{git checkout moon.html}*)
 \end{lstlisting}
 \end{frame}
 
-\subsection{git GUI}
+\subsection{Git GUI}
 \begin{frame}[fragile]
-  partial stage with git gui
+  The program \cmd{git gui} allows partial commits and amending:
+  \\
+  \vspace{.5em}
+  \centerline{\includegraphics[width=10.5cm]{../screen/git-gui.png}}
   \subslidetitle
 \end{frame}
 
@@ -595,8 +597,9 @@ $ (*\textcolor[HTML]{0000AA}{git checkout moon.html}*)
 \begin{frame}[fragile]
   \subslidetitle
   The program \cmd{tig} displays the history and allows to control git interactively:
-  \newline \vspace{1em}
-  \centerline{\includegraphics[width=10.5cm]{../screen/tig_screenshot.png}}
+  \\
+  \vspace{1em}
+  \centerline{\includegraphics[width=10.5cm]{../screen/tig.png}}
 
   \vspace{1em}
   Note: Press \cmd{q} to quit, or \cmd{h} for help.

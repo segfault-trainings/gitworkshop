@@ -46,7 +46,7 @@
  moon( "blue" );
  moon( "white" );
 (*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{moon( "green" );}*)
-(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{moon( "green" ); // nice to have}*)
+(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{moon( "green" ); // the moon was greener}*)
  animate();
 \end{lstlisting}
 
@@ -64,7 +64,8 @@
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
 Switched to branch 'master'
-Your branch is up-to-date with 'origin/master'.
+Your branch is ahead of 'origin/master' by 10 commits.
+  (use "git push" to publish your local commits)
 
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git merge third-moon}*)
 Auto-merging moon.js
@@ -93,7 +94,7 @@ index 72886cb,861507e..0000000
 (*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{<<<<<<< HEAD}*)
 (*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "red" );}*)
 (*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{=======}*)
-(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "green" ); // nice to have}*)
+(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "green" ); // the moon was greener}*)
 (*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{>>>>>>> third-moon}*)
   animate();
 \end{lstlisting}
@@ -169,7 +170,7 @@ Merge branch 'third-moon' into master
 Switched to a new branch 'death-star'
 \end{lstlisting}
 
-  Implement the change in \cmd{moon.js} following this diff: 
+  Implement the change in \cmd{moon.js} following this diff:
 
   \begin{lstlisting}
  moon( "red" );

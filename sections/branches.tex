@@ -111,6 +111,7 @@ Switched to a new branch 'fix-title'
 (*\textcolor[HTML]{18B2B2}{@@ -7,7 +7,8 @@}*)
         font-family: Monospace;
 (*\textcolor[HTML]{AA0000}{-}*)        (*\textcolor[HTML]{AA0000}{background-color: \#f0f0f0; <!-- grey -->}*)
+(*\textcolor[HTML]{AA0000}{-}*)        (*\textcolor[HTML]{AA0000}{color: black;}*)
 (*\textcolor[HTML]{00AA00}{+}*)        (*\textcolor[HTML]{00AA00}{background-color: black;}*)
 (*\textcolor[HTML]{00AA00}{+}*)        (*\textcolor[HTML]{00AA00}{color: white;}*)
         margin: 0px;
@@ -120,7 +121,7 @@ Switched to a new branch 'fix-title'
 \subsection{Prepare for rebase exercise}
 \begin{frame}[fragile]
   \subslidetitle
-  Commit your changes:
+  When using \cmd{git commit}, the staging of all modification can be done with the \cmd{-a} flag:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "change title background color"}*)
 \end{lstlisting}
@@ -145,6 +146,7 @@ index 145cfff..ae7bc15 100644
      body {
          font-family: Monospace;
 (*\textcolor[HTML]{AA0000}{-}*)         (*\textcolor[HTML]{AA0000}{background-color: \#f0f0f0; <!-- grey -->}*)
+(*\textcolor[HTML]{AA0000}{-}*)         (*\textcolor[HTML]{AA0000}{color: black;}*)
 (*\textcolor[HTML]{00AA00}{+}*)         (*\textcolor[HTML]{00AA00}{background-color: black;}*)
 (*\textcolor[HTML]{00AA00}{+}*)         (*\textcolor[HTML]{00AA00}{color: white;}*)
          margin: 0px;
@@ -161,11 +163,14 @@ index 145cfff..ae7bc15 100644
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
 Switched to branch 'master'
-Your branch is up-to-date with 'origin/master'.
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
 
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{echo "\#\# Prerequisites" >> README}*)
 
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "document prerequisites"}*)
+[master 3b8408d] document prerequisites
+ 1 file changed, 1 insertion(+)
 \end{lstlisting}
 
 \end{frame}
@@ -185,7 +190,6 @@ Your branch is up-to-date with 'origin/master'.
 
 \end{frame}
 
-% rebase with master
 \subsection{Rebasing a branch}
 \begin{frame}[fragile]
   \subslidetitle
@@ -197,7 +201,6 @@ Your branch is up-to-date with 'origin/master'.
 
 (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git rebase master}*)
 First, rewinding head to replay your work on top of it...
-Applying: add comments
 Applying: change title background color
 \end{lstlisting}
 
@@ -256,7 +259,7 @@ Switched to a new branch 'third-moon'
 
   Commit your changes:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "add a white moon between the blue and green moon"}*)
+(*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "add white moon in the middle"}*)
 \end{lstlisting}
 
 \end{frame}
@@ -270,18 +273,20 @@ Switched to a new branch 'third-moon'
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
 Switched to branch 'master'
-Your branch is up-to-date with 'origin/master'.
+Your branch is ahead of 'origin/master' by 6 commits.
+  (use "git push" to publish your local commits)
 \end{lstlisting}
 
   Modify the README as following:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{echo "}*)
-> (*\textcolor[HTML]{0000AA}{use webgl browser" >> README}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{echo " * Use WebGL Browser" >> README}*)
 \end{lstlisting}
 
   Commit your changes:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "add prerequisites subsection"}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "doc: add prerequisites"}*)
+[master 9c5f88d] doc: add rerequisites
+ 1 file changed, 1 insertion(+)
 \end{lstlisting}
 
 \end{frame}
@@ -318,6 +323,7 @@ Merge branch 'third-moon' into master
 # the commit.
 \end{lstlisting}
 
+  Save and exit the editor.
 
 \end{frame}
 

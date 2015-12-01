@@ -141,6 +141,26 @@ To (*\textcolor[HTML]{444444}{URL}*)
 \center \includegraphics{diagrams/remote-push.pdf}
 \end{frame}
 
+\subsection{Pull request}
+\begin{frame}[fragile]
+  \subslidetitle
+  Now, we can push our local branch \textbf{fix-title} to the \textbf{upstream} remote:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git push upstream fix-title}*)
+...
+Total 3 (delta 2), reused 0 (delta 0)
+remote: 
+remote: Create pull request for fix-title:
+remote:   https://URL/mygitmoon/compare/commits?sourceBranch=refs/heads/fix-title
+remote: 
+To (*\textcolor[HTML]{444444}{URL/mygitmoon.git}*)
+ * [new branch]      fix-title -> fix-title
+\end{lstlisting}
+  Note: ensure the pull request reviewer has the appropriate permissions
+  \newline
+  Copy and paste the remote https:// URL in a browser to go on with the pull request
+\end{frame}
+
 \subsection{Pulling commits from a remote}
 \begin{frame}[fragile]
   \subslidetitle

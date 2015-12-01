@@ -40,13 +40,13 @@ Removing 0a65
 \subsection{Search with git}
 \begin{frame}[fragile]
   \subslidetitle
-  Lost in search? It is just convinient to have \cmd{git grep} handy:
+  Lost in search? It is just convenient to have \cmd{git grep}:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git grep moon.js}*)
 moon.html:        <script src="(*\textcolor[HTML]{AA0000}{moon.js}*)"></script>
 \end{lstlisting}
 
-  Some advanced git fu using \cmd{git log --pickaxe-regexp} to find which commit introduced or removed the searched keyword:
+  Or we can search commits that touch lines containing the keyword you are looking for using \cmd{git log --pickaxe-regexp}:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git log --oneline --abbrev --pickaxe-regex "*moon*"}*)
 (*\textcolor[HTML]{ae6617}{a3c399f}*) remove the blue moon
@@ -55,9 +55,7 @@ moon.html:        <script src="(*\textcolor[HTML]{AA0000}{moon.js}*)"></script>
 39719c9 initial commit
 \end{lstlisting}
 
-Note: One can use the \cmd{git show} combined with a commit hash to see more details.
-
-  Finally some option of \cmd{git branch} permit to search to which branch a commit belongs:
+  Finally a option of \cmd{git branch} to search the branch a commit belongs to:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git branch --contains a3c399f}*)
 (*\textcolor[HTML]{00AA00}{* master}*)
@@ -157,69 +155,19 @@ Switched to branch 'master'
   Note:  The \cmd{git cherry-pick} could potencially end up with conflict.
 \end{frame}
 
-
-\subsection{Configure git}
-\begin{frame}[fragile]
-  \subslidetitle
-  \begin{block}{Getting started with git}
-    Once you have git installed you are able to configure git on 3 different levels:
-    \begin{itemize}
-      \option{local repository level}{path/to/repository/.git/config}
-      \option{user level}{ /home/\$USER/.gitconfig }
-      \option{system level}{on GNU/Linux: /etc/gitconfig}
-    \end{itemize}
-
-    The configuration file is a simple text file and can be edited with any text editor.
-    Priority of git config: local, user, system.
-  \end{block}
-\end{frame}
-
-\subsection{git config}
-\begin{frame}[fragile]
-  \subslidetitle
-  The command \cmd{git config} can be used to change the global, system and local config of git.
-  \begin{itemize}
-      \option{git config ..}{}
-      \option{git config --global ..}{}
-      \option{git config --system ..}{}
-  \end{itemize}
-\end{frame}
-
-\subsection{Set username and email}
-\begin{frame}[fragile]
-  \subslidetitle
-  \vspace{1em}
-  Set your name and email locally:
-  \begin{itemize}
-      \option{git config add user.name "My name"}{}
-      \option{git config add user.email "myemail@git.ch"}{}
-  \end{itemize}
-  \vspace{1em}
-  Or globally:
-  \begin{itemize}
-      \option{git config --global add user.name "My name"}{}
-      \option{git config --global add user.email "myemail@git.ch"}{}
-  \end{itemize}
-
-  Extract from \bf{$\sim$/.gitconfig}
-\begin{lstlisting}
-[user]
-  name = Andreas Schmid
-  email = ikeark@gmail.com
-\end{lstlisting}
-\end{frame}
-
-\subsection{Create aliases}
+\subsection{Git aliases}
 \begin{frame}[fragile]
   \subslidetitle
 
   Git allows to create aliases for commands.
-
+  \\
+  \vspace{1em}
   Example:
+  instead of typing \cmd{git status} we want to type \cmd{git st}.
+  \\
+  \vspace{1em}
+  Define aliases:
 
-  instead of typing \bf{git status} we want to type \bf{git st}.
-
-  Define alias:
   \begin{lstlisting}
   git config --global alias.st = status
   git config --global alias.co = checkout
@@ -227,26 +175,6 @@ Switched to branch 'master'
   git config --global alias.br = branch
   \end{lstlisting}
 
-
-  Extract from \bf{$\sim$/.gitconfig}
-\begin{lstlisting}
-[alias]
-  st = status
-  co = checkout
-  ci = commit
-  br = branch
-  l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
-  ll = log --stat --abbrev-commit
-\end{lstlisting}
-\end{frame}
-
-\subsection{Set mergetool}
-\begin{frame}[fragile]
-  \subslidetitle
-\begin{lstlisting}
-[merge]
-  tool = kdiff3
-\end{lstlisting}
 \end{frame}
 
 \subsection{Example $\sim$/.gitconfig}
@@ -255,8 +183,8 @@ Switched to branch 'master'
 
 \begin{lstlisting}
 [user]
-  name = Andreas Schmid
-  email = ikeark@gmail.com
+  name = Tux Penguin
+  email = tux@penguin
 
 [color]
   diff = auto
@@ -271,35 +199,5 @@ Switched to branch 'master'
   br = branch
   l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   ll = log --stat --abbrev-commit
-
-[merge]
-  tool = kdiff3
 \end{lstlisting}
-\end{frame}
-\subsection{git bash prompt}
-\begin{frame}[fragile]
-  \subslidetitle
-
-  Don't you like this bash prompt:
-  \begin{lstlisting}
-  (*\textcolor[HTML]{54FF54}{kraeki@deathstar:}*)(*\textcolor[HTML]{5454FF}{\textasciitilde/work/gitworkshop}*) (*\textcolor[HTML]{18B2B2}{(master)}*) $
-  (*\textcolor[HTML]{54FF54}{kraeki@deathstar:}*)(*\textcolor[HTML]{5454FF}{\textasciitilde/work/gitworkshop}*) (*\textcolor[HTML]{18B2B2}{(master)}*) $
-  \end{lstlisting}
-
-  In your \cmd{\textasciitilde/.bashrc} replace your prompt with this:
-  In your \cmd{\textasciitilde/.bashrc} replace your prompt with this:
-  \begin{lstlisting}[language=bash]
-GIT_PS1_SHOWDIRTYSTATE=1 # showing state of working directory
-color_prompt=yes
-if [ "$color_prompt" = yes ]; then
-  PS1='${debian_chroot:+($debian_chroot)}\[\033[00m\]\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[0;36m\]$(__git_ps1 " (%s)")\[\033[00m\] \$ '
-else
-  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-\end{lstlisting}
-
-  Don't forget to reload your bash environment: \cmd{source \textasciitilde/.bashrc}
-  Don't forget to reload your bash environment: \cmd{source \textasciitilde/.bashrc}
-
 \end{frame}

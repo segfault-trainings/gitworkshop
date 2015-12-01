@@ -249,22 +249,145 @@ stash@{0}: WIP on death-star: 2670288 add black moon
 \end{lstlisting}
 \end{frame}
 
-\subsection{Restore changes}
+
+\subsection{Preparing rebase conflict}
 \begin{frame}[fragile]
   \subslidetitle
+
+  Modify the moon.js file accordingly:
+  \begin{lstlisting}
+ moon( "red" );
+(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{moon( "white" );}*)
+(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{+moon( "white" ); // as snow}*)
+ animate();
+\end{lstlisting}
+
+  Commit the change:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git commit -a -m "snow white comment"}*)
+[master 9307b0a] snow white comment
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+\end{lstlisting}
+\end{frame}
+
+\subsection{Restore stashed changes}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  Checkout the death-star branch:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git checkout death-star}*)
+\end{lstlisting}
   Restore the changes from the stash queue:
 
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git stash pop}*)
+(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git stash pop}*)
 On branch master
 Changes not staged for commit:
    (use "git add <file>..." to update what will be committed)
    (use "git checkout -- <file>..." to discard changes in working directory)
-
        (*\textcolor[HTML]{AA0000}{modified:}*)   (*\textcolor[HTML]{AA0000}{README}*)
-
 no changes added to commit (use "git add" and/or "git commit -a")
 Dropped refs/stash@{0} (806b8f923fdcfae52c7155793da9b1f018c7d173)
 \end{lstlisting}
 \end{frame}
 
+\subsection{Restore stashed changes}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  Commit the change:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git commit -a -m "update README"}*)
+[death-star fa19da4] update README
+ 1 file changed, 1 insertion(+)
+\end{lstlisting}
+
+  Change to master branch:
+
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git checkout master"}*)
+Switched to branch 'master'
+\end{lstlisting}
+
+\end{frame}
+
+\subsection{Rebase Conflict}
+\begin{frame}[fragile]
+  \subslidetitle
+  Let's rebase the death-star branch onto master:
+  \begin{lstlisting}
+First, rewinding head to replay your work on top of it...
+Applying: change moon to blue
+Using index info to reconstruct a base tree...
+M	moon.js
+Falling back to patching base and 3-way merge...
+Auto-merging moon.js
+CONFLICT (content): Merge conflict in moon.js
+Failed to merge in the changes.
+Patch failed at 0001 change moon to blue
+...
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+\end{lstlisting}
+\end{frame}
+
+\subsection{Display conflict}
+\begin{frame}[fragile]
+  \subslidetitle
+  First we want to display the conflicting file with \cmd{git difftool}:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master|REBASE 1/1)}*) $ (*\textcolor[HTML]{0000AA}{git difftool}*)
+diff --cc moon.js
+index 72886cb,861507e..0000000
+--- a/moon.js
++++ b/moon.js
+(*\textcolor[HTML]{18B2B2}{@@@ -4,7 -4,7 +4,11 @@@}*) var moons = []
+  init();
+  moon( "blue" );
+  moon( "white" );
+(*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{<<<<<<< HEAD}*)(*\textcolor[HTML]{00AA00}{+}*)
+(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "black" );}*)
+(*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{=======}*)
+(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "white" ); // as snow}*)
+(*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{>>>>>>> snow white comment}*)
+  animate();
+\end{lstlisting}
+\end{frame}
+
+\subsection{Resolve rebase conflict}
+\begin{frame}[fragile]
+  \subslidetitle
+  Resolve the conflict editing the moon.js file:
+
+  \begin{lstlisting}
+(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{<<<<<<< HEAD}*)
+ moon( "black" );
+(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{=======}*)
+(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{moon( "white" ); // as snow}*)
+(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{>>>>>>> snow white comment}*)
+\end{lstlisting}
+  Use \cmd{git add} to stage fixed moon.js file:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master|REBASE 1/1)}*) $ (*\textcolor[HTML]{0000AA}{git add moon.js}*)
+\end{lstlisting}
+\end{frame}
+
+\subsection{Finish rebasing}
+\begin{frame}[fragile]
+  \subslidetitle
+  Continue the rebase:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master|REBASE 1/1)}*) $ (*\textcolor[HTML]{0000AA}{git rebase --continue}*)
+Applying: snow white comment
+No changes - did you forget to use 'git add'?
+If there is nothing left to stage, chances are that something else
+already introduced the same changes; you might want to skip this patch.
+\end{lstlisting}
+
+  As specified by git, the change was successufully applied, just finish with --skip option:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master|REBASE 1/1)}*) $ (*\textcolor[HTML]{0000AA}{git rebase --skip}*)
+\end{lstlisting}
+\end{frame}

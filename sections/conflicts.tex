@@ -183,15 +183,16 @@ Switched to a new branch 'death-star'
   Implement the change in \cmd{moon.js} following this diff:
 
   \begin{lstlisting}
- moon( "red" );
+ moon( "blue" );
 (*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{moon( "white" );}*)
 (*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{moon( "black" );}*)
+ moon( "red" );
  animate();
 \end{lstlisting}
 
   Commit the change:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git commit -a -m "add black moon"}*)
+(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git commit -a -m "add death-star"}*)
 [death-star 2670288] add black moon
  1 file changed, 1 insertion(+), 1 deletion(-)
 \end{lstlisting}

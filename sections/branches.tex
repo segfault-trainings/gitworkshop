@@ -176,21 +176,6 @@ Your branch is ahead of 'origin/master' by 5 commits.
 
 \end{frame}
 
-\subsection{Graphic display in gitk}
-\begin{frame}[fragile]
-  \subslidetitle
-
-  Now we can see the graphical representation of our fix-title branch with \cmd{gitk}:
-  \begin{lstlisting}
-  (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{gitk}*)
-\end{lstlisting}
-
-  \vspace{1em}
-
-  \centerline{\includegraphics[width=10cm]{../screen/gitk-fix-title.png}}
-
-\end{frame}
-
 \subsection{Rebasing a branch}
 \begin{frame}[fragile]
   \subslidetitle
@@ -206,22 +191,6 @@ Applying: change title background color
 \end{lstlisting}
 
   As git states the rebase re-apply commits from the fix-title branches on to of the master branch.
-
-\end{frame}
-
-% display with tig/gitk
-\subsection{Display rebase operation}
-\begin{frame}[fragile]
-  \subslidetitle
-
-  Now we can see the graphical representation of our fix-title branch rebased on the master branch with \cmd{tig}:
-  \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{tig master fix-title}*)
-\end{lstlisting}
-
-  \vspace{1em}
-
-  \centerline{\includegraphics[width=10cm]{../screen/tig-fix-title-rebase-master.png}}
 
 \end{frame}
 
@@ -289,23 +258,7 @@ Your branch is ahead of 'origin/master' by 6 commits.
 [master 9c5f88d] doc: add rerequisites
  1 file changed, 1 insertion(+)
 \end{lstlisting}
-
 \end{frame}
-\subsection{Before merge}
-\begin{frame}[fragile]
-  \subslidetitle
-
-  Now we can see the graphical representation of our third-moon branch \cmd{tig}:
-  \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{tig master third-moon}*)
-\end{lstlisting}
-
-  \vspace{1em}
-
-  \centerline{\includegraphics[width=10cm]{../screen/tig-fix-title-rebase-master.png}}
-
-\end{frame}
-
 
 \subsection{Merging a branch}
 \begin{frame}[fragile]
@@ -325,21 +278,6 @@ Merge branch 'third-moon' into master
 \end{lstlisting}
 
   Save and exit the editor.
-
-\end{frame}
-
-\subsection{After merge}
-\begin{frame}[fragile]
-  \subslidetitle
-
-  Now we can see the graphical representation of our third-moon branch merged on the master branch with \cmd{tig}:
-  \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{tig master third-moon}*)
-\end{lstlisting}
-
-  \vspace{1em}
-
-  \centerline{\includegraphics[width=10cm]{../screen/tig-fix-title-rebase-master.png}}
 
 \end{frame}
 

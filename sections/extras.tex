@@ -95,6 +95,22 @@ Subject: [PATCH] remove the blue moon
 
 \end{frame}
 
+\subsection{Git submdules}
+\begin{frame}[fragile]
+  \subslidetitle
+  Git offers the possibility to include other git repositores in a subdirectory of a project.
+  \\
+  \vspace{1em}
+  The following commands deal with submodules:
+  \begin{itemize}
+    \item \cmd{git submodule add URL PATH}
+    \item \cmd{git submodule update}
+    \item \cmd{git submodule sync}
+  \end{itemize}
+  \vspace{1em}
+  Note: the main project can commit the subdirectory and fix the commit of the submodule.
+\end{frame}
+
 \subsection{Apply a patch}
 \begin{frame}[fragile]
     \subslidetitle

@@ -158,35 +158,31 @@ From (*\textcolor[HTML]{444444}{URL}*)
 \center \includegraphics{diagrams/remote-pull.pdf}
 \end{frame}
 
-\subsection{git fetch}
+\subsection{Remote commands}
 \begin{frame}[fragile]
   \subslidetitle
+  The following commands operate on remote repositories:
+  \begin{itemize}
+    \item \cmd{git fetch}
+    \item \cmd{git pull --rebase}
+    \item \cmd{git remote update}
+  \end{itemize}
 \end{frame}
 
-\subsection{git remote update}
+\subsection{Git appliances}
 \begin{frame}[fragile]
   \subslidetitle
-  ??
-\end{frame}
-
-\subsection{Forking a repository}
-\begin{frame}[fragile]
-  \subslidetitle
-  A git appliance usually offers to fork a project.\\
-  Forking means to create a linked copy of a git repository.
-  \vspace{1em}
-  This is useful for:
-  * working on repositories you have no write access
-  * creating pull requests
-\end{frame}
-
-\subsection{Creating a pull request}
-\begin{frame}[fragile]
-  \subslidetitle
+  There are various git appliances, providing the following features:
+  \begin{itemize}
+    \item Forking a repository
+    \item Creating pull requests
+    \item Offers branching models
+  \end{itemize}
 \end{frame}
 
 \subsection{Branching models}
 \begin{frame}[fragile]
   \subslidetitle
+  A feature branch model looks like this:
   \center \includegraphics{diagrams/git-workflow.pdf}
 \end{frame}

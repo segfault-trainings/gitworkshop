@@ -237,13 +237,15 @@ Changes to be committed:
 
         (*\textcolor[HTML]{00AA00}{modified:}*)   (*\textcolor[HTML]{00AA00}{moon.html}*)
 \end{lstlisting}
+  \vspace{1em}
+  Note: We stage modifications to make them ready to commit
 \end{frame}
 
 \subsection{Committing staged changes}
 \begin{frame}[fragile]
   \subslidetitle
 
-  The command \cmd{git commit} tells git to commit the index to the local repository:
+  The command \cmd{git commit} tells git to commit the index (staging area) to the local repository:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git commit -m "change title"}*)
 [master fc92204] change title

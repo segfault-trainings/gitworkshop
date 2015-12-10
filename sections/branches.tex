@@ -161,7 +161,7 @@ index 145cfff..ae7bc15 100644
 \begin{frame}[fragile]
   \subslidetitle
 
-  In the meantime, we need to update the README file with a Prerequisites sub-section:
+  In the meantime, we need to update the README file with a prerequisites sub-section:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
 Switched to branch 'master'
@@ -174,6 +174,8 @@ Your branch is ahead of 'origin/master' by 5 commits.
 [master 3b8408d] document prerequisites
  1 file changed, 1 insertion(+)
 \end{lstlisting}
+
+  \centerline{\includegraphics{diagrams/rebase-situation-before.pdf}}
 
 \end{frame}
 
@@ -191,7 +193,10 @@ First, rewinding head to replay your work on top of it...
 Applying: change title background color
 \end{lstlisting}
 
-  As git states the rebase re-apply commits from the fix-title branches on to of the master branch.
+  As git states the rebase re-applies commits from the fix-title branches on to of the master branch.
+
+  \vspace{1em}
+  \centerline{\includegraphics{diagrams/rebase-situation-after.pdf}}
 
 \end{frame}
 

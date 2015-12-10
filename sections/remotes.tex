@@ -47,6 +47,9 @@ $ (*\textcolor[HTML]{0000AA}{git remote show origin}*)
   \opt{git}    {git native protocol on port 9418}
   \opt{legacy} {ftp, rsync, ...}
   \end{itemize}
+  \vspace{1em}
+  %With ssh configured we are not prompt for our password on every request
+  SSH provides us the possibility to authenticate without having to enter the password on every request.
 \end{frame}
 
 \subsection{Configure SSH access}
@@ -90,18 +93,17 @@ uUiYLTgtczTgYk/T user@host
 \end{lstlisting}
 
   This whole output can be added to the SSH access keys
-  section in the web front end of your git appliance.
+  section in the web frontend of your git appliance.
 \end{frame}
 
 \subsection{Exercises}
 \begin{frame}[fragile]
   \subslidetitle
-  Create a commit for each exercise below:
   \begin{exercise}
     \item Create a SSH key pair
     \item Configure SSH access in your git appliance
-    \item Create a new private repository, called \textbf{mygitmoon}
-    \item Clone the private repository in your home \\
+    \item Create a new private repository called \textbf{mygitmoon} in your git appliance
+    \item Clone the new repository in your home \\
       (Hint: switch to your home directory first, by typing \cmd{cd})
     \item Go back to the original gitmoon project (\cmd{cd \textasciitilde/gitmoon})
   \end{exercise}
@@ -110,13 +112,15 @@ uUiYLTgtczTgYk/T user@host
 \subsection{Adding a remote repository}
 \begin{frame}[fragile]
   \subslidetitle
-  Let's add the private repository as remote \textbf{upstream}:
+  Let's add the private repository as remote called \textbf{upstream}:
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git remote add upstream} \textcolor[HTML]{444444}{URL}*)
 $ (*\textcolor[HTML]{0000AA}{git remote show}*)
 origin
 upstream
 \end{lstlisting}
+\vspace{1em}
+\cmd{URL} stands for the url of your recent created repository in your git appliance
 \vspace{1em}
 \center \includegraphics{diagrams/remote-add.pdf}
 \end{frame}
@@ -149,10 +153,10 @@ To (*\textcolor[HTML]{444444}{URL}*)
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git push upstream fix-title}*)
 ...
 Total 3 (delta 2), reused 0 (delta 0)
-remote: 
+remote:
 remote: Create pull request for fix-title:
 remote:   https://URL/mygitmoon/compare/commits?sourceBranch=refs/heads/fix-title
-remote: 
+remote:
 To (*\textcolor[HTML]{444444}{URL/mygitmoon.git}*)
  * [new branch]      fix-title -> fix-title
 \end{lstlisting}
@@ -172,7 +176,7 @@ remote: Counting objects: 6, done.
 remote: Compressing objects: 100% (6/6), done.
 remote: Total 6 (delta 0), reused 0 (delta 0)
 Unpacking objects: 100% (6/6), done.
-From (*\textcolor[HTML]{444444}{URL}*)
+From (*\textcolor[HTML]{444444}{URL/mygitmoon.git}*)
  * [new branch]      master     -> origin/master
 \end{lstlisting}
 \center \includegraphics{diagrams/remote-pull.pdf}
@@ -183,9 +187,12 @@ From (*\textcolor[HTML]{444444}{URL}*)
   \subslidetitle
   The following commands operate on remote repositories:
   \begin{itemize}
-    \item \cmd{git fetch}
-    \item \cmd{git pull --rebase}
-    \item \cmd{git remote update}
+    \item \cmd{git fetch} \\
+      Downloads all branches from another repository
+    \item \cmd{git pull --rebase} \\
+      Does a \cmd{fetch} and then a {rebase} of the current branch onto a remote branch
+    \item \cmd{git remote update} \\
+      Does a \cmd{fetch} for all remotes
   \end{itemize}
 \end{frame}
 

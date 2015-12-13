@@ -62,6 +62,26 @@ moon.html:        <script src="(*\textcolor[HTML]{AA0000}{moon.js}*)"></script>
 \end{lstlisting}
 \end{frame}
 
+\subsection{Finger pointing!?}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  The \cmd{git blame} returns revision and author who last modified each line of a given:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git blame moon.js}*)
+...
+^412af06 (Andre Roth  2015-11-28 14:41:45 +0100  2) var moons = [];
+^412af06 (Andre Roth  2015-11-28 14:41:45 +0100  3)
+^412af06 (Andre Roth  2015-11-28 14:41:45 +0100  4) init();
+ff9e4cd5 (Eric Keller 2015-12-13 18:53:56 +0100  5) moon( "blue" );
+429131d4 (Eric Keller 2015-12-13 22:06:06 +0100  6) moon( "black" );
+bf208729 (Eric Keller 2015-12-13 22:01:30 +0100  7) moon( "red" );
+^412af06 (Andre Roth  2015-11-28 14:41:45 +0100  8) animate();
+...
+\end{lstlisting}
+
+\end{frame}
+
 \subsection{Work with patches}
 \begin{frame}[fragile]
     \subslidetitle

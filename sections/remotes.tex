@@ -57,14 +57,14 @@ $ (*\textcolor[HTML]{0000AA}{git remote show origin}*)
   \subslidetitle
   Create a SSH key pair:
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{ssh-keygen}*)
+$ (*\textcolor[HTML]{0000AA}{ssh-keygen -f \textasciitilde/.ssh/id\_rsa\_workshop}*)
 Generating public/private rsa key pair.
 Enter file in which to save the key (...): (*\textcolor[HTML]{0000AA}{<enter>}*)
 Created directory '.../.ssh'.
 Enter passphrase (empty for no passphrase): (*\textcolor[HTML]{0000AA}{<enter>}*)
 Enter same passphrase again: (*\textcolor[HTML]{0000AA}{<enter>}*)
-Your identification has been saved in .../.ssh/id_rsa.
-Your public key has been saved in .../.ssh/id_rsa.pub.
+Your identification has been saved in .../.ssh/id_rsa_workshop.
+Your public key has been saved in .../.ssh/id_rsa_workshop.pub.
 The key fingerprint is:
 7e:f8:15:2a:b3:a2:9c:30:4e:c7:60:50:a4:d5:a9:82 user@host
 The key's randomart image is:
@@ -81,7 +81,7 @@ The key's randomart image is:
   \subslidetitle
   Display your public key:
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{cat \textasciitilde/.ssh/id\_rsa.pub}*)
+$ (*\textcolor[HTML]{0000AA}{cat \textasciitilde/.ssh/id\_rsa\_workshop.pub}*)
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOmt7Y4H51gc2m
 GmZsFzES6shVLFLEJ/lFCTwyosWHYDaluK71nGCelp61oTocgf4N
 HBwTZmo0EZ1k0RHYt8Q3LF8e5fbC+dXt5E35XtkVFuUC7IG2/6fm

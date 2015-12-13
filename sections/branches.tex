@@ -255,7 +255,7 @@ Your branch is ahead of 'origin/master' by 6 commits.
 
   Modify the README as following:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{echo " * Use WebGL Browser" >> README}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{echo " *\ Use a WebGL compatible browser" >> README}*)
 \end{lstlisting}
 
   Commit your changes:
@@ -289,5 +289,90 @@ Merge branch 'third-moon' into master
   Save and exit the editor.
   \centerline{\includegraphics{diagrams/merge-situation-after.pdf}}
 
+\end{frame}
+
+\subsection{Stashing modifications}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  Edit the README file:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{echo " *\ openGl drivers installed" >> README}
+\end{lstlisting}
+
+  Imagine you are in the middle of a modification.
+
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git status}*)
+...
+       (*\textcolor[HTML]{AA0000}{modified:   README}*)
+...
+\end{lstlisting}
+
+  And suddenly something really important needs to be done immediately on the fix-title branch!
+
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git checkout fix-title}*)
+error: Your local changes to the following files would be overwritten by checkout:
+	README
+Please, commit your changes or stash them before you can switch branches.
+Aborting
+\end{lstlisting}
+\end{frame}
+
+\subsection{Stashing modifications}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git stash}*)
+Saved working directory and index state WIP on master: 80c8cac Merge branch 'third-moon'
+HEAD is now at 80c8cac Merge branch 'third-moon'
+(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git status}*)
+On branch master
+...
+nothing to commit (working directory clean)
+\end{lstlisting}
+  Note: you now have a clean working directory again.
+\end{frame}
+
+\subsection{Display stash stack}
+\begin{frame}[fragile]
+  \subslidetitle
+  Do not worry, \cmd{git stash} does not loose any information, let's have a look:
+
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git stash list}*)
+stash@{0}: WIP on master: 80c8cac Merge branch 'third-moon'
+(END)
+\end{lstlisting}
+  Show what was stashed with \cmd{git stash show}:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git stash show stash@{0}}*)
+README | 1 +
+ 1 file changed, 1 insertion(+)
+(END)
+\end{lstlisting}
+
+\end{frame}
+
+\subsection{Restore stashed changes}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git stash pop}*)
+On branch master
+Changes not staged for commit:
+   (use "git add <file>..." to update what will be committed)
+   (use "git checkout -- <file>..." to discard changes in working directory)
+       (*\textcolor[HTML]{AA0000}{modified:}*)   (*\textcolor[HTML]{AA0000}{README}*)
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (ac514d6d83880d45ca994d4b83b485340f192a7e)
+\end{lstlisting}
+  Discard the previous changes:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git checkout README}*)
+\end{lstlisting}
 \end{frame}
 

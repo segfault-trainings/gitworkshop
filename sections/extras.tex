@@ -113,22 +113,6 @@ Subject: [PATCH] remove the blue moon
 
 \end{frame}
 
-\subsection{Git submodules}
-\begin{frame}[fragile]
-  \subslidetitle
-  Git offers the possibility to include other git repositories in a subdirectory of a project.
-  \\
-  \vspace{1em}
-  The following commands deal with submodules:
-  \begin{itemize}
-    \item \cmd{git submodule add URL PATH}
-    \item \cmd{git submodule update}
-    \item \cmd{git submodule sync}
-  \end{itemize}
-  \vspace{1em}
-  Note: the main project can commit the subdirectory and fix the commit of the submodule.
-\end{frame}
-
 \subsection{Apply a patch}
 \begin{frame}[fragile]
     \subslidetitle
@@ -173,6 +157,22 @@ Switched to branch 'master'
  1 file changed, 1 deletion(-)
 \end{lstlisting}
   Note:  The \cmd{git cherry-pick} could potencially end up with conflict.
+\end{frame}
+
+\subsection{Git submodules}
+\begin{frame}[fragile]
+  \subslidetitle
+  Git offers the possibility to include other git repositories in a subdirectory of a project.
+  \\
+  \vspace{1em}
+  The following commands deal with submodules:
+  \begin{itemize}
+    \item \cmd{git submodule add URL PATH}
+    \item \cmd{git submodule update}
+    \item \cmd{git submodule sync}
+  \end{itemize}
+  \vspace{1em}
+  Note: the main project can commit the subdirectory and fix the commit of the submodule.
 \end{frame}
 
 \subsection{Git aliases}

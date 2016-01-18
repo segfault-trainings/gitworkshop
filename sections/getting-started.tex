@@ -90,6 +90,37 @@ nothing to commit, working directory clean
 \end{lstlisting}
 \end{frame}
 
+\subsection{Create .gitignore}
+\begin{frame}[fragile]
+  \subslidetitle
+  The .gitignore file contains a list of files git should ignore. For example temporary file, generated output you name it!
+
+  \vspace{1em}
+  Let's create a .gitignore file ignoring temporary vim swp files:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{echo '*.swp' > .gitignore}*)
+\end{lstlisting}
+
+  \vspace{1em}
+  Note: you can use wildcard patterns generalize your ignore list. The root .gitignore file applies to all sub folders.
+
+\end{frame}
+
+\subsection{Our first commit}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  The combination of \cmd{git add} and \cmd{git commit} commands create a git commit of the .gitignore file:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git add .gitignore}*)
+$ (*\textcolor[HTML]{0000AA}{git commit -m "add .gitignore file"}*)
+[master c01af7f] add .gitignore file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+\end{lstlisting}
+
+Not so difficult!? Let's explain it step by step in the following slides.
+\end{frame}
 
 \subsection{Adding a file}
 \begin{frame}[fragile]

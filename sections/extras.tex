@@ -159,6 +159,25 @@ Switched to branch 'master'
   Note:  The \cmd{git cherry-pick} could potencially end up with conflict.
 \end{frame}
 
+\subsection{Advanced undo}
+\begin{frame}[fragile]
+    \subslidetitle
+
+  Want to undo a rebase operation? You deleted an important file? Got interrupted in the middle of an octopus merge... Do not worry \cmd{git reflog} is here to help.
+
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git reflog}*)
+(*\textcolor[HTML]{ae6617}{9ed88d3}*) HEAD@{0}: checkout: moving from death-star to master
+(*\textcolor[HTML]{ae6617}{429131d}*) HEAD@{1}: rebase finished: returning to refs/heads/death-star
+(*\textcolor[HTML]{ae6617}{429131d}*) HEAD@{2}: rebase: add death-star
+(*\textcolor[HTML]{ae6617}{9ed88d3}*) HEAD@{3}: rebase: checkout master
+(*\textcolor[HTML]{ae6617}{9dd4b4b}*) HEAD@{4}: checkout: moving from master to death-star
+(*\textcolor[HTML]{ae6617}{9ed88d3}*) HEAD@{5}: commit: snow white comment
+\end{lstlisting}
+
+  You use reflog in combination with the \cmd{git reset --hard HEAD@\{4\}} command, like a way back time machine.
+\end{frame}
+
 \subsection{Git submodules}
 \begin{frame}[fragile]
   \subslidetitle

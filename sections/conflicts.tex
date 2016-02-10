@@ -260,7 +260,7 @@ To check out the original branch and stop rebasing, run "git rebase --abort".
   \subslidetitle
   First we want to display the conflicting file with \cmd{git difftool}:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master|REBASE 1/1)}*) $ (*\textcolor[HTML]{0000AA}{git difftool}*)
+(*\textcolor[HTML]{18B2B2}{(death-star|REBASE 1/1)}*) $ (*\textcolor[HTML]{0000AA}{git difftool}*)
 diff --cc moon.js
 index 72886cb,861507e..0000000
 --- a/moon.js
@@ -293,7 +293,7 @@ index 72886cb,861507e..0000000
   \vspace{1em}
   Use \cmd{git add} to stage the changes:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master|REBASE 1/1)}*) $ (*\textcolor[HTML]{0000AA}{git add moon.js}*)
+(*\textcolor[HTML]{18B2B2}{(death-star|REBASE 1/1)}*) $ (*\textcolor[HTML]{0000AA}{git add moon.js}*)
 \end{lstlisting}
 %\end{frame}
 
@@ -302,7 +302,7 @@ index 72886cb,861507e..0000000
   %\subslidetitle
   Continue the rebase:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master|REBASE 1/1)}*) $ (*\textcolor[HTML]{0000AA}{git rebase --continue}*)
+(*\textcolor[HTML]{18B2B2}{(death-star|REBASE 1/1)}*) $ (*\textcolor[HTML]{0000AA}{git rebase --continue}*)
 Applying: add death-star
 \end{lstlisting}
 \end{frame}

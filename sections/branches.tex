@@ -161,14 +161,14 @@ index 145cfff..ae7bc15 100644
 \begin{frame}[fragile]
   \subslidetitle
 
-  In the meantime, we need to update the README file with a prerequisites sub-section:
+  In the meantime, we need to update the README.md file with a prerequisites sub-section:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
 Switched to branch 'master'
 Your branch is ahead of 'origin/master' by 6 commits.
   (use "git push" to publish your local commits)
 
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{echo "\#\# Prerequisites" >> README}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{echo "\#\# Prerequisites" >> README.md}*)
 
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "document prerequisites"}*)
 [master 3b8408d] document prerequisites
@@ -253,9 +253,9 @@ Your branch is ahead of 'origin/master' by 7 commits.
   (use "git push" to publish your local commits)
 \end{lstlisting}
 
-  Modify the README as following:
+  Modify the README.md as following:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{echo " *\ Use a WebGL compatible browser" >> README}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{echo " *\ Use a WebGL compatible browser" >> README.md}*)
 \end{lstlisting}
 
   Commit your changes:
@@ -295,9 +295,9 @@ Merge branch 'third-moon' into master
 \begin{frame}[fragile]
   \subslidetitle
 
-  Edit the README file:
+  Edit the README.md file:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{echo " *\ openGl drivers installed" >> README}
+(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{echo " *\ openGl drivers installed" >> README.md}
 \end{lstlisting}
 
   Imagine you are in the middle of a modification.
@@ -305,7 +305,7 @@ Merge branch 'third-moon' into master
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git status}*)
 ...
-       (*\textcolor[HTML]{AA0000}{modified:   README}*)
+       (*\textcolor[HTML]{AA0000}{modified:   README.md}*)
 ...
 \end{lstlisting}
 
@@ -314,7 +314,7 @@ Merge branch 'third-moon' into master
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git checkout fix-title}*)
 error: Your local changes to the following files would be overwritten by checkout:
-	README
+	README.md
 Please, commit your changes or stash them before you can switch branches.
 Aborting
 \end{lstlisting}
@@ -349,7 +349,7 @@ stash@{0}: WIP on master: 80c8cac Merge branch 'third-moon'
   Show what was stashed with \cmd{git stash show}:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git stash show stash@{0}}*)
-README | 1 +
+README.md | 1 +
  1 file changed, 1 insertion(+)
 (END)
 \end{lstlisting}
@@ -366,13 +366,13 @@ On branch master
 Changes not staged for commit:
    (use "git add <file>..." to update what will be committed)
    (use "git checkout -- <file>..." to discard changes in working directory)
-       (*\textcolor[HTML]{AA0000}{modified:}*)   (*\textcolor[HTML]{AA0000}{README}*)
+       (*\textcolor[HTML]{AA0000}{modified:}*)   (*\textcolor[HTML]{AA0000}{README.md}*)
 no changes added to commit (use "git add" and/or "git commit -a")
 Dropped refs/stash@{0} (ac514d6d83880d45ca994d4b83b485340f192a7e)
 \end{lstlisting}
   Discard the previous changes:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git checkout README}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git checkout README.md}*)
 \end{lstlisting}
 \end{frame}
 

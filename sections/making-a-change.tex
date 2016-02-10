@@ -435,16 +435,16 @@ $ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
 \begin{frame}[fragile]
   \subslidetitle
 
-  Let's add a README file:
+  Let's add a README.md file:
 
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{echo "\# Teh GitMoon project" > README}*)
+$ (*\textcolor[HTML]{0000AA}{echo "\# Teh GitMoon project" > README.md}*)
 
-$ (*\textcolor[HTML]{0000AA}{git add README}*)
-$ (*\textcolor[HTML]{0000AA}{git commit -m "add project README"}*)
-[master 6cfa17d] add project README
+$ (*\textcolor[HTML]{0000AA}{git add README.md}*)
+$ (*\textcolor[HTML]{0000AA}{git commit -m "add project README.md"}*)
+[master 6cfa17d] add project README.md
  1 file changed, 1 insertions(+)
- create mode 100644 README
+ create mode 100644 README.md
 \end{lstlisting}
 
   \vspace{1em}
@@ -460,18 +460,18 @@ $ (*\textcolor[HTML]{0000AA}{git commit -m "add project README"}*)
   We can quickly change the last commit using \cmd{git commit --amend}:
 
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{echo "\# T\textcolor{red}{he} GitMoon project" > README}*)
+$ (*\textcolor[HTML]{0000AA}{echo "\# T\textcolor{red}{he} GitMoon project" > README.md}*)
 
-$ (*\textcolor[HTML]{0000AA}{git add README}*)
+$ (*\textcolor[HTML]{0000AA}{git add README.md}*)
 
 $ (*\textcolor[HTML]{0000AA}{git commit --amend}*)
 \end{lstlisting}
 The command above opens your editor where you can modify the commit message if needed. Save and exit the editor when done.
 \begin{lstlisting}
-[master 545b44d] add project README
+[master 545b44d] add project README.md
  Date: Tue Nov 24 21:31:21 2015 +0100
  1 file changed, 1 insertions(+)
- create mode 100644 README
+ create mode 100644 README.md
 \end{lstlisting}
 
 \end{frame}

@@ -194,6 +194,22 @@ From (*\textcolor[HTML]{444444}{URL/mygitmoon.git}*)
   \end{itemize}
 \end{frame}
 
+\subsection{Checkout a tracking branch}
+\begin{frame}[fragile]
+  \subslidetitle
+  Once your remote is update to date, you have to checkout a specific local branch pointing to a remote branch:
+
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b fix-title origin/fix-title --track}*)
+Branch fix-title set up to track remote branch fix-title from origin.
+Switched to a new branch 'fix-title'
+\end{lstlisting}
+  \vspace{1em}
+  Note: you need to create a local branch pointing to one remote in order to push to this remote branch.
+  \newline
+  Git does automatically setup the master branch to track the remote.
+\end{frame}
+
 \subsection{Git appliances}
 \begin{frame}[fragile]
   \subslidetitle

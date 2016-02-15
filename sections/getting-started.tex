@@ -101,6 +101,15 @@ nothing to commit, working directory clean
 $ (*\textcolor[HTML]{0000AA}{echo '*.swp' > .gitignore}*)
 \end{lstlisting}
 
+  Let's see what the status of the repository with the \cmd{git status} command:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git status}*)
+On branch master
+...
+        (*\textcolor[HTML]{AA0000}{.gitignore}*)
+...
+\end{lstlisting}
+
   \vspace{1em}
   Note: use wildcard patterns to generalize your ignore list. The root .gitignore file applies to all subfolders.
 

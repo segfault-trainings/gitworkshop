@@ -29,10 +29,10 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1272"
-     inkscape:window-height="1529"
-     inkscape:window-x="1280"
-     inkscape:window-y="30"
+     inkscape:window-width="2560"
+     inkscape:window-height="1600"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
      units="cm"
      showguides="true"
@@ -1660,13 +1660,13 @@
        id="text3639"
        y="921.53009"
        x="304.70908"
-       style="font-size:6.79495335000000011px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:STIX;-inkscape-font-specification:STIX"
+       style="font-size:6.79495335px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:STIX;-inkscape-font-specification:STIX"
        xml:space="preserve"><tspan
          style="font-size:7.79121542px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;fill:#000000;font-family:Sans;-inkscape-font-specification:Sans Bold"
          y="921.53009"
          x="304.70908"
          sodipodi:role="line"
-         id="tspan3641">C2</tspan></text>
+         id="tspan3641">C2'</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:6.79495335px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:STIX;-inkscape-font-specification:STIX"
@@ -1678,7 +1678,7 @@
          sodipodi:role="line"
          x="304.70908"
          y="888.12122"
-         style="font-size:7.79121542px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;fill:#000000;font-family:Sans;-inkscape-font-specification:Sans Bold">C4</tspan></text>
+         style="font-size:7.79121542px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;fill:#000000;font-family:Sans;-inkscape-font-specification:Sans Bold">C4'</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text3651"
@@ -1708,12 +1708,12 @@
        id="text3675"
        y="854.7124"
        x="304.79468"
-       style="font-size:6.79495335000000011px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:STIX;-inkscape-font-specification:STIX"
+       style="font-size:6.79495335px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:STIX;-inkscape-font-specification:STIX"
        xml:space="preserve"><tspan
          id="tspan3677"
          style="font-size:7.79121542px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;fill:#000000;font-family:Sans;-inkscape-font-specification:Sans Bold"
          y="854.7124"
          x="304.79468"
-         sodipodi:role="line">C5</tspan></text>
+         sodipodi:role="line">C5'</tspan></text>
   </g>
 </svg>

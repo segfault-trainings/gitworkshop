@@ -3,10 +3,30 @@
   \slidetitle
   This section covers the following topics:
   \begin{itemize}
+    \item Git protocols
     \item Git remote repository concept
     \item Add remote repositories
     \item Synchronize with remote repositories
   \end{itemize}
+\end{frame}
+
+\subsection{Git protocols}
+\begin{frame}[fragile]
+  \subslidetitle
+  Git repositories can be accessed locally or over the network.
+  \\
+  \vspace{1em}
+  Various protocols are supported:
+  \begin{itemize}
+  \opt{local}  {file system based}
+  \opt{http[s]}{good for read only access without password}
+  \opt{ssh}    {normally used for read-write access}
+  \opt{git}    {git native protocol on port 9418}
+  \opt{legacy} {ftp, rsync, ...}
+  \end{itemize}
+  \vspace{1em}
+  %With ssh configured we are not prompt for our password on every request
+  SSH provides us the possibility to authenticate without having to enter the password on every request.
 \end{frame}
 
 \subsection{Remote repositories}
@@ -33,23 +53,102 @@ $ (*\textcolor[HTML]{0000AA}{git remote show origin}*)
   Note: the default remote is called \textbf{origin}
 \end{frame}
 
-\subsection{Git protocols}
+\subsection{Remote commands}
 \begin{frame}[fragile]
   \subslidetitle
-  Git repositories can be accessed locally or over the network.
-  \\
-  \vspace{1em}
-  Various protocols are supported:
+  The following commands operate on remote repositories:
   \begin{itemize}
-  \opt{local}  {file system based}
-  \opt{http[s]}{good for read only access without password}
-  \opt{ssh}    {normally used for read-write access}
-  \opt{git}    {git native protocol on port 9418}
-  \opt{legacy} {ftp, rsync, ...}
+    \item \cmd{git fetch [remote]} \\
+      Downloads all branches from another repository
+    \item \cmd{git pull [remote] [branch]} \\
+      Does a {\bf fetch} and then {\bf merges} the remote branch into the current branch
+    \item \cmd{git pull --rebase [remote] [branch]} \\
+      Does a {\bf fetch} and then {\bf rebases} the current branch on top of the remote branch
+    \item \cmd{git remote update} \\
+      Does a {\bf fetch} for all remotes
+    \item \cmd{git push [remote] [branch]} \\
+      Pushes commits/branches to a remote
   \end{itemize}
+\end{frame}
+
+\subsection{Example: Adding a remote repository}
+\begin{frame}[fragile]
+  \subslidetitle
+  This example adds a repository as remote called \textbf{upstream}:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git remote add upstream} \textcolor[HTML]{444444}{URL}*)
+$ (*\textcolor[HTML]{0000AA}{git remote show}*)
+origin
+upstream
+\end{lstlisting}
+\vspace{1em}
+\cmd{URL} needs to be replaced with the URL of the remote repository
+\vspace{1em}
+\center \includegraphics{diagrams/remote-add.pdf}
+\end{frame}
+
+\subsection{Example: Pushing commits to a remote}
+\begin{frame}[fragile]
+  \subslidetitle
+  This example pushes the local master branch to the \textbf{upstream} remote:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git push upstream master}*)
+git push upstream master
+Counting objects: 6, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 331.07 KiB | 0 bytes/s, done.
+Total 6 (delta 0), reused 0 (delta 0)
+remote: ...
+To (*\textcolor[HTML]{444444}{URL}*)
+ * [new branch]      master -> master
+\end{lstlisting}
+\vspace{-1.1em}
+\center \includegraphics{diagrams/remote-push.pdf}
+\end{frame}
+
+\subsection{Example: Pulling commits from a remote}
+\begin{frame}[fragile]
+  \subslidetitle
+  This example updates the local master branch with the origin master branch:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git pull}*)
+remote: Counting objects: 6, done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 6 (delta 0), reused 0 (delta 0)
+Unpacking objects: 100% (6/6), done.
+From (*\textcolor[HTML]{444444}{URL/mygitmoon.git}*)
+ * [new branch]      master     -> origin/master
+\end{lstlisting}
+\center \includegraphics{diagrams/remote-pull.pdf}
+\end{frame}
+
+\subsection{Example: Checkout a remote branch}
+\begin{frame}[fragile]
+  \subslidetitle
+  In order to work on a remote branch we are checking out a local branch tracking the remote branch.
+
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b fix-title origin/fix-title --track}*)
+Branch fix-title set up to track remote branch fix-title from origin.
+Switched to a new branch 'fix-title'
+\end{lstlisting}
   \vspace{1em}
-  %With ssh configured we are not prompt for our password on every request
-  SSH provides us the possibility to authenticate without having to enter the password on every request.
+  Now we can use \cmd{git push} and \cmd{git pull} to synchronize these branches.
+
+  \vspace{1em}
+  Note: Git does automatically setup the master branch to track the remote master branch.
+\end{frame}
+
+\subsection{Git appliances}
+\begin{frame}[fragile]
+  \subslidetitle
+  There are various git appliances, providing the following features:
+  \begin{itemize}
+    \item Forking a repository
+    \item Creating pull requests
+    \item Offers branching models
+  \end{itemize}
 \end{frame}
 
 \subsection{Configure SSH access}
@@ -98,128 +197,14 @@ uUiYLTgtczTgYk/T user@host
 \begin{frame}[fragile]
   \subslidetitle
   \begin{exercise}
-    \item Create a SSH key pair
+    \item Create a SSH key pair as shown in the slides
     \item Configure SSH access in your git appliance
-    \item Create a new private repository called \textbf{mygitmoon} in your git appliance
-    \item Clone the new repository in your home \\
-      (Hint: switch to your home directory first, by typing \cmd{cd})
-    \item Go back to the original gitmoon project (\cmd{cd \textasciitilde/gitmoon})
+    \item Clone the new repository in your home (repository given by instructor)\\
+      \cmd{cd} first to switch to your home directory, then\\
+      \cmd{git clone URL newgitmoon}
+    \item Implement features given by instructor in new branch
+    \item Push branch
   \end{exercise}
-\end{frame}
-
-\subsection{Adding a remote repository}
-\begin{frame}[fragile]
-  \subslidetitle
-  Let's add the private repository as remote called \textbf{upstream}:
-  \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git remote add upstream} \textcolor[HTML]{444444}{URL}*)
-$ (*\textcolor[HTML]{0000AA}{git remote show}*)
-origin
-upstream
-\end{lstlisting}
-\vspace{1em}
-\cmd{URL} stands for the url of your recent created repository in your git appliance
-\vspace{1em}
-\center \includegraphics{diagrams/remote-add.pdf}
-\end{frame}
-
-\subsection{Pushing commits to a remote}
-\begin{frame}[fragile]
-  \subslidetitle
-  Now, we can push our local commits to the \textbf{upstream} remote:
-  \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git push upstream master}*)
-git push upstream master
-Counting objects: 6, done.
-Delta compression using up to 2 threads.
-Compressing objects: 100% (6/6), done.
-Writing objects: 100% (6/6), 331.07 KiB | 0 bytes/s, done.
-Total 6 (delta 0), reused 0 (delta 0)
-remote: ...
-To (*\textcolor[HTML]{444444}{URL}*)
- * [new branch]      master -> master
-\end{lstlisting}
-\vspace{-1.1em}
-\center \includegraphics{diagrams/remote-push.pdf}
-\end{frame}
-
-\subsection{Pull request}
-\begin{frame}[fragile]
-  \subslidetitle
-  Now, we can push our local branch \textbf{fix-title} to the \textbf{upstream} remote:
-  \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git push upstream fix-title}*)
-...
-Total 3 (delta 2), reused 0 (delta 0)
-remote:
-remote: Create pull request for fix-title:
-remote:   https://URL/mygitmoon/compare/commits?sourceBranch=refs/heads/fix-title
-remote:
-To (*\textcolor[HTML]{444444}{URL/mygitmoon.git}*)
- * [new branch]      fix-title -> fix-title
-\end{lstlisting}
-  Note: ensure the pull request reviewer has the appropriate permissions
-  \newline
-  Copy and paste the remote https:// URL in a browser to go on with the pull request
-\end{frame}
-
-\subsection{Pulling commits from a remote}
-\begin{frame}[fragile]
-  \subslidetitle
-  In our \textbf{mygitmoon} project, these commits can now be pulled:
-  \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{cd \textasciitilde/mygitmoon}*)
-$ (*\textcolor[HTML]{0000AA}{git pull}*)
-remote: Counting objects: 6, done.
-remote: Compressing objects: 100% (6/6), done.
-remote: Total 6 (delta 0), reused 0 (delta 0)
-Unpacking objects: 100% (6/6), done.
-From (*\textcolor[HTML]{444444}{URL/mygitmoon.git}*)
- * [new branch]      master     -> origin/master
-\end{lstlisting}
-\center \includegraphics{diagrams/remote-pull.pdf}
-\end{frame}
-
-\subsection{Remote commands}
-\begin{frame}[fragile]
-  \subslidetitle
-  The following commands operate on remote repositories:
-  \begin{itemize}
-    \item \cmd{git fetch} \\
-      Downloads all branches from another repository
-    \item \cmd{git pull --rebase} \\
-      Does a \cmd{fetch} and then a {rebase} of the current branch onto a remote branch
-    \item \cmd{git remote update} \\
-      Does a \cmd{fetch} for all remotes
-  \end{itemize}
-\end{frame}
-
-\subsection{Checkout a tracking branch}
-\begin{frame}[fragile]
-  \subslidetitle
-  Once your remote is up to date, you have to checkout a specific local branch pointing to a remote branch:
-
-  \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b fix-title origin/fix-title --track}*)
-Branch fix-title set up to track remote branch fix-title from origin.
-Switched to a new branch 'fix-title'
-\end{lstlisting}
-  \vspace{1em}
-  Note: you need to create a local branch pointing to one remote in order to push to this remote branch.
-
-  \vspace{1em}
-  Git does automatically setup the master branch to track the remote master branch.
-\end{frame}
-
-\subsection{Git appliances}
-\begin{frame}[fragile]
-  \subslidetitle
-  There are various git appliances, providing the following features:
-  \begin{itemize}
-    \item Forking a repository
-    \item Creating pull requests
-    \item Offers branching models
-  \end{itemize}
 \end{frame}
 
 \subsection{Branching models}

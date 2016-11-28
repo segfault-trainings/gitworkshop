@@ -92,7 +92,9 @@
     }
     \addtocontents{toc}{\vskip -0.2cm}
     \setbeamertemplate{footline}[text line]{%
-      \parbox{\linewidth}{\vspace*{-8pt}\textcolor{lightgray}{\inserttitle{} {\normalsize\ttfamily\textcopyright}\ \insertauthor\ \the\year \hfill \insertpagenumber/\pageref{LastPage}}}
+      \parbox{\linewidth}{\vspace*{-12pt}\textcolor{lightgray}{\inserttitle{} {\normalsize\ttfamily\textcopyright}\
+        Andr\'{e} Roth, Andreas Schmid, Eric Keller - Licensed for: \input{../licensed.txt}
+      \hfill \insertpagenumber/\pageref{LastPage}}}
     }
     \setbeamertemplate{navigation symbols}{}
 
@@ -168,6 +170,7 @@
 \usepackage{vwcol}
 \usepackage{lastpage}
 
+
 % table spacings
 \renewcommand{\arraystretch}{1.5}
 
@@ -207,32 +210,31 @@
         {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
       \fi%
     \end{beamercolorbox}%
-    \vskip1em\par
+    \vskip.5em\par
     \begin{beamercolorbox}[sep=8pt,center]{author}
       \usebeamerfont{author}\insertauthor
     \end{beamercolorbox}
-    \begin{beamercolorbox}[sep=8pt,center]{institute}
-      \usebeamerfont{institute}\insertinstitute
-    \end{beamercolorbox}
-    \begin{beamercolorbox}[sep=8pt,center]{date}
-      \usebeamerfont{date}\insertdate
-    \end{beamercolorbox}\vskip0.5em
   \endgroup
   \vfill
 }
 \makeatother
 % end of layout of title side
 
+\setbeamerfont{author}{size=\smaller}
+\setbeamerfont{date}{size=\smaller}
+
 \begin{document}
 \title{git workshop}
 \author{
+  \textbf{Authors} \\
   André Roth \textless{}neolynx@gmail.com\textgreater{}\\
   Andreas Schmid \textless{}ikeark@gmail.com\textgreater{}\\
-  Eric Keller \textless{}keller.eric@gmail.com\textgreater{}
+  Eric Keller \textless{}keller.eric@gmail.com\textgreater{}\\
+  \vspace{.4em}
+  \textbf{Licensed for:} \input{../licensed.txt}
+  \textbf{Version:} \today
 }
-
-\date{\today}
-
+%\date{Version: \today}
 
 \frame{\titlepage}
 

@@ -4,7 +4,7 @@ install:
 - make pull-image
 script:
 - make travis-run-container
-repo: segfault-trainigns/gitworkshop
+repo: segfault-trainings/gitworkshop
 deploy:
   provider: releases
   api_key:

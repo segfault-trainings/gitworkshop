@@ -1,0 +1,20 @@
+services:
+    - docker
+
+install:
+    - make pull-image
+
+script:
+    - make travis-run-container
+
+deploy:
+    provider: releases
+    api_key:
+        secure:
+    file_glob: true
+    file: GitWorkshop_*.pdf
+    skip_cleanup: true
+    on:
+        tags: true
+repo: segfault-trainigns/gitworkshop
+

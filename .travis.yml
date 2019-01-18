@@ -13,4 +13,4 @@ deploy:
   file: GitWorkshop_*.pdf
   skip_cleanup: true
   on:
-    repo: segfault-trainings/gitworkshop
+    tags: true

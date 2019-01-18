@@ -1,3 +1,4 @@
 [submodule "project"]
 	path = project
-	url = ssh://lynx.bugspot.net:22000/home/bay/git/gitmoon
+	url = https://github.com/segfault-trainings/gitmoon.git
+

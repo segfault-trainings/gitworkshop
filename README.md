@@ -8,7 +8,8 @@ This repository contains the slides and handouts for our git workshop.
 On Debian based OS:
 
 ```
-sudo sh -c "apt-get update && apt-get install -y texlive-latex-base texlive-latex-extra texlive-latex-recommended latex-beamer texlive-fonts-extra texlive-latex-extra texlive-fonts-recommended inkscape
+sudo apt update
+sudo apt install --yes texlive-latex-base texlive-latex-extra texlive-latex-recommended latex-beamer texlive-fonts-extra texlive-fonts-recommended inkscape
 make
 ```
 

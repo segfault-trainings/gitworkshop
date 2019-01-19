@@ -1,19 +1,15 @@
 services:
-    - docker
-
+- docker
 install:
-    - make pull-image
-
+- make pull-image
 script:
-    - make travis-run-container
-
+- make travis-run-container
 deploy:
-    provider: releases
-    api_key:
-        secure: KtP3legS8ryo04PRd5AMn8e0GDFRUtRgJ37UKwUodgMABDWxlixXYbIlbzde36/PMgmryXpFA8lUrlsmvJsmcCHw0ecdY6Yvf0ByH4B9IsNQMWn/X4RqnlpJgd3OJn6aKrgGHVigaYE77CC6QPHcMZcleevxzzLkJtUf62h9NCqKoRxJmDZxatOO/Xo8pCeOIj/aB2PvwZF/t97fHsw3PyI6xwgo4NIh9p/FFevpucZ8b2J0chTecxTr50ZC9pCQPQaPKeS5O2x8MQZJKmLrImRtWW4PeFoSy/QJj/mu/AEjJMS5IXjplDFBf9FA5wjb9yZzdwTzImUDRpl8Ekj0RXRm4eWi1jLdR4RgDK4WKYQsdOfA8X7MNY/CJuVXdz8TRloapJEtcqTTPKvJVEiDDEROiB740yef7vIddQhw8qgXtOk3CPIecLY6D1S5Rg2XrCqe8CGtLUoKO12G0fe/hwexv9wtx09pqnB3MPekT+ZIVLVA1ML9AMoQs8AfwPR4fX66COvrq4jyUoWjSshGQj1gfLloufvAUiIzyt2nRBIqMxTxVAIxIJ1sWjo/zuvbNi2UesAldYDCNC1k2KmH7AUNOK10jaGyZ8o3/J9JoVsTOfyx4a+a6grVZxPm6bitOBZRYLGBFZbXgiZ8eRHnTtwrYHRwMeeFDu2XqWmtHyw=
-    file_glob: true
-    file: GitWorkshop_*.pdf
-    skip_cleanup: true
-    on:
-        tags: true
-        repo: segfault-trainings/gitworkshop
+  provider: releases
+  api_key:
+    secure: Kg7mFO24uryPVemGXoRuQ3kg6dagGMiJBl/9FiDDh6l2KOdeFrEPPVCcx+BTvYJx7eiYkRTx8tAy5ONDcnjAljmbg/RN+RtXHPpHwoIzua5OHcoMn3y35jilnj6/T3CTTFyZJJCA4pRM0LxageezWLfNeXtM8AUYquGpnrVIWA6KQHM0wJokKDqGEUpSco2wUZ6g14DDnpHNXJrv3C6eEno5JC55vnEQhhJdSUe1FzsGxbGFVELepzlrUERy+ZJUBRwLuJjMK8H5mt0EgLcep1JUK+u4nLvII3Mz8iXUf+GQMlR39OmfEAPUVA5IsiSKp773ZsL74g5V5vPoYHLDC1PjnULQIXFsjhZ/zIu+n5co3JazYbDKoEBRNbeyov9SYVKsedrmaaNiYsHQ/BngsYzcITw3eJ++rm20smdwTsmEuVwM4x5DqJ3WzSao7xcPRJKpnISIWr9bRItZiLBe3u/rBmVDlvm36zs7t1KgvLlKqDHnDWKEK5QJK5D17ewOlhu1YF4QXtdV3gi1/PubfYKEFQH514ZNuXF0j8IRBCwcbAk1qkF5V9GaAsY9n3nsqXCaYs2o9YebJ7KmHbaJGft3kJkX/mQJQiESA6RPsOg9xy5kR1QMeSr6v/fnq0jyF76JuH/5dhnOwZgo2evACq24YKghRXvigbOgmEh7kxk=
+  file_glob: true
+  file: GitWorkshop_*.pdf
+  on:
+    tags: true
+    repo: segfault-trainings/gitworkshop

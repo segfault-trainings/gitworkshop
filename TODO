@@ -4,3 +4,9 @@ the arrow is in the false direction.
 7.10 Remote commands
 missing pull
 
+* Introduce git gui early to have reference during the workshop
+* Think about overall project… something more visual?
+* Have slides to show concept of remote
+* Have exercise to pull/push changes… start with git fetch, and do git branch -r git rebase origin/master to update to latest version
+* Update remote links etc.. (bugspot.net)
+

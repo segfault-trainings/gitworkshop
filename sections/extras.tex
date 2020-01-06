@@ -10,6 +10,22 @@
   \end{itemize}
 \end{frame}
 
+\subsection{What to commit and what not to commit}
+\begin{frame}[fragile]
+  \slidetitle
+  It's best practice to not commit:
+  \begin{itemize}
+    \item Generated Binaries
+    \item Large files (Use \lstinline{git-lfs})
+    \item Your personal editor configuration
+    \item passwords and other secrets
+    \item ...
+  \end{itemize}
+
+  Note: Make use of the \lstinline{.gitignore} file!
+
+\end{frame}
+
 \subsection{Remove untracked files}
 \begin{frame}[fragile]
     \subslidetitle

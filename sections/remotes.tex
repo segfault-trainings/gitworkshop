@@ -207,12 +207,59 @@ uUiYLTgtczTgYk/T user@host
   \end{exercise}
 \end{frame}
 
-\subsection{Branching models}
+\subsection{Workflows / Branching Models}
 \begin{frame}[fragile]
   \subslidetitle
-  A feature branch model looks like this:
+  Centralized Workflow
+  \center \includegraphics{diagrams/git-centralized-workflow.pdf}
+
+  \vspace{2em}
+  \begin{itemize}
+    \item only the \lstinline{master} branch is used
+    \item first rebase, then push
+    \item often used to transition from old-ish CVS
+  \end{itemize}
+\end{frame}
+
+\subsection{Workflows / Branching Models}
+\begin{frame}[fragile]
+  \subslidetitle
+  Feature Branch Workflow
   \center \includegraphics{diagrams/git-workflow.pdf}
 
   \vspace{2em}
-  The idea is to not work directly on the master branch. Every change is made in a branch and gets merged into master eventually.
+  \begin{itemize}
+    \item development in small feature branches
+    \item chance for Pull Requests
+    \item no broken code on \lstinline{master}
+  \end{itemize}
+\end{frame}
+
+\subsection{Workflows / Branching Models}
+\begin{frame}[fragile]
+  \subslidetitle
+  Gitflow Workflow
+  \center \includegraphics{diagrams/git-gitflow-workflow.pdf}
+
+  \vspace{2em}
+  \begin{itemize}
+    \item like \textit{Feature Branch Workflow}
+    \item assign special roles to certain branches
+  \end{itemize}
+
+\end{frame}
+
+\subsection{Workflows / Branching Models}
+\begin{frame}[fragile]
+  \subslidetitle
+  Forking Workflow
+  \center \includegraphics{diagrams/git-forking-workflow.pdf}
+
+  \vspace{2em}
+  \begin{itemize}
+    \item every contributor has it's own copy (fork) of the repo
+    \item contribute with Pull Requests
+    \item most often used in Open Source
+  \end{itemize}
+
 \end{frame}

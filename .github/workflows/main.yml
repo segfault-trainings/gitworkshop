@@ -42,7 +42,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: GitWorkshop_Slides.pdf
-          asset_name: Slides
+          asset_name: GitWorkshop_Slides.pdf
           asset_content_type: application/pdf
       - name: Upload Handout
         if: startsWith(github.event.ref, 'refs/tags')
@@ -52,5 +52,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: GitWorkshop_Handout.pdf
-          asset_name: Handout
+          asset_name: GitWorkshop_Handout.pdf
           asset_content_type: application/pdf

@@ -11,12 +11,14 @@ all: slides handout
 slides: gen $(PNGS)
 	cd $(TMP) && pdflatex ../gitworkshop.tex
 	cd $(TMP) && pdflatex ../gitworkshop.tex
-	mv $(TMP)/gitworkshop.pdf GitWorkshop_Slides_$(shell date "+%Y-%m-%d").pdf
+	mv $(TMP)/gitworkshop.pdf GitWorkshop_Slides.pdf
+	cp GitWorkshop_Slides.pdf GitWorkshop_Slides_$(shell date "+%Y-%m-%d").pdf
 
 handout: gen $(PNGS)
 	cd $(TMP) && HANDOUT=1 pdflatex ../gitworkshop.tex
 	cd $(TMP) && HANDOUT=1 pdflatex ../gitworkshop.tex
-	mv $(TMP)/gitworkshop.pdf GitWorkshop_Handout_$(shell date "+%Y-%m-%d").pdf
+	mv $(TMP)/gitworkshop.pdf GitWorkshop_Handout.pdf
+	cp GitWorkshop_Handout.pdf GitWorkshop_Handout_$(shell date "+%Y-%m-%d").pdf
 
 gen:
 	mkdir -p $(TMP)/diagrams

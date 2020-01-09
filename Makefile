@@ -2,7 +2,7 @@
 
 TMP := build
 
-SVGS := $(shell find diagrams/* -maxdepth 0 -name '*.svg')
+SVGS := $(shell find assets/diagrams/* -maxdepth 0 -name '*.svg')
 PNGS = $(patsubst %.svg,$(TMP)/%.pdf,$(SVGS))
 
 all: slides handout
@@ -21,7 +21,7 @@ handout: build-dir $(PNGS)
 	cp GitWorkshop_Handout.pdf GitWorkshop_Handout_$(shell date "+%Y-%m-%d").pdf
 
 build-dir:
-	mkdir -p $(TMP)/diagrams
+	mkdir -p $(TMP)/assets/diagrams
 
 $(TMP)/%.pdf: %.svg
 	inkscape $< --without-gui --export-area-drawing --export-dpi=600 --export-pdf $@

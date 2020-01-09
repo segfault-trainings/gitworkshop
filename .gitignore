@@ -1,4 +1,8 @@
-!.gitignore
-*.pdf
-gen
+# vim swap files
+*.swp
 
+# build directory
+gen/
+
+# generated PDFs
+*.pdf

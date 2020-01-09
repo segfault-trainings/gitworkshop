@@ -1,0 +1,24 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    container:
+        image: blang/latex
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install inkscape and make
+        run: |
+          apt update
+          apt install --yes inkscape make
+      - name: Build Slides
+        run: |
+          make slides
+      - name: Build Handout
+        run: |
+          make handout
+

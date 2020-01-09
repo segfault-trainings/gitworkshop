@@ -2,7 +2,7 @@
 *.swp
 
 # build directory
-gen/
+build/
 
 # generated PDFs
 *.pdf

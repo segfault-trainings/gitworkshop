@@ -1,6 +1,6 @@
-.PHONY: gen clean all builddir slides handout
+.PHONY: build clean all builddir slides handout
 
-TMP := gen
+TMP := build
 
 SVGS := $(shell find diagrams/* -maxdepth 0 -name '*.svg')
 PNGS = $(patsubst %.svg,$(TMP)/%.pdf,$(SVGS))
@@ -8,19 +8,19 @@ PNGS = $(patsubst %.svg,$(TMP)/%.pdf,$(SVGS))
 all: slides handout
 	test -d ~/public_html && cp -f gitworkshop.pdf gitworkshop\ Handout.pdf ~/public_html/ || true
 
-slides: gen $(PNGS)
+slides: build-dir $(PNGS)
 	cd $(TMP) && pdflatex ../gitworkshop.tex
 	cd $(TMP) && pdflatex ../gitworkshop.tex
 	mv $(TMP)/gitworkshop.pdf GitWorkshop_Slides.pdf
 	cp GitWorkshop_Slides.pdf GitWorkshop_Slides_$(shell date "+%Y-%m-%d").pdf
 
-handout: gen $(PNGS)
+handout: build-dir $(PNGS)
 	cd $(TMP) && HANDOUT=1 pdflatex ../gitworkshop.tex
 	cd $(TMP) && HANDOUT=1 pdflatex ../gitworkshop.tex
 	mv $(TMP)/gitworkshop.pdf GitWorkshop_Handout.pdf
 	cp GitWorkshop_Handout.pdf GitWorkshop_Handout_$(shell date "+%Y-%m-%d").pdf
 
-gen:
+build-dir:
 	mkdir -p $(TMP)/diagrams
 
 $(TMP)/%.pdf: %.svg

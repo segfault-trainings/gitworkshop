@@ -1,27 +1,16 @@
-# git workshop
+# Git Workshop
 
 [![Actions Status](https://github.com/segfault-trainings/gitworkshop/workflows/CI/badge.svg)](https://github.com/segfault-trainings/gitworkshop/actions)
 
-This repository contains the slides and handouts for our git workshop.
+This repository contains the slides and handouts for the **segfault-trainings Git workshop**.
 
 See the releases page [here](https://github.com/segfault-trainings/gitworkshop/releases) for pre-built slides and handouts.
 
 
-## Build the slides
+## Build the slides and handout
 
-On Debian based OS:
-
-```
-sudo apt update
-sudo apt install --yes texlive-latex-base texlive-latex-extra texlive-latex-recommended latex-beamer texlive-fonts-extra texlive-fonts-recommended inkscape
-make
-```
-
-Or use docker:
+The easiest way to build the slides and handout is to use docker using the provided make target:
 
 ```
-docker pull blang/latex
-docker run --rm -ti -v "$PWD:/data" blang/latex sh -c "apt update && apt install -y inkscape && make"
+make with-docker
 ```
-
-Note: the generated PDF are owned by root. `sudo chown $UID:$GID *.pdf`

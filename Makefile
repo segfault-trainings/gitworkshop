@@ -32,5 +32,5 @@ clean:
 pull-image:
 	docker pull blang/latex
 
-travis-run-container:
+with-docker:
 	docker run --rm -ti -v $(shell pwd):/data blang/latex sh -c "apt update && apt install -y inkscape && make"

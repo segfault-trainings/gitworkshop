@@ -1,6 +1,6 @@
 # git workshop
 
-[![Build Status](https://travis-ci.com/segfault-trainings/gitworkshop.svg?branch=master)](https://travis-ci.com/segfault-trainings/gitworkshop)
+[![Actions Status](https://github.com/segfault-trainings/gitworkshop/workflows/CI/badge.svg)](https://github.com/segfault-trainings/gitworkshop/actions)
 
 This repository contains the slides and handouts for our git workshop.
 

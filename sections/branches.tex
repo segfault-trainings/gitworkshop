@@ -8,6 +8,7 @@
     \item Work with branches
     \item Rebase branches
     \item Merge branches
+    \item Cherry-Pick commits
   \end{itemize}
 \end{frame}
 
@@ -283,6 +284,52 @@ Merge branch 'third-moon' into master
 
 \end{frame}
 
+\subsection{Cherry-Pick a commit}
+\begin{frame}[fragile]
+  \subslidetitle
+  Instead of rebasing or merging entire branches, you can \textit{pick} single commits. \\
+
+  Let's setup a branch and add two commits to setup the situation:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b no-blue}*)
+(*\textcolor[HTML]{18B2B2}{(no-blue)}*) $ (*\textcolor[HTML]{0000AA}{echo " *\ Use a good screen" >> README.md}*)
+(*\textcolor[HTML]{18B2B2}{(no-blue)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "note screen prerequisites"}*)
+\end{lstlisting}
+
+  Remove the blue moon and make another commit. \\
+  You'll end up with the following two commits:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(no-blue)}*) $ (*\textcolor[HTML]{0000AA}{git log -2 --oneline}*)
+(*\textcolor[HTML]{ae6617}{1d36adc}*) note screen prerequisites
+(*\textcolor[HTML]{ae6617}{69af75c}*) remove the blue moon
+\end{lstlisting}
+
+  \centerline{\includegraphics{assets/diagrams/cherry-pick-before.pdf}}
+\end{frame}
+
+\subsection{Cherry-Pick a commit}
+\begin{frame}[fragile]
+  \subslidetitle
+    Now we want to switch back to master and only apply the \lstinline{1d36adc - note screen prerequisites} commit.
+    Thus, let's use \cmd{git cherry-pick}:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(no-blue)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+Switched to branch 'master'
+\end{lstlisting}
+
+  Now we \textit{cherry-pick} the preceding commit:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git cherry-pick 1d36adc}*)
+[master fbd4ca8] remove the blue moon
+ Date: Sun Nov 29 10:06:27 2015 +0000
+ 1 file changed, 1 deletion(-)
+\end{lstlisting}
+
+  \vspace{1em}
+
+  \centerline{\includegraphics{assets/diagrams/cherry-pick-after.pdf}}
+\end{frame}
+
 \subsection{Stashing modifications}
 \begin{frame}[fragile]
   \subslidetitle
@@ -377,6 +424,7 @@ Dropped refs/stash@{0} (ac514d6d83880d45ca994d4b83b485340f192a7e)
     \item Switch branches
     \item Rebase branches
     \item Merge branches
+    \item Cherry-pick commits
     \item Working with stashes
   \end{itemize}
 \end{frame}

@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="remote-push.svg">
+   sodipodi:docname="remote-concept.svg">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -23,9 +23,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="4"
-     inkscape:cx="20.937086"
-     inkscape:cy="86.312376"
+     inkscape:zoom="2"
+     inkscape:cx="137.25711"
+     inkscape:cy="161.71671"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -289,7 +289,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -388,18 +388,18 @@
        sodipodi:nodetypes="ccc"
        inkscape:connector-curvature="0"
        id="path12169-6"
-       d="m 103.8591,996.1362 -0.0313,-10.82407 -0.11454,-39.58662"
-       style="fill:none;stroke:#000000;stroke-width:2.08765197px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-end:url(#Arrow2Mend)" />
+       d="m 104.3523,942.38268 -0.17689,11.13161 -0.64692,40.7112"
+       style="fill:none;stroke:#000000;stroke-width:2.11723685px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-end:url(#Arrow2Mend)" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       x="106.52038"
-       y="976.36768"
+       x="109.7821"
+       y="971.53406"
        id="text2025"><tspan
          sodipodi:role="line"
          id="tspan2023"
-         x="106.52038"
-         y="976.36768"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">push</tspan></text>
+         x="109.7821"
+         y="971.53406"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">clone</tspan></text>
   </g>
 </svg>

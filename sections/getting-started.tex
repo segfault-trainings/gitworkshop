@@ -38,6 +38,35 @@ $ (*\textcolor[HTML]{0000AA}{git config --global user.email "myemail@address"}*)
 
 \end{frame}
 
+\begin{frame}[fragile]
+  \subslidetitle
+  By the default editor for many git configurations is vim.
+  If you are not comfortable with using vim, here is how we configure a differtent editor.
+
+  \vspace{1em}
+  Let's configure this by using the \cmd{git config} command: \\
+  \vspace{1em}
+
+  Windows:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git config --global core.editor notepad}*)
+\end{lstlisting}
+  \vspace{1em}
+  Linux:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git config --global core.editor nano}*)
+\end{lstlisting}
+  \vspace{1em}
+  macOS:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git config --global core.editor TextEdit}*)
+\end{lstlisting}
+
+  \vspace{1em}
+  Note: If you use a differtent text editor just configure that one instead!
+
+\end{frame}
+
 \subsection{Obtaining a repository}
 \begin{frame}[fragile]
   \subslidetitle

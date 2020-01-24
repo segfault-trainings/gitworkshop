@@ -289,28 +289,27 @@ Merge branch 'third-moon' into master
   \subslidetitle
   Instead of rebasing or merging entire branches, you can \textit{pick} single commits. \\
 
-  Let's setup a branch and add two commits to setup the situation:
+  Let's setup a branch and add two commits to setup the situation. \\
+  \vspace{1em}
+  The first commit should remove the blue moon form \cmd{moon.js}: \\
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b no-blue}*)
+(*\textcolor[HTML]{18B2B2}{(no-blue)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "remove the blue moon"}*)
+\end{lstlisting}
+
+  The second commit should change the \cmd{README.md}:\\
+  \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(no-blue)}*) $ (*\textcolor[HTML]{0000AA}{echo " *\ Use a good screen" >> README.md}*)
 (*\textcolor[HTML]{18B2B2}{(no-blue)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "note screen prerequisites"}*)
 \end{lstlisting}
-
-  Remove the blue moon and make another commit. \\
-  You'll end up with the following two commits:
-  \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(no-blue)}*) $ (*\textcolor[HTML]{0000AA}{git log -2 --oneline}*)
-(*\textcolor[HTML]{ae6617}{1d36adc}*) note screen prerequisites
-(*\textcolor[HTML]{ae6617}{69af75c}*) remove the blue moon
-\end{lstlisting}
-
+  \vspace{1em}
   \centerline{\includegraphics{assets/diagrams/cherry-pick-before.pdf}}
 \end{frame}
 
 \subsection{Cherry-Pick a commit}
 \begin{frame}[fragile]
   \subslidetitle
-    Now we want to switch back to master and only apply the \lstinline{1d36adc - note screen prerequisites} commit.
+    Now we want to switch back to master and only apply the \lstinline{1d36adc - remove the blue moon} commit.
     Thus, let's use \cmd{git cherry-pick}:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(no-blue)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)

@@ -31,6 +31,13 @@
 \hypersetup{colorlinks=true, urlcolor=structure.fg, linkcolor=structure.fg}
 \renewcommand*{\UrlFont}{\ttfamily\footnotesize\relax}
 
+% disable ligatures to ensure that
+% hyphens (-) and especialy -- and ---
+% are shown as is and not rendert as en/em dash
+% important for cmds
+\usepackage{microtype}
+\DisableLigatures[-]{}
+
 %\usepackage{bold-extra} % cmtt
 %\renewcommand{\ttdefault}{cmtt}
 %\usepackage{lmodern}

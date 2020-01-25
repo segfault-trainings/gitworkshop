@@ -138,7 +138,7 @@ Subject: [PATCH] remove the blue moon
 \end{lstlisting}
   Create new no-blue branch in order to apply this patch
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b no-blue}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git switch -c no-blue}*)
 Switched to a new branch 'no-blue'
 \end{lstlisting}
 
@@ -245,7 +245,7 @@ uUiYLTgtczTgYk/T user@host
 
   \begin{lstlisting}
   git config --global alias.st = status
-  git config --global alias.co = checkout
+  git config --global alias.sw = switch
   git config --global alias.ci = commit
   git config --global alias.br = branch
   \end{lstlisting}
@@ -269,7 +269,7 @@ uUiYLTgtczTgYk/T user@host
 
 [alias]
   st = status
-  co = checkout
+  sw = switch
   ci = commit
   br = branch
   l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'

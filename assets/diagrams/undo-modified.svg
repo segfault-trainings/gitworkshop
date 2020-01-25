@@ -14,7 +14,7 @@
    height="107.79828"
    id="svg2"
    version="1.1"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.4 (unknown)"
    sodipodi:docname="undo-modified.svg">
   <sodipodi:namedview
      id="base"
@@ -23,16 +23,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="256.18285"
-     inkscape:cy="508.94643"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="82.620141"
+     inkscape:cy="-1.119923"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="2560"
-     inkscape:window-height="1440"
-     inkscape:window-x="4480"
-     inkscape:window-y="0"
+     inkscape:window-width="636"
+     inkscape:window-height="1018"
+     inkscape:window-x="2560"
+     inkscape:window-y="40"
      inkscape:window-maximized="0"
      units="cm"
      showguides="true"
@@ -244,7 +244,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -399,14 +399,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       x="120.77317"
+       x="125.72292"
        y="979.74774"
        id="text4172"><tspan
          style="font-weight:bold;font-size:7.79121542px;line-height:1.25;font-family:sans-serif"
          sodipodi:role="line"
          id="tspan4174"
-         x="120.77317"
-         y="979.74774">checkout</tspan></text>
+         x="125.72292"
+         y="979.74774">restore</tspan></text>
     <path
        style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#e3dbdb;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.23019978;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;filter:url(#filter5995-5);enable-background:accumulate"
        d="m 54.04735,954.33355 -5.1875,-4.53125 -5.1875,-4.53125 -5.21875,4.53125 -5.1875,4.53125 h 4.3125 v 2.9375 31.35293 2.9375 h -4.3125 l 5.1875,4.53129 5.1875,4.53123 5.21875,-4.53123 5.1875,-4.53129 h -4.3125 v -2.9375 -31.35293 -2.9375 z"

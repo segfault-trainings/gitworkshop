@@ -13,9 +13,9 @@
 \subsection{Prepare a merge conflict}
 \begin{frame}[fragile]
   \subslidetitle
-  Checkout the master branch
+  Switch to the master branch
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(oldversion)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+(*\textcolor[HTML]{18B2B2}{(oldversion)}*) $ (*\textcolor[HTML]{0000AA}{git switch master}*)
 \end{lstlisting}
   Implement the change in \cmd{moon.js} following this diff:
   \begin{lstlisting}
@@ -41,7 +41,7 @@
 
   Switch to the branch third-moon:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout third-moon}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git switch third-moon}*)
 \end{lstlisting}
 
   Add a comment to the green moon like defined in the following diff:
@@ -67,7 +67,7 @@
 
   Let's merge the third-moon branch to master:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+(*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git switch master}*)
 Switched to branch 'master'
 Your branch is ahead of 'origin/master' by 11 commits.
   (use "git push" to publish your local commits)
@@ -184,7 +184,7 @@ Merge branch 'third-moon' into master
 
   Create a new \cmd{death-star} branch:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git checkout -b death-star master}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git switch -c death-star master}*)
 Switched to a new branch 'death-star'
 \end{lstlisting}
 
@@ -211,7 +211,7 @@ Switched to a new branch 'death-star'
   \subslidetitle
   Change to the master branch:
    \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git switch master}*)
 \end{lstlisting}
 
   Modify the moon.js file accordingly:
@@ -231,7 +231,7 @@ Switched to a new branch 'death-star'
 \end{lstlisting}
   Change to the death-star branch:
    \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git checkout death-star}*)
+(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git switch death-star}*)
 \end{lstlisting}
 \end{frame}
 

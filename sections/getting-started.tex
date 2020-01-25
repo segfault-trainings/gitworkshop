@@ -12,6 +12,10 @@
     \item The git work flow
     \item Undo modifications and staging
   \end{itemize}
+
+  \vspace{2em}
+	Note: Your git version should be at least 2.23 or newer. \\ 
+	Check your git version with: \cmd{git --version}
 \end{frame}
 
 \subsection{Configuring git}
@@ -259,7 +263,7 @@ On branch master
 Your branch is up-to-date with 'origin/master'.
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
+  (use "git restore <file>..." to discard changes in working directory)
 
         (*\textcolor[HTML]{AA0000}{modified:}*)   (*\textcolor[HTML]{AA0000}{moon.html}*)
 
@@ -345,7 +349,7 @@ Your branch is ahead of 'origin/master' by 3 commits.
   (use "git push" to publish your local commits)
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
+  (use "git restore <file>..." to discard changes in working directory)
 
         (*\textcolor[HTML]{AA0000}{modified:}*)   (*\textcolor[HTML]{AA0000}{AUTHORS}*)
 
@@ -356,9 +360,9 @@ Changes not staged for commit:
 \subsection{Undoing a modification}
 \begin{frame}[fragile]
 \subslidetitle
-  The command \cmd{git checkout} allows you to undo the modification:
+  The command \cmd{git restore} allows you to undo the modification:
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git checkout AUTHORS}*)
+$ (*\textcolor[HTML]{0000AA}{git restore AUTHORS}*)
 $ (*\textcolor[HTML]{0000AA}{git status}*)
 On branch master
 Your branch is ahead of 'origin/master' by 3 commits.
@@ -370,7 +374,7 @@ nothing to commit, working directory clean
   \centerline{\includegraphics{assets/diagrams/undo-modified}}
 
   \vspace{1em}
-  Note: checkout discards the changes, handle with care!
+  Note: restore discards the changes, handle with care!
 \end{frame}
 
 \subsection{Unstaging modifications}
@@ -422,12 +426,12 @@ Your branch is ahead of 'origin/master' by 3 commits.
   (use "git push" to publish your local commits)
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
+  (use "git restore <file>..." to discard changes in working directory)
 
         (*\textcolor[HTML]{AA0000}{modified:}*)   (*\textcolor[HTML]{AA0000}{AUTHORS}*)
 \end{lstlisting}
 
-  Instead of using \cmd{git checkout} on each file, \\
+  Instead of using \cmd{git restore} on each file, \\
   use \cmd{git reset --hard} to reset all modifications at once:
 \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git reset --hard}*)

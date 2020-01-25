@@ -20,9 +20,9 @@
   \centerline{\includegraphics{assets/diagrams/git-tag.pdf}}
 
   \vspace{1em}
-  Now we can checkout a tag using \cmd{git checkout}
+  Now we can created a branch based on a tag using \cmd{git switch}
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b oldversion v0.1}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git switch -c oldversion v0.1}*)
 Switched to a new branch 'oldversion'
 (*\textcolor[HTML]{18B2B2}{(oldversion)}*) $
 \end{lstlisting}
@@ -57,8 +57,6 @@ example annotation tag
 \end{lstlisting}
 
 \end{frame}
-
-% git checkout branch which was edited a long time ago, and we can continue to edit at this stage.
 
 \subsection{Summary}
 \begin{frame}[fragile]

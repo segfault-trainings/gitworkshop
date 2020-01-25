@@ -49,9 +49,9 @@
 \subsection{Switching to branch}
 \begin{frame}[fragile]
   \subslidetitle
-  The \cmd{git checkout} command is used to change the current branch:
+  The \cmd{git switch} command is used to change the current branch:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout foo}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git switch foo}*)
 Switched to branch 'foo'
 
 (*\textcolor[HTML]{18B2B2}{(foo)}*) $ (*\textcolor[HTML]{0000AA}{git branch}*)
@@ -60,9 +60,9 @@ Switched to branch 'foo'
 \end{lstlisting}
 
   \vspace{1em}
-  The \cmd{git checkout} command with \cmd{-b} option creates a new branch and automatically switches to it:
+  The \cmd{git switch} command with \cmd{-c} option creates a new branch and automatically switches to it:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(foo)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b bar}*)
+(*\textcolor[HTML]{18B2B2}{(foo)}*) $ (*\textcolor[HTML]{0000AA}{git switch -c bar}*)
 Switched to a new branch 'bar'
 
 (*\textcolor[HTML]{18B2B2}{(bar)}*) $ (*\textcolor[HTML]{0000AA}{git branch}*)
@@ -77,7 +77,7 @@ Switched to a new branch 'bar'
   \subslidetitle
   To delete an existing branch use the \cmd{-d} or \cmd{-D} (force) flag:
 \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(bar)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+(*\textcolor[HTML]{18B2B2}{(bar)}*) $ (*\textcolor[HTML]{0000AA}{git switch master}*)
 
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git branch -d foo bar}*)
 Deleted branch foo (was c974445).
@@ -104,7 +104,7 @@ Deleted branch bar (was 9adadac).
 
   Start to create a new fix-title branch:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b fix-title}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git switch -c fix-title}*)
 Switched to a new branch 'fix-title'
 \end{lstlisting}
 
@@ -164,7 +164,7 @@ index 145cfff..ae7bc15 100644
 
   In the meantime, we need to update the README.md file with a prerequisites sub-section:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git switch master}*)
 Switched to branch 'master'
 Your branch is ahead of 'origin/master' by 6 commits.
   (use "git push" to publish your local commits)
@@ -187,7 +187,7 @@ Your branch is ahead of 'origin/master' by 6 commits.
   Use \cmd{git rebase} to update the status of a branch on top of another branch:
 
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout fix-title}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git switch fix-title}*)
 
 (*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git rebase master}*)
 First, rewinding head to replay your work on top of it...
@@ -214,7 +214,7 @@ Applying: change title background color
 
   Let's create a new \cmd{third-moon} branch:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b third-moon master}*)
+(*\textcolor[HTML]{18B2B2}{(fix-title)}*) $ (*\textcolor[HTML]{0000AA}{git switch -c third-moon master}*)
 Switched to a new branch 'third-moon'
 \end{lstlisting}
 
@@ -240,7 +240,7 @@ Switched to a new branch 'third-moon'
 
   Let's make a change on master branch:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+(*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git switch master}*)
 Switched to branch 'master'
 Your branch is ahead of 'origin/master' by 7 commits.
   (use "git push" to publish your local commits)
@@ -293,7 +293,7 @@ Merge branch 'third-moon' into master
   \vspace{1em}
   The first commit should remove the blue moon form \cmd{moon.js}: \\
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b no-blue}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git switch -c no-blue}*)
 (*\textcolor[HTML]{18B2B2}{(no-blue)}*) $ (*\textcolor[HTML]{0000AA}{git commit -a -m "remove the blue moon"}*)
 \end{lstlisting}
 
@@ -312,7 +312,7 @@ Merge branch 'third-moon' into master
     Now we want to switch back to master and only apply the \lstinline{1d36adc - remove the blue moon} commit.
     Thus, let's use \cmd{git cherry-pick}:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(no-blue)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+(*\textcolor[HTML]{18B2B2}{(no-blue)}*) $ (*\textcolor[HTML]{0000AA}{git switch master}*)
 Switched to branch 'master'
 \end{lstlisting}
 
@@ -347,14 +347,11 @@ Switched to branch 'master'
 ...
 \end{lstlisting}
 
-  And suddenly something really important needs to be done immediately on the fix-title branch!
+  \vspace{2em}
+  And suddenly something really important needs to be done immediately on the fix-title branch! 
 
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git checkout fix-title}*)
-error: Your local changes to the following files would be overwritten by checkout:
-	README.md
-Please, commit your changes or stash them before you can switch branches.
-Aborting
+(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git switch fix-title}*)
 \end{lstlisting}
 \end{frame}
 
@@ -403,14 +400,14 @@ README.md | 1 +
 On branch master
 Changes not staged for commit:
    (use "git add <file>..." to update what will be committed)
-   (use "git checkout -- <file>..." to discard changes in working directory)
+   (use "git restore <file>..." to discard changes in working directory)
        (*\textcolor[HTML]{AA0000}{modified:}*)   (*\textcolor[HTML]{AA0000}{README.md}*)
 no changes added to commit (use "git add" and/or "git commit -a")
 Dropped refs/stash@{0} (ac514d6d83880d45ca994d4b83b485340f192a7e)
 \end{lstlisting}
   Discard the previous changes:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git checkout README.md}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git restore README.md}*)
 \end{lstlisting}
 \end{frame}
 

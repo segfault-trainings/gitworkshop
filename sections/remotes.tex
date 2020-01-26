@@ -173,7 +173,7 @@ $ (*\textcolor[HTML]{0000AA}{git remote show origin}*)
   First we'll create a new feature branch:
 
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git checkout -b feature/add-new-term}*)
+$ (*\textcolor[HTML]{0000AA}{git switch -c feature/add-new-term}*)
 Switched to a new branch 'feature/add-new-term'
 \end{lstlisting}
 
@@ -314,7 +314,7 @@ upstream/master
   And rebase the local \lstinline{master} to the \lstinline{upstream/master} branch:
 
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+$ (*\textcolor[HTML]{0000AA}{git switch master}*)
 $ (*\textcolor[HTML]{0000AA}{git rebase upstream/master}*)
 \end{lstlisting}
 

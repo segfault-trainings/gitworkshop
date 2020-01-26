@@ -13,19 +13,20 @@
 \subsection{Prepare a merge conflict}
 \begin{frame}[fragile]
   \subslidetitle
-  Checkout the master branch
+  Switch to the master branch
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(oldversion)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+(*\textcolor[HTML]{18B2B2}{(oldversion)}*) $ (*\textcolor[HTML]{0000AA}{git switch master}*)
 \end{lstlisting}
   Implement the change in \cmd{moon.js} following this diff:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{@@ -4,7 +4,7 @@}*) var moons = [];
- init();
- moon( "blue" );
- moon( "white" );
-(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{moon( "green" );}*)
-(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{moon( "red" );}*)
- animate();
+(*\textcolor[HTML]{18B2B2}{@@ -4,7 +4,7 @@}*)
+// create moons
+ new Moon("blue");
+ new Moon("white");
+(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{new Moon("green");}*)
+(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{new Moon("red");}*)
+
+// Function to setup the scene for our awesome moons :)
 \end{lstlisting}
 
   Commit your changes on master:
@@ -41,18 +42,19 @@
 
   Switch to the branch third-moon:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout third-moon}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git switch third-moon}*)
 \end{lstlisting}
 
   Add a comment to the green moon like defined in the following diff:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{@@ -4,7 +4,7 @@}*) var moons = [];
- init();
- moon( "blue" );
- moon( "white" );
-(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{moon( "green" );}*)
-(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{moon( "green" ); // the moon was greener}*)
- animate();
+(*\textcolor[HTML]{18B2B2}{@@ -4,7 +4,7 @@}*)
+// create moons
+ new Moon("blue");
+ new Moon("white");
+(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{new Moon("green");}*)
+(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{new Moon("green"); // the moon was sooo green!}*)
+
+// Function to setup the scene for our awesome moons :)
 \end{lstlisting}
 
   Commit your changes:
@@ -67,7 +69,7 @@
 
   Let's merge the third-moon branch to master:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+(*\textcolor[HTML]{18B2B2}{(third-moon)}*) $ (*\textcolor[HTML]{0000AA}{git switch master}*)
 Switched to branch 'master'
 Your branch is ahead of 'origin/master' by 11 commits.
   (use "git push" to publish your local commits)
@@ -93,16 +95,17 @@ diff --cc moon.js
 index 72886cb,861507e..0000000
 --- a/moon.js
 +++ b/moon.js
-(*\textcolor[HTML]{18B2B2}{@@@ -4,7 -4,7 +4,11 @@@}*) var moons = []
-  init();
-  moon( "blue" );
-  moon( "white" );
+(*\textcolor[HTML]{18B2B2}{@@@ -4,7 -4,7 +4,11 @@@}*)
+  // create moons
+  new Moon("blue");
+  new Moon("white");
 (*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{<<<<<<< HEAD}*)
-(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "red" );}*)
+(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{new Moon("red");}*)
 (*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{=======}*)
-(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "green" ); // the moon was greener}*)
+(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{new Moon("green"); // the moon was sooo green!}*)
 (*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{>>>>>>> third-moon}*)
-  animate();
+
+// Function to setup the scene for our awesome moons :)
 \end{lstlisting}
 \end{frame}
 
@@ -184,18 +187,17 @@ Merge branch 'third-moon' into master
 
   Create a new \cmd{death-star} branch:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git checkout -b death-star master}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*)$ (*\textcolor[HTML]{0000AA}{git switch -c death-star master}*)
 Switched to a new branch 'death-star'
 \end{lstlisting}
 
   Implement the change in \cmd{moon.js} following this diff:
 
   \begin{lstlisting}
- moon( "blue" );
-(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{moon( "white" );}*)
-(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{moon( "black" );}*)
- moon( "red" );
- animate();
+ new Moon("blue");
+(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{new Moon("white");}*)
+(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{new Moon("black");}*)
+ new Moon("red");
 \end{lstlisting}
 
   Commit the change:
@@ -211,16 +213,15 @@ Switched to a new branch 'death-star'
   \subslidetitle
   Change to the master branch:
    \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git checkout master}*)
+(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git switch master}*)
 \end{lstlisting}
 
   Modify the moon.js file accordingly:
   \begin{lstlisting}
- moon( "blue" );
-(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{moon( "white" );}*)
-(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{moon( "white" ); // as snow}*)
- moon( "red" );
- animate();
+ new Moon("blue");
+(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{new Moon("white");}*)
+(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{new Moon("white"); // as snow}*)
+ new Moon("red");
 \end{lstlisting}
 
   Commit the change:
@@ -231,7 +232,7 @@ Switched to a new branch 'death-star'
 \end{lstlisting}
   Change to the death-star branch:
    \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git checkout death-star}*)
+(*\textcolor[HTML]{18B2B2}{(death-star)}*)$ (*\textcolor[HTML]{0000AA}{git switch death-star}*)
 \end{lstlisting}
 \end{frame}
 
@@ -265,15 +266,14 @@ diff --cc moon.js
 index 72886cb,861507e..0000000
 --- a/moon.js
 +++ b/moon.js
-(*\textcolor[HTML]{18B2B2}{@@@ -4,7 -4,7 +4,11 @@@}*) var moons = []
-  init();
-  moon( "blue" );
+(*\textcolor[HTML]{18B2B2}{@@@ -4,7 -4,7 +4,11 @@@}*)
+  new Moon("blue");
 (*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{<<<<<<< d5d25c1555e1137d3ecd3bf335d3ac3515605bf4}*)
-(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "white" ); // as snow}*)
+(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{new Moon("white"); // as snow}*)
 (*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{=======}*)
-(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{moon( "black" );}*)
+(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{new Moon("black");}*)
 (*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{>>>>>>> add death-star}*)
-  animate();
+
 \end{lstlisting}
 \end{frame}
 
@@ -284,9 +284,9 @@ index 72886cb,861507e..0000000
 
   \begin{lstlisting}
 (*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{<<<<<<< d5d25c1555e1137d3ecd3bf335d3ac3515605bf4}*)
-(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{moon( "white" ); // as snow}*)
+(*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{new Moon("white"); // as snow}*)
 (*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{=======}*)
- moon( "black" );
+ new Moon("black");
 (*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{>>>>>>> add death-star}*)
 \end{lstlisting}
 

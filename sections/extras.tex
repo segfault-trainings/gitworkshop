@@ -86,13 +86,10 @@ moon.html:        <script src="(*\textcolor[HTML]{AA0000}{moon.js}*)"></script>
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git blame moon.js}*)
 ...
-^412af06 (Andre Roth  2015-11-28 14:41:45 +0100  2) var moons = [];
-^412af06 (Andre Roth  2015-11-28 14:41:45 +0100  3)
-^412af06 (Andre Roth  2015-11-28 14:41:45 +0100  4) init();
-ff9e4cd5 (Eric Keller 2015-12-13 18:53:56 +0100  5) moon( "blue" );
-429131d4 (Eric Keller 2015-12-13 22:06:06 +0100  6) moon( "black" );
-bf208729 (Eric Keller 2015-12-13 22:01:30 +0100  7) moon( "red" );
-^412af06 (Andre Roth  2015-11-28 14:41:45 +0100  8) animate();
+0cf42e1 (Timo Furrer <DATE>  22) // create moons
+0cf42e1 (Timo Furrer <DATE>  23) new Moon("green");
+0ba92c4 (Timo Furrer <DATE>  24) new Moon("gray");
+0e213fb (Timo Furrer <DATE>  25) new Moon("white");
 ...
 \end{lstlisting}
 
@@ -121,9 +118,10 @@ From: Eric Keller <keller.eric@gmail.com>
 Date: Sun, 29 Nov 2015 10:06:27 +0000
 Subject: [PATCH] remove the blue moon
 ...
- init();
--moon( "blue" );
- moon( "white" );
+ // create moons
+ new Moon("green");
+-new Moon("blue");
+ new Moon("white");
 ...
 \end{lstlisting}
 
@@ -138,7 +136,7 @@ Subject: [PATCH] remove the blue moon
 \end{lstlisting}
   Create new no-blue branch in order to apply this patch
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git checkout -b no-blue}*)
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git switch -c no-blue}*)
 Switched to a new branch 'no-blue'
 \end{lstlisting}
 
@@ -245,7 +243,7 @@ uUiYLTgtczTgYk/T user@host
 
   \begin{lstlisting}
   git config --global alias.st = status
-  git config --global alias.co = checkout
+  git config --global alias.sw = switch
   git config --global alias.ci = commit
   git config --global alias.br = branch
   \end{lstlisting}
@@ -269,7 +267,7 @@ uUiYLTgtczTgYk/T user@host
 
 [alias]
   st = status
-  co = checkout
+  sw = switch
   ci = commit
   br = branch
   l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'

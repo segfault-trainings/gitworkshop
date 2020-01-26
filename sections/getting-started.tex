@@ -100,14 +100,17 @@ Checking connectivity... done.
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{cd gitmoon}*)
 $ (*\textcolor[HTML]{0000AA}{ls}*)
-moon_1024.jpg  moon.html  moon.js  three.min.js
+assets    moon.html    moon.js
 \end{lstlisting}
 
   \vspace{1em}
   Oh, there is a HTML file !
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{firefox moon.html \&}*)
+$ (*\textcolor[HTML]{0000AA}{python -m http.server 8080}*)
+$ (*\textcolor[HTML]{0000AA}{open localhost:8080}*)
 \end{lstlisting}
+
+Note: We need a local web server, because of CORS.
 \end{frame}
 
 \subsection{Checking the status}
@@ -492,6 +495,13 @@ $ (*\textcolor[HTML]{0000AA}{git commit -m "we do not need the test file anymore
     \item Add a green moon after the blue moon\\
       commit as 'green moon'
   \end{exercise}
+
+  \vspace{3em}
+  Note: See \href{https://github.com/segfault-trainings/gitmoon/blob/master/moon.js#L23}{line 23 in the moon.js}
+    on how to create a colored moon:
+  \begin{lstlisting}[keywords={new},stringstyle=\color{mauve}]
+new Moon("green");
+\end{lstlisting}
 
 \end{frame}
 

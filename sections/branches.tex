@@ -220,13 +220,12 @@ Switched to a new branch 'third-moon'
 
   Modify the \cmd{moon.js} file following this diff instructions:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{@@ -3,6 +3,7 @@}*) var moons = [];
+(*\textcolor[HTML]{18B2B2}{@@ -3,6 +3,7 @@}*)
 
- init();
- moon( "blue" );
-(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{moon( "white" );}*)
- moon( "green" );
- animate();
+ // create moons
+ new Moon("blue");
+(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{new Moon("white");}*)
+ new Moon("green");
 \end{lstlisting}
   Commit your changes:
   \begin{lstlisting}

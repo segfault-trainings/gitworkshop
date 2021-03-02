@@ -367,6 +367,38 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
   Save and quit the editor to fixup the commits.
 \end{frame}
 
+
+\subsection{Fixup commits}
+\begin{frame}[fragile]
+  \subslidetitle
+    \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
+(*\textcolor[HTML]{ae6617}{633a534}*) change the green moon to red
+(*\textcolor[HTML]{ae6617}{368a328}*) remove the blue moon
+\end{lstlisting}
+
+  Let's fix something in the 'remove the blue moon' commit.
+  And commit that as fixup:
+  \begin{lstlisting}
+  git commit -a --fixup=368a328
+\end{lstlisting}
+
+  Now our git log should look like this:
+    \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
+(*\textcolor[HTML]{ae6617}{ca78a62}*) fixup! remove the blue moon
+(*\textcolor[HTML]{ae6617}{633a534}*) change the green moon to red
+(*\textcolor[HTML]{ae6617}{368a328}*) remove the blue moon
+\end{lstlisting}
+
+  Which allows us to automatically put them in the right place in a interactive rebase.
+  \begin{lstlisting}
+$ git rebase -i HEAD~3 --autosquash
+\end{lstlisting}
+
+\end{frame}
+
+
 \subsection{Squash commits}
 \begin{frame}[fragile]
   \subslidetitle

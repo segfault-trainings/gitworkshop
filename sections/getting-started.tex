@@ -100,7 +100,7 @@ Checking connectivity... done.
   \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{cd gitmoon}*)
 $ (*\textcolor[HTML]{0000AA}{ls}*)
-assets    moon.html    moon.js
+assets    assets.js    moon.html    moon.js
 \end{lstlisting}
 
   \vspace{1em}
@@ -133,7 +133,7 @@ nothing to commit, working directory clean
   \vspace{2em}
   Let's create a .gitignore file ignoring temporary vim swp files:
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{echo '*.swp' > .gitignore}*)
+$ (*\textcolor[HTML]{0000AA}{echo "*.swp" > .gitignore}*)
 \end{lstlisting}
 
   Let's see what the status of the repository with the \cmd{git status} command:
@@ -172,7 +172,7 @@ Not so difficult!? Let's explain it step by step in the following slides.
 
   Let's create an AUTHORS file with your name:
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{echo Tux Penguin > AUTHORS}*)
+$ (*\textcolor[HTML]{0000AA}{echo "Tux Penguin" > AUTHORS}*)
 \end{lstlisting}
 
   Check the git status:

@@ -5,7 +5,6 @@
   \begin{itemize}
     \item Solve merge conflicts
     \item Solve rebase conflicts
-    \item Using diff tools
     \item 3 way merge
   \end{itemize}
 \end{frame}
@@ -86,9 +85,32 @@ Automatic merge failed; fix conflicts and then commit the result.
 \begin{frame}[fragile]
   \subslidetitle
 
-  First we want to display the conflicting file with \cmd{git difftool}:
+  First we want to inspect which files have conflicts, using \cmd{git status}:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master|MERGING)}*) $ (*\textcolor[HTML]{0000AA}{git difftool}*)
+(*\textcolor[HTML]{18B2B2}{(master|MERGING)}*) $ (*\textcolor[HTML]{0000AA}{git status}*)
+On branch master
+Your branch is ahead of 'origin/master' by 11 commit.
+  (use "git push" to publish your local commits)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+      (*\textcolor[HTML]{AA0000}{both modified:   moon.js}*)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+\end{lstlisting}
+\end{frame}
+
+\subsection{Displaying conflicts}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  Then we want can display the merge conflict, using \cmd{git diff}:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master|MERGING)}*) $ (*\textcolor[HTML]{0000AA}{git diff}*)
 diff --cc moon.js
 index 72886cb,861507e..0000000
 --- a/moon.js
@@ -106,76 +128,162 @@ index 72886cb,861507e..0000000
 \end{lstlisting}
 \end{frame}
 
+\subsection{Displaying conflicts}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  The \textcolor[HTML]{0000AA}{blue conflict markers} were inserted by git:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master|MERGING)}*) $ (*\textcolor[HTML]{0000AA}{git diff}*)
+diff --cc moon.js
+index 72886cb,861507e..0000000
+--- a/moon.js
++++ b/moon.js
+(*\textcolor[HTML]{18B2B2}{@@@ -4,7 -4,7 +4,11 @@@}*)
+  // create moons
+  new Moon("blue");
+  new Moon("white");
+(*\textcolor[HTML]{0000AA}{++}*)(*\textcolor[HTML]{0000AA}{<<<<<<< HEAD}*)
+(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{new Moon("red");}*)
+(*\textcolor[HTML]{0000AA}{++}*)(*\textcolor[HTML]{0000AA}{=======}*)
+(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{new Moon("green"); // the moon was sooo green!}*)
+(*\textcolor[HTML]{0000AA}{++}*)(*\textcolor[HTML]{0000AA}{>>>>>>> third-moon}*)
+
+// Function to setup the scene for our awesome moons :)
+\end{lstlisting}
+\end{frame}
+
+\subsection{Displaying conflicts}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  The \textcolor[HTML]{0000AA}{HEAD} represents the changes in master (our current branch):
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master|MERGING)}*) $ (*\textcolor[HTML]{0000AA}{git diff}*)
+diff --cc moon.js
+index 72886cb,861507e..0000000
+--- a/moon.js
++++ b/moon.js
+(*\textcolor[HTML]{18B2B2}{@@@ -4,7 -4,7 +4,11 @@@}*)
+  // create moons
+  new Moon("blue");
+  new Moon("white");
+(*\textcolor[HTML]{0000AA}{++}*)(*\textcolor[HTML]{0000AA}{<<<<<<< HEAD}*)
+(*\textcolor[HTML]{0000AA}{+}*) (*\textcolor[HTML]{0000AA}{new Moon("red");}*)
+(*\textcolor[HTML]{0000AA}{++}*)(*\textcolor[HTML]{0000AA}{=======}*)
+(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{new Moon("green"); // the moon was sooo green!}*)
+(*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{>>>>>>> third-moon}*)
+
+// Function to setup the scene for our awesome moons :)
+\end{lstlisting}
+\end{frame}
+
+
+\subsection{Displaying conflicts}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  The \textcolor[HTML]{0000AA}{third-moon} represents the changes in the branch
+  we want to merge into master:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master|MERGING)}*) $ (*\textcolor[HTML]{0000AA}{git diff}*)
+diff --cc moon.js
+index 72886cb,861507e..0000000
+--- a/moon.js
++++ b/moon.js
+(*\textcolor[HTML]{18B2B2}{@@@ -4,7 -4,7 +4,11 @@@}*)
+  // create moons
+  new Moon("blue");
+  new Moon("white");
+(*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{<<<<<<< HEAD}*)
+(*\textcolor[HTML]{00AA00}{+}*) (*\textcolor[HTML]{00AA00}{new Moon("red");}*)
+(*\textcolor[HTML]{0000AA}{++}*)(*\textcolor[HTML]{0000AA}{=======}*)
+(*\textcolor[HTML]{0000AA}{+}*) (*\textcolor[HTML]{0000AA}{new Moon("green"); // the moon was sooo green!}*)
+(*\textcolor[HTML]{0000AA}{++}*)(*\textcolor[HTML]{0000AA}{>>>>>>> third-moon}*)
+
+// Function to setup the scene for our awesome moons :)
+\end{lstlisting}
+\end{frame}
+
 \subsection{Resolving conflicts}
 \begin{frame}[fragile]
   \subslidetitle
-  Use \cmd{git mergetool} to open an external merge tool like kdiff3 or vimdiff to resolve a conflict:
+
+  Open the conflicting \cmd{moon.js} file and resolve the conflicts to
+  get the following diff:
 
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(master|MERGING)}*) $ (*\textcolor[HTML]{0000AA}{git mergetool}*)
-Merging:
-moon.js
+diff --cc moon.js
+index 1b9f39e,0d8ce3c..0000000
+--- a/moon.js
++++ b/moon.js
+@@@ -16,7 -16,7 +16,7 @@@ let ctx =
+  };
 
-Normal merge conflict for 'moon.js':
-  {local}: modified file
-  {remote}: modified file
+  // create moons
+(*\textcolor[HTML]{AA0000}{-}*) (*\textcolor[HTML]{AA0000}{new Moon("red");}*)
+ (*\textcolor[HTML]{AA0000}{-}*)(*\textcolor[HTML]{AA0000}{new Moon("green"); // the moon was sooo green!}*)
+(*\textcolor[HTML]{00AA00}{++}*)(*\textcolor[HTML]{00AA00}{new Moon("red"); // the strawberry moon!}*)
+
+  // Function to setup the scene for our awesome moons :)
+  setup();
 \end{lstlisting}
 
 \end{frame}
 
-\subsection{Resolving conflicts}
+\subsection{Preparing merge commit}
 \begin{frame}[fragile]
   \subslidetitle
-  The program \cmd{kdiff3} allows to perform a three way merge:
-  \\
-  \vspace{1em}
-  \centerline{\includegraphics[width=10.5cm]{../assets/images/kdiff3.png}}
 
-  \vspace{1em}
-  Let's right-click on the conflict line and select \textbf{B}.
-  \\Then, save and quit the program.
-\end{frame}
-
-\subsection{Finishing a merge}
-\begin{frame}[fragile]
-  \subslidetitle
-  The \cmd{git status} gives some hints how to finalize the merge conflict resolution:
+  The files are still in conflict state:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master|MERGING)}*) $ (*\textcolor[HTML]{0000AA}{git status}*)
 On branch master
-Your branch is ahead of 'origin/master' by 11 commits.
+Your branch is ahead of 'origin/master' by 11 commit.
   (use "git push" to publish your local commits)
-All conflicts fixed but you are still merging.
-  (use "git commit" to conclude merge)
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
 
-        (*\textcolor[HTML]{AA0000}{moon.js.orig}*)
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+      (*\textcolor[HTML]{AA0000}{both modified:   moon.js}*)
 
-nothing added to commit but untracked files present (use "git add" to track)
+no changes added to commit (use "git add" and/or "git commit -a")
 \end{lstlisting}
 \end{frame}
 
-\subsection{Finishing a merge}
+\subsection{Preparing merge commit}
 \begin{frame}[fragile]
   \subslidetitle
 
-  Just use \cmd{git commit} to finish the merge, this will automatically open the text editor:
+  Add the file to mark the conflicts as resolved:
+  \begin{lstlisting}
+(*\textcolor[HTML]{18B2B2}{(master|MERGING)}*) $ (*\textcolor[HTML]{0000AA}{git add moon.js}*)
+(*\textcolor[HTML]{18B2B2}{(master|MERGING)}*) $ (*\textcolor[HTML]{0000AA}{git status}*)
+On branch master
+Your branch is ahead of 'origin/master' by 11 commit.
+  (use "git push" to publish your local commits)
+
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+      (*\textcolor[HTML]{00AA00}{modified:   moon.js}*)
+\end{lstlisting}
+\end{frame}
+
+\subsection{Finishing merge commit}
+\begin{frame}[fragile]
+  \subslidetitle
+
+  Commit the changes, save and exit the editor:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master|MERGING)}*) $ (*\textcolor[HTML]{0000AA}{git commit}*)
-Merge branch 'third-moon' into master
-# Conflicts:
-#       moon.js
+(*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git log --oneline -n 1}*)
+(*\textcolor[HTML]{ae6617}{682eb22}*) Merge branch 'third-moon'
 \end{lstlisting}
-  Save and quit the editor.
-  \\
-  \vspace{1em}
-  You successfully resolved you first conflict with git, not so difficult !?
-  \\
-  \vspace{1em}
-  Note: in order to remove temprorary files (*.orig) use the following \cmd{git clean -f} command.
-
 \end{frame}
 
 \subsection{Preparing rebase conflict}
@@ -254,9 +362,9 @@ Patch failed at 0001 add death-star
 \subsection{Display conflict}
 \begin{frame}[fragile]
   \subslidetitle
-  First we want to display the conflicting file with \cmd{git difftool}:
+  First we want to display the conflicting file with \cmd{git diff}:
   \begin{lstlisting}
-(*\textcolor[HTML]{18B2B2}{(death-star|REBASE 1/1)}*) $ (*\textcolor[HTML]{0000AA}{git difftool}*)
+(*\textcolor[HTML]{18B2B2}{(death-star|REBASE 1/1)}*) $ (*\textcolor[HTML]{0000AA}{git diff}*)
 diff --cc moon.js
 index 72886cb,861507e..0000000
 --- a/moon.js

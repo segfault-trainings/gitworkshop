@@ -373,11 +373,33 @@ $ (*\textcolor[HTML]{0000AA}{git rebase -i HEAD\textasciitilde4}*)
   \subslidetitle
     \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
-(*\textcolor[HTML]{ae6617}{633a534}*) change the green moon to red
-(*\textcolor[HTML]{ae6617}{368a328}*) remove the blue moon
+(*\textcolor[HTML]{ae6617}{633a534}*) add green moon
+(*\textcolor[HTML]{ae6617}{368a328}*) change the moon to blue
 \end{lstlisting}
 
-  Let's fix something in the 'remove the blue moon' commit.
+  Let's add a comment to the 'change the moon to blue' commit.
+
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git diff}*)
+diff --git a/moon.js b/moon.js
+index 24e6080..03ef6a2 100644
+--- a/moon.js
++++ b/moon.js
+(*\textcolor[HTML]{0000EE}{@@ -16,7 +16,7 @@}*) let ctx = {
+ };
+ // create moons
+(*\textcolor[HTML]{00AA00}{+}*)(*\textcolor[HTML]{00AA00}{// the moon is blue}*)
+ new Moon("blue");
+ new Moon("green");
+
+\end{lstlisting}
+
+\end{frame}
+
+\subsection{Fixup commits}
+\begin{frame}[fragile]
+  \subslidetitle
+
   And commit that as fixup:
   \begin{lstlisting}
   git commit -a --fixup=368a328
@@ -386,9 +408,9 @@ $ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
   Now our git log should look like this:
     \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git log --oneline}*)
-(*\textcolor[HTML]{ae6617}{ca78a62}*) fixup! remove the blue moon
-(*\textcolor[HTML]{ae6617}{633a534}*) change the green moon to red
-(*\textcolor[HTML]{ae6617}{368a328}*) remove the blue moon
+(*\textcolor[HTML]{ae6617}{ca78a62}*) fixup! change the moon to blue
+(*\textcolor[HTML]{ae6617}{633a534}*) add green moon
+(*\textcolor[HTML]{ae6617}{368a328}*) change the moon to blue
 \end{lstlisting}
 
   Which allows us to automatically put them in the right place in a interactive rebase.

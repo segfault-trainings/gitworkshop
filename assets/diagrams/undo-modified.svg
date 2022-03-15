@@ -406,7 +406,7 @@
          sodipodi:role="line"
          id="tspan4174"
          x="125.72292"
-         y="979.74774">restore</tspan></text>
+         y="979.74774">reset --staged</tspan></text>
     <path
        style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#e3dbdb;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.23019978;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;filter:url(#filter5995-5);enable-background:accumulate"
        d="m 54.04735,954.33355 -5.1875,-4.53125 -5.1875,-4.53125 -5.21875,4.53125 -5.1875,4.53125 h 4.3125 v 2.9375 31.35293 2.9375 h -4.3125 l 5.1875,4.53129 5.1875,4.53123 5.21875,-4.53123 5.1875,-4.53129 h -4.3125 v -2.9375 -31.35293 -2.9375 z"

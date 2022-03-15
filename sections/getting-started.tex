@@ -404,13 +404,7 @@ Changes to be committed:
 \begin{frame}[fragile]
 \subslidetitle
 
-  The command \cmd{git reset} allows you to unstage a file:
-
-  \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git reset AUTHORS}*)
-Unstaged changes after reset:
-M       AUTHORS
-\end{lstlisting}
+  The command \cmd{git restore --staged} allows you to unstage a file.
 
   \vspace{1em}
   \centerline{\includegraphics{assets/diagrams/undo-staged}}
@@ -420,7 +414,7 @@ M       AUTHORS
 \subsection{Resetting modifications}
 \begin{frame}[fragile]
 \subslidetitle
-  After \cmd{git reset}, the modification is still there:
+  After \cmd{git restore --staged}, the modification is still there:
 \begin{lstlisting}
 $ (*\textcolor[HTML]{0000AA}{git status}*)
 On branch master
@@ -467,7 +461,7 @@ On branch master
 Your branch is ahead of 'origin/master' by 4 commit.
   (use "git push" to publish your local commits)
 Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
+  (use "git restore --stage <file>..." to unstage)
 
         (*\textcolor[HTML]{00AA00}{deleted:}*)    (*\textcolor[HTML]{00AA00}{test.file}*)
 \end{lstlisting}

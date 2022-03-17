@@ -4,8 +4,8 @@
   This section covers the following topics:
   \begin{itemize}
     \item Git remote repository concept
-    \item Git Workflows
     \item Working with remotes and forks
+    \item Colaborate on a Git repository
   \end{itemize}
 \end{frame}
 
@@ -48,47 +48,6 @@ $ (*\textcolor[HTML]{0000AA}{git remote show origin}*)
 \subsection{Workflows / Branching Models}
 \begin{frame}[fragile]
   \subslidetitle
-  Centralized Workflow
-    \centerline{\includegraphics{assets/diagrams/git-centralized-workflow.pdf}}
-
-  \vspace{2em}
-  \begin{itemize}
-    \item Only the \lstinline{master} branch is used
-    \item First rebase, then push
-    \item Often used to transition from old-ish VCS
-  \end{itemize}
-\end{frame}
-
-\subsection{Workflows / Branching Models}
-\begin{frame}[fragile]
-  \subslidetitle
-  Feature Branch Workflow
-    \centerline{\includegraphics{assets/diagrams/git-workflow.pdf}}
-
-  \vspace{2em}
-  \begin{itemize}
-    \item Development in small feature branches
-    \item Chance for Pull Requests
-    \item No broken code on \lstinline{master}
-  \end{itemize}
-\end{frame}
-
-\subsection{Workflows / Branching Models}
-\begin{frame}[fragile]
-  \subslidetitle
-  Gitflow Workflow
-    \centerline{\includegraphics[width=\textwidth]{assets/diagrams/git-gitflow-workflow.pdf}}
-
-  \begin{itemize}
-    \item Like \textit{Feature Branch Workflow}
-    \item Assign special roles to certain branches
-  \end{itemize}
-
-\end{frame}
-
-\subsection{Workflows / Branching Models}
-\begin{frame}[fragile]
-  \subslidetitle
   Forking Workflow
     \centerline{\includegraphics{assets/diagrams/git-forking-workflow.pdf}}
 
@@ -117,7 +76,6 @@ $ (*\textcolor[HTML]{0000AA}{git remote show origin}*)
   \centerline{\includegraphics[width=\textwidth]{../assets/images/agile-ipsum.jpeg}}
 
 \end{frame}
-
 
 \subsection{Forking Workflow - Fork}
 \begin{frame}[fragile]

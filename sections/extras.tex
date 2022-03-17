@@ -159,7 +159,6 @@ moon.html:        <script src="(*\textcolor[HTML]{AA0000}{moon.js}*)"></script>
 \subsection{Work with patches}
 \begin{frame}[fragile]
     \subslidetitle
-
   Remove the blue moon:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{sed -i "/blue/d" moon.js}*)
@@ -269,10 +268,11 @@ Applying: remove the blue moon
 
 \end{frame}
 
-\subsection{Example $\sim$/.gitconfig}
+\subsection{Git config}
 \begin{frame}[fragile]
   \subslidetitle
 
+Lets look at our global config with \cmd{cat \char`~/.gitconfig}
 \begin{lstlisting}
 [user]
   name = Tux Penguin
@@ -285,11 +285,9 @@ Applying: remove the blue moon
   grep = auto
 
 [alias]
-  st = status
-  sw = switch
-  ci = commit
-  br = branch
   l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   ll = log --stat --abbrev-commit
 \end{lstlisting}
+
+\cmd{git config --list} will show the currently active config.
 \end{frame}

@@ -58,7 +58,7 @@ $ (*\textcolor[HTML]{0000AA}{git remote show origin}*)
     \item Contribute a change to a repository on \href{https://github.com}{GitHub}
   \end{itemize}
 
-  \centerline{\includegraphics[width=\textwidth]{../assets/images/agile-ipsum.jpeg}}
+  \centerline{\includegraphics[width=\textwidth]{../assets/images/gitmoon-colab.png}}
 
 \end{frame}
 
@@ -81,13 +81,13 @@ $ (*\textcolor[HTML]{0000AA}{git remote show origin}*)
 \begin{frame}[fragile]
   \subslidetitle
 
-  Let's create a Fork from our friends awesome \textbf{agile-ipsum} project using \href{https://github.com}{GitHub}:
+  Let's create a Fork from the \textbf{gitmoon-colab} project using \href{https://github.com}{GitHub}:
 
     \vspace{2em}
     \centerline{\includegraphics[width=\textwidth]{../assets/images/github-forking.png}}
 
     \vspace{1em}
-  Note: the repository is at \url{https://github.com/BrunnerLivio/agile-ipsum}.
+  Note: the repository is at \url{https://github.com/segfault-trainings/gitmoon-colab}.
 
 \end{frame}
 
@@ -112,16 +112,16 @@ $ (*\textcolor[HTML]{0000AA}{git remote show origin}*)
 
   \begin{lstlisting}
 $ cd ~
-$ (*\textcolor[HTML]{0000AA}{git clone https://github.com/<YOUR USERNAME>/agile-ipsum.git}*)
+$ (*\textcolor[HTML]{0000AA}{git clone https://github.com/<YOUR USERNAME>/gitmoon-colab.git}*)
 ...
 
 $ (*\textcolor[HTML]{0000AA}{git remote show origin}*)
 * remote origin
-  Fetch URL: https://github.com/<YOUR USERNAME>/agile-ipsum.git
-  Push  URL: https://github.com/<YOUR USERNAME>/agile-ipsum.git
+  Fetch URL: https://github.com/<YOUR USERNAME>/gitmoon-colab.git
+  Push  URL: https://github.com/<YOUR USERNAME>/gitmoon-colab.git
   HEAD branch: master
 
-$ cd agile-ipsum
+$ cd gitmoon-colab
 \end{lstlisting}
 
 \end{frame}
@@ -130,21 +130,26 @@ $ cd agile-ipsum
 \begin{frame}[fragile]
   \subslidetitle
 
-  Let's contribute an \textit{agile term} to the \lstinline{content/dict.js} file.
+  Let's contribute a new \textit{moon}!
   \vspace{1em}
 
   First we'll create a new feature branch:
 
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git switch -c feature/add-new-term}*)
-Switched to a new branch 'feature/add-new-term'
+$ (*\textcolor[HTML]{0000AA}{git switch -c feature/add-new-moon}*)
+Switched to a new branch 'feature/add-new-moon'
 \end{lstlisting}
 
-  Second, we make a change to \lstinline{content/dict.js} and create a new commit:
+  Second, we make create a new file (\lstinline{moons/<YOUR NAME>.js}) with a moon.
 
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git commit -a -m "Add term XYZ to dict"}*)
-[feature/add-new-term 4ab6f8c] Add term XYZ to dict
+    new Moon("<COLOR>", "<NAME>");
+\end{lstlisting}
+
+  And create a new commit:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git commit -a -m "Add new Moon <NAME>"}*)
+[feature/add-new-moon 4ab6f8c] Add new Moon <NAME>
  1 file changed, 1 insertions(+), 1 deletions(-)
 \end{lstlisting}
 
@@ -157,10 +162,10 @@ $ (*\textcolor[HTML]{0000AA}{git commit -a -m "Add term XYZ to dict"}*)
   Let's \textit{push} the new branch and it's commits to our fork on GitHub using \cmd{git push}:
 
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git push --set-upstream origin feature/add-new-term}*)
+$ (*\textcolor[HTML]{0000AA}{git push --set-upstream origin feature/add-new-moon}*)
 ...
-To https://github.com/<YOUR USERNAME>/agile-ipsum.git
-   6275110..4ab6f8c  feature/add-new-term -> feature/add-new-term
+To https://github.com/<YOUR USERNAME>/gitmoon-colab.git
+   6275110..4ab6f8c  feature/add-new-moon -> feature/add-new-moon
 \end{lstlisting}
 
   \centerline{\includegraphics{assets/diagrams/remote-push.pdf}}
@@ -231,7 +236,7 @@ origin
   to connect our clone to the repository we forked from:
 
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git remote add upstream https://github.com/BrunnerLivio/agile-ipsum}*)
+$ (*\textcolor[HTML]{0000AA}{git remote add upstream https://github.com/segfault-trainings/gitmoon-colab}*)
 
 $ (*\textcolor[HTML]{0000AA}{git remote show}*)
 origin

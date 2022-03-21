@@ -4,6 +4,7 @@
 
   This section covers the following topics:
   \begin{itemize}
+    \item Git Workflows
     \item Create and delete branches
     \item Work with branches
     \item Rebase branches
@@ -22,6 +23,47 @@
 
   \vspace{1.2em}
   Note: \cmd{HEAD} always points to the current branch.
+
+\end{frame}
+
+\subsection{Workflows / Branching Models}
+\begin{frame}[fragile]
+  \subslidetitle
+  Centralized Workflow
+    \centerline{\includegraphics{assets/diagrams/git-centralized-workflow.pdf}}
+
+  \vspace{2em}
+  \begin{itemize}
+    \item Only the \lstinline{master} branch is used
+    \item First rebase, then push
+    \item Often used to transition from old-ish VCS
+  \end{itemize}
+\end{frame}
+
+\subsection{Workflows / Branching Models}
+\begin{frame}[fragile]
+  \subslidetitle
+  Feature Branch Workflow
+    \centerline{\includegraphics{assets/diagrams/git-workflow.pdf}}
+
+  \vspace{2em}
+  \begin{itemize}
+    \item Development in small feature branches
+    \item Chance for Pull Requests
+    \item No broken code on \lstinline{master}
+  \end{itemize}
+\end{frame}
+
+\subsection{Workflows / Branching Models}
+\begin{frame}[fragile]
+  \subslidetitle
+  Gitflow Workflow
+    \centerline{\includegraphics[width=\textwidth]{assets/diagrams/git-gitflow-workflow.pdf}}
+
+  \begin{itemize}
+    \item Like \textit{Feature Branch Workflow}
+    \item Assign special roles to certain branches
+  \end{itemize}
 
 \end{frame}
 

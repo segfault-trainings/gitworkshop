@@ -4,8 +4,8 @@
   This section covers the following topics:
   \begin{itemize}
     \item Git remote repository concept
-    \item Git Workflows
     \item Working with remotes and forks
+    \item Collaborate on a Git repository
   \end{itemize}
 \end{frame}
 
@@ -45,62 +45,6 @@ $ (*\textcolor[HTML]{0000AA}{git remote show origin}*)
 \end{lstlisting}
 \end{frame}
 
-\subsection{Workflows / Branching Models}
-\begin{frame}[fragile]
-  \subslidetitle
-  Centralized Workflow
-    \centerline{\includegraphics{assets/diagrams/git-centralized-workflow.pdf}}
-
-  \vspace{2em}
-  \begin{itemize}
-    \item Only the \lstinline{master} branch is used
-    \item First rebase, then push
-    \item Often used to transition from old-ish VCS
-  \end{itemize}
-\end{frame}
-
-\subsection{Workflows / Branching Models}
-\begin{frame}[fragile]
-  \subslidetitle
-  Feature Branch Workflow
-    \centerline{\includegraphics{assets/diagrams/git-workflow.pdf}}
-
-  \vspace{2em}
-  \begin{itemize}
-    \item Development in small feature branches
-    \item Chance for Pull Requests
-    \item No broken code on \lstinline{master}
-  \end{itemize}
-\end{frame}
-
-\subsection{Workflows / Branching Models}
-\begin{frame}[fragile]
-  \subslidetitle
-  Gitflow Workflow
-    \centerline{\includegraphics[width=\textwidth]{assets/diagrams/git-gitflow-workflow.pdf}}
-
-  \begin{itemize}
-    \item Like \textit{Feature Branch Workflow}
-    \item Assign special roles to certain branches
-  \end{itemize}
-
-\end{frame}
-
-\subsection{Workflows / Branching Models}
-\begin{frame}[fragile]
-  \subslidetitle
-  Forking Workflow
-    \centerline{\includegraphics{assets/diagrams/git-forking-workflow.pdf}}
-
-  \vspace{2em}
-  \begin{itemize}
-    \item Every contributor has it's own copy (fork) of the repo
-    \item Contribute with Pull Requests
-    \item Most often used in Open Source
-  \end{itemize}
-
-\end{frame}
-
 \subsection{Forking Workflow}
 \begin{frame}[fragile]
   \subslidetitle
@@ -114,22 +58,36 @@ $ (*\textcolor[HTML]{0000AA}{git remote show origin}*)
     \item Contribute a change to a repository on \href{https://github.com}{GitHub}
   \end{itemize}
 
-  \centerline{\includegraphics[width=\textwidth]{../assets/images/agile-ipsum.jpeg}}
+  \centerline{\includegraphics[width=\textwidth]{../assets/images/gitmoon-collab.png}}
 
 \end{frame}
 
+\subsection{Forking Workflow}
+\begin{frame}[fragile]
+  \subslidetitle
+  Forking Workflow
+  \centerline{\includegraphics[width=\textwidth]{assets/diagrams/git-forking-workflow-slide1.png}}
+
+  \vspace{2em}
+  \begin{itemize}
+    \item Every contributor has it's own copy (fork) of the repo
+    \item Contribute with Pull Requests
+    \item Most often used in Open Source
+  \end{itemize}
+
+\end{frame}
 
 \subsection{Forking Workflow - Fork}
 \begin{frame}[fragile]
   \subslidetitle
 
-  Let's create a Fork from our friends awesome \textbf{agile-ipsum} project using \href{https://github.com}{GitHub}:
+  Let's create a Fork from the \textbf{gitmoon-collab} project using \href{https://github.com}{GitHub}:
 
     \vspace{2em}
     \centerline{\includegraphics[width=\textwidth]{../assets/images/github-forking.png}}
 
     \vspace{1em}
-  Note: the repository is at \url{https://github.com/BrunnerLivio/agile-ipsum}.
+  Note: the repository is at \url{https://github.com/segfault-trainings/gitmoon-collab}.
 
 \end{frame}
 
@@ -154,16 +112,16 @@ $ (*\textcolor[HTML]{0000AA}{git remote show origin}*)
 
   \begin{lstlisting}
 $ cd ~
-$ (*\textcolor[HTML]{0000AA}{git clone https://github.com/<YOUR USERNAME>/agile-ipsum.git}*)
+$ (*\textcolor[HTML]{0000AA}{git clone https://github.com/<YOUR USERNAME>/gitmoon-collab.git}*)
 ...
 
 $ (*\textcolor[HTML]{0000AA}{git remote show origin}*)
 * remote origin
-  Fetch URL: https://github.com/<YOUR USERNAME>/agile-ipsum.git
-  Push  URL: https://github.com/<YOUR USERNAME>/agile-ipsum.git
+  Fetch URL: https://github.com/<YOUR USERNAME>/gitmoon-collab.git
+  Push  URL: https://github.com/<YOUR USERNAME>/gitmoon-collab.git
   HEAD branch: master
 
-$ cd agile-ipsum
+$ cd gitmoon-collab
 \end{lstlisting}
 
 \end{frame}
@@ -172,21 +130,26 @@ $ cd agile-ipsum
 \begin{frame}[fragile]
   \subslidetitle
 
-  Let's contribute an \textit{agile term} to the \lstinline{content/dict.js} file.
+  Let's contribute a new \textit{moon}!
   \vspace{1em}
 
   First we'll create a new feature branch:
 
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git switch -c feature/add-new-term}*)
-Switched to a new branch 'feature/add-new-term'
+$ (*\textcolor[HTML]{0000AA}{git switch -c feature/add-new-moon}*)
+Switched to a new branch 'feature/add-new-moon'
 \end{lstlisting}
 
-  Second, we make a change to \lstinline{content/dict.js} and create a new commit:
+  Second, we make create a new file (\lstinline{moons/<YOUR NAME>.js}) with a moon.
 
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git commit -a -m "Add term XYZ to dict"}*)
-[feature/add-new-term 4ab6f8c] Add term XYZ to dict
+    new Moon("<COLOR>", "<NAME>");
+\end{lstlisting}
+
+  And create a new commit:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{git commit -a -m "Add new Moon <NAME>"}*)
+[feature/add-new-moon 4ab6f8c] Add new Moon <NAME>
  1 file changed, 1 insertions(+), 1 deletions(-)
 \end{lstlisting}
 
@@ -199,13 +162,21 @@ $ (*\textcolor[HTML]{0000AA}{git commit -a -m "Add term XYZ to dict"}*)
   Let's \textit{push} the new branch and it's commits to our fork on GitHub using \cmd{git push}:
 
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git push --set-upstream origin feature/add-new-term}*)
+$ (*\textcolor[HTML]{0000AA}{git push --set-upstream origin feature/add-new-moon}*)
 ...
-To https://github.com/<YOUR USERNAME>/agile-ipsum.git
-   6275110..4ab6f8c  feature/add-new-term -> feature/add-new-term
+To https://github.com/<YOUR USERNAME>/gitmoon-collab.git
+   6275110..4ab6f8c  feature/add-new-moon -> feature/add-new-moon
 \end{lstlisting}
 
   \centerline{\includegraphics{assets/diagrams/remote-push.pdf}}
+
+\end{frame}
+
+\subsection{Forking Workflow - Push}
+\begin{frame}[fragile]
+  \subslidetitle
+  Forking Workflow
+  \centerline{\includegraphics[width=\textwidth]{assets/diagrams/git-forking-workflow-slide2.png}}
 
 \end{frame}
 
@@ -245,6 +216,16 @@ To https://github.com/<YOUR USERNAME>/agile-ipsum.git
 
 \end{frame}
 
+\subsection{Forking Workflow - Pull Request}
+\begin{frame}[fragile]
+  \subslidetitle
+  Pushing your changes to your fork on Github.
+
+  \vspace{2em}
+  \centerline{\includegraphics[width=\textwidth]{assets/diagrams/git-forking-workflow-slide3.png}}
+
+\end{frame}
+
 \subsection{Forking Workflow - Upstream}
 \begin{frame}[fragile]
   \subslidetitle
@@ -252,7 +233,7 @@ To https://github.com/<YOUR USERNAME>/agile-ipsum.git
   Now your fork is missing all the awesome commits your colleagues made.
 
   \vspace{2em}
-  \centerline{\includegraphics{assets/diagrams/remote-forking-situation.pdf}}
+  \centerline{\includegraphics[width=\textwidth]{assets/diagrams/git-forking-workflow-slide4.png}}
 
 \end{frame}
 
@@ -273,7 +254,7 @@ origin
   to connect our clone to the repository we forked from:
 
   \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{git remote add upstream https://github.com/BrunnerLivio/agile-ipsum}*)
+$ (*\textcolor[HTML]{0000AA}{git remote add upstream https://github.com/segfault-trainings/gitmoon-collab}*)
 
 $ (*\textcolor[HTML]{0000AA}{git remote show}*)
 origin
@@ -331,6 +312,16 @@ $ (*\textcolor[HTML]{0000AA}{git push}*)
 
 \end{frame}
 
+\subsection{Forking Workflow - Rebase}
+\begin{frame}[fragile]
+  \subslidetitle
+  Update your fork on Github.
+
+  \vspace{2em}
+  \centerline{\includegraphics[width=\textwidth]{assets/diagrams/git-forking-workflow-slide5.png}}
+
+\end{frame}
+
 \subsection{Forking Workflow - Profit \includegraphics[height=1em]{../assets/images/party-popper_1f389.png}}
 \begin{frame}[fragile]
   \subslidetitle
@@ -340,43 +331,6 @@ $ (*\textcolor[HTML]{0000AA}{git push}*)
       We successfully contributed to an awesome Open Source project! \includegraphics[height=1em]{../assets/images/party-popper_1f389.png}
   \end{center}
 
-\end{frame}
-
-\subsection{Remote commands}
-\begin{frame}[fragile]
-  \subslidetitle
-  The following commands operate on remote repositories:
-  \begin{itemize}
-    \item \cmd{git fetch [remote]} \\
-      Downloads all branches from another repository
-    \item \cmd{git pull [remote] [branch]} \\
-      Does a {\bf fetch} and then {\bf merges} the remote branch into the current branch
-    \item \cmd{git pull --rebase [remote] [branch]} \\
-      Does a {\bf fetch} and then {\bf rebases} the current branch on top of the remote branch
-    \item \cmd{git remote update} \\
-      Does a {\bf fetch} for all remotes
-    \item \cmd{git push [remote] [branch]} \\
-      Pushes commits/branches to a remote
-  \end{itemize}
-\end{frame}
-
-\subsection{Git protocols}
-\begin{frame}[fragile]
-  \subslidetitle
-  Git repositories can be accessed locally or over the network.
-  \\
-  \vspace{1em}
-  Various protocols are supported:
-  \begin{itemize}
-  \opt{local}  {file system based}
-  \opt{http[s]}{good for read only access without password}
-  \opt{ssh}    {normally used for read-write access}
-  \opt{git}    {git native protocol on port 9418}
-  \opt{legacy} {ftp, rsync, ...}
-  \end{itemize}
-  \vspace{1em}
-
-  SSH provides us the possibility to authenticate without having to enter the password on every request.
 \end{frame}
 
 \subsection{Summary}

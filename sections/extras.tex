@@ -36,11 +36,11 @@
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{git status}*)
 On branch master
 ...
-(*\textcolor[HTML]{AA0000}{	0000000}*)
-(*\textcolor[HTML]{AA0000}{	0a65}*)
-(*\textcolor[HTML]{AA0000}{	6c69}*)
-(*\textcolor[HTML]{AA0000}{	6f63}*)
-(*\textcolor[HTML]{AA0000}{	706d}*)
+(*\textcolor[HTML]{AA0000}{ 0000000}*)
+(*\textcolor[HTML]{AA0000}{ 0a65}*)
+(*\textcolor[HTML]{AA0000}{ 6c69}*)
+(*\textcolor[HTML]{AA0000}{ 6f63}*)
+(*\textcolor[HTML]{AA0000}{ 706d}*)
 ...
 \end{lstlisting}
   Now we would like to clean all this temporary files, using \cmd{git clean}:
@@ -51,6 +51,67 @@ Removing 0a65
 ...
 \end{lstlisting}
 
+\end{frame}
+
+\subsection{Git protocols}
+\begin{frame}[fragile]
+  \subslidetitle
+  Git repositories can be accessed locally or over the network.
+  \\
+  \vspace{1em}
+  Various protocols are supported:
+  \begin{itemize}
+  \opt{{\bf ssh}} {{\bf normally used for read-write access}}
+  \opt{http[s]} {good for read only access without password}
+  \opt{local}   {file system based}
+  \opt{git}     {git native protocol on port 9418}
+  \opt{legacy}  {ftp, rsync, ...}
+  \end{itemize}
+  \vspace{1em}
+
+  SSH provides us the possibility to authenticate without having to enter the password on every request.
+\end{frame}
+
+\subsection{Configure SSH access}
+\begin{frame}[fragile]
+  \subslidetitle
+  Create a SSH key pair:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{ssh-keygen -f \textasciitilde/.ssh/id\_rsa}*)
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase): (*\textcolor[HTML]{0000AA}{<enter>}*)
+Enter same passphrase again: (*\textcolor[HTML]{0000AA}{<enter>}*)
+Your identification has been saved in .../.ssh/id_rsa.
+Your public key has been saved in .../.ssh/id_rsa.pub.
+The key fingerprint is:
+7e:f8:15:2a:b3:a2:9c:30:4e:c7:60:50:a4:d5:a9:82 user@host
+The key's randomart image is:
++--[ RSA 2048]----+
+|   . . .         |
+|  . = = S        |
+|   = X * X O o   |
+...
+\end{lstlisting}
+\end{frame}
+
+\subsection{Configure SSH access}
+\begin{frame}[fragile]
+  \subslidetitle
+  Display your public key:
+  \begin{lstlisting}
+$ (*\textcolor[HTML]{0000AA}{cat \textasciitilde/.ssh/id\_rsa.pub}*)
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOmt7Y4H51gc2m
+GmZsFzES6shVLFLEJ/lFCTwyosWHYDaluK71nGCelp61oTocgf4N
+HBwTZmo0EZ1k0RHYt8Q3LF8e5fbC+dXt5E35XtkVFuUC7IG2/6fm
+NW41j3lw9UUVrOBDgx+QvvoCuRQaxNd4mRaLsRbj9WXt17hGuNNW
+ioKPWLSpw/4KHJ34hCrnliAQJ+jlW/0ieOooFp057diCka6Jn7BW
+jXHi8sWMxIfyPyV2+4Kt8OpChFNYjzaL5LMRRhMnvJ8zP5SFJB2q
+HP50zPYQ+gKoSda7GZedZRgD7gT7ir/u8X9HSpNyTNTafhp9+3Aj
+uUiYLTgtczTgYk/T user@host
+\end{lstlisting}
+
+  This whole output can be added to the SSH access keys
+  section in the web frontend of your git appliance.
 \end{frame}
 
 \subsection{Search with git}
@@ -98,7 +159,6 @@ moon.html:        <script src="(*\textcolor[HTML]{AA0000}{moon.js}*)"></script>
 \subsection{Work with patches}
 \begin{frame}[fragile]
     \subslidetitle
-
   Remove the blue moon:
   \begin{lstlisting}
 (*\textcolor[HTML]{18B2B2}{(master)}*) $ (*\textcolor[HTML]{0000AA}{sed -i "/blue/d" moon.js}*)
@@ -169,48 +229,6 @@ Applying: remove the blue moon
   You use reflog in combination with the \cmd{git reset --hard HEAD@\{4\}} command.
 \end{frame}
 
-\subsection{Configure SSH access}
-\begin{frame}[fragile]
-  \subslidetitle
-  Create a SSH key pair:
-  \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{ssh-keygen -f \textasciitilde/.ssh/id\_rsa}*)
-Generating public/private rsa key pair.
-Enter passphrase (empty for no passphrase): (*\textcolor[HTML]{0000AA}{<enter>}*)
-Enter same passphrase again: (*\textcolor[HTML]{0000AA}{<enter>}*)
-Your identification has been saved in .../.ssh/id_rsa.
-Your public key has been saved in .../.ssh/id_rsa.pub.
-The key fingerprint is:
-7e:f8:15:2a:b3:a2:9c:30:4e:c7:60:50:a4:d5:a9:82 user@host
-The key's randomart image is:
-+--[ RSA 2048]----+
-|   . . .         |
-|  . = = S        |
-|   = X * X O o   |
-...
-\end{lstlisting}
-\end{frame}
-
-\subsection{Configure SSH access}
-\begin{frame}[fragile]
-  \subslidetitle
-  Display your public key:
-  \begin{lstlisting}
-$ (*\textcolor[HTML]{0000AA}{cat \textasciitilde/.ssh/id\_rsa.pub}*)
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOmt7Y4H51gc2m
-GmZsFzES6shVLFLEJ/lFCTwyosWHYDaluK71nGCelp61oTocgf4N
-HBwTZmo0EZ1k0RHYt8Q3LF8e5fbC+dXt5E35XtkVFuUC7IG2/6fm
-NW41j3lw9UUVrOBDgx+QvvoCuRQaxNd4mRaLsRbj9WXt17hGuNNW
-ioKPWLSpw/4KHJ34hCrnliAQJ+jlW/0ieOooFp057diCka6Jn7BW
-jXHi8sWMxIfyPyV2+4Kt8OpChFNYjzaL5LMRRhMnvJ8zP5SFJB2q
-HP50zPYQ+gKoSda7GZedZRgD7gT7ir/u8X9HSpNyTNTafhp9+3Aj
-uUiYLTgtczTgYk/T user@host
-\end{lstlisting}
-
-  This whole output can be added to the SSH access keys
-  section in the web frontend of your git appliance.
-\end{frame}
-
 \subsection{Git submodules}
 \begin{frame}[fragile]
   \subslidetitle
@@ -250,10 +268,11 @@ uUiYLTgtczTgYk/T user@host
 
 \end{frame}
 
-\subsection{Example $\sim$/.gitconfig}
+\subsection{Git config}
 \begin{frame}[fragile]
   \subslidetitle
 
+Lets look at our global config with \cmd{cat \char`~/.gitconfig}
 \begin{lstlisting}
 [user]
   name = Tux Penguin
@@ -266,11 +285,9 @@ uUiYLTgtczTgYk/T user@host
   grep = auto
 
 [alias]
-  st = status
-  sw = switch
-  ci = commit
-  br = branch
   l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   ll = log --stat --abbrev-commit
 \end{lstlisting}
+
+\cmd{git config --list} will show the currently active config.
 \end{frame}

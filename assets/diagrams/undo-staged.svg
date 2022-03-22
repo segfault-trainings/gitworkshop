@@ -14,7 +14,7 @@
    height="155.64828"
    id="svg2"
    version="1.1"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
    sodipodi:docname="undo-staged.svg">
   <sodipodi:namedview
      id="base"
@@ -23,16 +23,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="29.420059"
-     inkscape:cy="476.08001"
+     inkscape:zoom="4"
+     inkscape:cx="100.74892"
+     inkscape:cy="145.81194"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="2560"
-     inkscape:window-height="1440"
-     inkscape:window-x="4480"
-     inkscape:window-y="0"
+     inkscape:window-width="764"
+     inkscape:window-height="449"
+     inkscape:window-x="0"
+     inkscape:window-y="491"
      inkscape:window-maximized="0"
      units="cm"
      showguides="true"
@@ -275,7 +275,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -492,14 +492,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       x="129.2276"
+       x="103.25098"
        y="970.88214"
        id="text4172-8"><tspan
          style="font-weight:bold;font-size:7.79121542px;line-height:1.25;font-family:sans-serif"
          sodipodi:role="line"
          id="tspan4174-1"
-         x="129.2276"
-         y="970.88214">reset</tspan></text>
+         x="103.25098"
+         y="970.88214">restore --staged</tspan></text>
     <g
        transform="matrix(0.51055638,0,0,0.14616265,-38.302278,851.71667)"
        id="g4249"
